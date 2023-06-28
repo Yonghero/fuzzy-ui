@@ -1,0 +1,16 @@
+{
+  "name": "@yh-ui/theme-chalk",
+  "version": "1.0.0",
+  "description": "all theme css are settled here",
+  "main": "src/index.scss",
+  "type": "module",
+  "scripts": {
+    "build:rollup": "rollup --config"
+  },
+  "peerDependencies": {
+    "sass": "^1.63.6"
+  },
+  "author": "younghero",
+  "license": "ISC",
+  "sideEffects": false
+}

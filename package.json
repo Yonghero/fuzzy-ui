@@ -1,0 +1,69 @@
+{
+  "name": "@hitotek/yh-ui",
+  "version": "1.0.0",
+  "description": "yh-ui",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "shx rm -rf lib && rollup --config",
+    "publish": "pnpm run build && npm publish --access public"
+  },
+  "keywords": [
+    "ui"
+  ],
+  "exports": {
+    ".": {
+      "import": "./lib",
+      "require": "./lib"
+    },
+    "./components": {
+      "import": "./lib/components/index.mjs",
+      "require": "./lib/components/index.cjs"
+    },
+    "./utils": {
+      "import": "./lib/utils/index.mjs",
+      "require": "./lib/utils/index.cjs"
+    },
+    "./style": {
+      "import": "./lib/yh-ui-style/index.css",
+      "require": "./lib/yh-ui-style/index.css"
+    }
+  },
+  "peerdependencies": {
+    "vue": "^3.2.26",
+    "element-plus": "^2.3.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vue/babel-plugin-jsx": "^1.1.4",
+    "@vue/compiler-sfc": "^3.3.4",
+    "autoprefixer": "^10.4.14",
+    "element-plus": "^2.3.7",
+    "eslint": "^8.43.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "eslint-plugin-vue": "^9.15.1",
+    "pnpm": "^8.6.5",
+    "postcss": "^8.4.24",
+    "rollup": "^3.25.3",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.63.6",
+    "shx": "^0.3.4",
+    "tailwindcss": "^3.3.2",
+    "unplugin-element-plus": "^0.7.1",
+    "vite": "^4.3.9"
+  },
+  "author": "younghero",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.3.4"
+  }
+}
