@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "build": "shx rm -rf lib && rollup --config",
-    "publish": "pnpm run build && npm publish --access public"
+    "publish": "pnpm run build && npm publish --access public",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "keywords": [
     "ui"
@@ -59,11 +62,10 @@
     "shx": "^0.3.4",
     "tailwindcss": "^3.3.2",
     "unplugin-element-plus": "^0.7.1",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "vitepress": "^1.0.0-beta.3",
+    "vue": "^3.3.4"
   },
   "author": "younghero",
-  "license": "ISC",
-  "dependencies": {
-    "vue": "^3.3.4"
-  }
+  "license": "ISC"
 }

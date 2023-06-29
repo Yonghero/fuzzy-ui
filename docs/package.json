@@ -1,0 +1,25 @@
+{
+  "name": "@yh-ui/docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev .",
+    "docs:build": "vitepress build .",
+    "docs:serve": "vitepress serve ."
+  },
+  "peerDependencies": {
+    "vue": "^3.2.6",
+    "element-plus": "^2.3.6"
+  },
+  "dependencies": {
+    "@hitotek/yh-ui": "npm:element-plus@latest",
+    "element-plus": "npm:element-plus@latest"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9",
+    "vitepress": "workspace:*"
+  },
+  "author": "younghero",
+  "license": "ISC",
+  "sideEffects": false
+}
