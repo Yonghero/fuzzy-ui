@@ -74,9 +74,5 @@
     "vue": "^3.3.4"
   },
   "author": "younghero",
-  "license": "ISC",
-  "dependencies": {
-    "@element-plus/icons-vue": "^2.1.0",
-    "@hitotek/fuzzy-ui": "workspace:^1.0.0"
-  }
+  "license": "ISC"
 }

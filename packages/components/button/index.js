@@ -1,9 +1,9 @@
-import Button from './src/button.vue'
 import { withInstall } from 'utils'
+import Button from './src/button.vue'
 
 const YHButton = withInstall(Button)
 
 export {
-  YHButton
+  YHButton,
 }
 export default YHButton

@@ -5,10 +5,10 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),ElementPlus()],
+  plugins: [vue(), ElementPlus()],
   resolve: {
     alias: {
-      'utils': `${path.resolve(__dirname, '../packages/utils')}/`,
+      utils: `${path.resolve(__dirname, '../packages/utils')}/`,
     },
   },
 })

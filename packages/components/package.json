@@ -1,8 +1,13 @@
 {
-  "name": "@fuzzy-ui/components",
+  "name": "@hitotek/fuzzy-ui-components",
   "version": "1.0.0",
   "description": "all components are settled here",
-  "main": "index.js",
+  "main": "./index.js",
+  "exports":{
+    ".": {
+      "import": "./index.js"
+    }
+  },
   "peerDependencies": {
     "vue": "^3.2.6",
     "element-plus": "^2.3.6"

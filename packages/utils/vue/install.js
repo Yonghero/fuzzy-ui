@@ -3,19 +3,20 @@ export const withInstall = (
   extra,
 ) => {
   main.install = (app) => {
-    console.log('app: ', app);
+    // eslint-disable-next-line no-restricted-syntax
     for (const comp of [main, ...Object.values(extra ?? {})]) {
       app.component(comp.name, comp)
     }
   }
 
   if (extra) {
+    // eslint-disable-next-line no-restricted-syntax
     for (const [key, comp] of Object.entries(extra)) {
       main[key] = comp
     }
   }
 
-  console.log('main: ', main);
+  console.log('main: ', main)
 
-  return main 
+  return main
 }

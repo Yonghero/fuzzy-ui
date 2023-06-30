@@ -2,7 +2,7 @@
 import { YHButton } from '../../button'
 
 defineOptions({
-  name: 'YHButtonGroup'
+  name: 'YHButtonGroup',
 })
 
 </script>
@@ -10,6 +10,6 @@ defineOptions({
 <template>
   <div>
     这是组
-    <YHButton></YHButton>
+    <YHButton />
   </div>
 </template>

@@ -5,8 +5,6 @@ importers:
   .:
     specifiers:
       '@babel/core': ^7.22.5
-      '@element-plus/icons-vue': ^2.1.0
-      '@hitotek/fuzzy-ui': workspace:^1.0.0
       '@rollup/plugin-alias': ^5.0.0
       '@rollup/plugin-babel': ^6.0.3
       '@rollup/plugin-node-resolve': ^15.1.0
@@ -41,9 +39,6 @@ importers:
       vite: ^4.3.9
       vitepress: ^1.0.0-beta.3
       vue: ^3.3.4
-    dependencies:
-      '@element-plus/icons-vue': 2.1.0_vue@3.3.4
-      '@hitotek/fuzzy-ui': 'link:'
     devDependencies:
       '@babel/core': 7.22.5
       '@rollup/plugin-alias': 5.0.0_rollup@3.25.3
@@ -80,6 +75,15 @@ importers:
       vite: 4.3.9_sass@1.63.6
       vitepress: 1.0.0-beta.3_sass@1.63.6
       vue: 3.3.4
+
+  packages/components:
+    specifiers: {}
+
+  packages/theme-chalk:
+    specifiers: {}
+
+  packages/utils:
+    specifiers: {}
 
 packages:
 
@@ -578,6 +582,7 @@ packages:
       vue: ^3.2.0
     dependencies:
       vue: 3.3.4
+    dev: true
 
   /@esbuild/android-arm/0.17.19:
     resolution: {integrity: sha512-rIKddzqhmav7MSmoFCmDIb6e2W57geRsM94gV2l38fzhXMwq7hZoClug9USI2pFRGL06f4IOPHHpFNOkWieR8A==}

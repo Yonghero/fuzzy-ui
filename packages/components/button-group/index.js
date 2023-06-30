@@ -1,9 +1,9 @@
-import ButtonGroup from './src/button-group.vue'
 import { withInstall } from 'utils'
+import ButtonGroup from './src/button-group.vue'
 
 const YHButtonGroup = withInstall(ButtonGroup)
 
 export {
-  YHButtonGroup
+  YHButtonGroup,
 }
 export default YHButtonGroup

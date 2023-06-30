@@ -8,13 +8,13 @@ module.exports = {
     'airbnb-base',
     'plugin:vue/vue3-recommended',
     'plugin:tailwindcss/recommended',
-    './.eslintrc-auto-import.json',
   ],
   parserOptions: {
     ecmaVersion: 2023,
   },
   plugins: ['vue', 'tailwindcss'],
   rules: {
+    // 'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': [0, { 'packageDir ': './src/' }],
     'max-len': ['error', {
@@ -37,7 +37,7 @@ module.exports = {
       },
       alias: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', 'svg'],
-        map: [['@', './src']],
+        map: [['@', './src'], ['utils', './packages/utils']],
       },
     },
   },

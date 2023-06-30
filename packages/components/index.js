@@ -1,2 +1,10 @@
-export * from './button/index.js'
-export * from './button-group/index.js'
+import * as YHComponents from './export-components'
+
+export default {
+  ...YHComponents,
+  install: (app) => { // 全局组件注册
+    Object.keys(YHComponents).forEach((name) => {
+      app.use(YHComponents[name])
+    })
+  },
+}

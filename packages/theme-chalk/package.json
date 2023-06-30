@@ -1,5 +1,5 @@
 {
-  "name": "@fuzzy-ui/theme-chalk",
+  "name": "@hitotek/fuzzy-ui-theme-chalk",
   "version": "1.0.0",
   "description": "all theme css are settled here",
   "main": "src/index.scss",

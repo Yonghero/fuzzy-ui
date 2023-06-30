@@ -1,5 +1,5 @@
 {
-  "name": "@fuzzy-ui/docs",
+  "name": "fuzzy-ui-docs",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,17 @@
     "docs:serve": "vitepress serve ."
   },
   "peerDependencies": {
-    "vue": "^3.2.6",
-    "element-plus": "^2.3.6"
+    "element-plus": "^2.3.6",
+    "vue": "^3.2.6"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@hitotek/fuzzy-ui": "workspace:^1.0.0",
     "element-plus": "npm:element-plus@latest"
   },
   "devDependencies": {
-    "vite": "^4.3.9",
-    "vitepress": "workspace:*"
+    "add": "^2.0.6",
+    "vite": "^4.3.9"
   },
   "author": "younghero",
   "license": "ISC",

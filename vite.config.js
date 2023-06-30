@@ -6,14 +6,14 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   plugins: [
     vue(),
-    vueJsx()
+    vueJsx(),
   ],
   resolve: {
     alias: {
       '@/': `${path.resolve(__dirname, './packages')}/`,
     },
   },
-  
+
   // build: {
   //   lib: {
   //     entry: path.resolve(__dirname, './packages/components/index.js'),
