@@ -16,7 +16,5 @@ export const withInstall = (
     }
   }
 
-  console.log('main: ', main)
-
   return main
 }

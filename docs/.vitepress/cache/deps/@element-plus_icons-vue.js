@@ -292,7 +292,7 @@ import {
   wind_power_default,
   zoom_in_default,
   zoom_out_default
-} from "./chunk-BKR4EHBH.js";
+} from "./chunk-DPZ3LRYU.js";
 import "./chunk-PL2HA3HS.js";
 import "./chunk-DFKQJ226.js";
 export {
