@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@babel/core': ^7.22.5
+      '@element-plus/icons-vue': ^2.1.0
       '@hitotek/fuzzy-ui': workspace:^1.0.0
       '@rollup/plugin-alias': ^5.0.0
       '@rollup/plugin-babel': ^6.0.3
@@ -26,6 +27,7 @@ importers:
       eslint-plugin-vue: ^9.15.1
       markdown-it: ^13.0.1
       markdown-it-container: ^3.0.0
+      normalize.css: ^8.0.1
       pnpm: ^8.6.5
       postcss: ^8.4.24
       prismjs: ^1.29.0
@@ -40,8 +42,8 @@ importers:
       vitepress: ^1.0.0-beta.3
       vue: ^3.3.4
     dependencies:
+      '@element-plus/icons-vue': 2.1.0_vue@3.3.4
       '@hitotek/fuzzy-ui': 'link:'
-      markdown-it: 13.0.1
     devDependencies:
       '@babel/core': 7.22.5
       '@rollup/plugin-alias': 5.0.0_rollup@3.25.3
@@ -62,7 +64,9 @@ importers:
       eslint-plugin-import: 2.27.5_eslint@8.43.0
       eslint-plugin-tailwindcss: 3.13.0_tailwindcss@3.3.2
       eslint-plugin-vue: 9.15.1_eslint@8.43.0
+      markdown-it: 13.0.1
       markdown-it-container: 3.0.0
+      normalize.css: 8.0.1
       pnpm: 8.6.5
       postcss: 8.4.24
       prismjs: 1.29.0
@@ -574,7 +578,6 @@ packages:
       vue: ^3.2.0
     dependencies:
       vue: 3.3.4
-    dev: true
 
   /@esbuild/android-arm/0.17.19:
     resolution: {integrity: sha512-rIKddzqhmav7MSmoFCmDIb6e2W57geRsM94gV2l38fzhXMwq7hZoClug9USI2pFRGL06f4IOPHHpFNOkWieR8A==}
@@ -1320,6 +1323,7 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+    dev: true
 
   /array-buffer-byte-length/1.0.0:
     resolution: {integrity: sha512-LPuwb2P+NrQw3XhxGc36+XSvuBPopovXYTR9Ew++Du9Yb/bx5AzBfrIsBoj0EZUifjQU+sHL21sseZ3jerWO/A==}
@@ -1796,7 +1800,7 @@ packages:
   /entities/3.0.1:
     resolution: {integrity: sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==}
     engines: {node: '>=0.12'}
-    dev: false
+    dev: true
 
   /es-abstract/1.21.2:
     resolution: {integrity: sha512-y/B5POM2iBnIxCiernH1G7rC9qQoM77lLIMQLuob0zhp8C56Po81+2Nj0WFKnd0pNReDTnkYryc+zhOzpEIROg==}
@@ -2657,7 +2661,7 @@ packages:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
     dependencies:
       uc.micro: 1.0.6
-    dev: false
+    dev: true
 
   /loader-utils/3.2.1:
     resolution: {integrity: sha512-ZvFw1KWS3GVyYBYb7qkmRM/WwL2TQQBxgCK62rlvm4WpVQ23Nb4tYjApUlfjrEGvOs7KHEsmyUn75OHZrJMWPw==}
@@ -2744,7 +2748,7 @@ packages:
       linkify-it: 4.0.1
       mdurl: 1.0.1
       uc.micro: 1.0.6
-    dev: false
+    dev: true
 
   /mdn-data/2.0.14:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==}
@@ -2752,7 +2756,7 @@ packages:
 
   /mdurl/1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
-    dev: false
+    dev: true
 
   /memoize-one/6.0.0:
     resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}
@@ -2832,6 +2836,10 @@ packages:
 
   /normalize-wheel-es/1.2.0:
     resolution: {integrity: sha512-Wj7+EJQ8mSuXr2iWfnujrimU35R2W4FAErEyTmJoJ7ucwTn2hOUSsRehMb5RSYkxXGTM7Y9QpvPmp++w5ftoJw==}
+    dev: true
+
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
     dev: true
 
   /nth-check/2.1.1:
@@ -3881,7 +3889,7 @@ packages:
 
   /uc.micro/1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
-    dev: false
+    dev: true
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

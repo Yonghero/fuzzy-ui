@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import { mdPlugin } from './config/plugins'
+
 
 export default defineConfig({
   title: 'Fuzzy UI',
@@ -46,5 +48,13 @@ export default defineConfig({
         }
       ]
     }
-  }
+  },
+  markdown: {
+    headers: {
+      level: [0, 0],
+    },
+    // light: #f9fafb, dark: --vp-code-block-bg
+    theme: { light: 'github-light', dark: 'github-dark' },
+    config: (md) => mdPlugin(md),
+  },
 })

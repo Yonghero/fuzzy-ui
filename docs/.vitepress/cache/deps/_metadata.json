@@ -1,23 +1,50 @@
 {
-  "hash": "203e2949",
-  "browserHash": "8cb022bf",
+  "hash": "1622b489",
+  "browserHash": "2f9388f3",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "fb276535",
+      "fileHash": "406fea5d",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "905ecba3",
+      "fileHash": "3731a8c4",
+      "needsInterop": false
+    },
+    "element-plus/lib/locale/lang/zh-cn": {
+      "src": "../../../../node_modules/.pnpm/element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/lib/locale/lang/zh-cn.js",
+      "file": "element-plus_lib_locale_lang_zh-cn.js",
+      "fileHash": "0121736f",
+      "needsInterop": true
+    },
+    "@element-plus/icons-vue": {
+      "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.1.0_vue@3.3.4/node_modules/@element-plus/icons-vue/dist/index.js",
+      "file": "@element-plus_icons-vue.js",
+      "fileHash": "d93c129b",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0_vue@3.3.4/node_modules/@vueuse/core/index.mjs",
+      "file": "@vueuse_core.js",
+      "fileHash": "dfd47cc7",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-XS4ZSFDK": {
-      "file": "chunk-XS4ZSFDK.js"
+    "chunk-BKR4EHBH": {
+      "file": "chunk-BKR4EHBH.js"
+    },
+    "chunk-4BODHEX5": {
+      "file": "chunk-4BODHEX5.js"
+    },
+    "chunk-PL2HA3HS": {
+      "file": "chunk-PL2HA3HS.js"
+    },
+    "chunk-DFKQJ226": {
+      "file": "chunk-DFKQJ226.js"
     }
   }
 }

@@ -1,3 +1,9 @@
+<script setup>
+import { ref } from 'vue'
+import { YHButton } from '@hitotek/fuzzy-ui/components'
+</script>
+
+
 <template>
-  <button>我是按钮</button>
+  <YHButton>我是按钮</YHButton>
 </template>
