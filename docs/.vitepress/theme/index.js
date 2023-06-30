@@ -1,5 +1,6 @@
 import Theme from 'vitepress/theme'
-import './custom.css'
+import './custom.scss'
+import '@hitotek/fuzzy-ui/style'
 
 export default {
   ...Theme

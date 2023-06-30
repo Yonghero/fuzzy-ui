@@ -28,8 +28,8 @@
       "require": "./lib/utils/index.cjs"
     },
     "./style": {
-      "import": "./lib/fuzzy-uui-style/index.css",
-      "require": "./lib/fuzzy-uui-style/index.css"
+      "import": "./lib/fuzzy-ui-style/index.css",
+      "require": "./lib/fuzzy-ui-style/index.css"
     }
   },
   "peerdependencies": {
@@ -74,7 +74,7 @@
   "author": "younghero",
   "license": "ISC",
   "dependencies": {
-    "@hitotek/fuzzy-uui": "workspace:^1.0.0",
+    "@hitotek/fuzzy-ui": "workspace:^1.0.0",
     "markdown-it": "^13.0.1"
   }
 }
