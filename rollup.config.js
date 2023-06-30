@@ -25,7 +25,7 @@ export default defineConfig({
         ]
       })
     ),
-    // "yh-ui-style": "packages/theme-chalk/src/index.scss"
+    // "fuzzy-ui-style": "packages/theme-chalk/src/index.scss"
   },
   output: [
     {
@@ -51,7 +51,7 @@ export default defineConfig({
     vue(),
     postcss({
       extensions:['.css','.scss','.sass'],
-      extract: "yh-ui-style/index.css",
+      extract: "fuzzy-ui-style/index.css",
     }),
     babel({
       babelHelpers: 'bundled',

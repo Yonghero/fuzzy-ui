@@ -6,18 +6,19 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   plugins: [
     vue(),
-    vueJsx(),
+    vueJsx()
   ],
   resolve: {
     alias: {
       '@/': `${path.resolve(__dirname, './packages')}/`,
     },
   },
+  
   // build: {
   //   lib: {
   //     entry: path.resolve(__dirname, './packages/components/index.js'),
-  //     name: 'yh-ui',
-  //     fileName: format => `yh-ui.${format}.js`,
+  //     name: 'fuzzy-ui',
+  //     fileName: format => `fuzzy-ui.${format}.js`,
   //   },
   //   outDir: path.resolve(__dirname, './lib/dist'),
   //   // emptyOutDir: false,

@@ -14,7 +14,7 @@ hero:
       link: /guide/what-is-vitepress
     - theme: alt
       text: 源码贡献
-      link: https://github.com/Yonghero/yh-ui
+      link: https://github.com/Yonghero/fuzzy-ui
 
 features:
   - icon: ☕️

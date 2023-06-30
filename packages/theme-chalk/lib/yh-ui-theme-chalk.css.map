@@ -1,1 +1,1 @@
-{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAIA,4BACE,WACF","file":"yh-ui-theme-chalk.css","sourcesContent":[".my-button {\n  color: green;\n}\n\n.my-button-group {\n  color: green;\n}"]}
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAIA,4BACE,WACF","file":"fuzzy-ui-theme-chalk.css","sourcesContent":[".my-button {\n  color: green;\n}\n\n.my-button-group {\n  color: green;\n}"]}

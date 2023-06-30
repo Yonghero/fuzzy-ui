@@ -3,7 +3,7 @@ import postcss from 'rollup-plugin-postcss'
 export default {
   input: 'src/index.scss', // 入口 SCSS 文件路径
   output: {
-    file: 'lib/yh-ui-theme-chalk.css', // 输出 CSS 文件路径
+    file: 'lib/fuzzy-ui-theme-chalk.css', // 输出 CSS 文件路径
     format: 'es', // 输出模块格式
   },
   plugins: [
