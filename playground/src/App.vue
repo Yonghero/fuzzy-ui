@@ -1,10 +1,7 @@
 <script setup>
-
+import ButtonTest from './components/button-test.vue'
 </script>
 
 <template>
-  <div>
-    <YHButton>123</YhButton>
-    <YHButtonGroup />
-  </div>
+  <ButtonTest />
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import { YHButton } from '@hitotek/fuzzy-ui/components'
+import { FYButton } from '@hitotek/fuzzy-ui/components'
 
 // 该组件可传递的属性和类型与element-plus的按钮组件保持一致
 // https://element-plus.org/zh-CN/component/button.html
@@ -8,102 +8,102 @@ import { YHButton } from '@hitotek/fuzzy-ui/components'
 <template>
   <div style="margin: 20px">
     <div class="mb-4">
-      <YHButton>Default</YHButton>
-      <YHButton type="primary">
+      <FYButton>Default</FYButton>
+      <FYButton type="primary">
         Primary
-      </YHButton>
-      <YHButton type="success">
+      </FYButton>
+      <FYButton type="success">
         Success
-      </YHButton>
-      <YHButton type="info">
+      </FYButton>
+      <FYButton type="info">
         Info
-      </YHButton>
-      <YHButton type="warning">
+      </FYButton>
+      <FYButton type="warning">
         Warning
-      </YHButton>
-      <YHButton type="danger">
+      </FYButton>
+      <FYButton type="danger">
         Danger
-      </YHButton>
+      </FYButton>
     </div>
 
     <div class="mb-4">
-      <YHButton plain>
+      <FYButton plain>
         Plain
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="primary"
         plain
       >
         Primary
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="success"
         plain
       >
         Success
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="info"
         plain
       >
         Info
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="warning"
         plain
       >
         Warning
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="danger"
         plain
       >
         Danger
-      </YHButton>
+      </FYButton>
     </div>
 
     <div class="mb-4">
-      <YHButton round>
+      <FYButton round>
         Round
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="primary"
         round
       >
         Primary
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="success"
         round
       >
         Success
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="info"
         round
       >
         Info
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="warning"
         round
       >
         Warning
-      </YHButton>
-      <YHButton
+      </FYButton>
+      <FYButton
         type="danger"
         round
       >
         Danger
-      </YHButton>
+      </FYButton>
     </div>
 
     <div />
-    <YHButton
+    <FYButton
       type="primary"
     >
       这是第一个完成的组件！！！
-    </YHButton>
+    </FYButton>
   </div>
 </template>
 

@@ -20,7 +20,7 @@
       "require": "./lib"
     },
     "./components": {
-      "import": "./lib/components/index.mjs",
+      "import": "./packages/components/index.js",
       "require": "./lib/components/index.cjs"
     },
     "./utils": {

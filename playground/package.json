@@ -8,7 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "@hitotek/fuzzy-ui": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",

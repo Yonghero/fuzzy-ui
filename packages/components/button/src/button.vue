@@ -3,7 +3,7 @@ import { ElButton } from 'element-plus'
 import { ref } from 'vue'
 
 defineOptions({
-  name: 'YHButton',
+  name: 'FYButton',
 })
 
 const emits = defineEmits(['click'])
@@ -12,6 +12,10 @@ const props = defineProps({
   throttle: { // 是否开启节流
     type: Boolean,
     default: true,
+  },
+  size: {
+    type: String,
+    default: 'default',
   },
 })
 
