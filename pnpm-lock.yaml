@@ -81,6 +81,7 @@ importers:
       '@element-plus/icons-vue': ^2.1.0
       '@hitotek/fuzzy-ui': workspace:*
       '@hitotek/fuzzy-ui-components': workspace:^1.0.0
+      '@hitotek/fuzzy-ui-theme-chalk': workspace:^1.0.0
       add: ^2.0.6
       element-plus: npm:element-plus@latest
       vite: ^4.3.9
@@ -88,6 +89,7 @@ importers:
       '@element-plus/icons-vue': 2.1.0_vue@3.3.4
       '@hitotek/fuzzy-ui': link:..
       '@hitotek/fuzzy-ui-components': link:../packages/components
+      '@hitotek/fuzzy-ui-theme-chalk': link:../packages/theme-chalk
       element-plus: 2.3.7_vue@3.3.4
     devDependencies:
       add: 2.0.6
@@ -109,6 +111,7 @@ importers:
     specifiers:
       '@hitotek/fuzzy-ui': workspace:*
       '@hitotek/fuzzy-ui-components': workspace:^1.0.0
+      '@hitotek/fuzzy-ui-theme-chalk': workspace:^1.0.0
       '@vitejs/plugin-vue': ^4.1.0
       autoprefixer: ^10.4.14
       postcss: ^8.1.0
@@ -117,6 +120,7 @@ importers:
       vue: ^3.2.47
     dependencies:
       '@hitotek/fuzzy-ui': link:..
+      '@hitotek/fuzzy-ui-theme-chalk': link:../packages/theme-chalk
       vue: 3.3.4
     devDependencies:
       '@hitotek/fuzzy-ui-components': link:../packages/components

@@ -1,8 +1,5 @@
 <script setup>
-import { Edit } from '@element-plus/icons-vue'
-
-// 该组件可传递的属性和类型与element-plus的按钮组件保持一致
-// https://element-plus.org/zh-CN/component/button.html
+import { Edit, Upload } from '@element-plus/icons-vue'
 </script>
 
 <template>
@@ -103,6 +100,13 @@ import { Edit } from '@element-plus/icons-vue'
         :icon="Edit"
       >
         支持图标
+      </FYButton>
+
+      <FYButton type="primary">
+        插槽图标
+        <el-icon class="el-icon--right">
+          <Upload />
+        </el-icon>
       </FYButton>
       <FYButton
         type="primary"

@@ -37,5 +37,7 @@ const handleClick = () => {
   <el-button
     v-bind="$attrs"
     @click="handleClick"
-  />
+  >
+    <slot />
+  </el-button>
 </template>
