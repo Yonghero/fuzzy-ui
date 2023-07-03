@@ -1,5 +1,5 @@
 <script setup>
-import { FYButton } from '@hitotek/fuzzy-ui/components'
+import { Edit } from '@element-plus/icons-vue'
 
 // 该组件可传递的属性和类型与element-plus的按钮组件保持一致
 // https://element-plus.org/zh-CN/component/button.html
@@ -8,64 +8,39 @@ import { FYButton } from '@hitotek/fuzzy-ui/components'
 <template>
   <div style="margin: 20px">
     <div class="mb-4">
-      <FYButton>Default</FYButton>
-      <FYButton type="primary">
-        Primary
-      </FYButton>
-      <FYButton type="success">
-        Success
-      </FYButton>
-      <FYButton type="info">
-        Info
-      </FYButton>
-      <FYButton type="warning">
-        Warning
-      </FYButton>
-      <FYButton type="danger">
-        Danger
-      </FYButton>
-    </div>
-
-    <div class="mb-4">
-      <FYButton plain>
-        Plain
-      </FYButton>
       <FYButton
         type="primary"
-        plain
+        loading
       >
         Primary
       </FYButton>
       <FYButton
         type="success"
-        plain
+        loading
       >
         Success
       </FYButton>
       <FYButton
         type="info"
-        plain
+        loading
       >
         Info
       </FYButton>
       <FYButton
         type="warning"
-        plain
+        loading
       >
         Warning
       </FYButton>
       <FYButton
         type="danger"
-        plain
+        loading
       >
         Danger
       </FYButton>
     </div>
 
     <div class="mb-4">
-      <FYButton round>
-        Round
-      </FYButton>
       <FYButton
         type="primary"
         round
@@ -98,17 +73,50 @@ import { FYButton } from '@hitotek/fuzzy-ui/components'
       </FYButton>
     </div>
 
-    <div />
-    <FYButton
-      type="primary"
-    >
-      这是第一个完成的组件！！！
-    </FYButton>
+    <div class="mb-4">
+      <FYButton
+        type="info"
+        text
+        link
+      >
+        无背景颜色文字
+      </FYButton>
+      <FYButton
+        type="primary"
+        text
+        link
+      >
+        无背景颜色文字
+      </FYButton>
+      <FYButton
+        type="warning"
+        text
+        link
+      >
+        无背景颜色文字
+      </FYButton>
+    </div>
+
+    <div class="mb-4">
+      <FYButton
+        type="primary"
+        :icon="Edit"
+      >
+        支持图标
+      </FYButton>
+      <FYButton
+        type="primary"
+        :icon="Edit"
+        round
+      >
+        支持图标和圆角
+      </FYButton>
+    </div>
   </div>
 </template>
 
 <style>
 .mb-4 {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 </style>

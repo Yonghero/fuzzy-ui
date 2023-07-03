@@ -13,10 +13,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  size: {
-    type: String,
-    default: 'default',
-  },
 })
 
 const throttleDuration = 1000
@@ -41,11 +37,5 @@ const handleClick = () => {
   <el-button
     v-bind="$attrs"
     @click="handleClick"
-  >
-    <slot />
-  </el-button>
+  />
 </template>
-
-<style lang="scss">
-@use "../../../theme-chalk/src/button/button.scss";
-</style>

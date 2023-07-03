@@ -16,11 +16,11 @@
   ],
   "exports": {
     ".": {
-      "import": "./lib",
-      "require": "./lib"
+      "import": "./lib/components/index.mjs",
+      "require": "./lib/components/index.cjs"
     },
     "./components": {
-      "import": "./packages/components/index.js",
+      "import": "./lib/components/index.mjs",
       "require": "./lib/components/index.cjs"
     },
     "./utils": {
