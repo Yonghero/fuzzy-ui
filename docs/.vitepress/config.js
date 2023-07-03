@@ -29,6 +29,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'Button 按钮', link: '/components/button' }, // /guide/install.md
+            { text: 'Cascader 级联选择器', link: '/components/cascader' }, // /guide/install.md
           ]
         },
         {

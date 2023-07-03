@@ -19,6 +19,7 @@
     "element-plus": "npm:element-plus@latest"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
     "add": "^2.0.6",
     "vite": "^4.3.9"
   },

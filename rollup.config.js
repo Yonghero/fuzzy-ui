@@ -1,7 +1,7 @@
 import glob from 'glob'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import alias from '@rollup/plugin-alias'
+// import alias from '@rollup/plugin-alias'
 import vue from 'rollup-plugin-vue'
 import babel from '@rollup/plugin-babel'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
@@ -23,7 +23,7 @@ export default defineConfig({
         fileURLToPath(new URL(file, import.meta.url)),
       ]),
     ),
-    // "fuzzy-ui-style": "packages/theme-chalk/src/index.scss"
+    'fuzzy-ui-style': 'packages/theme-chalk/src/index.scss',
   },
   output: [
     {
@@ -40,11 +40,11 @@ export default defineConfig({
   ],
   external: ['vue', 'element-plus', 'elementPlus'],
   plugins: [
-    alias({
-      entries: [
-        { find: 'utils', replacement: new URL('./packages/utils', import.meta.url).pathname },
-      ],
-    }),
+    // alias({
+    //   entries: [
+    //     { find: 'utils', replacement: new URL('./packages/utils', import.meta.url).pathname },
+    //   ],
+    // }),
     nodeResolve(),
     vue(),
     postcss({
@@ -53,6 +53,7 @@ export default defineConfig({
     }),
     babel({
       babelHelpers: 'bundled',
+      presets: ['@babel/preset-env', '@vue/babel-preset-jsx'],
       extensions: ['.js', '.vue'],
     }),
   ],
