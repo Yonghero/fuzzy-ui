@@ -2,7 +2,7 @@
   "name": "@hitotek/fuzzy-ui-utils",
   "version": "1.0.0",
   "description": "all utils are settled here",
-  "main": "index.js",
+  "main": "./index.js",
   "author": "younghero",
   "license": "ISC",
   "sideEffects": false

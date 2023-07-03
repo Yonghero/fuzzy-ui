@@ -12,6 +12,9 @@
     "vue": "^3.2.6",
     "element-plus": "^2.3.6"
   },
+  "dependencies": {
+    "@hitotek/fuzzy-ui-utils": "workspace:*"
+  },
   "author": "younghero",
   "license": "ISC",
   "sideEffects": false
