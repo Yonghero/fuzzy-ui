@@ -9,14 +9,15 @@
   },
   "dependencies": {
     "@hitotek/fuzzy-ui": "workspace:*",
-    "@hitotek/fuzzy-ui-theme-chalk": "workspace:^1.0.0",
-    "vue": "^3.2.47"
+    "@hitotek/fuzzy-ui-theme-chalk": "workspace:^",
+    "@hitotek/fuzzy-ui-utils": "workspace:^",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@hitotek/fuzzy-ui-components": "workspace:^1.0.0",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@hitotek/fuzzy-ui-components": "workspace:^",
+    "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
-    "postcss": "^8.1.0",
+    "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
     "vite": "^4.3.9"
   }

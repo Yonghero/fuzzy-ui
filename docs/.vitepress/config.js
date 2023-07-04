@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 import { mdPlugin } from './config/plugins'
-
 export default defineConfig({
   title: 'Fuzzy UI',
   themeConfig: {
@@ -24,6 +23,13 @@ export default defineConfig({
         }
       ],
       '/components/': [
+        {
+          text: 'Input 基础组件',
+          collapsed: true,
+          items: [
+            { text: 'Input 输入框', link: '/components/input' }, // /guide/install.md
+          ]
+        },
         {
           text: 'Basic 基础组件',
           collapsed: true,

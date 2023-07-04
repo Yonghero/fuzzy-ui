@@ -1,12 +1,8 @@
 <script setup lang="jsx">
 import ButtonTest from './components/button-test.vue'
-
-function Abc() {
-  return <div>124</div>
-}
+import InputTest from './components/input-test.vue'
 </script>
 
 <template>
-  <ButtonTest />
-  <Abc />
+  <InputTest />
 </template>
