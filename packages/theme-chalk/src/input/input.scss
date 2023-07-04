@@ -1,0 +1,25 @@
+@import '../../../theme-chalk/src/variable.scss';
+// 圆角
+.fy-input {
+  display: flex;
+  justify-content: flex-end;
+  &.round {
+    :deep(.el-input__wrapper) {
+      border-radius: $fy-input-radius;
+    }
+  }
+  :deep(.el-textarea__inner),
+  :deep(.el-input__inner) {
+    transition: width 0.25s ease-in-out;
+  }
+}
+.fy-input-card {
+  position: absolute;
+  right: 0;
+  width: 200px;
+  z-index: 999999;
+}
+.fy-input-wrap {
+  width: 300px;
+  position: relative;
+}

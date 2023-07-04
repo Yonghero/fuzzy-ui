@@ -28,6 +28,7 @@ module.exports = {
     'no-use-before-define': 'off',
     'no-param-reassign': 'off',
     semi: [2, 'never'],
+    'linebreak-style': 'off',
   },
   settings: {
     'import/resolver': {
