@@ -7,6 +7,7 @@
   "scripts": {
     "build": "shx rm -rf lib && rollup --config",
     "publish": "pnpm run build && npm publish --access public",
+    "gen": "bash ./scripts/gc.sh",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
