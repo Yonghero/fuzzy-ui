@@ -1,9 +1,11 @@
 import Theme from 'vitepress/theme'
 import ElementPlus from 'element-plus'
-import FuzzyUI from '@hitotek/fuzzy-ui/components'
+import FuzzyUI from '@hitotek/fuzzy-ui-components'
 import locale from 'element-plus/lib/locale/lang/zh-cn'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-import '@hitotek/fuzzy-ui/style'
+// import '@hitotek/fuzzy-ui/style'
+import '@hitotek/fuzzy-ui-theme-chalk'
+
 import './custom.scss'
 
 import { VPDemo } from '../vitepress'

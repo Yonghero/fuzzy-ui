@@ -10,15 +10,27 @@ const myFocus = (e) => {
 const myBlur = (e) => {
   console.log(e, 'my blur e')
 }
+const switchChange = (e) => {
+  console.log('switchChange', e)
+}
+
 const filterList = ref([
   {
     name: '编号',
+    id: 'no',
     value: true,
   },
   {
     name: '标题',
+    id: 'title',
     value: true,
   },
+  {
+    name: '标题2',
+    id: 'title2',
+    value: true,
+  },
+
 ])
 </script>
 
@@ -42,9 +54,9 @@ const filterList = ref([
   />
   <FYInput
     size="small"
-    filter
     flex
     :filter-list="filterList"
+    @switchChange="switchChange"
   />
 
   <FYInput

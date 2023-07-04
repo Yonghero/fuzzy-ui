@@ -1,8 +1,9 @@
-import { isElement } from '@element-plus/utils'
-
 const nodeList = new Map()
 let startClick
-document.addEventListener('mousedown', (e) => (startClick = e))
+document.addEventListener('mousedown', (e) => {
+  startClick = e
+  return null
+})
 document.addEventListener('mouseup', (e) => {
   for (const handlers of nodeList.values()) {
     for (const { documentHandler } of handlers) {
@@ -13,11 +14,11 @@ document.addEventListener('mouseup', (e) => {
 
 function createDocumentHandler(el, binding) {
   let excludes = []
+  let whiteClass = ''
   if (Array.isArray(binding.arg)) {
     excludes = binding.arg
-  } else if (isElement(binding.arg)) {
-    // due to current implementation on binding type is wrong the type casting is necessary here
-    excludes.push(binding.arg)
+  } else if (typeof binding.arg === 'string') {
+    whiteClass = binding.arg
   }
   return function (mouseup, mousedown) {
     const { popperRef } = binding.instance
@@ -33,6 +34,7 @@ function createDocumentHandler(el, binding) {
       || (excludes.length && excludes.includes(mouseDownTarget))
     const isContainedByPopper = popperRef
       && (popperRef.contains(mouseUpTarget) || popperRef.contains(mouseDownTarget))
+    const isClass = whiteClass && (mouseDownTarget.classList.contains(whiteClass))
     if (
       isBound
       || isTargetExists
@@ -40,14 +42,16 @@ function createDocumentHandler(el, binding) {
       || isSelf
       || isTargetExcluded
       || isContainedByPopper
+      || isClass
     ) {
       return
     }
+    console.log(isClass, 'isClass')
     binding.value(mouseup, mousedown)
   }
 }
 
-const ClickOutside = {
+export const ClickOutside = {
   beforeMount(el, binding) {
     // there could be multiple handlers on the element
     if (!nodeList.has(el)) {
@@ -85,4 +89,3 @@ const ClickOutside = {
     nodeList.delete(el)
   },
 }
-export default ClickOutside

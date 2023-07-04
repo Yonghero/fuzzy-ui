@@ -13,10 +13,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  size: {
-    type: String,
-    default: 'default',
-  },
 })
 
 const throttleDuration = 1000
@@ -45,7 +41,3 @@ const handleClick = () => {
     <slot />
   </el-button>
 </template>
-
-<style lang="scss">
-@use "../../../theme-chalk/src/button/button.scss";
-</style>

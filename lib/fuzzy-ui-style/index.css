@@ -1,3 +1,11 @@
 .my-button {
   color: green;
 }
+
+.my-button-group {
+  color: green;
+}
+
+:root {
+  --el-color-primary: #165DFF!important;
+}

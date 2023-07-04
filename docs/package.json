@@ -13,10 +13,13 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@hitotek/fuzzy-ui": "workspace:^1.0.0",
+    "@hitotek/fuzzy-ui": "workspace:*",
+    "@hitotek/fuzzy-ui-components": "workspace:^1.0.0",
+    "@hitotek/fuzzy-ui-theme-chalk": "workspace:^1.0.0",
     "element-plus": "npm:element-plus@latest"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
     "add": "^2.0.6",
     "vite": "^4.3.9"
   },

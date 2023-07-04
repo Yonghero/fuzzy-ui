@@ -11,7 +11,7 @@ defineOptions({
   name: 'FYInput',
 })
 
-const emit = defineEmits(['focus', 'blur'])
+const emit = defineEmits(['focus', 'blur', 'switchChange'])
 const props = defineProps({
   // 圆角
   round: {
@@ -36,10 +36,6 @@ const props = defineProps({
   },
   flex: {
     type: Boolean,
-    default: false,
-  },
-  filter: {
-    type: Boolean || String,
     default: false,
   },
   filterList: {
@@ -81,11 +77,17 @@ const handleBlur = (e) => {
   emit('blur', e)
 }
 const isFilter = ref(false)
-const handleIconClick = (e) => {
+const handleIconClick = () => {
   isFilter.value = !isFilter.value
+  return null
 }
 const filterClose = () => {
   isFilter.value = false
+}
+const switchGroupValue = ref([])
+switchGroupValue.value = props.filterList.map((item) => ({ id: item.id, value: item.value }))
+const switchChange = () => {
+  emit('switchChange', switchGroupValue.value)
 }
 
 </script>
@@ -110,12 +112,12 @@ const filterClose = () => {
         <slot name="prefix" />
       </template>
       <template
-        v-if="(slot && slot.suffix) || (props.filter || props.filter === '')"
+        v-if="(slot && slot.suffix) || (props.filterList && props.filterList.length)"
         #suffix
       >
-        <el-icon v-if="props.filter || props.filter === ''">
+        <el-icon v-if="props.filterList && props.filterList.length">
           <ArrowDown
-            :class="{'arrow-select': isFilter}"
+            :class="[{'arrow-select': isFilter}, 'my-arrow-down']"
             @click.stop="handleIconClick"
           />
         </el-icon>
@@ -125,26 +127,30 @@ const filterClose = () => {
         />
       </template>
     </el-input>
-    <el-card
-      v-show="isFilter"
-      v-click-outside="filterClose"
-      class="fy-input-card"
-    >
-      <div class="card-title">
-        搜索范围
-      </div>
-      <div
-        v-for="(item, index) in props.filterList"
-        :key="index"
-        class="card-item"
+    <template v-if="props.filterList && props.filterList.length">
+      <el-card
+        v-if="isFilter"
+        v-click-outside:my-arrow-down="filterClose"
+        class="fy-input-card"
       >
-        <span class="card-item-name">{{ item.name }}</span>
-        <el-switch
-          v-model="item.value"
-          class="card-item-value"
-        />
-      </div>
-    </el-card>
+        <div class="card-title">
+          搜索范围
+        </div>
+        <div
+          v-for="(item, index) in props.filterList"
+          :key="index"
+          class="card-item"
+        >
+          <span class="card-item-name">{{ item.name }}</span>
+          <el-switch
+            v-model="switchGroupValue[index].value"
+            :name="item.name"
+            class="card-item-value"
+            @change="switchChange"
+          />
+        </div>
+      </el-card>
+    </template>
   </div>
 </template>
 

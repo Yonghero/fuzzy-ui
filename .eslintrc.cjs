@@ -29,6 +29,7 @@ module.exports = {
     'no-param-reassign': 'off',
     semi: [2, 'never'],
     'linebreak-style': 'off',
+    'no-restricted-syntax': 'off',
   },
   settings: {
     'import/resolver': {
