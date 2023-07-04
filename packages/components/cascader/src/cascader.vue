@@ -1,5 +1,5 @@
 <script setup lang="jsx">
-import { computed, ref, useSlots } from 'vue'
+import { computed, useSlots } from 'vue'
 import { getRandomColor } from '@hitotek/fuzzy-ui-utils'
 
 defineOptions({
@@ -28,6 +28,10 @@ const defaultIconStyle = computed(() => ({
   justifyContent: 'center',
   color: '#fff',
 }))
+
+const props = {
+  multiple: true, // 开始多选
+}
 
 </script>
 

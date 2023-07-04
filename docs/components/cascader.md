@@ -24,10 +24,34 @@ cascader/icon
 cascader/clearable
 :::
 
+## 自定义节点内容
 
-## Button API
+:::demo 你可以通过 scoped slot 自定义节点的内容 您可以访问 scope 中的 node 和 data 属性 分别表示当前节点的 Node 对象和当前节点的数据
+cascader/slot
+:::
 
-### Button Attributes
+## 多选
 
-该组件可传递的属性和类型与element-plus的按钮组件保持一致 
-> https://element-plus.org/zh-CN/component/button.html
+:::demo 在标签中添加 :props="props" 并设置 props = { multiple: true } 来开启多选模式。
+cascader/multiple
+:::
+
+## Cascader API
+
+### Cascader Attributes
+| 属性名          | 描述          | 类型      |
+|--------------|-------------|---------|
+| default-icon | 是否展示默认样式的图标 | boolean |
+
+### Cascader Item
+| 属性名   | 描述       | 类型                          |
+|-------|----------|-----------------------------|
+| label | 展示项属性名   | boolean                     |
+| value | 展示项属性值   | boolean                     |
+| icon  | 展示项自定义图标 | VueComponent 、 JsxComponent |
+
+
+
+
+该组件更多可传递的属性和类型与element-plus的cascader组件保持一致 
+> https://element-plus.org/zh-CN/component/cascader.html

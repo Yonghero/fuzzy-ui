@@ -7,7 +7,6 @@ const options = [
   {
     value: 'guide',
     label: 'Guide',
-    icon: (<el-icon><UserFilled /></el-icon>), // 自定义图标 传入jsx 无传递则展示默认图标
     children: [
       {
         value: 'disciplines',
@@ -48,6 +47,41 @@ const options = [
     ],
   },
 ]
+const options1 = [
+  {
+    value: 'guide',
+    label: 'Guide',
+    icon: (<el-icon><UserFilled /></el-icon>), // 自定义图标 传入jsx 无传递则展示默认图标
+    children: [
+      {
+        value: 'disciplines',
+        label: 'Disciplines',
+        icon: (<el-icon><UserFilled /></el-icon>), // 自定义图标 传入jsx 无传递则展示默认图标
+        children: [
+          {
+            value: 'consistency',
+            label: 'Consistency',
+            icon: (<el-icon><UserFilled /></el-icon>), // 自定义图标 传入jsx 无传递则展示默认图标
+          },
+          {
+            value: 'feedback',
+            label: 'Feedback',
+            icon: (<el-icon><UserFilled /></el-icon>), // 自定义图标 传入jsx 无传递则展示默认图标
+          },
+          {
+            value: 'efficiency',
+            label: 'Efficiency',
+            icon: (<el-icon><UserFilled /></el-icon>), // 自定义图标 传入jsx 无传递则展示默认图标
+          },
+          {
+            value: 'controllability',
+            label: 'Controllability',
+          },
+        ],
+      },
+    ],
+  },
+]
 
 const value = ref()
 
@@ -59,10 +93,19 @@ const handleChange = (v) => {
 
 <template>
   <div class="m-4">
-    <p>图标展示</p>
+    <p>默认图标展示,默认文本的第一个字</p>
     <FYCascader
       v-model="value"
       :options="options"
+      :default-icon="true"
+      @change="handleChange"
+    />
+  </div>
+  <div class="m-4">
+    <p>自定义图标展示</p>
+    <FYCascader
+      v-model="value"
+      :options="options1"
       :default-icon="true"
       @change="handleChange"
     />

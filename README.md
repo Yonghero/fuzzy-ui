@@ -17,7 +17,7 @@
 
 ### 快速开始
 
-本项目使用pnpm + monorepo的形式进行开发
+本项目使用pnpm + monorepo的形式搭建
  
 > 项目结构介绍
  

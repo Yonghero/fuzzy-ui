@@ -54,7 +54,7 @@ const options = [
 const value = ref(['guide'])
 
 const props = {
-  expandTrigger: 'hover',
+  multiple: true, // 开始多选
 }
 
 const handleChange = (v) => {
@@ -65,12 +65,37 @@ const handleChange = (v) => {
 
 <template>
   <div class="m-4">
-    <p>clearable 可清空当前选择的数据</p>
+    <p>正确用法</p>
     <FYCascader
       v-model="value"
       :options="options"
       :default-icon="true"
       :props="props"
+      clearable
+      @change="handleChange"
+    />
+  </div>
+  <div class="m-4">
+    <p>设置 collapse = true 将选中的标签折叠</p>
+    <FYCascader
+      v-model="value"
+      :options="options"
+      :default-icon="true"
+      :props="props"
+      collapse-tags
+      clearable
+      @change="handleChange"
+    />
+  </div>
+  <div class="m-4">
+    <p>使用 collapse-tags-tooltip 属性来启用鼠标悬停折叠文字以显示具体所选值的行为。</p>
+    <FYCascader
+      v-model="value"
+      :options="options"
+      :default-icon="true"
+      :props="props"
+      collapse-tags
+      collapse-tags-tooltip
       clearable
       @change="handleChange"
     />

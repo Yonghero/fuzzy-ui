@@ -1,6 +1,7 @@
 <script setup lang="jsx">
 import { FYCascader } from '@hitotek/fuzzy-ui-components'
 import { ref } from 'vue'
+import { WarnTriangleFilled } from '@element-plus/icons-vue'
 
 const options = [
   {
@@ -65,7 +66,7 @@ const handleChange = (v) => {
 
 <template>
   <div class="m-4">
-    <p>clearable 可清空当前选择的数据</p>
+    <p>自定义节点内容</p>
     <FYCascader
       v-model="value"
       :options="options"
@@ -73,7 +74,15 @@ const handleChange = (v) => {
       :props="props"
       clearable
       @change="handleChange"
-    />
+    >
+      <!--  eslint-disable-next-line vue/no-unused-vars -->
+      <template #default="{ data, node }">
+        <div style="display: flex;align-items: center;column-gap: 0.5rem">
+          <el-icon><WarnTriangleFilled /></el-icon>
+          <span>{{ data.label }}</span>
+        </div>
+      </template>
+    </FYCascader>
   </div>
 </template>
 
