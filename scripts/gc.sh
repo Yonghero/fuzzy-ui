@@ -35,7 +35,7 @@ cat > $DIRNAME/src/$INPUT_NAME.vue <<EOF
 <script setup>
 
 defineOptions({
-  name: 'FZ$NAME',
+  name: 'FY$NAME',
 })
 
 const props = defineProps({})
@@ -54,10 +54,10 @@ cat <<EOF >"$DIRNAME/index.js"
 import { withInstall } from '@hitotek/fuzzy-ui-utils'
 import $NAME from './src/$INPUT_NAME.vue'
 
-export const FZ$NAME = withInstall($NAME)
-export default FZ$NAME
+export const FY$NAME = withInstall($NAME)
+export default FY$NAME
 
-export * from './src/$INPUT_NAME'
+export * from './src/$INPUT_NAME.vue'
 EOF
 
 echo "export * from './$INPUT_NAME/index.js'">>"$DIRNAMESRC/export-components.js"
