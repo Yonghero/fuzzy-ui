@@ -34,23 +34,24 @@ export default defineConfig({
           text: 'Basic 基础组件',
           collapsed: true,
           items: [
-            { text: 'Button 按钮', link: '/components/button' }, // /guide/install.md
-            { text: 'Cascader 级联选择器', link: '/components/cascader' }, // /guide/install.md
-            { text: 'DatePicker 日期选择器', link: '/components/date-picker' }, // /guide/install.md
+            { text: 'Button 按钮', link: '/components/button' },
+            { text: 'Cascader 级联选择器', link: '/components/cascader' }, 
+            { text: 'DatePicker 日期选择器', link: '/components/date-picker' }, 
+            { text: 'Empty 空状态', link: '/components/empty' }, 
           ]
         },
         {
           text: 'Form 表单组件',
           collapsed: true,
           items: [
-            { text: 'Button 按钮', link: '/components/button' }, // /guide/install.md
+            { text: 'Button 按钮', link: '/components/button' },
           ]
         },
         {
           text: 'Custom 定制化组件',
           collapsed: true,
           items: [
-            { text: 'Button 按钮', link: '/components/button' }, // /guide/install.md
+            { text: 'Button 按钮', link: '/components/button' },
           ]
         }
       ]
