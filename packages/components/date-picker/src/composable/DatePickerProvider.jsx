@@ -11,7 +11,7 @@ export function createRangeDatePicker() {
     setup(_, { attrs }) {
       return () => (
         <FYDatePicker
-          type="date"
+          type="datetime"
           v-model={startValue.value}
           {...attrs}
         >
@@ -25,7 +25,7 @@ export function createRangeDatePicker() {
     setup() {
       return (_, { attrs }) => (
         <FYDatePicker
-          type="date"
+          type="datetime"
           disabledDate={ (time) => new Date(time) < new Date(startValue.value)}
           v-model={endValue.value}
           {...attrs}
