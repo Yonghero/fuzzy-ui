@@ -36,6 +36,7 @@ export default defineConfig({
           items: [
             { text: 'Button 按钮', link: '/components/button' }, // /guide/install.md
             { text: 'Cascader 级联选择器', link: '/components/cascader' }, // /guide/install.md
+            { text: 'DatePicker 日期选择器', link: '/components/date-picker' }, // /guide/install.md
           ]
         },
         {

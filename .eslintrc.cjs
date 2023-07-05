@@ -14,6 +14,9 @@ module.exports = {
   },
   plugins: ['vue', 'tailwindcss'],
   rules: {
+    "vue/attribute-hyphenation": "off",
+    "no-continue": "off",
+    "no-plusplus":"off",
     // 'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': [0, { 'packageDir ': './src/' }],

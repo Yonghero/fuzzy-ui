@@ -1,10 +1,10 @@
 import {
   __commonJS
-} from "./chunk-DFKQJ226.js";
+} from "./chunk-UXIASGQL.js";
 
-// ../node_modules/.pnpm/registry.npmmirror.com+element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/lib/locale/lang/zh-cn.js
+// ../node_modules/.pnpm/element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/lib/locale/lang/zh-cn.js
 var require_zh_cn = __commonJS({
-  "../node_modules/.pnpm/registry.npmmirror.com+element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/lib/locale/lang/zh-cn.js"(exports) {
+  "../node_modules/.pnpm/element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/lib/locale/lang/zh-cn.js"(exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     var zhCn = {
       name: "zh-cn",
