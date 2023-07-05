@@ -5,8 +5,6 @@ defineOptions({
   name: 'FYDatePicker',
 })
 
-// 截止至今年
-// 截止至本月
 const props = defineProps({
   disableLessThan: { // 禁用小于当前时间的选择
     type: Boolean,
