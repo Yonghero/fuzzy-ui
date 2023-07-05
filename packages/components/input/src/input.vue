@@ -156,8 +156,5 @@ const switchChange = () => {
 
 <style lang="scss" scoped>
 @use '../../../theme-chalk/src/input/input.scss';
-.arrow-select {
-  color: #6698ff
-}
 
 </style>

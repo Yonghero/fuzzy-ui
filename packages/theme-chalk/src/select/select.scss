@@ -1,0 +1,79 @@
+.el-select-v2.fy-select {
+  text-align: left;
+}
+.fy-select-option-tag {
+  &:nth-child(n) {
+    :deep(span) {
+      background-color: #5dcfff;
+    }
+  }
+  &:nth-child(2n) {
+    :deep(span) {
+      background-color: #f6c659;
+    }
+  }
+  &:nth-child(3n) {
+    :deep(span) {
+      background-color: #73db97;
+    }
+  }
+  &:nth-child(4n) {
+    :deep(span) {
+      background-color: #ff9f73;
+    }
+  }
+  :deep(span) {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+    border-radius: 16px;
+    padding: 0 12px;
+    height: 24px;
+    line-height: 24px;
+  }
+}
+.fy-select-popper {
+  .el-select-dropdown.is-multiple {
+    .el-select-dropdown__option-item.is-selected {
+      .el-icon {
+        position: unset;
+      }
+    }
+  }
+}
+.el-select-dropdown__item {
+  :deep(el-icon) {
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+  }
+}
+
+:deep(el-icon) {
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}
+.fy-select-empty {
+  width: 100%;
+  height: 167px;
+  overflow: hidden;
+}
+.empty-wrap {
+  width: 100%;
+  margin: 40px 0;
+  text-align: center;
+  svg {
+    width: 64px;
+    height: 58px;
+    margin: 0 auto;
+  }
+  .empty-text {
+    font-size: 0.875rem;
+    margin-top: 6px;
+    color: #cacaca;
+  }
+}
