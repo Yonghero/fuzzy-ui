@@ -38,6 +38,7 @@ export default defineConfig({
             { text: 'Cascader 级联选择器', link: '/components/cascader' }, 
             { text: 'DatePicker 日期选择器', link: '/components/date-picker' }, 
             { text: 'Empty 空状态', link: '/components/empty' }, 
+            { text: 'Progress 进度条', link: '/components/progress' }, 
           ]
         },
         {

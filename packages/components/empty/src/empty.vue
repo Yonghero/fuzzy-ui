@@ -1,5 +1,5 @@
 <script setup>
-import NoResult from './no-results-found.svg'
+import NoResult from './no-results.svg'
 
 defineOptions({
   name: 'FYEmpty',
