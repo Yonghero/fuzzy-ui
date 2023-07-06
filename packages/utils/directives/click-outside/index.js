@@ -15,6 +15,7 @@ document.addEventListener('mouseup', (e) => {
 function createDocumentHandler(el, binding) {
   let excludes = []
   let whiteClass = ''
+
   if (Array.isArray(binding.arg)) {
     excludes = binding.arg
   } else if (typeof binding.arg === 'string') {
@@ -46,13 +47,13 @@ function createDocumentHandler(el, binding) {
     ) {
       return
     }
-    console.log(isClass, 'isClass')
     binding.value(mouseup, mousedown)
   }
 }
 
 export const ClickOutside = {
   beforeMount(el, binding) {
+    console.log('binding: ', binding)
     // there could be multiple handlers on the element
     if (!nodeList.has(el)) {
       nodeList.set(el, [])

@@ -2,10 +2,223 @@
   color: green;
 }
 
-.my-button-group {
-  color: green;
+.progress-bar-wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 0.2rem;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  background-color: #dcdcdc;
+  border-radius: 1.1rem;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  position: relative;
+  height: 100%;
+  border-radius: 1.1rem;
+  transition: width 0.3s;
+  z-index: 1;
+}
+
+.progress-bar-inner-anchor {
+  position: absolute;
+  height: 100%;
+  border-radius: 1.1rem;
+  background: #fff;
+  width: 1.1rem;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.fy-input {
+  display: flex;
+  justify-content: flex-end;
+}
+.fy-input.round :deep(.el-input__wrapper) {
+  border-radius: 20px;
+}
+.fy-input :deep(.el-textarea__inner),
+.fy-input :deep(.el-input__inner) {
+  transition: width 0.25s ease-in-out;
+}
+
+.fy-input-card {
+  position: absolute;
+  right: 0;
+  width: 200px;
+  z-index: 999999;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.fy-input-card .el-card__body {
+  padding: 10px 0 !important;
+  text-align: left;
+  font-size: 0.5rem;
+}
+.fy-input-card .card-title,
+.fy-input-card .card-item {
+  padding: 2px 20px;
+  padding-top: 0;
+  color: #cacaca;
+}
+.fy-input-card .card-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  justify-content: space-between;
+}
+.fy-input-card .card-item:hover {
+  background-color: #f5f5f5;
+}
+
+.fy-input-wrap {
+  width: 300px;
+  position: relative;
 }
 
 :root {
-  --el-color-primary: #165DFF!important;
+  --el-color-primary: #417EF6!important;
+  --el-color-success: #5DCF35!important;
+  --el-color-info: #A3A5AA!important;
+  --el-color-warning: #E6B63C!important;
+  --el-color-danger: #FF6565!important;
+}
+.fy-input {
+  display: flex;
+  justify-content: flex-end;
+}
+.fy-input.round :deep(.el-input__wrapper) {
+  border-radius: 20px;
+}
+.fy-input :deep(.el-textarea__inner),
+.fy-input :deep(.el-input__inner) {
+  transition: width 0.25s ease-in-out;
+}
+
+.fy-input-card {
+  position: absolute;
+  right: 0;
+  width: 200px;
+  z-index: 999999;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.fy-input-card .el-card__body {
+  padding: 10px 0 !important;
+  text-align: left;
+  font-size: 0.5rem;
+}
+.fy-input-card .card-title,
+.fy-input-card .card-item {
+  padding: 2px 20px;
+  padding-top: 0;
+  color: #cacaca;
+}
+.fy-input-card .card-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  justify-content: space-between;
+}
+.fy-input-card .card-item:hover {
+  background-color: #f5f5f5;
+}
+
+.fy-input-wrap {
+  width: 300px;
+  position: relative;
+}
+
+.arrow-select[data-v-3290dcb6] {
+  color: #6698ff;
+}
+.timeline-wrap[data-v-23758979] {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  height: 300px;
+  position: relative;
+}
+.timeline-wrap[data-v-23758979][data-v-23758979]::before {
+  content: "";
+  width: 2px;
+  background: #ccc;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+.timeline-wrap[data-v-23758979] .item[data-v-23758979] {
+  width: 50%;
+  height: 50px;
+  text-align: right;
+  position: relative;
+}
+.timeline-wrap[data-v-23758979] .item[data-v-23758979][data-v-23758979]:nth-of-type(even) {
+  align-self: flex-end;
+  text-align: left;
+  padding-left: 1rem;
+}
+.timeline-wrap[data-v-23758979] .item[data-v-23758979][data-v-23758979]:nth-of-type(even)[data-v-23758979]::before {
+  content: "";
+  position: absolute;
+  left: -2%;
+  top: 8%;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #ccc;
+}
+.timeline-wrap[data-v-23758979] .item[data-v-23758979][data-v-23758979]:nth-of-type(odd) {
+  padding-right: 1rem;
+}
+.progress-bar-wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 0.2rem;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  background-color: #dcdcdc;
+  border-radius: 1.1rem;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  position: relative;
+  height: 100%;
+  border-radius: 1.1rem;
+  transition: width 0.3s;
+  z-index: 1;
+}
+
+.progress-bar-inner-anchor {
+  position: absolute;
+  height: 100%;
+  border-radius: 1.1rem;
+  background: #fff;
+  width: 1.1rem;
+  left: 0;
+  top: 0;
+  z-index: 0;
 }

@@ -7,6 +7,7 @@ import babel from '@rollup/plugin-babel'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import postcss from 'rollup-plugin-postcss'
+import svg from 'rollup-plugin-svg'
 
 export default defineConfig({
   input: {
@@ -45,7 +46,12 @@ export default defineConfig({
     //     { find: 'utils', replacement: new URL('./packages/utils', import.meta.url).pathname },
     //   ],
     // }),
-    nodeResolve(),
+    svg(),
+    nodeResolve({
+      browser: true,
+      preferBuiltins: false,
+      extensions: ['.js', '.json', '.jsx', '.vue'],
+    }),
     vue(),
     postcss({
       extensions: ['.css', '.scss', '.sass'],
@@ -53,8 +59,9 @@ export default defineConfig({
     }),
     babel({
       babelHelpers: 'bundled',
-      presets: ['@babel/preset-env', '@vue/babel-preset-jsx'],
-      extensions: ['.js', '.vue'],
+      exclude: 'node_modules/**',
+      presets: ['@babel/preset-env', '@vue/babel-preset-jsx', '@babel/preset-react'],
+      extensions: ['.js', '.vue', '.jsx', '.svg'],
     }),
   ],
 })
