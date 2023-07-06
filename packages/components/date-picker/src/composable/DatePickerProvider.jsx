@@ -13,6 +13,7 @@ export function createRangeDatePicker() {
         <FYDatePicker
           type="datetime"
           v-model={startValue.value}
+          disabledDate={ (time) => new Date(time) > new Date(endValue.value)}
           {...attrs}
         >
         </FYDatePicker>
