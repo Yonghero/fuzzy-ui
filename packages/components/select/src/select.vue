@@ -5,13 +5,17 @@ import {
   ElSelectV2,
   ElIcon,
 } from 'element-plus'
-import { computed, useSlots, ref } from 'vue'
+import { Lock, User } from '@element-plus/icons-vue'
+import {
+  computed, useSlots, ref, defineEmits, watch,
+} from 'vue'
 import { getRandomColor } from '@hitotek/fuzzy-ui-utils'
 
 defineOptions({
   name: 'FYSelect',
 })
 
+const emit = defineEmits(['change', 'visible-change', 'remove-tag', 'clear', 'blur', 'focus'])
 const props = defineProps({
   options: {
     type: Array,
@@ -33,6 +37,14 @@ const props = defineProps({
     type: Boolean || String,
     default: false,
   },
+  access: {
+    type: Boolean || String,
+    default: false,
+  },
+  collapseTags: {
+    type: Boolean || String,
+    default: true,
+  },
 })
 const hasDefaultSlot = computed(() => {
   const slots = useSlots()
@@ -48,12 +60,79 @@ const defaultIconStyle = computed(() => ({
   justifyContent: 'center',
   color: '#fff',
 }))
-const value2 = ref()
-const initials = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-const options5 = Array.from({ length: 1000 }).map((_, idx) => ({
-  value: `Option ${idx + 1}`,
-  label: `${initials[idx % 10]}${idx}`,
-}))
+// const getModelValueClass = () => {
+//   const options = props.options.map((item, index) => ({ ...item, index }))
+//   const targetIndex = options.find((item) => item.value === props.modelValue)?.index ?? ''
+//   return `fy-select-tag-index${targetIndex}`
+// }
+const getClass = ref(['fy-select'])
+
+watch(() => props.modelValue, (newV, oldV) => {
+  if (props.tag) {
+    const options = props.options.map((item, index) => ({ ...item, index }))
+    let targetIndex = options.find((item) => item.value === newV[0])?.index ?? ''
+    targetIndex %= 4
+    getClass.value = [
+      'fy-select',
+      `fy-select-tag-${targetIndex}`,
+    ]
+  }
+  if (props.access && (props.modelValue !== undefined && props.modelValue !== null && props.modelValue !== '')) {
+    getClass.value = [
+      'fy-select',
+      'fy-select-access-wrap',
+    ]
+  }
+})
+const ifCollapse = computed(() => {
+  if (props.collapseTags === false) {
+    return false
+  }
+  return true
+})
+const getOptionClass = computed(() => [{ 'fy-select-option-tag': props.tag || props.tag === '' }, { 'fy-select-option-access': props.access }])
+const ifAccessModelValue = computed(() => {
+  if (props.access && (props.modelValue !== undefined && props.modelValue !== null && props.modelValue !== '')) {
+    return true
+  }
+  return false
+})
+const getAccessIcon = computed(() => {
+  if (props.modelValue === props.options[0].value) {
+    return true
+  }
+  return false
+})
+const getAccessDesc = computed(() => {
+  if (props.modelValue === props.options[0].value) {
+    return props.options[0].desc
+  }
+  return props.options[1].desc
+})
+const getAccessLabel = computed(() => {
+  if (props.modelValue === props.options[0].value) {
+    return props.options[0].label
+  }
+  return props.options[1].label
+})
+const emitChange = (val) => {
+  emit('change', val)
+}
+const emitVisibleChange = (val) => {
+  emit('visible-change', val)
+}
+const emitRemoveTag = (val) => {
+  emit('remove-tag', val)
+}
+const emitClear = () => {
+  emit('clear')
+}
+const emitBlur = (val) => {
+  emit('blur', val)
+}
+const emitFocus = (val) => {
+  emit('focus', val)
+}
 </script>
 
 <template>
@@ -62,7 +141,14 @@ const options5 = Array.from({ length: 1000 }).map((_, idx) => ({
       v-if="!props.virtual && props.virtual !== ''"
       v-bind="$attrs"
       :model-value="props.modelValue"
-      class="fy-select"
+      :class="getClass"
+      :collapse-tags="ifCollapse"
+      @change="emitChange"
+      @visible-change="emitVisibleChange"
+      @remove-tag="emitRemoveTag"
+      @clear="emitClear"
+      @blur="emitBlur"
+      @focus="emitFocus"
     >
       <template #empty>
         <div class="fy-select-empty">
@@ -311,14 +397,50 @@ const options5 = Array.from({ length: 1000 }).map((_, idx) => ({
           </div>
         </div>
       </template>
+      <template
+        v-if="ifAccessModelValue"
+        #prefix
+      >
+        <div class="fy-select-access-prefix">
+          <div class="fy-select-access-title">
+            <el-icon v-if="!getAccessIcon">
+              <Lock />
+            </el-icon>
+            <el-icon v-else>
+              <User />
+            </el-icon>
+            <span>{{ getAccessLabel }}</span>
+          </div>
+          <div class="fy-select-access-desc">
+            <span>{{ getAccessDesc }}</span>
+          </div>
+        </div>
+      </template>
       <el-option
-        v-for="item in props.options"
+        v-for="(item, index) in props.options"
         :key="item.value"
         :label="item.label"
         :value="item.value"
-        :class="{'fy-select-option-tag': props.tag || props.tag === ''}"
+        :class="getOptionClass"
       >
         <template #default>
+          <div
+            v-if="props.access || props.access === ''"
+            class="fy-select-access"
+          >
+            <div class="fy-select-access-title">
+              <el-icon v-if="index % 2 !== 0">
+                <Lock />
+              </el-icon>
+              <el-icon v-else>
+                <User />
+              </el-icon>
+              <span>{{ item.label }}</span>
+            </div>
+            <div class="fy-select-access-desc">
+              <span>{{ item.desc }}</span>
+            </div>
+          </div>
           <div
             v-if="props.defaultIcon || props.defaultIcon === '' || item.icon"
             style="width: 100%;display: flex;justify-items: center; align-items: center;column-gap: 0.5rem"
@@ -352,6 +474,12 @@ const options5 = Array.from({ length: 1000 }).map((_, idx) => ({
       :model-value="props.modelValue"
       class="fy-select"
       popper-class="fy-select-popper"
+      @change="emitChange"
+      @visible-change="emitVisibleChange"
+      @remove-tag="emitRemoveTag"
+      @clear="emitClear"
+      @blur="emitBlur"
+      @focus="emitFocus"
     >
       <template #empty>
         <div class="fy-select-empty">
@@ -630,5 +758,4 @@ const options5 = Array.from({ length: 1000 }).map((_, idx) => ({
 </template>
 <style lang="scss" scoped>
 @use '../../../theme-chalk/src/select/select.scss';
-
 </style>

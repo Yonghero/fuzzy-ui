@@ -14,6 +14,8 @@ const value5 = ref()
 const value6 = ref()
 const value7 = ref()
 const value8 = ref()
+const value9 = ref()
+const value10 = ref()
 const options = [
   {
     value: 'Option1',
@@ -30,6 +32,16 @@ const options = [
   {
     value: 'Option4',
     label: 'Option4',
+  },
+]
+const options10 = [
+  {
+    value: 'Option1',
+    label: 'Option1',
+  },
+  {
+    value: 'Option2',
+    label: 'Option2',
   },
 ]
 const options2 = [
@@ -81,16 +93,59 @@ const options5 = Array.from({ length: 10000 }).map((_, idx) => ({
   value: `Option ${idx + 1}`,
   label: `${initials[idx % 10]}${idx}`,
 }))
+const options6 = [
+  {
+    label: '公开',
+    desc: '组织全部成员可见，仅测试库成员可编辑',
+    value: true,
+  },
+  {
+    label: '私有',
+    desc: '仅测试库成员可见及编辑',
+    value: false,
+  },
+]
+const handleChange = (e) => {
+  console.log(e, 'e')
+}
+const handleVisibleChange = (e) => {
+  console.log(e, 'e')
+}
+const handleRemoveTag = (e) => {
+  console.log(e, 'e')
+}
+const handleClear = (e) => {
+  console.log(e, 'e')
+}
+const handleBlur = (e) => {
+  console.log(e, 'e')
+}
+const handleFocus = (e) => {
+  console.log(e, 'e')
+}
+
 </script>
 
 <template>
   <div>
+    <p>单选</p>
+    <FYSelect
+      v-model="value10"
+      :options="options10"
+      clearable
+      @change="handleChange"
+      @visible-change="handleVisibleChange"
+      @clear="handleClear"
+      @blur="handleBlur"
+      @focus="handleFocus"
+    />
     <p>多选</p>
     <FYSelect
       v-model="value"
       :options="options"
       default-icon
       multiple
+      @remove-tag="handleRemoveTag"
     />
     <p>使用默认图标</p>
     <FYSelect
@@ -159,6 +214,12 @@ const options5 = Array.from({ length: 10000 }).map((_, idx) => ({
       v-model="value5"
       :options="options5"
     /> -->
+    <p>权限控制快捷样式</p>
+    <FYSelect
+      v-model="value9"
+      :options="options6"
+      access
+    />
   </div>
 </template>
 <style scoped lang="scss">

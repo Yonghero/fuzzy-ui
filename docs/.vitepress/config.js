@@ -30,6 +30,7 @@ export default defineConfig({
             { text: 'Button 按钮', link: '/components/button' }, // /guide/install.md
             { text: 'Cascader 级联选择器', link: '/components/cascader' }, // /guide/install.md
             { text: 'Input 输入框', link: '/components/input' }, // /guide/install.md
+            { text: 'Select 选择框', link: '/components/select' }, // /guide/install.md
           ]
         },
         {

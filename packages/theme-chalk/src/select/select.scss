@@ -1,6 +1,82 @@
 .el-select-v2.fy-select {
   text-align: left;
 }
+.fy-select-tag-0 {
+  :deep(.el-select-tags-wrapper) {
+    .el-tag {
+      display: flex;
+      margin: 0;
+      border: unset;
+      color: #fff;
+      font-weight: 400;
+      font-size: 12px;
+      border-radius: 16px;
+      height: 24px;
+      line-height: 24px;
+      background-color: #5dcfff;
+      .el-select__tags-text {
+        display: flex;
+      }
+    }
+  }
+}
+.fy-select-tag-1 {
+  :deep(.el-select-tags-wrapper) {
+    .el-tag {
+      display: flex;
+      color: #fff;
+      margin: 0;
+      border: unset;
+      font-weight: 400;
+      font-size: 12px;
+      border-radius: 16px;
+      height: 24px;
+      line-height: 24px;
+      background-color: #f6c659;
+      .el-select__tags-text {
+        display: flex;
+      }
+    }
+  }
+}
+.fy-select-tag-2 {
+  :deep(.el-select-tags-wrapper) {
+    .el-tag {
+      display: flex;
+      color: #fff;
+      margin: 0;
+      border: unset;
+      font-weight: 400;
+      font-size: 12px;
+      border-radius: 16px;
+      height: 24px;
+      line-height: 24px;
+      background-color: #73db97;
+      .el-select__tags-text {
+        display: flex;
+      }
+    }
+  }
+}
+.fy-select-tag-3 {
+  :deep(.el-select-tags-wrapper) {
+    .el-tag {
+      display: flex;
+      color: #fff;
+      margin: 0;
+      border: unset;
+      font-weight: 400;
+      font-size: 12px;
+      border-radius: 16px;
+      height: 24px;
+      line-height: 24px;
+      background-color: #ff9f73;
+      .el-select__tags-text {
+        display: flex;
+      }
+    }
+  }
+}
 .fy-select-option-tag {
   &:nth-child(n) {
     :deep(span) {
@@ -75,5 +151,63 @@
     font-size: 0.875rem;
     margin-top: 6px;
     color: #cacaca;
+  }
+}
+.fy-select-access-prefix {
+  .fy-select-access-title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    color: #333;
+    align-items: center;
+    span {
+      margin-left: 10px;
+    }
+  }
+  .fy-select-access-desc {
+    color: #aaa;
+    padding-left: 24px !important;
+    font-size: 12px !important;
+    line-height: 22px;
+  }
+}
+.fy-select-option-access {
+  height: 70px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  font-weight: normal !important;
+
+  &.hover {
+    background-color: rgba(102, 152, 255, 0.1);
+    .fy-select-access-title {
+      color: #6698ff;
+    }
+    .fy-select-access-desc {
+      color: #6698ff;
+    }
+  }
+  .fy-select-access-title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    color: #333;
+    align-items: center;
+    span {
+      margin-left: 10px;
+    }
+  }
+  .fy-select-access-desc {
+    color: #aaa;
+    padding-left: 24px !important;
+    font-size: 12px !important;
+    line-height: 22px;
+  }
+}
+.fy-select-access-wrap {
+  .el-input__inner {
+    display: none;
   }
 }
