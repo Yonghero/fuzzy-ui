@@ -4,5 +4,5 @@ import DatePicker from './src/date-picker.vue'
 export const FYDatePicker = withInstall(DatePicker)
 export default FYDatePicker
 
-export * from './src/composable/DatePickerProvider'
+export { createRangeDatePicker } from './src/composable/DatePickerProvider.jsx'
 export * from './src/date-picker.vue'

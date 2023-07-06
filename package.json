@@ -40,6 +40,7 @@
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
@@ -67,6 +68,7 @@
     "prismjs": "^1.29.0",
     "rollup": "^3.25.3",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.63.6",
     "shx": "^0.3.4",
