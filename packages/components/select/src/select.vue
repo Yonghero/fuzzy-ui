@@ -4,6 +4,7 @@ import {
   ElOption,
   ElSelectV2,
   ElIcon,
+  ElEmpty,
 } from 'element-plus'
 import { Lock, User } from '@element-plus/icons-vue'
 import {
@@ -45,6 +46,10 @@ const props = defineProps({
     type: Boolean || String,
     default: true,
   },
+  clearable: {
+    type: Boolean || String,
+    default: false,
+  },
 })
 const hasDefaultSlot = computed(() => {
   const slots = useSlots()
@@ -66,7 +71,9 @@ const defaultIconStyle = computed(() => ({
 //   return `fy-select-tag-index${targetIndex}`
 // }
 const getClass = ref(['fy-select'])
-
+if (props.access) {
+  getClass.value = ['fy-select', 'fy-select-access-w']
+}
 watch(() => props.modelValue, (newV, oldV) => {
   if (props.tag) {
     const options = props.options.map((item, index) => ({ ...item, index }))
@@ -80,6 +87,7 @@ watch(() => props.modelValue, (newV, oldV) => {
   if (props.access && (props.modelValue !== undefined && props.modelValue !== null && props.modelValue !== '')) {
     getClass.value = [
       'fy-select',
+      'fy-select-access-w',
       'fy-select-access-wrap',
     ]
   }
@@ -115,6 +123,13 @@ const getAccessLabel = computed(() => {
   }
   return props.options[1].label
 })
+const ifClearable = computed(() => {
+  if (props.tag || props.tag === '' || props.clearable === true) {
+    return true
+  }
+  return false
+})
+
 const emitChange = (val) => {
   emit('change', val)
 }
@@ -143,6 +158,7 @@ const emitFocus = (val) => {
       :model-value="props.modelValue"
       :class="getClass"
       :collapse-tags="ifCollapse"
+      :clearable="ifClearable"
       @change="emitChange"
       @visible-change="emitVisibleChange"
       @remove-tag="emitRemoveTag"
@@ -151,7 +167,9 @@ const emitFocus = (val) => {
       @focus="emitFocus"
     >
       <template #empty>
-        <div class="fy-select-empty">
+        <FYEmpty />
+
+        <!-- <div class="fy-select-empty">
           <div class="empty-wrap">
             <svg
               width="180px"
@@ -395,7 +413,7 @@ const emitFocus = (val) => {
               暂无可选项
             </div>
           </div>
-        </div>
+        </div> -->
       </template>
       <template
         v-if="ifAccessModelValue"
@@ -483,7 +501,8 @@ const emitFocus = (val) => {
     >
       <template #empty>
         <div class="fy-select-empty">
-          <div class="empty-wrap">
+          <FYEmpty />
+          <!-- <div class="empty-wrap">
             <svg
               width="180px"
               height="133px"
@@ -725,7 +744,7 @@ const emitFocus = (val) => {
             <div class="empty-text">
               暂无可选项
             </div>
-          </div>
+          </div> -->
         </div>
       </template>
       <template #default="{ item }">

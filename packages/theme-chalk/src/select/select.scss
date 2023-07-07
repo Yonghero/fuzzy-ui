@@ -1,9 +1,16 @@
 .el-select-v2.fy-select {
   text-align: left;
 }
+.fy-select {
+  width: 240px;
+}
+.fy-select-access-w {
+  width: 292px;
+}
 .fy-select-tag-0 {
   :deep(.el-select-tags-wrapper) {
     .el-tag {
+      padding: 0 9px;
       display: flex;
       margin: 0;
       border: unset;
@@ -18,11 +25,15 @@
         display: flex;
       }
     }
+    .el-tag__close {
+      display: none;
+    }
   }
 }
 .fy-select-tag-1 {
   :deep(.el-select-tags-wrapper) {
     .el-tag {
+      padding: 0 9px;
       display: flex;
       color: #fff;
       margin: 0;
@@ -37,11 +48,15 @@
         display: flex;
       }
     }
+    .el-tag__close {
+      display: none;
+    }
   }
 }
 .fy-select-tag-2 {
   :deep(.el-select-tags-wrapper) {
     .el-tag {
+      padding: 0 9px;
       display: flex;
       color: #fff;
       margin: 0;
@@ -56,11 +71,15 @@
         display: flex;
       }
     }
+    .el-tag__close {
+      display: none;
+    }
   }
 }
 .fy-select-tag-3 {
   :deep(.el-select-tags-wrapper) {
     .el-tag {
+      padding: 0 9px;
       display: flex;
       color: #fff;
       margin: 0;
@@ -74,6 +93,9 @@
       .el-select__tags-text {
         display: flex;
       }
+    }
+    .el-tag__close {
+      display: none;
     }
   }
 }
@@ -154,6 +176,7 @@
   }
 }
 .fy-select-access-prefix {
+  min-width: 240px;
   .fy-select-access-title {
     font-size: 14px;
     font-weight: 400;
@@ -166,6 +189,7 @@
     }
   }
   .fy-select-access-desc {
+    text-align: left;
     color: #aaa;
     padding-left: 24px !important;
     font-size: 12px !important;
