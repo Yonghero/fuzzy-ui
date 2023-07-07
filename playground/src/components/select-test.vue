@@ -132,7 +132,6 @@ const handleFocus = (e) => {
     <FYSelect
       v-model="value10"
       :options="options10"
-      clearable
       @change="handleChange"
       @visible-change="handleVisibleChange"
       @clear="handleClear"

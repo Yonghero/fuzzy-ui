@@ -50,6 +50,10 @@ const props = defineProps({
     type: Boolean || String,
     default: false,
   },
+  multiple: {
+    type: Boolean || String,
+    default: false,
+  },
 })
 const hasDefaultSlot = computed(() => {
   const slots = useSlots()
@@ -129,7 +133,21 @@ const ifClearable = computed(() => {
   }
   return false
 })
-
+const ifMultiple = computed(() => {
+  if (props.multiple || props.multiple === '' || props.tag) {
+    return true
+  }
+  return false
+})
+const getMultipleLimit = computed(() => {
+  if (props.tag) {
+    return 1
+  }
+  if (props.multipleLimit) {
+    return props.multipleLimit
+  }
+  return 0
+})
 const emitChange = (val) => {
   emit('change', val)
 }
@@ -159,6 +177,8 @@ const emitFocus = (val) => {
       :class="getClass"
       :collapse-tags="ifCollapse"
       :clearable="ifClearable"
+      :multiple="ifMultiple"
+      :multiple-limit="getMultipleLimit"
       @change="emitChange"
       @visible-change="emitVisibleChange"
       @remove-tag="emitRemoveTag"
@@ -491,6 +511,8 @@ const emitFocus = (val) => {
       :options="props.options"
       :model-value="props.modelValue"
       class="fy-select"
+      :multiple="ifMultiple"
+      :collapse-tags="ifCollapse"
       popper-class="fy-select-popper"
       @change="emitChange"
       @visible-change="emitVisibleChange"
