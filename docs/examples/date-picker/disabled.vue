@@ -1,9 +1,14 @@
 <script setup>
+import { ref } from 'vue'
 import { FYDatePicker, createRangeDatePicker } from '@hitotek/fuzzy-ui-components'
 
 const { StartDatePicker, EndDatePicker } = createRangeDatePicker()
 // 我的选择是全部禁用
 const db = (time) => !!time
+
+const value1 = ref('')
+const value2 = ref('')
+const value3 = ref('')
 
 </script>
 
@@ -11,19 +16,28 @@ const db = (time) => !!time
   <div class="demo-date-picker">
     <div class="block">
       <span class="demonstration">禁用小于当前时间的选择</span>
-      <FYDatePicker :disableLessThan="true" />
+      <FYDatePicker
+        v-model="value1"
+        :disableLessThan="true"
+      />
     </div>
   </div>
   <div class="demo-date-picker">
     <div class="block">
       <span class="demonstration">禁用大于当前时间的选择</span>
-      <FYDatePicker :disableMoreThan="true" />
+      <FYDatePicker
+        v-model="value2"
+        :disableMoreThan="true"
+      />
     </div>
   </div>
   <div class="demo-date-picker">
     <div class="block">
       <span class="demonstration">传递自定义函数自主判断是否禁用</span>
-      <FYDatePicker :disabled-date="db" />
+      <FYDatePicker
+        v-model="value3"
+        :disabled-date="db"
+      />
     </div>
   </div>
   <div class="demo-date-picker">

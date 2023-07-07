@@ -12,18 +12,39 @@ function handleClick(progress) {
     <FYProgress
       :value="70"
       size="small"
+      bothway
+      restColor="red"
       color="var(--el-color-warning)"
       @click="handleClick"
     >
       <template #tooltip-right>
         <div class="tooltip-container">
-          <div class="block" />
+          <div
+            class="block"
+            style="background-color: var(--el-color-warning);"
+          />
           <div class="tooltip-content">
             <div class="row">
-              50% 未评审
+              70% 已评审
             </div>
             <div class="row">
-              1/2 用例
+              7/10 用例
+            </div>
+          </div>
+        </div>
+      </template>
+      <template #tooltip-left>
+        <div class="tooltip-container">
+          <div
+            class="block"
+            style="background-color: red;"
+          />
+          <div class="tooltip-content">
+            <div class="row">
+              30% 未评审
+            </div>
+            <div class="row">
+              3/10 用例
             </div>
           </div>
         </div>
@@ -31,17 +52,24 @@ function handleClick(progress) {
     </FYProgress>
     <FYProgress
       :value="65"
+      bothway
       color="var(--el-color-primary)"
       size="default"
+      restColor="pink"
       @click="handleClick"
     >
       <template #tooltip-right>
-        default size
+        右边
+      </template>
+      <template #tooltip-left>
+        左边
       </template>
     </FYProgress>
     <FYProgress
       :value="80"
+      bothway
       color="var(--el-color-danger)"
+      restColor="blue"
       :tooltipProps="{
         placement: 'bottom'
       }"
@@ -49,7 +77,10 @@ function handleClick(progress) {
       @click="handleClick"
     >
       <template #tooltip-right>
-        large size
+        右边
+      </template>
+      <template #tooltip-left>
+        左边
       </template>
     </FYProgress>
   </div>
