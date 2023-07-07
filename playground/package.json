@@ -7,11 +7,16 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "peerDependencies": {
+    "element-plus": "^2.3.6"
+  },
   "dependencies": {
     "@hitotek/fuzzy-ui": "workspace:*",
     "@hitotek/fuzzy-ui-theme-chalk": "workspace:^",
     "@hitotek/fuzzy-ui-utils": "workspace:^",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "@element-plus/icons-vue": "^2.1.0",
+    "element-plus": "npm:element-plus@latest"
   },
   "devDependencies": {
     "@hitotek/fuzzy-ui-components": "workspace:^",

@@ -1,0 +1,237 @@
+.el-select-v2.fy-select {
+  text-align: left;
+}
+.fy-select {
+  width: 240px;
+}
+.fy-select-access-w {
+  width: 292px;
+}
+.fy-select-tag-0 {
+  :deep(.el-select-tags-wrapper) {
+    .el-tag {
+      padding: 0 9px;
+      display: flex;
+      margin: 0;
+      border: unset;
+      color: #fff;
+      font-weight: 400;
+      font-size: 12px;
+      border-radius: 16px;
+      height: 24px;
+      line-height: 24px;
+      background-color: #5dcfff;
+      .el-select__tags-text {
+        display: flex;
+      }
+    }
+    .el-tag__close {
+      display: none;
+    }
+  }
+}
+.fy-select-tag-1 {
+  :deep(.el-select-tags-wrapper) {
+    .el-tag {
+      padding: 0 9px;
+      display: flex;
+      color: #fff;
+      margin: 0;
+      border: unset;
+      font-weight: 400;
+      font-size: 12px;
+      border-radius: 16px;
+      height: 24px;
+      line-height: 24px;
+      background-color: #f6c659;
+      .el-select__tags-text {
+        display: flex;
+      }
+    }
+    .el-tag__close {
+      display: none;
+    }
+  }
+}
+.fy-select-tag-2 {
+  :deep(.el-select-tags-wrapper) {
+    .el-tag {
+      padding: 0 9px;
+      display: flex;
+      color: #fff;
+      margin: 0;
+      border: unset;
+      font-weight: 400;
+      font-size: 12px;
+      border-radius: 16px;
+      height: 24px;
+      line-height: 24px;
+      background-color: #73db97;
+      .el-select__tags-text {
+        display: flex;
+      }
+    }
+    .el-tag__close {
+      display: none;
+    }
+  }
+}
+.fy-select-tag-3 {
+  :deep(.el-select-tags-wrapper) {
+    .el-tag {
+      padding: 0 9px;
+      display: flex;
+      color: #fff;
+      margin: 0;
+      border: unset;
+      font-weight: 400;
+      font-size: 12px;
+      border-radius: 16px;
+      height: 24px;
+      line-height: 24px;
+      background-color: #ff9f73;
+      .el-select__tags-text {
+        display: flex;
+      }
+    }
+    .el-tag__close {
+      display: none;
+    }
+  }
+}
+.fy-select-option-tag {
+  &:nth-child(n) {
+    :deep(span) {
+      background-color: #5dcfff;
+    }
+  }
+  &:nth-child(2n) {
+    :deep(span) {
+      background-color: #f6c659;
+    }
+  }
+  &:nth-child(3n) {
+    :deep(span) {
+      background-color: #73db97;
+    }
+  }
+  &:nth-child(4n) {
+    :deep(span) {
+      background-color: #ff9f73;
+    }
+  }
+  :deep(span) {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+    border-radius: 16px;
+    padding: 0 12px;
+    height: 24px;
+    line-height: 24px;
+  }
+}
+.fy-select-popper {
+  .el-select-dropdown.is-multiple {
+    .el-select-dropdown__option-item.is-selected {
+      .el-icon {
+        position: unset;
+      }
+    }
+  }
+}
+.el-select-dropdown__item {
+  :deep(el-icon) {
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+  }
+}
+
+:deep(el-icon) {
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}
+.fy-select-empty {
+  width: 100%;
+  height: 167px;
+  overflow: hidden;
+}
+.empty-wrap {
+  width: 100%;
+  margin: 40px 0;
+  text-align: center;
+  svg {
+    width: 64px;
+    height: 58px;
+    margin: 0 auto;
+  }
+  .empty-text {
+    font-size: 0.875rem;
+    margin-top: 6px;
+    color: #cacaca;
+  }
+}
+.fy-select-access-prefix {
+  min-width: 240px;
+  .fy-select-access-title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    color: #333;
+    align-items: center;
+    span {
+      margin-left: 10px;
+    }
+  }
+  .fy-select-access-desc {
+    text-align: left;
+    color: #aaa;
+    padding-left: 24px !important;
+    font-size: 12px !important;
+    line-height: 22px;
+  }
+}
+.fy-select-option-access {
+  height: 70px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  font-weight: normal !important;
+
+  &.hover {
+    background-color: rgba(102, 152, 255, 0.1);
+    .fy-select-access-title {
+      color: #6698ff;
+    }
+    .fy-select-access-desc {
+      color: #6698ff;
+    }
+  }
+  .fy-select-access-title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    color: #333;
+    align-items: center;
+    span {
+      margin-left: 10px;
+    }
+  }
+  .fy-select-access-desc {
+    color: #aaa;
+    padding-left: 24px !important;
+    font-size: 12px !important;
+    line-height: 22px;
+  }
+}
+.fy-select-access-wrap {
+  .el-input__inner {
+    display: none;
+  }
+}

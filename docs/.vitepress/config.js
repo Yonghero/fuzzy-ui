@@ -24,13 +24,6 @@ export default defineConfig({
       ],
       '/components/': [
         {
-          text: 'Input 基础组件',
-          collapsed: true,
-          items: [
-            { text: 'Input 输入框', link: '/components/input' }, // /guide/install.md
-          ]
-        },
-        {
           text: 'Basic 基础组件',
           collapsed: true,
           items: [
@@ -38,7 +31,9 @@ export default defineConfig({
             { text: 'Cascader 级联选择器', link: '/components/cascader' }, 
             { text: 'DatePicker 日期选择器', link: '/components/date-picker' }, 
             { text: 'Empty 空状态', link: '/components/empty' }, 
-            { text: 'Progress 进度条', link: '/components/progress' }, 
+            { text: 'Progress 进度条', link: '/components/progress' },
+            { text: 'Input 输入框', link: '/components/input' }, // /guide/install.md
+            { text: 'Select 选择框', link: '/components/select' }, // /guide/install.md
           ]
         },
         {
