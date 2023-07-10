@@ -1,6 +1,6 @@
 import "./chunk-UXIASGQL.js";
 
-// ../node_modules/.pnpm/registry.npmmirror.com+element-plus@2.3.6_vue@3.2.6/node_modules/element-plus/dist/locale/zh-cn.mjs
+// node_modules/.pnpm/element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/dist/locale/zh-cn.mjs
 var zhCn = {
   name: "zh-cn",
   el: {
@@ -134,6 +134,6 @@ export {
 /*! Bundled license information:
 
 element-plus/dist/locale/zh-cn.mjs:
-  (*! Element Plus v2.3.6 *)
+  (*! Element Plus v2.3.7 *)
 */
 //# sourceMappingURL=element-plus_dist_locale_zh-cn__mjs.js.map
