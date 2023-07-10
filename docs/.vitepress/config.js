@@ -35,6 +35,7 @@ export default defineConfig({
             { text: 'Progress 进度条', link: '/components/progress' },
             { text: 'Input 输入框', link: '/components/input' }, // /guide/install.md
             { text: 'Select 选择框', link: '/components/select' }, // /guide/install.md
+            { text: 'Switch 状态切换栏', link: '/components/switch' }, // /guide/install.md
           ]
         },
         {
