@@ -12,11 +12,11 @@ const props = defineProps({
     default: null,
   },
   activeValue: {
-    type: Boolean || String || Number,
+    type: [Boolean, String, Number],
     default: true,
   },
   inActiveValue: {
-    type: Boolean || String || Number,
+    type: [Boolean, String, Number],
     default: false,
   },
   activeMessage: {
@@ -51,7 +51,7 @@ const getDefaultMsg = computed(() => {
   }
   return {
     message: props.inActiveMessage || '关闭成功',
-    type: 'success',
+    type: 'error',
   }
 })
 const getActiveValue = computed(() => {
@@ -66,7 +66,6 @@ const getInActiveValue = computed(() => {
   }
   return false
 })
-
 const emitChange = async (e) => {
   // if (props.cb instanceof Promise) {
   //   console.log('进入promise')
@@ -85,9 +84,13 @@ const emitChange = async (e) => {
   if (isAsyncFunction(props.cb)) {
     try {
       await props.cb()
-      ElMessage(getDefaultMsg.value)
+      nextTick(() => {
+        ElMessage(getDefaultMsg.value)
+      })
     } catch (error) {
-      console.log(error, 'error')
+      nextTick(() => {
+        emit('update:modelValue', e === props.activeValue ? props.inActiveValue : props.activeValue)
+      })
       ElMessage({
         message: props.changeFailMessage,
         type: 'error',
@@ -98,9 +101,13 @@ const emitChange = async (e) => {
   } else if (typeof props.cb === 'function') {
     try {
       props.cb()
-      ElMessage(getDefaultMsg.value)
+      nextTick(() => {
+        ElMessage(getDefaultMsg.value)
+      })
     } catch (error) {
-      console.log(error, 'error')
+      nextTick(() => {
+        emit('update:modelValue', e === props.activeValue ? props.inActiveValue : props.activeValue)
+      })
       ElMessage({
         message: props.changeFailMessage,
         type: 'error',

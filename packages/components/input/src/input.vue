@@ -23,7 +23,7 @@ const props = defineProps({
     default: '搜索（Ctrl+G）',
   },
   limit: {
-    type: Number,
+    type: [Number, String],
     default: 0,
   },
   type: {
@@ -31,7 +31,7 @@ const props = defineProps({
     default: 'text',
   },
   textarea: {
-    type: Array || undefined || String,
+    type: [Array, String],
     default: undefined,
   },
   flex: {

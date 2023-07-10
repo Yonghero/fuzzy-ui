@@ -23,11 +23,11 @@ const props = defineProps({
     default: () => [],
   },
   defaultIcon: {
-    type: Boolean || String,
+    type: [Boolean, String],
     default: false,
   },
   virtual: {
-    type: Boolean || String,
+    type: [Boolean, String],
     default: false,
   },
   modelValue: {
@@ -35,23 +35,23 @@ const props = defineProps({
     default: null,
   },
   tag: {
-    type: Boolean || String,
+    type: [Boolean, String],
     default: false,
   },
   access: {
-    type: Boolean || String,
+    type: [Boolean, String],
     default: false,
   },
   collapseTags: {
-    type: Boolean || String,
+    type: [Boolean, String],
     default: true,
   },
   clearable: {
-    type: Boolean || String,
+    type: [Boolean, String],
     default: false,
   },
   multiple: {
-    type: Boolean || String,
+    type: [Boolean, String],
     default: false,
   },
 })
