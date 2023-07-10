@@ -6,9 +6,13 @@ layout: doc
 
 ## 基本使用
 
-使用 `color` `size` `tooltipProps`  去定义进度条的的颜色、大小
+使用 `color` `size` 去定义进度条的的颜色、大小
 
-`tooltip` 提示框里的内容可通过名为`tooltip-right`的插槽接受用户传递的自定义内容
+`tooltip` 提示框 ⬇️
+
+  可通过修改`tooltipProps`更改提示框的行为 
+
+  内容可通过名为`tooltip-right`的插槽接受用户传递的自定义内容
 
 通过`progress`属性将进度条的值传递给插槽内容
 :::demo 
