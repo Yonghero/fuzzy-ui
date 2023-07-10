@@ -19,6 +19,7 @@ export default defineConfig({
           items: [
             { text: '安装', link: '/guide/install' }, // /guide/install.md
             { text: '快速开始', link: '/guide/starter' }, // /guide/starter.md
+            { text: '主题', link: '/guide/advance' }, 
           ]
         }
       ],
