@@ -6,7 +6,7 @@
         v-model="isShow1"
       />
       <el-button @click="handleClick">
-        打开loading效果，5000秒后关闭
+        打开loading效果，5000ms后关闭
       </el-button>
       <p>小模块loading</p>
       <FYLoading
@@ -14,7 +14,7 @@
         type="module"
       />
       <el-button @click="handleClick2">
-        打开loading效果，5000秒后关闭
+        打开loading效果，5000ms后关闭
       </el-button>
       <p>切换背景色</p>
       <FYLoading
@@ -23,7 +23,7 @@
         background="#cacaca"
       />
       <el-button @click="handleClick3">
-        打开loading效果，5000秒后关闭
+        打开loading效果，5000ms后关闭
       </el-button>
     </div>
   </div>

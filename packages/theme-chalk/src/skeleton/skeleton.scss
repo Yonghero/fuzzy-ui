@@ -1,0 +1,41 @@
+.fy-skeleton-four-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.fy-skeleton-four-first,
+.fy-skeleton-four {
+  flex-basis: 20%;
+}
+.fy-skeleton-wrap {
+  width: 100%;
+}
+.fy-skeleton-section {
+  display: flex;
+  justify-content: space-between;
+  .fy-skeleton-section-item {
+    width: 49%;
+  }
+}
+.fy-skeleton-four-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .fy-skeleton-four-item {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.fy-skeleton-circle-left {
+  display: flex;
+  justify-content: space-between;
+  .circle-wrap {
+    width: 6%;
+  }
+  .fy-skeleton-circle-item {
+    width: 93%;
+  }
+}
+.circle-four-wrap {
+  flex: 1;
+}
