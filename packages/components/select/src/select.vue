@@ -54,6 +54,7 @@ const props = defineProps({
     default: false,
   },
 })
+
 const hasDefaultSlot = computed(() => {
   const slots = useSlots()
   return slots.default

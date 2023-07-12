@@ -22,13 +22,15 @@ const disabledDate = useDisabledDate(props)
 </script>
 
 <template>
-  <el-date-picker
-    type="monthrange"
-    range-separator="To"
-    placeholder="请选择"
-    start-placeholder="请选择"
-    end-placeholder="请选择"
-    :disabled-date="disabledDate"
-    v-bind="$attrs"
-  />
+  <div class="fy-date-picker">
+    <el-date-picker
+      type="monthrange"
+      range-separator="To"
+      placeholder="请选择"
+      start-placeholder="请选择"
+      end-placeholder="请选择"
+      :disabled-date="disabledDate"
+      v-bind="$attrs"
+    />
+  </div>
 </template>

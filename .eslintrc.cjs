@@ -17,6 +17,7 @@ module.exports = {
     "vue/attribute-hyphenation": "off",
     "no-continue": "off",
     "no-plusplus":"off",
+    "tailwindcss/no-custom-classname": "off",
     // 'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': [0, { 'packageDir ': './src/' }],

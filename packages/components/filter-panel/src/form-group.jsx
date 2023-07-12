@@ -4,9 +4,9 @@ import {
 import { Delete } from '@element-plus/icons-vue'
 import { FYSelect } from '../../select'
 import {
-  LOGICAL_MAPPER, RELATION_MAPPER, RELATION_DIGIT_MAPPER, mapperToOptions,
-} from './composable/constant'
-import { formItemMap } from './composable/install'
+  LOGICAL_MAPPER, mapperToOptions,
+  useFilter, useRelation, useForm,
+} from './composable'
 import './form-group.scss'
 
 export default defineComponent({
@@ -42,33 +42,30 @@ export default defineComponent({
       },
     })
 
-    const relationValue = ref()
-    const relationOptions = computed(() => mapperToOptions(RELATION_MAPPER))
+    // 可查询字段options
+    const {
+      filterValue,
+      filterItem,
+      filterOptions,
+    } = useFilter(props)
 
-    const tmplValMap = computed(() => props.template.reduce((mapper, item) => {
-      mapper[item.value] = item
-      return mapper
-    }, {}))
+    // 关系运算符options
+    const {
+      relationValue,
+      relationOptions,
+    } = useRelation(filterValue, filterItem)
 
-    const filterValue = ref()
+    // 查询字段对应的组件
+    const {
+      model,
+      rules,
+      formEl,
+      validate,
+      formItemProps,
+      FormItem,
+    } = useForm(filterItem)
 
-    const FormItemRenderer = ref()
-    const FormItemProps = ref()
-
-    function setFilterFormItem(item) {
-      relationValue.value = item.digit ? RELATION_DIGIT_MAPPER.等于 : RELATION_MAPPER.属于
-      relationOptions.value = item.digit ? mapperToOptions(RELATION_DIGIT_MAPPER) : mapperToOptions(RELATION_MAPPER)
-      FormItemRenderer.value = formItemMap.get(item.type)
-    }
-
-    function onFilterChange(value) {
-      const item = tmplValMap.value[value]
-      FormItemProps.value = { ...item, model: formModel.value, value }
-      setFilterFormItem(item)
-    }
-
-    const formModel = ref({})
-    const rules = ref([])
+    ctx.expose({ validate })
 
     return () => (
       <div class="conditions-group-content form-group">
@@ -92,26 +89,34 @@ export default defineComponent({
             <div class="form-content">
               <FYSelect
                 v-model={filterValue.value}
-                options={props.template}
-                onChange={onFilterChange}
+                options={filterOptions.value}
                 class="shorted-select"
+                placeholder="请选择"
               />
               {/* <!-- 关系运算符 --> */}
               <FYSelect
                 v-model={relationValue.value}
                 options={relationOptions.value}
                 class="shorted-select"
+                placeholder="请选择"
               />
-              <ElForm
-                model={formModel}
-                rules={rules}
-                inline={true}
-              >
-                <ElFormItem prop={filterValue.value} required>
-                  <FormItemRenderer.value {...FormItemProps.value}/>
-                </ElFormItem>
-              </ElForm>
+
+              <div class="form-dynamic">
+                <el-form
+                  ref={formEl}
+                  model={model.value}
+                  rules={rules.value}
+                  inline
+                >
+
+                  <el-form-item prop={filterItem.value.value}>
+                    <FormItem.value {...formItemProps.value} model={model.value} />
+                  </el-form-item>
+                </el-form>
+              </div>
+
             </div>
+          </div>
 
             <div
               class="delete-icon"
@@ -125,7 +130,6 @@ export default defineComponent({
               </el-icon>
             </div>
           </div>
-        </div>
       </div>
     )
   },

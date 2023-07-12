@@ -13,6 +13,9 @@ $itemWidth: 9.2857rem;
     .logical-item {
       margin-right: .7143rem;
       .when {
+        font-size: 14px;
+        color: var(--el-input-text-color, var(--el-text-color-regular));
+        padding-left: 0.643rem;
         width: $whenWidth;
         height:$itemHeight;
         display: flex;
@@ -20,10 +23,10 @@ $itemWidth: 9.2857rem;
       }
       .fy-select {
         width: $itemWidth;
-  
+
         &.logical-select {
           width: $whenWidth!important;
-  
+
           :deep(.el-input) {
             width: $whenWidth;
           }
@@ -49,8 +52,22 @@ $itemWidth: 9.2857rem;
       display: flex;
       align-items: center;
       column-gap: 1rem;
+
+
+      .form-dynamic {
+        width: 300px;
+
+        .el-form {
+          display: flex;
+          width: 100%;
+        }
+        .el-form-item {
+          margin: 0;
+          width: 100%;
+        }
+      }
     }
-   
+
     .fy-select {
       &.shorted-select {
         width: $itemWidth;

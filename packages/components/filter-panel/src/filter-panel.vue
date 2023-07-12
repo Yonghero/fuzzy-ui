@@ -1,8 +1,8 @@
 <script setup>
 import { Plus, Close } from '@element-plus/icons-vue'
-// import FormGroup from './form-group.vue'
+import { ref } from 'vue'
 import { FYButton } from '../../button'
-import { useFormGroups } from './composable'
+import { useFormGroups } from './composable/useFormGroups'
 import tmpl from './template'
 
 defineOptions({
@@ -36,6 +36,14 @@ const {
   logical,
 } = useFormGroups()
 
+const formEl = ref()
+
+function submit() {
+  for (const El of formEl.value) {
+    El.validate()
+  }
+}
+
 // init here
 </script>
 
@@ -60,6 +68,7 @@ const {
       >
         <component
           :is="FormGroup"
+          ref="formEl"
           v-model:logical="logical"
           :index="i"
           :template="template"
@@ -68,12 +77,14 @@ const {
       </div>
       <div
         class="add-group"
-        @click="create"
       >
-        <el-icon color="var(--el-color-primary)">
+        <el-icon
+          color="var(--el-color-primary)"
+          @click="create"
+        >
           <Plus />
         </el-icon>
-        <span>新增筛选条件</span>
+        <span @click="create">新增筛选条件</span>
       </div>
     </div>
 
@@ -102,6 +113,7 @@ const {
           type="primary"
           size="large"
           style="font-size: 1rem;"
+          @click="submit"
         >
           确定
         </FYButton>
@@ -113,7 +125,7 @@ const {
 <style lang="scss">
 
 .fy-filter-panel-container{
-  width: 57.1429rem;
+  width: 56.1429rem;
   max-height: 30.3571rem;
   min-height: 12.1429rem;
 
@@ -158,10 +170,9 @@ const {
 
   .panel-body {
     max-height: 21.4286rem;
-    // width: 57.1429rem;
     overflow-y: auto;
     position: relative;
-    padding: 0.5rem 2rem 1rem;
+    padding: 0.5rem 1.5rem 1rem;
 
     .add-group {
       display: flex;
