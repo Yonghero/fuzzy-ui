@@ -12,4 +12,8 @@ export default defineConfig({
       utils: `${path.resolve(__dirname, '../packages/utils')}/`,
     },
   },
+  server: {
+    host: '10.4.99.100',
+    port: 5173,
+  },
 })

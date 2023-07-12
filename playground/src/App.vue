@@ -5,8 +5,9 @@ import SelectTest from './components/select-test.vue'
 import SwitchTest from './components/switch-test.vue'
 import LoadingTest from './components/loading-test.vue'
 import SkeletonTest from './components/skeleton-test.vue'
+import DialogTest from './components/dialog-test.vue'
 </script>
 
 <template>
-  <SkeletonTest />
+  <DialogTest />
 </template>
