@@ -1,13 +1,9 @@
 <script setup>
-
+import tmpl from './template'
 </script>
 
 <template>
   <div style="margin: 5rem">
-    <FYFilterPanel />
+    <FYFilterPanel :template="tmpl" />
   </div>
 </template>
-
-<style scoped lang='scss'>
-
-</style>

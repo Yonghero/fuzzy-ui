@@ -3,7 +3,6 @@ import { Plus, Close } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import { FYButton } from '../../button'
 import { useFormGroups } from './composable/useFormGroups'
-import tmpl from './template'
 
 defineOptions({
   name: 'FYFilterPanel',
@@ -12,7 +11,7 @@ defineOptions({
 defineProps({
   template: {
     type: Array,
-    default: () => (tmpl),
+    default: () => ([]),
   },
 })
 
