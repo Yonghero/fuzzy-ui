@@ -4,24 +4,26 @@ import {
 } from 'vue'
 
 const value = ref(true)
+
 const dialogConfig = ({
   formModelItems: [
     {
       type: 'input',
       label: 'input',
-      value: 'input',
+      value: 'input2',
     },
     {
       type: 'select',
       label: 'select',
-      value: 'select',
+      value: 'select2',
+
     },
-    {
-      type: 'createRangeDatePicker',
-      label: 'createRangeDatePicker',
-      value: 'createRangeDatePicker',
-    },
+
   ],
+})
+const formModel = ref({
+  input: '',
+  select: '',
 })
 </script>
 
@@ -30,5 +32,6 @@ const dialogConfig = ({
   <FYDialog
     v-model="value"
     :dialogConfig="dialogConfig"
+    :formModel="formModel"
   />
 </template>

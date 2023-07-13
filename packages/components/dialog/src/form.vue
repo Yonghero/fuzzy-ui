@@ -73,7 +73,7 @@ export default {
               prop={item.value}
               style={this.getFromStyle(item)}
             >
-              {this.getFormComponent(item.type)({ label: item.label })}
+              {this.getFormComponent(item.type)({ ...item, model: this.modelValue })}
             </ElFormItem>
           )))
     },

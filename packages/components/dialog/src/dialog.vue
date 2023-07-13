@@ -9,12 +9,16 @@ defineOptions({
   name: 'FYDialog',
 })
 
+const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
   modelValue: {
     type: Boolean,
     default: false,
   },
-
+  formModel: {
+    type: Object,
+    default: () => ({}),
+  },
   dialogConfig: {
     type: Object,
     default: () => ({
@@ -170,6 +174,7 @@ const getTitle = computed(() => {
 // }
 
 onMounted(() => {})
+
 const options1 = [
   {
     value: 'Option1',
@@ -188,32 +193,6 @@ const options1 = [
     label: 'Option4',
   },
 ]
-const formModelDemo = ref({
-  name: '234',
-  region: {
-    value: '',
-    options1: [
-      {
-        value: 'Option1',
-        label: 'Option1',
-      },
-      {
-        value: 'Option2',
-        label: 'Option2',
-      },
-      {
-        value: 'Option3',
-        label: 'Option3',
-      },
-      {
-        value: 'Option4',
-        label: 'Option4',
-      },
-    ],
-  },
-  switch2: '',
-
-})
 
 // init here
 </script>
@@ -409,7 +388,7 @@ const formModelDemo = ref({
         </el-form-item>
       </el-form> -->
       <Form
-        v-model="formModelDemo"
+        v-model="props.formModel"
         :formModelItems="dialogConfig.formModelItems"
       />
       <template #header>
