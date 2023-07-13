@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { Plus, Close } from '@element-plus/icons-vue'
 import { FYButton } from '../../button'
 import { useFormGroups } from './composable/useFormGroups'
@@ -8,14 +8,18 @@ defineOptions({
   name: 'FYFilterPanel',
 })
 
-defineProps({
+const props = defineProps({
   template: {
     type: Array,
     default: () => ([]),
   },
+  visible: {
+    type: Boolean,
+    default: false,
+  },
 })
 
-const emits = defineEmits(['submit', 'reset', 'cancel'])
+const emits = defineEmits(['submit', 'reset', 'cancel', 'update:visible'])
 
 /**
  * 第一项筛选必为 当
@@ -36,9 +40,18 @@ const {
   logical,
 } = useFormGroups()
 
+// 表单组组件实例Ref
 const formEl = ref()
 
-const popoverVisible = ref(false)
+// popover 受控模式
+const popoverVisible = computed({
+  get() {
+    return props.visible
+  },
+  set(value) {
+    emits('update:visible', value)
+  },
+})
 
 function cancel() {
   reset()
@@ -63,7 +76,7 @@ async function submit() {
 
 <template>
   <el-popover
-    v-model:visible="popoverVisible"
+    :visible="popoverVisible"
     :width="800"
     :show-arrow="false"
     trigger="click"

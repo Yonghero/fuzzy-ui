@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import FormGroup from '../form-group'
+import FormGroup from '../FormGroup'
 import { LOGICAL_MAPPER } from './constant'
 
 export function useFormGroups() {
