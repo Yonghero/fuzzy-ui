@@ -5,18 +5,25 @@
   }
 }
 
+html:not(.dark) {
+  --filter-panel-bg-color: #fff;
+}
+
+html.dark {
+  --filter-panel-bg-color: transparent
+}
+
 .fy-filter-panel-container{
   width: 56.1429rem;
   max-height: 30.3571rem;
   min-height: 12.1429rem;
 
-  background: #fff;
+  background: var(--filter-panel-bg-color);
   border-radius: 0.25rem;
   box-shadow: 0 0 1.1429rem #00000014;
-  border: .0714rem solid #eee;
   box-sizing: border-box;
   padding: .5rem 2rem;
-  color: #333;
+  color: var(--el-input-text-color, var(--el-text-color-regular));
 
   header {
     display: flex;

@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 使用指南
-      link: /guide/what-is-vitepress
+      link: /guide/install.html
     - theme: alt
       text: 源码贡献
       link: https://github.com/Yonghero/fuzzy-ui

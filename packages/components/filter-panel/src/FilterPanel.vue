@@ -54,7 +54,6 @@ const popoverVisible = computed({
 })
 
 function cancel() {
-  reset()
   emits('cancel')
   popoverVisible.value = false
 }
