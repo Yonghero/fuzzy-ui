@@ -18,8 +18,6 @@ defineProps({
 
 const emits = defineEmits(['submit', 'reset', 'cancel'])
 
-// const props = defineProps({})
-
 /**
  * 第一项筛选必为 当
  * 第二项筛选只能为 且 ｜ 或
@@ -54,7 +52,6 @@ async function submit() {
   console.log('🚀 ~ file: filter-panel.vue:43 ~ submit ~ result:', result)
 }
 
-// init here
 </script>
 
 <template>
@@ -138,74 +135,5 @@ async function submit() {
 </template>
 
 <style lang="scss">
-
-.fy-filter-panel-container{
-  width: 56.1429rem;
-  max-height: 30.3571rem;
-  min-height: 12.1429rem;
-
-  background: #fff;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 1.1429rem #00000014;
-  border: .0714rem solid #eee;
-  box-sizing: border-box;
-  padding: .5rem 2rem;
-  color: #333;
-
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 3.5714rem;
-    height: 3.5714rem;
-    border-top-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
-
-    h3 {
-      font-size: 1.2rem;
-      font-weight: 400;
-    }
-
-    .close-icon {
-      cursor: pointer;
-      display: flex;
-      padding: .5rem;
-      transition: background .2s ease-in-out,color .2s ease-in-out;
-
-      &:hover {
-        border-radius: 0.25rem;
-        background: rgba(102,152,255,.1);
-        .el-icon {
-          color: var(--el-color-primary);
-        }
-
-      }
-    }
-  }
-
-  .panel-body {
-    max-height: 21.4286rem;
-    overflow-y: auto;
-    position: relative;
-    padding: 0.5rem 1.5rem 1rem;
-
-    .add-group {
-      display: flex;
-      align-items: center;
-      color: var(--el-color-primary);
-      font-size: 1rem;
-      font-weight: 400;
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
-      }
-     }
-  }
-
-  .panel-footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-}
+@use "../../../theme-chalk/src/filter-panel/filter-panel.scss"
 </style>

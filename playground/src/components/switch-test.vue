@@ -1,7 +1,5 @@
 <script setup>
-import {
-  computed, useSlots, ref, defineEmits, watch,
-} from 'vue'
+import { ref } from 'vue'
 
 const value = ref(true)
 const change = (e) => {

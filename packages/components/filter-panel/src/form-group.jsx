@@ -7,7 +7,7 @@ import {
   LOGICAL_MAPPER, mapperToOptions,
   useFilter, useRelation, useForm,
 } from './composable'
-import './form-group.scss'
+import '@hitotek/fuzzy-ui-theme-chalk/src/filter-panel/form-group.scss'
 
 export default defineComponent({
   props: {

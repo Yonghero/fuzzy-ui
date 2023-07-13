@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "all components are settled here",
   "main": "./index.js",
-  "exports":{
+  "exports": {
     ".": {
       "import": "./index.js"
     }
   },
   "peerDependencies": {
-    "vue": "^3.2.6",
-    "element-plus": "^2.3.6"
+    "element-plus": "^2.3.6",
+    "vue": "^3.2.6"
   },
   "dependencies": {
+    "@hitotek/fuzzy-ui-theme-chalk": "workspace:^1.0.0",
     "@hitotek/fuzzy-ui-utils": "workspace:*"
   },
   "author": "younghero",
