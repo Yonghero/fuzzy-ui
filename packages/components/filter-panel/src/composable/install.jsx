@@ -2,7 +2,7 @@ import * as builtInFormItems from './builtIn-formItem'
 
 export const formItemMap = new Map()
 
-export function installFormItem(item) {
+export function installFilterPanelItem(item) {
   if (Array.isArray(item)) {
     for (const nape of item) {
       formItemMap.set(nape.type, nape.renderer)
@@ -13,4 +13,4 @@ export function installFormItem(item) {
 }
 
 // 安装内置组件
-installFormItem(Object.entries(builtInFormItems).map(([, value]) => value))
+installFilterPanelItem(Object.entries(builtInFormItems).map(([, value]) => value))
