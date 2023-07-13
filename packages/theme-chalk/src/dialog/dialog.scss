@@ -1,7 +1,14 @@
 @media (min-width: 992px) {
   .fy-dialog-wrap {
-    :deep(.el-dialog) {
-      width: 800px;
+    :deep(.fy-dialog-default) {
+      .el-dialog {
+        width: 800px;
+      }
+    }
+    :deep(.fy-dialog-small) {
+      .el-dialog {
+        width: 440px;
+      }
     }
   }
 }

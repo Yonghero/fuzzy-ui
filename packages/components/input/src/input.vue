@@ -31,7 +31,7 @@ const props = defineProps({
     default: 'text',
   },
   textarea: {
-    type: [Array, String],
+    type: [Array, String, Boolean],
     default: undefined,
   },
   flex: {
@@ -59,7 +59,7 @@ const getAutosize = computed(() => {
   if (props.textarea && props.textarea.length) {
     return { minRows: props.textarea[0], maxRows: props.textarea[1] }
   }
-  if (props.textarea === '') {
+  if (props.textarea === '' || props.textarea) {
     return { minRows: 2, maxRows: 4 }
   }
   return false

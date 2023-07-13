@@ -1,8 +1,9 @@
 <script setup>
 import {
-  computed, nextTick, onMounted, reactive,
+  computed, onMounted, reactive, ref,
 } from 'vue'
 import { ElDialog } from 'element-plus'
+import Form from './form.vue'
 
 defineOptions({
   name: 'FYDialog',
@@ -13,34 +14,51 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  title: {
-    type: String,
-    default: '',
+
+  dialogConfig: {
+    type: Object,
+    default: () => ({
+      title: {
+        type: String,
+        default: '',
+      },
+      fullTitle: {
+        type: String,
+        default: '',
+      },
+      modalClass: {
+        type: String,
+        default: '',
+      },
+
+      closeOnClickModal: {
+        type: Boolean,
+        default: false,
+      },
+      labelPosition: {
+        type: String,
+        default: 'top',
+      },
+      formModelItems: {
+        type: Array,
+        default: () => [
+        ],
+      },
+      dialogType: {
+        type: String,
+        default: '',
+      },
+      type: {
+        type: String,
+        default: 'create',
+      },
+      labelWidth: {
+        type: [String, Number],
+        default: '',
+      },
+    }),
   },
-  type: {
-    type: String,
-    default: 'create',
-  },
-  fullTitle: {
-    type: String,
-    default: '',
-  },
-  modalClass: {
-    type: String,
-    default: '',
-  },
-  dialogType: {
-    type: String,
-    default: '',
-  },
-  closeOnClickModal: {
-    type: Boolean,
-    default: false,
-  },
-  labelPosition: {
-    type: String,
-    default: 'top',
-  },
+
 })
 const cascaderOptions = [
   {
@@ -99,14 +117,19 @@ const formModel = reactive({
 })
 const getModalClass = computed(() => {
   const target = []
-  if (props.dialogType === 'super') {
+  if (props.dialogConfig.dialogType === 'super') {
     target.push('fy-dialog-super')
   }
-  if (props.dialogType === 'max') {
+  if (props.dialogConfig.dialogType === 'max') {
     target.push('fy-dialog-max')
   }
-  if (props.modalClass) {
+  if (props.dialogConfig.modalClass) {
     target.push(props.modalClass)
+  }
+  if (props.dialogConfig.formModelItems.length >= 4) {
+    target.push('fy-dialog-default')
+  } else {
+    target.push('fy-dialog-small')
   }
   return target.join(' ')
 })
@@ -165,12 +188,39 @@ const options1 = [
     label: 'Option4',
   },
 ]
+const formModelDemo = ref({
+  name: '234',
+  region: {
+    value: '',
+    options1: [
+      {
+        value: 'Option1',
+        label: 'Option1',
+      },
+      {
+        value: 'Option2',
+        label: 'Option2',
+      },
+      {
+        value: 'Option3',
+        label: 'Option3',
+      },
+      {
+        value: 'Option4',
+        label: 'Option4',
+      },
+    ],
+  },
+  switch2: '',
+
+})
+
 // init here
 </script>
 
 <template>
   <div class="fy-dialog-wrap">
-    <el-dialog
+    <!-- <el-dialog
       :model-value="props.modelValue"
       :title="getTitle"
       :modal-class="getModalClass"
@@ -286,6 +336,82 @@ const options1 = [
           />
         </el-form-item>
       </el-form>
+      <template #header>
+        <slot name="header" />
+      </template>
+      <template #footer>
+        <slot name="footer">
+          <FYButton
+            type="primary"
+            style="
+              width: 112px;
+              height: 42px;
+              padding: 10px 32px;
+              margin-left: 16px;
+            "
+          >
+            确定
+          </FYButton>
+          <FYButton
+            type="info"
+            text
+            link
+            style="padding: 0;"
+          >
+            取消
+          </FYButton>
+        </slot>
+      </template>
+    </el-dialog> -->
+    <el-dialog
+      :model-value="props.modelValue"
+      :title="getTitle"
+      :modal-class="getModalClass"
+      :close-on-click-modal="props.closeOnClickModal"
+    >
+      <!-- <el-form
+        :label-position="props.labelPosition"
+        :model="formModel"
+      >
+        <el-form-item
+          label="Name"
+          :style="{ flex: '0 0 98%' }"
+        >
+          <FYInput
+            v-model="formModel.name"
+            placeholder="输入迭代名称"
+            limit="255"
+          />
+        </el-form-item>
+        <el-form-item
+          label="Activity zone"
+          :style="{ flex: '0 0 98%'}"
+        >
+          <FYSelect
+            v-model="formModel.region"
+            :options="options1"
+          />
+        </el-form-item>
+        <el-form-item
+          label="Activity form"
+          :style="{ flex: '0 0 98%' }"
+        >
+          <FYSwitch v-model="formModel.switch2" />
+        </el-form-item>
+        <el-form-item
+          label="Activity form"
+          :style="{ flex: '0 0 98%' }"
+        >
+          <FYInput
+            v-model="formModel.switch2"
+            textarea
+          />
+        </el-form-item>
+      </el-form> -->
+      <Form
+        v-model="formModelDemo"
+        :formModelItems="dialogConfig.formModelItems"
+      />
       <template #header>
         <slot name="header" />
       </template>
