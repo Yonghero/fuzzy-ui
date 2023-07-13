@@ -16,6 +16,8 @@ defineProps({
   },
 })
 
+const emits = defineEmits(['submit', 'reset', 'cancel'])
+
 // const props = defineProps({})
 
 /**
@@ -33,15 +35,23 @@ const {
   create,
   remove,
   renderer,
+  reset,
   logical,
 } = useFormGroups()
 
 const formEl = ref()
 
-function submit() {
-  for (const El of formEl.value) {
-    El.validate()
+async function submit() {
+  const result = []
+
+  for await (const El of formEl.value) {
+    const data = await El.validate()
+    result.push(data)
   }
+
+  emits('submit', result)
+
+  console.log('🚀 ~ file: filter-panel.vue:43 ~ submit ~ result:', result)
 }
 
 // init here
@@ -95,6 +105,7 @@ function submit() {
         link
         size="large"
         style="font-size: 1rem"
+        @click="reset"
       >
         重置
       </FYButton>
@@ -106,6 +117,10 @@ function submit() {
           size="large"
           link
           style="font-size: 1rem;"
+          @click="() => {
+            reset()
+            emits('cancel')
+          }"
         >
           取消
         </FYButton>

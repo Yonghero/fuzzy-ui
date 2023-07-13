@@ -23,6 +23,9 @@ export function useFormGroups() {
         rendererSet.value.splice(rendererSet.value.length - 1, 1)
       }
     },
+    reset() {
+      rendererSet.value = []
+    },
     renderer() {
       return rendererSet.value
     },

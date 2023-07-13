@@ -65,7 +65,34 @@ export default defineComponent({
       FormItem,
     } = useForm(filterItem)
 
-    ctx.expose({ validate })
+    // 数据结构调整
+    async function wrappedValidate() {
+      await validate()
+
+      const field = filterItem.value.value
+
+      /**
+       * @example
+       * {
+       *    person: {
+       *      value: 'younghero',
+       *      relation: 'is',
+       *      logical: '&'
+       *    }
+       * }
+       */
+
+      return {
+        [field]: {
+          value: model.value[field], // 字段值
+          relation: relationValue.value, // 关系运算值
+          logical: isWhen.value ? 'when' : logicalSelf.value, // 逻辑运算值
+        },
+      }
+    }
+
+    // 向外提供表单组校验
+    ctx.expose({ validate: wrappedValidate })
 
     return () => (
       <div class="conditions-group-content form-group">
@@ -100,7 +127,6 @@ export default defineComponent({
                 class="shorted-select"
                 placeholder="请选择"
               />
-
               <div class="form-dynamic">
                 <el-form
                   ref={formEl}
@@ -108,7 +134,6 @@ export default defineComponent({
                   rules={rules.value}
                   inline
                 >
-
                   <el-form-item prop={filterItem.value.value}>
                     <FormItem.value {...formItemProps.value} model={model.value} />
                   </el-form-item>
@@ -117,7 +142,6 @@ export default defineComponent({
 
             </div>
           </div>
-
             <div
               class="delete-icon"
               onClick={() => (ctx.emit('remove'))}

@@ -14,28 +14,35 @@ export function useForm(filterItem) {
     }
   })
 
+  // 表单Ref组件
   const formEl = ref()
 
+  // 动态组件
   const FormItem = useFormItem(filterItem)
   const formItemProps = computed(() => filterItem.value)
 
-  watch(filterItem, (value, oldValue) => {
-    if (value === oldValue) return
-    model.value = { [filterItem.value.value]: '' }
-    // model.value = { [filterItem.value.value]: filterItem.value.defaultValue || '' }
-  }, { immediate: true })
+  // 监听当前查询字段 动态修改表单绑定数据
+  watch(
+    filterItem,
+    (value, oldValue) => {
+      if (value === oldValue) return
+      // model.value = { [filterItem.value.value]: '' }
+      model.value = { [filterItem.value.value]: filterItem.value.defaultValue || '' }
+    },
+
+    { immediate: true },
+  )
+
+  const validateFailedValue = Promise.resolve({})
 
   async function validate() {
     if (formEl.value) {
-      await formEl.value.validate((valid, fields) => {
-        if (valid) {
-          console.log('submit!')
-          console.log(model.value)
-        } else {
-          console.log('error submit!', fields)
-        }
-      })
+      // 通过校验
+      await formEl.value.validate()
+      // 返回表单绑定数据
+      return model.value
     }
+    return validateFailedValue
   }
 
   return {

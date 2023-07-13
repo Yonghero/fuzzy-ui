@@ -11,12 +11,14 @@ export function installFormItem(item) {
 installFormItem({
   type: 'select',
   renderer(props) {
-    return (<FYSelect
-              style="width: 300px"
-              placeholder={`请选择${props.label}`}
-              {...props}
-              v-model={props.model[props.value]}
-          />)
+    return (
+      <FYSelect
+        style="width: 300px"
+        placeholder={`请选择${props.label}`}
+        {...props}
+        v-model={props.model[props.value]}
+      />
+    )
   },
 })
 
@@ -52,6 +54,7 @@ installFormItem({
           style="flex:1:width: 180px"
           placeholder="请选择"
           {...props}
+          type="date"
           v-model={props.model[props.value]}
         />
       </div>
