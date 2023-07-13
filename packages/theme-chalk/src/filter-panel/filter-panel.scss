@@ -1,3 +1,10 @@
+.filter-panel-popover {
+  &.el-popper {
+    padding: 0!important;
+    border: none!important;
+  }
+}
+
 .fy-filter-panel-container{
   width: 56.1429rem;
   max-height: 30.3571rem;

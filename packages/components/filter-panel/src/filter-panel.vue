@@ -65,8 +65,8 @@ async function submit() {
   <el-popover
     v-model:visible="popoverVisible"
     :width="800"
-    trigger="click"
     :show-arrow="false"
+    trigger="click"
     placement="bottom-end"
     popper-class="filter-panel-popover"
     popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 20px;"
@@ -159,12 +159,5 @@ async function submit() {
 <style lang="scss">
 
 @use "../../../theme-chalk/src/filter-panel/filter-panel.scss";
-
-.filter-panel-popover {
-  &.el-popper {
-    padding: 0!important;
-    border: none!important;
-  }
-}
 
 </style>
