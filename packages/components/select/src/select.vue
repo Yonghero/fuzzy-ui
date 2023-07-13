@@ -7,7 +7,7 @@ import {
 } from 'element-plus'
 import { Lock, User } from '@element-plus/icons-vue'
 import {
-  computed, useSlots, ref, defineEmits, watch,
+  computed, useSlots, ref, watch,
 } from 'vue'
 import { getRandomColor } from '@hitotek/fuzzy-ui-utils'
 
