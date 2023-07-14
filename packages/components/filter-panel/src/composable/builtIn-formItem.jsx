@@ -11,7 +11,6 @@ export const Select = {
           placeholder={`请选择${props.label}`}
           {...props}
           v-model={props.model[props.value]}
-          teleported={false}
           placement="bottom-start"
         />
     )
@@ -33,8 +32,7 @@ export const DatePicker = {
       <div style="width: 100%; display: flex; column-gap: 0.5rem;">
         <FYSelect
           v-model={checkValue.value}
-          style="flex:1;width: 120px"
-          teleported={false}
+          style="width: 120px"
           onChange={(v) => {
             // eslint-disable-next-line no-nested-ternary
             props.model[props.value] = v === 2
@@ -48,12 +46,11 @@ export const DatePicker = {
           ]}/>
 
         <FYDatePicker
-          style="flex:1:width: 180px"
+          style="width: 180px"
           placeholder="请选择"
           {...props}
           type="date"
           v-model={props.model[props.value]}
-          teleported={false}
         />
       </div>
     )
