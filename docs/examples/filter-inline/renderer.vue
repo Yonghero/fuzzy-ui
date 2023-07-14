@@ -1,19 +1,43 @@
-<script setup>
-import { FYFilterInline } from '@hitotek/fuzzy-ui-components'
+<script setup lang="jsx">
+import {
+  FYFilterInline,
+  installFilterInlineItem,
+} from '@hitotek/fuzzy-ui-components'
 import { ref } from 'vue'
 
 const loading = ref(false)
 
+// 方式一, 导入安装组件工具函数, 传递如下组件配置
+installFilterInlineItem({
+  type: 'diySelect',
+  renderer(props) {
+    return (
+      <FYSelect
+        placeholder={`请选择${props.label}`}
+        {...props}
+        v-model={props.model[props.value]}
+        placement="bottom-start"
+      />
+    )
+  },
+})
+
+// 方式二, 给定自定义类型和自定义render组件
 const tmpl = [
   {
     label: '负责人',
     type: 'input',
-    value: '',
-    defaultValue: 1,
+    value: 'lew',
+    defaultValue: '李恩伟',
+    render(props) {
+      return (
+        <FYInput v-model={props.model[props.value]}/>
+      )
+    },
   },
   {
     label: '创建人',
-    type: 'select',
+    type: 'diySelect',
     value: 'createperson',
     defaultValue: 2,
     options: [{ label: '李校长', value: 1 }, { label: '王美丽', value: 2 }],

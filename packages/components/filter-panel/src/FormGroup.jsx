@@ -135,7 +135,9 @@ export default defineComponent({
                   inline
                 >
                   <el-form-item prop={filterItem.value.value}>
-                    <FormItem.value {...formItemProps.value} model={model.value} />
+                    <div style="width: 300px">
+                      <FormItem.value {...formItemProps.value} model={model.value} />
+                    </div>
                   </el-form-item>
                 </el-form>
               </div>

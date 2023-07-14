@@ -22,7 +22,10 @@ const disabledDate = useDisabledDate(props)
 </script>
 
 <template>
-  <div class="fy-date-picker">
+  <div
+    class="fy-date-picker"
+    style="width: 100%"
+  >
     <el-date-picker
       type="monthrange"
       range-separator="To"

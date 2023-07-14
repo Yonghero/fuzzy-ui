@@ -7,7 +7,7 @@ export const Select = {
   renderer(props) {
     return (
         <FYSelect
-          style="width: 300px"
+          // style="width: 300px"
           placeholder={`请选择${props.label}`}
           {...props}
           v-model={props.model[props.value]}
