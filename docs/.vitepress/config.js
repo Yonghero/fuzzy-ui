@@ -41,10 +41,11 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Form 表单组件',
+          text: 'Assembly 组合组件',
           collapsed: true,
           items: [
-            { text: 'Button 按钮', link: '/components/button' },
+            { text: 'FilterPanel 查询面板', link: '/components/filter-panel' },
+            { text: 'FilterInline 内联查询面板', link: '/components/filter-inline' },
           ]
         },
         {

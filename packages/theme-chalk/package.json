@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "all theme css are settled here",
   "main": "src/index.scss",
+  "export": {
+    ".": {
+      "import": "./src/index.scss"
+    },
+    "./src": {
+      "import": "./src"
+    }
+  },
   "type": "module",
   "scripts": {
     "build:rollup": "rollup --config"

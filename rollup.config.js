@@ -60,7 +60,7 @@ export default defineConfig({
     babel({
       babelHelpers: 'bundled',
       exclude: 'node_modules/**',
-      presets: ['@babel/preset-env', '@vue/babel-preset-jsx', '@babel/preset-react'],
+      presets: ['@babel/preset-env'],
       extensions: ['.js', '.vue', '.jsx', '.svg'],
     }),
   ],

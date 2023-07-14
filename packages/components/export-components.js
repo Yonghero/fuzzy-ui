@@ -7,6 +7,11 @@ export * from './time-line/index.js'
 export * from './progress/index.js'
 export * from './select/index.js'
 export * from './switch/index.js'
+export * from './filter-panel/index.js'
 export * from './loading/index.js'
 export * from './skeleton/index.js'
+<<<<<<< HEAD
 export * from './dialog/index.js'
+=======
+export * from './filter-inline/index.js'
+>>>>>>> main

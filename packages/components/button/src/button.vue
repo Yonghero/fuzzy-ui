@@ -26,9 +26,9 @@ const handleClick = () => {
       emits('click')
     }
     record.value = new Date().getTime()
+  } else {
+    emits('click')
   }
-
-  emits('click')
 }
 
 </script>
