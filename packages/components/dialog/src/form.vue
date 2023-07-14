@@ -7,6 +7,14 @@ export default {
       type: Array,
       default: () => [],
     },
+    labelPosition: {
+      type: String,
+      default: 'top',
+    },
+    labelWidth: {
+      type: String,
+      default: 'auto',
+    },
     modelValue: {
       type: Object,
       default: () => ({}),
@@ -65,13 +73,13 @@ export default {
     initFormItems(list) {
       return list
         .filter((item) => !item.filterUnShow)
-        .map((item) => (item.show === false ? null
+        .map((item, index) => (item.show === false ? null
           : (
             <ElFormItem
               label={item.label}
               key={item.value}
               prop={item.value}
-              style={this.getFromStyle(item)}
+              style={this.getFromStyle(item, index)}
             >
               {this.getFormComponent(item.type)({ ...item, model: this.modelValue })}
             </ElFormItem>
@@ -80,7 +88,9 @@ export default {
   },
   render() {
     return (
-      <el-form label-position={'top'} model={this.modelValue}>
+      <el-form label-position={this.labelPosition} model={this.modelValue}
+        labelWidth={this.labelWidth}
+      >
         {this.initFormItems(this.formModelItems)}
       </el-form>
     )

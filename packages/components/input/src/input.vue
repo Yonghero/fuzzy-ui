@@ -42,6 +42,8 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  value: {
+  },
 })
 const slot = useSlots()
 const getClass = computed(() => [
@@ -95,7 +97,7 @@ const switchChange = () => {
 <template>
   <div class="fy-input-wrap">
     <el-input
-      v-bind="$attrs"
+      v-bind="($attrs)"
       :class="getClass"
       :placeholder="props.placeholder"
       :show-word-limit="!!props.limit"

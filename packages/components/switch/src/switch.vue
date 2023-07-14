@@ -7,9 +7,12 @@ defineOptions({
   name: 'FYSwitch',
 })
 const props = defineProps({
+  value: {
+
+  },
   modelValue: {
-    type: null,
-    default: null,
+    type: [Boolean, String, Number],
+    default: false,
   },
   activeValue: {
     type: [Boolean, String, Number],
@@ -67,6 +70,7 @@ const getInActiveValue = computed(() => {
   return false
 })
 const emitChange = async (e) => {
+  console.log('变化了')
   // if (props.cb instanceof Promise) {
   //   console.log('进入promise')
   //   props.cb.then((v) => {
@@ -82,6 +86,7 @@ const emitChange = async (e) => {
   //   })
   // } else
   if (isAsyncFunction(props.cb)) {
+    console.log('进入了1')
     try {
       await props.cb()
       nextTick(() => {
@@ -99,6 +104,7 @@ const emitChange = async (e) => {
       emit('change', e)
     }
   } else if (typeof props.cb === 'function') {
+    console.log('进入了2')
     try {
       props.cb()
       nextTick(() => {
@@ -116,6 +122,7 @@ const emitChange = async (e) => {
       emit('change', e)
     }
   } else {
+    console.log('进入了3')
     nextTick(() => {
       ElMessage(getDefaultMsg.value)
       emit('change', e)

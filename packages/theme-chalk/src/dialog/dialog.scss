@@ -143,6 +143,7 @@
     div.el-form-item {
       width: 0;
       box-sizing: border-box;
+      padding-right: 15px;
       &:not(:last-of-type) {
         margin-bottom: 16px;
       }

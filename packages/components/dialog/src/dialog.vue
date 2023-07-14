@@ -130,7 +130,7 @@ const getModalClass = computed(() => {
   if (props.dialogConfig.modalClass) {
     target.push(props.modalClass)
   }
-  if (props.dialogConfig.formModelItems.length >= 4) {
+  if (props.dialogConfig.formModelItems.length >= 5) {
     target.push('fy-dialog-default')
   } else {
     target.push('fy-dialog-small')
@@ -138,10 +138,10 @@ const getModalClass = computed(() => {
   return target.join(' ')
 })
 const getTitle = computed(() => {
-  if (props.fullTitle) {
-    return props.fullTitle
+  if (props.dialogConfig.fullTitle) {
+    return props.dialogConfig.fullTitle
   }
-  if (props.title) {
+  if (props.dialogConfig.title) {
     let type
     switch (props.type) {
       case 'create':
@@ -157,7 +157,7 @@ const getTitle = computed(() => {
         type = '新建'
         break
     }
-    return `${type}${props.title}`
+    return `${type}${props.dialogConfig.title}`
   }
   return ''
 })
@@ -389,7 +389,9 @@ const options1 = [
       </el-form> -->
       <Form
         v-model="props.formModel"
-        :formModelItems="dialogConfig.formModelItems"
+        :labelPosition="props.dialogConfig.labelPosition"
+        :labelWidth="props.dialogConfig.labelWidth"
+        :formModelItems="props.dialogConfig.formModelItems"
       />
       <template #header>
         <slot name="header" />
