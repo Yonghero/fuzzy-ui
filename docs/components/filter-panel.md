@@ -3,7 +3,6 @@ layout: doc
 ---
 # PingCode 同款查询面板
 
-
 ## 基本使用
 
 核心是传递 `template` 配置项  [配置字段的类型参考](https://github.com/Yonghero/fuzzyjs/blob/monorepo/types/options.ts)
@@ -19,6 +18,10 @@ layout: doc
 :::demo
 filter-panel/basic
 :::
+
+
+## 组件扩展
+
 
 
 ## Event
