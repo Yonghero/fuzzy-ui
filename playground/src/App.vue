@@ -3,10 +3,11 @@ import ButtonTest from './components/button-test.vue'
 import InputTest from './components/input-test.vue'
 import SelectTest from './components/select-test.vue'
 import SwitchTest from './components/switch-test.vue'
-import FilterPanelTest from './components/filter-panel/inline.vue'
-
+import LoadingTest from './components/loading-test.vue'
+import SkeletonTest from './components/skeleton-test.vue'
+import DialogTest from './components/dialog-test.vue'
 </script>
 
 <template>
-  <FilterPanelTest />
+  <DialogTest />
 </template>

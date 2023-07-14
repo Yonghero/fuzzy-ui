@@ -31,7 +31,7 @@ const props = defineProps({
     default: 'text',
   },
   textarea: {
-    type: [Array, String],
+    type: [Array, String, Boolean],
     default: undefined,
   },
   flex: {
@@ -41,6 +41,8 @@ const props = defineProps({
   filterList: {
     type: Array,
     default: () => [],
+  },
+  value: {
   },
 })
 const slot = useSlots()
@@ -59,7 +61,7 @@ const getAutosize = computed(() => {
   if (props.textarea && props.textarea.length) {
     return { minRows: props.textarea[0], maxRows: props.textarea[1] }
   }
-  if (props.textarea === '') {
+  if (props.textarea === '' || props.textarea) {
     return { minRows: 2, maxRows: 4 }
   }
   return false
@@ -95,7 +97,7 @@ const switchChange = () => {
 <template>
   <div class="fy-input-wrap">
     <el-input
-      v-bind="$attrs"
+      v-bind="($attrs)"
       :class="getClass"
       :placeholder="props.placeholder"
       :show-word-limit="!!props.limit"
