@@ -1,5 +1,5 @@
 import { withInstall } from '@hitotek/fuzzy-ui-utils'
-import FilterInline from './src/filter-inline'
+import FilterInline from './src/FilterInline'
 
 export * from './src/composable'
 
