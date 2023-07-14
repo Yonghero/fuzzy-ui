@@ -1,4 +1,11 @@
 <script setup>
+
+/**
+ * @author younghero
+ * @Date 2023-7-13 10:52
+ * @description pingcode 同款查询面板
+ */
+
 import { ref, computed } from 'vue'
 import { Plus, Close } from '@element-plus/icons-vue'
 import { FYButton } from '../../button'
