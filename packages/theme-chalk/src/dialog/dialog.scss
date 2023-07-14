@@ -125,7 +125,7 @@
       display: flex;
       border: 0;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 16px 40px;
       flex-direction: row-reverse;
     }
     .el-form-item__label {
@@ -139,11 +139,11 @@
     .el-form {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
     div.el-form-item {
       width: 0;
       box-sizing: border-box;
-      padding-right: 15px;
       &:not(:last-of-type) {
         margin-bottom: 16px;
       }

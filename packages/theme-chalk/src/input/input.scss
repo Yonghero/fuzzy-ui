@@ -2,6 +2,7 @@
 @import '../../../theme-chalk/src/theme-light.scss';
 // 圆角
 .fy-input {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   &.round {

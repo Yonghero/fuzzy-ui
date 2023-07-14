@@ -9,7 +9,7 @@ defineOptions({
   name: 'FYDialog',
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'submit', 'fail', 'cancel'])
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -22,44 +22,15 @@ const props = defineProps({
   dialogConfig: {
     type: Object,
     default: () => ({
-      title: {
-        type: String,
-        default: '',
-      },
-      fullTitle: {
-        type: String,
-        default: '',
-      },
-      modalClass: {
-        type: String,
-        default: '',
-      },
-
-      closeOnClickModal: {
-        type: Boolean,
-        default: false,
-      },
-      labelPosition: {
-        type: String,
-        default: 'top',
-      },
-      formModelItems: {
-        type: Array,
-        default: () => [
-        ],
-      },
-      dialogType: {
-        type: String,
-        default: '',
-      },
-      type: {
-        type: String,
-        default: 'create',
-      },
-      labelWidth: {
-        type: [String, Number],
-        default: '',
-      },
+      title: '',
+      fullTitle: '',
+      modalClass: '',
+      closeOnClickModal: false,
+      labelPosition: 'top',
+      formModelItems: [],
+      dialogType: '',
+      type: 'create',
+      labelWidth: '',
     }),
   },
 
@@ -193,8 +164,30 @@ const options1 = [
     label: 'Option4',
   },
 ]
+const formRef = ref(null)
+const submit = () => {
+  formRef.value.validate()
+}
+const handleSubmit = (e) => {
+  console.log('dialog接收到了form')
+  emit('submit', props.formModel)
+}
+const handleSubmitFail = (e) => {
+  emit('fail', props.formModel)
+}
+const cancel = () => {
+  formRef.value.resetFields()
+  emit('update:modelValue', false)
+  emit('cancel', props.formModel)
+}
+const closeFn = () => {
 
-// init here
+}
+const closedFn = () => {
+  emit('update:modelValue', false)
+  formRef.value.resetFields()
+}
+
 </script>
 
 <template>
@@ -343,10 +336,12 @@ const options1 = [
       </template>
     </el-dialog> -->
     <el-dialog
+      v-bind="$attrs"
       :model-value="props.modelValue"
       :title="getTitle"
       :modal-class="getModalClass"
-      :close-on-click-modal="props.closeOnClickModal"
+      @close="closeFn"
+      @closed="closedFn"
     >
       <!-- <el-form
         :label-position="props.labelPosition"
@@ -388,10 +383,13 @@ const options1 = [
         </el-form-item>
       </el-form> -->
       <Form
+        ref="formRef"
         v-model="props.formModel"
         :labelPosition="props.dialogConfig.labelPosition"
         :labelWidth="props.dialogConfig.labelWidth"
         :formModelItems="props.dialogConfig.formModelItems"
+        @submit="handleSubmit"
+        @fail="handleSubmitFail"
       />
       <template #header>
         <slot name="header" />
@@ -406,6 +404,7 @@ const options1 = [
               padding: 10px 32px;
               margin-left: 16px;
             "
+            @click="submit"
           >
             确定
           </FYButton>
@@ -414,6 +413,7 @@ const options1 = [
             text
             link
             style="padding: 0;"
+            @click="cancel"
           >
             取消
           </FYButton>

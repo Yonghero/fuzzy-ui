@@ -1,9 +1,27 @@
+<template>
+  <div style="margin: 20px">
+    <div class="mb-4">
+      <button @click="switchValue">
+        打开对话框
+      </button>
+      <FYDialog
+        v-model="value"
+        :dialogConfig="dialogConfig"
+        :formModel="formModel"
+        :close-on-click-modal="false"
+        @submit="handleSubmit"
+        @fail="handleFail"
+        @cancel="handleCancel"
+      />
+    </div>
+  </div>
+</template>
 <script setup>
 import {
   ref,
 } from 'vue'
 
-const value = ref(true)
+const value = ref(false)
 
 const dialogConfig = ({
   title: '测试计划',
@@ -343,19 +361,8 @@ const switchValue = () => {
 }
 
 </script>
-
-<template>
-  <p>dialog外壳</p>
-  <button @click="switchValue">
-    切换打开
-  </button>
-  <FYDialog
-    v-model="value"
-    :dialogConfig="dialogConfigDefault"
-    :formModel="formModel"
-    :close-on-click-modal="false"
-    @submit="handleSubmit"
-    @fail="handleFail"
-    @cancel="handleCancel"
-  />
-</template>
+<style>
+.mb-4 {
+  margin-bottom: 20px;
+}
+</style>
