@@ -1,0 +1,55 @@
+html:not(.dark)
+  --trigger-target-color: rgb(239, 244, 255)
+
+html.dark
+  --trigger-target-color: rgb(46 49 55)
+  
+.fy-filter-display-wrap
+  display: flex
+  column-gap: .3rem
+  align-items: center
+  .display-item
+    font-size: 1rem
+    display: flex
+    column-gap: .35rem
+    padding: .4714rem .5714rem
+    align-items: center
+    position: relative
+    border-radius: 0.25rem
+    transition: background .2s ease-in-out,color .2s ease-in-out
+    background: transparent
+    cursor: pointer
+    color: #666
+
+    &:hover, &.active
+      color: #6698ff
+      background: rgba(102,152,255,.1)
+
+    .badge
+      color: rgb(102, 152, 255)
+      background-color: var(--trigger-target-color)
+      border-radius: 50%
+      text-align: center
+      white-space: nowrap
+      min-width: 1rem
+      height: 1rem
+      border-radius: 1rem
+      line-height: 1rem
+      font-size: .75rem
+      padding: 0 4px
+   
+.filter-display-item-popover
+  .popover-content
+    min-height: 4.2857rem
+    max-height: 18.5714rem
+    display: flex
+    flex-direction: column
+    position: relative
+    .checked
+      position: relative
+      bottom: -0.8571rem
+      padding: .8571rem 0
+      width: 100%
+      display: flex
+      align-items: center
+      border-top: 1px solid var(--trigger-target-color)

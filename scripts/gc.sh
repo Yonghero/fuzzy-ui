@@ -3,6 +3,7 @@
 NAME=$1
 
 FILE_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")/../packages" && pwd)
+DOCS_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")/../docs" && pwd)
 
 re="[[:space:]]+"
 
@@ -11,8 +12,12 @@ if [ "$#" -ne 1 ] || [[ $NAME =~ $re ]] || [ "$NAME" == "" ]; then
   exit 1
 fi
 
+# 开发组件路径
 DIRNAME="$FILE_PATH/components/$NAME"
 DIRNAMESRC="$FILE_PATH/components"
+# 撰写文档路径
+DOCS_DIRNAME="$DOCS_PATH/components"
+DOCS_EXNAME="$DOCS_PATH/examples/$NAME"
 
 INPUT_NAME=$NAME
 
@@ -61,3 +66,39 @@ export * from './src/$INPUT_NAME.vue'
 EOF
 
 echo "export * from './$INPUT_NAME/index.js'">>"$DIRNAMESRC/export-components.js"
+
+
+# 文档
+cat > $DOCS_DIRNAME/$INPUT_NAME.md <<EOF
+---
+layout: doc
+---
+
+# $NAME
+
+## 基本使用
+
+:::demo
+$NAME/basic
+:::
+
+EOF
+
+# 文档实例
+mkdir -p "$DOCS_EXNAME"
+
+cat > $DOCS_EXNAME/basic.vue <<EOF
+<script setup>
+import { FY$NAME } from '@hitotek/fuzzy-ui-components'
+
+</script>
+
+<template>
+  <div style="margin: 1rem">
+    <FY$NAME />
+  </div>
+</template>
+EOF
+
+
+
