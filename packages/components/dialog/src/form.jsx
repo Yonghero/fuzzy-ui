@@ -1,4 +1,4 @@
-import { defineComponent, ref, watch } from 'vue'
+import { defineComponent, ref, watch, computed } from 'vue'
 import { ElForm, ElFormItem } from 'element-plus'
 import { formItemMap } from './composable/install'
 
@@ -122,7 +122,28 @@ export default defineComponent({
             // eslint-disable-next-line
           )
         )
-
+    const FormItem = computed(() => {
+      const renderer = props.template
+        .filter((item) => !item.filterUnShow)
+        .map((item, index) =>
+          item.show === false ? null : (
+            <ElFormItem
+              label={item.label}
+              key={item.value}
+              prop={item.value}
+              style={getFromStyle(item, index)}
+            >
+              {getFormComponent(item.type)({
+                ...item,
+                model: props.modelValue,
+              })}
+            </ElFormItem>
+            // eslint-disable-next-line
+          )
+        )
+      console.log(renderer, 'renderer')
+      return renderer || <div />
+    })
     expose({
       resetFields,
       validate,
@@ -138,7 +159,7 @@ export default defineComponent({
         ref={realFormRef}
         {...attrs}
       >
-        {initFormItems(props.template)}
+        <FormItem.value />
       </el-form>
     )
   },
