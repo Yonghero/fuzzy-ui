@@ -1,47 +1,41 @@
 {
-  "hash": "1fa1e6bd",
-  "browserHash": "8b6b3285",
+  "hash": "c1033feb",
+  "browserHash": "24f5bc7a",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "4828f50a",
+      "fileHash": "16877516",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@6.5.0/node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "e6bd6af6",
+      "fileHash": "101bc6e2",
       "needsInterop": false
     },
     "element-plus": {
-      "src": "../../../../node_modules/.pnpm/element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/es/index.mjs",
+      "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "84a2c178",
+      "fileHash": "80923e7f",
       "needsInterop": false
-    },
-    "element-plus/lib/locale/lang/zh-cn": {
-      "src": "../../../../node_modules/.pnpm/element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/lib/locale/lang/zh-cn.js",
-      "file": "element-plus_lib_locale_lang_zh-cn.js",
-      "fileHash": "2209cd84",
-      "needsInterop": true
     },
     "@element-plus/icons-vue": {
       "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.1.0_vue@3.3.4/node_modules/@element-plus/icons-vue/dist/index.js",
       "file": "@element-plus_icons-vue.js",
-      "fileHash": "a03c9567",
+      "fileHash": "4f1ce4a7",
       "needsInterop": false
     },
     "element-plus/dist/locale/zh-cn.mjs": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.7_vue@3.3.4/node_modules/element-plus/dist/locale/zh-cn.mjs",
       "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "693876e7",
+      "fileHash": "640ba369",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0_vue@3.3.4/node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "38f3669f",
+      "fileHash": "8fb951b6",
       "needsInterop": false
     }
   },
@@ -49,8 +43,8 @@
     "chunk-BYJV2AHC": {
       "file": "chunk-BYJV2AHC.js"
     },
-    "chunk-36SBHMXD": {
-      "file": "chunk-36SBHMXD.js"
+    "chunk-3TGX3EMO": {
+      "file": "chunk-3TGX3EMO.js"
     },
     "chunk-254DOEZA": {
       "file": "chunk-254DOEZA.js"
