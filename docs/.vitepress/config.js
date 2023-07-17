@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import { mdPlugin } from './config/plugins'
 export default defineConfig({
   title: 'Fuzzy UI',
+  base: '/md/',
   themeConfig: {
     logo: '/logo.png',
     nav: [
