@@ -7,7 +7,7 @@ const value = ref(true)
 
 const dialogConfig = ({
   title: '测试计划',
-  formModelItems: [
+  template: [
     // {
     //   type: 'cascader',
     //   label: 'cascader',
@@ -110,7 +110,7 @@ const dialogConfig = ({
 })
 const dialogConfigDefault = ({
   title: '测试计划',
-  formModelItems: [
+  template: [
     {
       type: 'input',
       label: '长输入',
@@ -309,6 +309,7 @@ const dialogConfigDefault = ({
   ],
   closeOnClickModal: false,
 })
+console.log(dialogConfigDefault, 'dialogConfigDefault')
 const formModel = ref({
   input: '',
   select: '',

@@ -14,10 +14,10 @@ module.exports = {
   },
   plugins: ['vue', 'tailwindcss'],
   rules: {
-    "vue/attribute-hyphenation": "off",
-    "no-continue": "off",
-    "no-plusplus":"off",
-    "tailwindcss/no-custom-classname": "off",
+    'vue/attribute-hyphenation': 'off',
+    'no-continue': 'off',
+    'no-plusplus': 'off',
+    'tailwindcss/no-custom-classname': 'off',
     // 'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': [0, { 'packageDir ': './src/' }],
@@ -34,6 +34,9 @@ module.exports = {
     semi: [2, 'never'],
     'linebreak-style': 'off',
     'no-restricted-syntax': 'off',
+    'no-confusing-arrow': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
   },
   settings: {
     'import/resolver': {

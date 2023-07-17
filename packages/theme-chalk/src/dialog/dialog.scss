@@ -82,23 +82,25 @@
       margin: 0 40px;
       box-sizing: content-box;
       // 滚动条整体部分
-      &::-webkit-scrollbar {
+      &::-webkit-scrollbar:vertical {
         width: 8px;
+      }
+      // 滚动条整体部分
+      &::-webkit-scrollbar:horizontal {
+        height: 8px;
       }
       // 外层轨道
       &::-webkit-scrollbar-track {
       }
       //滚动条两端的按钮
-      &::-webkit-scrollbar-button {
+      &::-webkit-scrollbar-button:vertical {
         &:decrement {
           border-bottom: 20px solid #525252;
           border-radius: 5px;
-          margin-top: 10px;
         }
         &:increment {
           border-top: 20px solid #525252;
           border-radius: 5px;
-          margin-top: 10px;
         }
         background-color: transparent;
         width: 5px;
@@ -106,11 +108,31 @@
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
       }
+      &::-webkit-scrollbar-button:horizontal {
+        &:decrement {
+          border-left: 20px solid #525252;
+          border-radius: 5px;
+        }
+        &:increment {
+          border-right: 20px solid #525252;
+          border-radius: 5px;
+        }
+        background-color: transparent;
+        width: 5px;
+        height: 5px;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+      }
       //内层轨道，滚动条中间部分（除去）
       &::-webkit-scrollbar-track-piece {
       }
       //滚动条里面可以拖动的那个
-      &::-webkit-scrollbar-thumb {
+      &::-webkit-scrollbar-thumb:vertical {
+        border-radius: 10px;
+        border: 1px solid #525252;
+        background: #737373;
+      }
+      &::-webkit-scrollbar-thumb:horizontal {
         border-radius: 10px;
         border: 1px solid #525252;
         background: #737373;

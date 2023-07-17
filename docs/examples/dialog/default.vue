@@ -12,6 +12,7 @@
         @submit="handleSubmit"
         @fail="handleFail"
         @cancel="handleCancel"
+        @open="handleOpen"
       />
     </div>
   </div>
@@ -22,10 +23,12 @@ import {
 } from 'vue'
 
 const value = ref(false)
-
+const handleOpen = () => {
+  console.log('handleOpen')
+}
 const dialogConfig = ({
   title: '测试计划',
-  formModelItems: [
+  template: [
     // {
     //   type: 'cascader',
     //   label: 'cascader',
@@ -128,7 +131,7 @@ const dialogConfig = ({
 })
 const dialogConfigDefault = ({
   title: '测试计划',
-  formModelItems: [
+  template: [
     {
       type: 'input',
       label: '长输入',
@@ -328,7 +331,7 @@ const dialogConfigDefault = ({
   closeOnClickModal: false,
 })
 const formModel = ref({
-  input: '',
+  input: '123',
   select: '',
   select2: '',
   select3: '',

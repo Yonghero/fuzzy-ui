@@ -3,7 +3,7 @@ import {
   computed, onMounted, reactive, ref,
 } from 'vue'
 import { ElDialog } from 'element-plus'
-import Form from './form.vue'
+import Form from './form.jsx'
 
 defineOptions({
   name: 'FYDialog',
@@ -27,7 +27,7 @@ const props = defineProps({
       modalClass: '',
       closeOnClickModal: false,
       labelPosition: 'top',
-      formModelItems: [],
+      template: [],
       dialogType: '',
       type: 'create',
       labelWidth: '',
@@ -35,6 +35,7 @@ const props = defineProps({
   },
 
 })
+console.log(props.dialogConfig, 'dialogConfig')
 const cascaderOptions = [
   {
     value: 'guide',
@@ -101,7 +102,7 @@ const getModalClass = computed(() => {
   if (props.dialogConfig.modalClass) {
     target.push(props.modalClass)
   }
-  if (props.dialogConfig.formModelItems.length >= 5) {
+  if (props.dialogConfig.template.length >= 5) {
     target.push('fy-dialog-default')
   } else {
     target.push('fy-dialog-small')
@@ -166,228 +167,46 @@ const options1 = [
 ]
 const formRef = ref(null)
 const submit = () => {
-  formRef.value.validate()
+  console.log(1)
+  console.log(formRef.value.validate, 'formRef')
+  formRef.value?.validate()
+  // formRef.value?.validateField('input')
 }
 const handleSubmit = (e) => {
-  console.log('dialog接收到了form')
+  console.log('dialog接收到了form', props.formModel)
   emit('submit', props.formModel)
 }
 const handleSubmitFail = (e) => {
-  emit('fail', props.formModel)
+  emit('fail', { target: e, formModel: props.formModel })
 }
 const cancel = () => {
-  formRef.value.resetFields()
+  formRef.value?.resetFields()
   emit('update:modelValue', false)
   emit('cancel', props.formModel)
 }
-const closeFn = () => {
-
-}
 const closedFn = () => {
   emit('update:modelValue', false)
-  formRef.value.resetFields()
+  console.log(formRef.value, 'formRef.value')
+  formRef.value?.resetFields()
 }
-
 </script>
 
 <template>
   <div class="fy-dialog-wrap">
-    <!-- <el-dialog
-      :model-value="props.modelValue"
-      :title="getTitle"
-      :modal-class="getModalClass"
-      :close-on-click-modal="props.closeOnClickModal"
-    >
-      <el-form
-        :label-position="props.labelPosition"
-        :model="formModel"
-      >
-        <el-form-item
-          label="Name"
-          :style="{ flex: '0 0 98%' }"
-        >
-          <FYInput
-            v-model="formModel.name"
-            placeholder="输入迭代名称"
-            limit="255"
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity zone"
-          :style="{ flex: '0 0 49%', paddingRight: '15px' }"
-        >
-          <FYSelect
-            v-model="formModel.region"
-            :options="options1"
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 49%' }"
-        >
-          <FYSelect
-            v-model="formModel.type"
-            :options="options1"
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity zone"
-          :style="{ flex: '0 0 49%', paddingRight: '15px' }"
-        >
-          <FYDatePicker v-model="formModel.date" />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 49%' }"
-        >
-          <FYDatePicker
-            v-model="formModel.date2"
-            :options="options1"
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity zone"
-          :style="{ flex: '0 0 49%', paddingRight: '15px' }"
-        >
-          <FYCascader
-            v-model="formModel.cascader"
-            :options="cascaderOptions"
-            :default-icon="true"
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 49%' }"
-        >
-          <FYCascader
-            v-model="formModel.cascader2"
-            :options="cascaderOptions"
-            :default-icon="true"
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity zone"
-          :style="{ flex: '0 0 24.5%', paddingRight: '15px' }"
-        >
-          <FYSwitch v-model="formModel.switch" />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 24.5%' }"
-        >
-          <FYSwitch v-model="formModel.switch2" />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 49%' }"
-        >
-          <FYInput
-            v-model="formModel.switch2"
-            textarea
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 24.5%' }"
-        >
-          <FYSwitch v-model="formModel.switch2" />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 24.5%' }"
-        >
-          <FYSwitch v-model="formModel.switch2" />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 49%' }"
-        >
-          <FYInput
-            v-model="formModel.switch2"
-            textarea
-          />
-        </el-form-item>
-      </el-form>
-      <template #header>
-        <slot name="header" />
-      </template>
-      <template #footer>
-        <slot name="footer">
-          <FYButton
-            type="primary"
-            style="
-              width: 112px;
-              height: 42px;
-              padding: 10px 32px;
-              margin-left: 16px;
-            "
-          >
-            确定
-          </FYButton>
-          <FYButton
-            type="info"
-            text
-            link
-            style="padding: 0;"
-          >
-            取消
-          </FYButton>
-        </slot>
-      </template>
-    </el-dialog> -->
     <el-dialog
       v-bind="$attrs"
       :model-value="props.modelValue"
       :title="getTitle"
       :modal-class="getModalClass"
-      @close="closeFn"
       @closed="closedFn"
     >
-      <!-- <el-form
-        :label-position="props.labelPosition"
-        :model="formModel"
-      >
-        <el-form-item
-          label="Name"
-          :style="{ flex: '0 0 98%' }"
-        >
-          <FYInput
-            v-model="formModel.name"
-            placeholder="输入迭代名称"
-            limit="255"
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity zone"
-          :style="{ flex: '0 0 98%'}"
-        >
-          <FYSelect
-            v-model="formModel.region"
-            :options="options1"
-          />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 98%' }"
-        >
-          <FYSwitch v-model="formModel.switch2" />
-        </el-form-item>
-        <el-form-item
-          label="Activity form"
-          :style="{ flex: '0 0 98%' }"
-        >
-          <FYInput
-            v-model="formModel.switch2"
-            textarea
-          />
-        </el-form-item>
-      </el-form> -->
       <Form
         ref="formRef"
         v-model="props.formModel"
         :labelPosition="props.dialogConfig.labelPosition"
         :labelWidth="props.dialogConfig.labelWidth"
-        :formModelItems="props.dialogConfig.formModelItems"
+        :template="props.dialogConfig.template"
+        status-icon
         @submit="handleSubmit"
         @fail="handleSubmitFail"
       />
