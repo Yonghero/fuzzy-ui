@@ -19,6 +19,13 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    shouldValidate: {
+      type: Boolean,
+      default: true,
+    },
+    formRef: {
+
+    },
   },
   data() {
     return {
@@ -47,11 +54,50 @@ export default {
         },
         switch2: '',
       },
+      rules: null,
     }
   },
-  mounted() {
+  watch: {
+    rules: {
+      handler(newV) {
+        setTimeout(() => {
+          this.$refs[this.formRef]?.clearValidate()
+        }, 100)
+      },
+    },
+  },
+  created() {
+    this.rules = this.shouldValidate ? this.getRules(this.formModelItems) : []
   },
   methods: {
+    resetFields() {
+      this.$refs.realFormRef.resetFields()
+    },
+    validate() {
+      this.$refs.realFormRef.validate((valid) => {
+        if (valid) {
+          console.log('form emit submit')
+          this.$refs.realFormRef.resetFields()
+          this.$emit('submit')
+        } else {
+          console.log('form emit fail')
+          this.$emit('fail')
+          return false
+        }
+        return null
+      })
+    },
+    getRules(list) {
+      const rules = list.reduce((rules, item) => {
+        rules[item.value] = []
+        // 必填
+        if (item.require) { rules[item.value].push({ required: true, trigger: ['blur', 'change'], message: `${item.label}为必填项` }) }
+        // 其他规则
+        if (item.rules) { rules[item.value].push(...item.rules) }
+        return rules
+      }, {})
+      return rules
+    },
     handleValueChange(value, key) {
       this.$emit('update:modelValue', { ...this.modelValue, [key]: value })
     },
@@ -60,7 +106,7 @@ export default {
     },
     getFromStyle(item) {
       if (item.full) {
-        return { flex: '0 0 98%' }
+        return { flex: '0 0 100%' }
       }
       if (item.half) {
         return { flex: '0 0 49%' }
@@ -68,7 +114,7 @@ export default {
       if (item.oneOfFour) {
         return { flex: '0 0 24.5%' }
       }
-      return { flex: '0 0 98%' }
+      return { flex: '0 0 100%' }
     },
     initFormItems(list) {
       return list
@@ -89,7 +135,7 @@ export default {
   render() {
     return (
       <el-form label-position={this.labelPosition} model={this.modelValue}
-        labelWidth={this.labelWidth}
+        labelWidth={this.labelWidth} rules={this.rules} ref="realFormRef"
       >
         {this.initFormItems(this.formModelItems)}
       </el-form>

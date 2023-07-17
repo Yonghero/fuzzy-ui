@@ -46,6 +46,7 @@ export default defineConfig({
           items: [
             { text: 'FilterPanel 查询面板', link: '/components/filter-panel' },
             { text: 'FilterInline 内联查询面板', link: '/components/filter-inline' },
+            { text: 'Dialog 对话框', link: '/components/dialog' },
           ]
         },
         {
