@@ -1,13 +1,10 @@
 import Theme from 'vitepress/theme'
 import ElementPlus from 'element-plus'
 import FuzzyUI from '@hitotek/fuzzy-ui-components'
-import locale from 'element-plus/lib/locale/lang/zh-cn'
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-// import '@hitotek/fuzzy-ui/style'
 import '@hitotek/fuzzy-ui-theme-chalk'
-
 import './custom.scss'
-
 import { VPDemo } from '../vitepress'
 
 
@@ -17,7 +14,7 @@ export default {
     Theme.enhanceApp(ctx)
     // 注册ElementPlus
     ctx.app.use(ElementPlus, {
-      locale, // 语言设置
+      locale:zhCn, // 语言设置
     })
     // 注册FuzzyUI
     ctx.app.use(FuzzyUI)

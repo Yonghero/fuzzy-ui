@@ -53,6 +53,10 @@ const props = defineProps({
     type: [Boolean, String],
     default: false,
   },
+  teleported: {
+    type: Boolean,
+    default: true,
+  },
 })
 
 const hasDefaultSlot = computed(() => {
@@ -174,6 +178,7 @@ const emitFocus = (val) => {
       :clearable="ifClearable"
       :multiple="ifMultiple"
       :multiple-limit="getMultipleLimit"
+      :teleported="teleported"
       @change="emitChange"
       @visible-change="emitVisibleChange"
       @remove-tag="emitRemoveTag"

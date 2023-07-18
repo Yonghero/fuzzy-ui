@@ -176,7 +176,5 @@ async function submit() {
 </template>
 
 <style lang="scss">
-
 @use "../../../theme-chalk/src/filter-panel/filter-panel.scss";
-
 </style>

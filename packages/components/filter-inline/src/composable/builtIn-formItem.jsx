@@ -10,7 +10,6 @@ export const Select = {
         placeholder={`请选择${props.label}`}
         {...props}
         v-model={props.model[props.value]}
-        placement="bottom-start"
       />
     )
   },
