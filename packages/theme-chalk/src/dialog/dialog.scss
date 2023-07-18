@@ -39,6 +39,12 @@
     display: flex;
     flex-direction: column;
     min-height: 0px;
+    .el-form-item__content {
+      .el-input__inner,
+      .el-textarea__inner {
+        font-size: 12px;
+      }
+    }
     .el-dialog__header {
       position: relative;
       margin-right: 24px;
@@ -52,13 +58,18 @@
       border-top-right-radius: 0.3rem;
       box-sizing: border-box;
       color: #333;
-      font-family: 'Alibaba PuHuiTi 2';
+      font-family: Alibaba, 'PuHuiTi 2';
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
       line-height: 22px;
       .el-dialog__title {
+        color: #333;
+        font-family: Alibaba, 'PuHuiTi 2';
         font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
       }
       div,
       span {
@@ -158,13 +169,16 @@
       display: flex;
       border: 0;
       align-items: center;
-      padding: 16px 40px;
+      padding: 16px 40px 36px;
       flex-direction: row-reverse;
     }
     .el-form-item__label {
       color: #666;
+      font-family: Alibaba, 'PuHuiTi 2';
       font-size: 14px;
+      font-style: normal;
       font-weight: 400;
+      line-height: 22px;
     }
     .el-input__wrapper {
       height: 35px;

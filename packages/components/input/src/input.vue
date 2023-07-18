@@ -20,7 +20,7 @@ const props = defineProps({
   },
   placeholder: {
     type: String,
-    default: '搜索（Ctrl+G）',
+    default: '请输入',
   },
   limit: {
     type: [Number, String],

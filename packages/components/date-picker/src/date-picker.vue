@@ -38,8 +38,11 @@ const disabledDate = useDisabledDate(props)
   </div>
 </template>
 
-<style>
-.fy-date-picker .el-input {
-  width: 100%;
+<style lang="scss" scoped>
+.fy-date-picker{
+  :deep(.el-input)  {
+    width: 100%;
+  }
 }
+
 </style>

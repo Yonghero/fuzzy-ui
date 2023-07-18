@@ -103,7 +103,7 @@ export default defineComponent({
         {...attrs}
       >
         {initFormItems.map((item) => (
-          <FormItem tmplItem={item}></FormItem>
+          <FormItem tmplItem={item} key={item.value}></FormItem>
         ))}
       </el-form>
     )

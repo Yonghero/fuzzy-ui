@@ -31,7 +31,6 @@ const dialogConfigDefault = ({
       type: 'input',
       label: '长输入',
       value: 'input',
-      placeholder: '请输入搜索文字',
       limit: 10,
       require: true,
       rules: [{
@@ -42,7 +41,6 @@ const dialogConfigDefault = ({
       type: 'select',
       label: '选择',
       value: 'select',
-      placeholder: '请输入搜索文字',
       options: [
         {
           value: 'value1',
@@ -165,7 +163,6 @@ const dialogConfigDefault = ({
       type: 'select',
       label: '选择',
       value: 'select2',
-      placeholder: '请输入搜索文字',
       options: [
         {
           value: 'value1',
@@ -182,7 +179,6 @@ const dialogConfigDefault = ({
       type: 'select',
       label: '选择',
       value: 'select3',
-      placeholder: '请输入搜索文字',
       options: [
         {
           value: 'value1',
@@ -199,9 +195,6 @@ const dialogConfigDefault = ({
       type: 'switch',
       label: '选择',
       value: 'switch',
-      cb: () => {
-        console.log('我是回调函数')
-      },
       oneOfFour: true,
     },
     {
@@ -217,7 +210,6 @@ const dialogConfigDefault = ({
       type: 'input',
       label: '长文本',
       value: 'input2',
-      placeholder: '请输入搜索文字',
       textarea: true,
       half: true,
 
@@ -229,8 +221,8 @@ const formModel = ref({
   select: '',
   select2: '',
   select3: '',
-  switch: false,
-  switch2: false,
+  switch: true,
+  switch2: true,
   datePicker: '',
   cascader: [],
   cascader2: [],

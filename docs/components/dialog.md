@@ -48,6 +48,15 @@ dialog/edit
 dialog/delete
 :::
 
+# Form 表单
+
+请保证传入`template`作为表单项来源，`modelValue`作为 form 绑定的数据源。如果要使用自定义的 form 作为 dialog 的内容，请保证实现和 element 框架类似功能的`resetFields`，`validate`， `validateField`，`clearValidate`方法。
+
+# FormItem 表单项
+
+请保证传入包含了`label`,`key`,`prop`的对象`tmplItem`
+如果要使用自定义的 formItem 也须遵循。
+
 ## Dialog Attributes
 
 该组件可传递的属性和类型与 element-plus 的 dialog 组件保持一致

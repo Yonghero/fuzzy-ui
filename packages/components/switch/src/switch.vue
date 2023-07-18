@@ -7,7 +7,6 @@ defineOptions({
   name: 'FYSwitch',
 })
 const props = defineProps({
-  // eslint-disable-next-line
   value: {
 
   },
@@ -74,13 +73,15 @@ const emitChange = async (e) => {
   if (isAsyncFunction(props.cb)) {
     try {
       await props.cb()
+      emit('update:modelValue', e === props.activeValue ? props.activeValue : props.inActiveValue)
       nextTick(() => {
         ElMessage(getDefaultMsg.value)
       })
     } catch (error) {
-      nextTick(() => {
-        emit('update:modelValue', e === props.activeValue ? props.inActiveValue : props.activeValue)
-      })
+      emit('update:modelValue', e === props.activeValue ? props.activeValue : props.inActiveValue)
+      // nextTick(() => {
+      //   emit('update:modelValue', e === props.activeValue ? props.inActiveValue : props.activeValue)
+      // })
       ElMessage({
         message: props.changeFailMessage,
         type: 'error',
@@ -91,13 +92,15 @@ const emitChange = async (e) => {
   } else if (typeof props.cb === 'function') {
     try {
       props.cb()
+      emit('update:modelValue', e === props.activeValue ? props.activeValue : props.inActiveValue)
       nextTick(() => {
         ElMessage(getDefaultMsg.value)
       })
     } catch (error) {
-      nextTick(() => {
-        emit('update:modelValue', e === props.activeValue ? props.inActiveValue : props.activeValue)
-      })
+      emit('update:modelValue', e === props.activeValue ? props.activeValue : props.inActiveValue)
+      // nextTick(() => {
+      //   emit('update:modelValue', e === props.activeValue ? props.inActiveValue : props.activeValue)
+      // })
       ElMessage({
         message: props.changeFailMessage,
         type: 'error',
@@ -106,9 +109,10 @@ const emitChange = async (e) => {
       emit('change', e)
     }
   } else {
+    emit('update:modelValue', e === props.activeValue ? props.activeValue : props.inActiveValue)
     nextTick(() => {
       ElMessage(getDefaultMsg.value)
-      emit('change', e)
+      emit('change', e, e === props.activeValue ? props.inActiveValue : props.activeValue)
     })
   }
 }

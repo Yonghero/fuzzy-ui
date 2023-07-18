@@ -57,6 +57,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  placeholder: {
+    type: String,
+    default: '请选择',
+  },
 })
 
 const hasDefaultSlot = computed(() => {
@@ -179,6 +183,7 @@ const emitFocus = (val) => {
       :multiple="ifMultiple"
       :multiple-limit="getMultipleLimit"
       :teleported="teleported"
+      :placeholder="props.placeholder"
       @change="emitChange"
       @visible-change="emitVisibleChange"
       @remove-tag="emitRemoveTag"

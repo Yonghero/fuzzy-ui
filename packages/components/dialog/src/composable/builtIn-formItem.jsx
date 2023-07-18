@@ -7,25 +7,13 @@ import { FYCascader } from '../../../cascader'
 export const Select = {
   type: 'select',
   renderer(props) {
-    return (
-      <FYSelect
-        placeholder={`请选择${props.label ?? ''}`}
-        {...props}
-        v-model={props.model[props.value]}
-      />
-    )
+    return <FYSelect {...props} v-model={props.model[props.value]} />
   },
 }
 export const Input = {
   type: 'input',
   renderer(props) {
-    return (
-      <FYInput
-        placeholder={`请输入${props.label ?? ''}`}
-        {...props}
-        v-model={props.model[props.value]}
-      />
-    )
+    return <FYInput {...props} v-model={props.model[props.value]} />
   },
 }
 export const Switch = {

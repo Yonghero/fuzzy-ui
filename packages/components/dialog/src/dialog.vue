@@ -155,10 +155,18 @@ const getComfirmButtonType = computed(() => {
           <FYButton
             :type="getComfirmButtonType"
             style="
-              width: 112px;
-              height: 42px;
+              display: flex;
               padding: 10px 32px;
+              width: 22px;
+              height: 16px;
               margin-left: 16px;
+              box-sizing: content-box;
+              color: #FFF;
+              font-family: 'PingFang SC';
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 22px; 
             "
             @click="submit"
           >
@@ -168,7 +176,15 @@ const getComfirmButtonType = computed(() => {
             type="info"
             text
             link
-            style="padding: 0;"
+            style="
+              padding: 0;
+              color: #AAA;
+              font-family: 'PingFang SC';
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 22px;
+            "
             @click="cancel"
           >
             取消
