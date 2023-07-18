@@ -22,10 +22,13 @@ export const DatePicker = {
   renderer(props) {
     const checkValue = ref(1)
 
-    const weekAgo = () => {
-      const date = new Date()
-      date.setTime(date.getTime() - 3600 * 1000 * 24 * 7)
-      return date
+    const weekStart = () => {
+      const now = new Date()
+      const firstDayOfWeek = new Date(now - (now.getDay() - 1) * 86400000) // 一天的毫秒数为 24*60*60*1000 = 86400000
+
+      firstDayOfWeek.setHours(0, 0, 0, 0) // 设置时间为当天的 00:00:00:000
+
+      return firstDayOfWeek
     }
 
     return (
@@ -37,7 +40,7 @@ export const DatePicker = {
             // eslint-disable-next-line no-nested-ternary
             props.model[props.value] = v === 2
               ? new Date() : v === 3
-                ? weekAgo() : ''
+                ? weekStart() : ''
           }}
           options={[
             { label: '自定义时间', value: 1 },

@@ -1,7 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { mdPlugin } from './config/plugins'
+
 export default defineConfig({
   title: 'Fuzzy UI',
+  base: '/fuzzy-ui/',
   themeConfig: {
     logo: '/logo.png',
     nav: [
@@ -48,6 +50,7 @@ export default defineConfig({
             { text: 'FilterInline 内联表单查询', link: '/components/filter-inline' },
             { text: 'FilterDisplay 下拉标签式查询', link: '/components/filter-display' },
             { text: 'Dialog 对话框', link: '/components/dialog' },
+            { text: 'ActionPanel 动作面板', link: '/components/action-panel' },
           ]
         },
         {

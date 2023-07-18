@@ -79,7 +79,7 @@ layout: doc
 ## 基本使用
 
 :::demo
-$NAME/basic
+$$INPUT_NAME/basic
 :::
 
 EOF
