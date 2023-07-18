@@ -10,3 +10,11 @@
   // --el-component-size: 42px !important;
   // --el-component-size-large: 60px !important;
 }
+
+html:not(.dark) {
+  --fy-border-color: #eee
+}
+
+html.dark {
+  --fy-border-color: rgb(45 42 42)
+}
