@@ -1,6 +1,5 @@
-import { defineComponent, ref, watch, computed } from 'vue'
-import { ElForm, ElFormItem } from 'element-plus'
-import { formItemMap } from './composable/install'
+import { defineComponent, ref, watch } from 'vue'
+import { FormItem } from './formItem.jsx'
 
 export default defineComponent({
   props: {
@@ -24,28 +23,26 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    businessType: {
+      type: String,
+      default: 'create',
+    },
   },
   emits: ['submit', 'fail', 'update:modelValue'],
   setup(props, { attrs, emit, expose }) {
-    console.log(props, 'props')
     const rules = ref(null)
     const realFormRef = ref(null)
-
     watch(rules, () => {
       setTimeout(() => {
         realFormRef.value?.clearValidate()
       }, 100)
     })
-    // eslint-disable-next-line
     const resetFields = () => {
       realFormRef.value?.resetFields()
     }
-    // eslint-disable-next-line
     const validate = () => {
-      console.log(2, realFormRef.value)
       realFormRef.value?.validate((valid, object) => {
         if (valid) {
-          realFormRef.value?.resetFields()
           emit('submit')
         } else {
           emit('fail', object)
@@ -87,63 +84,9 @@ export default defineComponent({
       return targetRules
     }
     rules.value = props.shouldValidate ? getRules(props.template) : []
-    const handleValueChange = (value, key) => {
-      emit('update:modelValue', { ...this.modelValue, [key]: value })
-    }
-    const getFormComponent = (type) => formItemMap.get(type)
-    const getFromStyle = (item) => {
-      if (item.full) {
-        return { flex: '0 0 100%' }
-      }
-      if (item.half) {
-        return { flex: '0 0 49%' }
-      }
-      if (item.oneOfFour) {
-        return { flex: '0 0 24.5%' }
-      }
-      return { flex: '0 0 100%' }
-    }
-    const initFormItems = (list) =>
-      list
-        .filter((item) => !item.filterUnShow)
-        .map((item, index) =>
-          item.show === false ? null : (
-            <ElFormItem
-              label={item.label}
-              key={item.value}
-              prop={item.value}
-              style={getFromStyle(item, index)}
-            >
-              {getFormComponent(item.type)({
-                ...item,
-                model: props.modelValue,
-              })}
-            </ElFormItem>
-            // eslint-disable-next-line
-          )
-        )
-    const FormItem = computed(() => {
-      const renderer = props.template
-        .filter((item) => !item.filterUnShow)
-        .map((item, index) =>
-          item.show === false ? null : (
-            <ElFormItem
-              label={item.label}
-              key={item.value}
-              prop={item.value}
-              style={getFromStyle(item, index)}
-            >
-              {getFormComponent(item.type)({
-                ...item,
-                model: props.modelValue,
-              })}
-            </ElFormItem>
-            // eslint-disable-next-line
-          )
-        )
-      console.log(renderer, 'renderer')
-      return renderer || <div />
-    })
+    const initFormItems = props.template
+      .filter((item) => !item.filterUnShow && item.show !== false)
+      .map((sec) => ({ ...sec, model: props.modelValue }))
     expose({
       resetFields,
       validate,
@@ -159,7 +102,9 @@ export default defineComponent({
         ref={realFormRef}
         {...attrs}
       >
-        <FormItem.value />
+        {initFormItems.map((item) => (
+          <FormItem tmplItem={item}></FormItem>
+        ))}
       </el-form>
     )
   },

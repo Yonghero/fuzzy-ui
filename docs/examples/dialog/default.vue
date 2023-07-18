@@ -8,7 +8,6 @@
         v-model="value"
         :dialogConfig="dialogConfigDefault"
         :formModel="formModel"
-        :close-on-click-modal="false"
         @submit="handleSubmit"
         @fail="handleFail"
         @cancel="handleCancel"
@@ -24,111 +23,7 @@ import {
 
 const value = ref(false)
 const handleOpen = () => {
-  console.log('handleOpen')
 }
-const dialogConfig = ({
-  title: '测试计划',
-  template: [
-    // {
-    //   type: 'cascader',
-    //   label: 'cascader',
-    //   value: 'cascader',
-    //   options: [
-    //     {
-    //       value: 'guide',
-    //       label: 'Guide',
-    //       children: [
-    //         {
-    //           value: 'disciplines',
-    //           label: 'Disciplines',
-    //           children: [
-    //             {
-    //               value: 'consistency',
-    //               label: 'Consistency',
-    //             },
-    //             {
-    //               value: 'feedback',
-    //               label: 'Feedback',
-    //             },
-    //             {
-    //               value: 'efficiency',
-    //               label: 'Efficiency',
-    //             },
-    //             {
-    //               value: 'controllability',
-    //               label: 'Controllability',
-    //             },
-    //           ],
-    //         },
-    //         {
-    //           value: 'navigation',
-    //           label: 'Navigation',
-    //           children: [
-    //             {
-    //               value: 'side nav',
-    //               label: 'Side Navigation',
-    //             },
-    //             {
-    //               value: 'top nav',
-    //               label: 'Top Navigation',
-    //             },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
-    {
-      type: 'input',
-      label: 'input',
-      value: 'input',
-      placeholder: '请输入搜索文字',
-      limit: 10,
-      require: true,
-      rules: [{
-        min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur',
-      }],
-    },
-    {
-      type: 'select',
-      label: 'select',
-      value: 'select',
-      placeholder: '请输入搜索文字',
-      options: [
-        {
-          value: 'value1',
-          label: 'label1',
-        },
-        {
-          value: 'value2',
-          label: 'label2',
-        },
-      ],
-    },
-    {
-      type: 'input',
-      label: 'input',
-      value: 'input2',
-      placeholder: '请输入搜索文字',
-      textarea: true,
-    },
-    {
-      type: 'switch',
-      label: 'switch',
-      value: 'switch',
-      cb: () => {
-        console.log('我是回调函数')
-      },
-    },
-    // {
-    //   type: 'datePicker',
-    //   label: 'datePicker',
-    //   value: 'datePicker',
-
-    // },
-
-  ],
-})
 const dialogConfigDefault = ({
   title: '测试计划',
   template: [
@@ -328,10 +223,9 @@ const dialogConfigDefault = ({
 
     },
   ],
-  closeOnClickModal: false,
 })
 const formModel = ref({
-  input: '123',
+  input: '',
   select: '',
   select2: '',
   select3: '',
@@ -342,22 +236,12 @@ const formModel = ref({
   cascader2: [],
   input2: '',
 })
-const beforeClose = (done) => {
-  console.log('关闭了')
-  done()
-}
-const close = () => {
-  console.log('close')
-}
-const handleSubmit = (e) => {
-  console.log(e, 'e success')
+const handleSubmit = () => {
   value.value = false
 }
-const handleFail = (e) => {
-  console.log(e, 'e fail')
+const handleFail = () => {
 }
-const handleCancel = (e) => {
-  console.log(e, 'e cancel')
+const handleCancel = () => {
 }
 const switchValue = () => {
   value.value = !value.value

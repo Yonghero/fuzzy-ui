@@ -1,10 +1,29 @@
+<template>
+  <div style="margin: 20px">
+    <div class="mb-4">
+      <button @click="switchValue">
+        打开对话框
+      </button>
+      <FYDialog
+        v-model="value"
+        :dialogConfig="dialogConfigDefault"
+        :formModel="formModel"
+        @submit="handleSubmit"
+        @fail="handleFail"
+        @cancel="handleCancel"
+        @open="handleOpen"
+      />
+    </div>
+  </div>
+</template>
 <script setup>
 import {
   ref,
 } from 'vue'
 
-const value = ref(true)
-
+const value = ref(false)
+const handleOpen = () => {
+}
 const dialogConfigDefault = ({
   title: '测试计划',
   template: [
@@ -189,6 +208,7 @@ const dialogConfigDefault = ({
       label: '选择',
       value: 'switch2',
       cb: () => {
+        console.log('我是回调函数')
       },
       oneOfFour: true,
     },
@@ -201,8 +221,31 @@ const dialogConfigDefault = ({
       half: true,
 
     },
+    {
+      type: 'input',
+      label: 'input',
+      value: 'input3',
+      placeholder: '请输入搜索文字',
+    },
+    {
+      type: 'input',
+      label: 'input',
+      value: 'input5',
+      placeholder: '请输入搜索文字',
+    },
+    {
+      type: 'input',
+      label: 'input',
+      value: 'input6',
+      placeholder: '请输入搜索文字',
+    },
+    {
+      type: 'input',
+      label: 'input',
+      value: 'input6',
+      placeholder: '请输入搜索文字',
+    },
   ],
-  closeOnClickModal: false,
 })
 const formModel = ref({
   input: '',
@@ -215,8 +258,14 @@ const formModel = ref({
   cascader: [],
   cascader2: [],
   input2: '',
+  input3: '',
+  input4: '',
+  input5: '',
+  input6: '',
+
 })
 const handleSubmit = () => {
+  value.value = false
 }
 const handleFail = () => {
 }
@@ -227,19 +276,8 @@ const switchValue = () => {
 }
 
 </script>
-
-<template>
-  <p>dialog外壳</p>
-  <button @click="switchValue">
-    切换打开
-  </button>
-  <FYDialog
-    v-model="value"
-    :dialogConfig="dialogConfigDefault"
-    :formModel="formModel"
-    :close-on-click-modal="false"
-    @submit="handleSubmit"
-    @fail="handleFail"
-    @cancel="handleCancel"
-  />
-</template>
+<style>
+.mb-4 {
+  margin-bottom: 20px;
+}
+</style>

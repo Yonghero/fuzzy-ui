@@ -52,8 +52,7 @@ const value2 = ref(true)
 const value3 = ref(1)
 const value4 = ref(true)
 const value5 = ref(true)
-const change = (e) => {
-  console.log('父组件接收到e了', e)
+const change = () => {
 }
 // const promiseCb =  new Promise((resolve, reject) => {
 //   setTimeout(() => {
@@ -68,7 +67,7 @@ const asyncFn2 = async () => new Promise((resolve, reject) => {
     reject(new Error('错误'))
   }, 3000)
 })
-const asyncFn4 = async () => new Promise((resolve, reject) => {
+const asyncFn4 = async () => new Promise((resolve) => {
   setTimeout(() => {
     resolve('success')
   }, 3000)

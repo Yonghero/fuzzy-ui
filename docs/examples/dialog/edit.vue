@@ -1,12 +1,32 @@
+<template>
+  <div style="margin: 20px">
+    <div class="mb-4">
+      <button @click="switchValue">
+        打开对话框
+      </button>
+      <FYDialog
+        v-model="value"
+        :dialogConfig="dialogConfigDefault"
+        :formModel="formModel"
+        @submit="handleSubmit"
+        @fail="handleFail"
+        @cancel="handleCancel"
+        @open="handleOpen"
+      />
+    </div>
+  </div>
+</template>
 <script setup>
 import {
   ref,
 } from 'vue'
 
-const value = ref(true)
-
+const value = ref(false)
+const handleOpen = () => {
+}
 const dialogConfigDefault = ({
   title: '测试计划',
+  type: 'update',
   template: [
     {
       type: 'input',
@@ -181,6 +201,7 @@ const dialogConfigDefault = ({
       label: '选择',
       value: 'switch',
       cb: () => {
+        console.log('我是回调函数')
       },
       oneOfFour: true,
     },
@@ -189,6 +210,7 @@ const dialogConfigDefault = ({
       label: '选择',
       value: 'switch2',
       cb: () => {
+        console.log('我是回调函数')
       },
       oneOfFour: true,
     },
@@ -202,12 +224,11 @@ const dialogConfigDefault = ({
 
     },
   ],
-  closeOnClickModal: false,
 })
 const formModel = ref({
-  input: '',
-  select: '',
-  select2: '',
+  input: '123',
+  select: 'value1',
+  select2: 'value2',
   select3: '',
   switch: false,
   switch2: false,
@@ -217,6 +238,7 @@ const formModel = ref({
   input2: '',
 })
 const handleSubmit = () => {
+  value.value = false
 }
 const handleFail = () => {
 }
@@ -227,19 +249,8 @@ const switchValue = () => {
 }
 
 </script>
-
-<template>
-  <p>dialog外壳</p>
-  <button @click="switchValue">
-    切换打开
-  </button>
-  <FYDialog
-    v-model="value"
-    :dialogConfig="dialogConfigDefault"
-    :formModel="formModel"
-    :close-on-click-modal="false"
-    @submit="handleSubmit"
-    @fail="handleFail"
-    @cancel="handleCancel"
-  />
-</template>
+<style>
+.mb-4 {
+  margin-bottom: 20px;
+}
+</style>

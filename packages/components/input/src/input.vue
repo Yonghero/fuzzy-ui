@@ -42,6 +42,7 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  // eslint-disable-next-line
   value: {
   },
 })

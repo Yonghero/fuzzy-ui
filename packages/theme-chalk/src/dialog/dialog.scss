@@ -13,6 +13,17 @@
   }
 }
 .fy-dialog-wrap {
+  :deep(.fy-dialog-delete-type) {
+    .el-dialog {
+      width: 660px;
+    }
+    .delete-tag {
+      margin: 0 10px;
+    }
+    .delete-warn {
+      color: #aaa !important;
+    }
+  }
   :deep(.el-overlay-dialog) {
     width: 100%;
     height: 100%;
@@ -166,6 +177,7 @@
     div.el-form-item {
       width: 0;
       box-sizing: border-box;
+      padding-right: 10px;
       &:not(:last-of-type) {
         margin-bottom: 16px;
       }

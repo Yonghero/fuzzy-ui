@@ -1,12 +1,13 @@
 <script setup>
 import { ElSwitch, ElMessage } from 'element-plus'
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick } from 'vue'
 import { isAsyncFunction } from '@hitotek/fuzzy-ui-utils/tool'
 
 defineOptions({
   name: 'FYSwitch',
 })
 const props = defineProps({
+  // eslint-disable-next-line
   value: {
 
   },
@@ -44,7 +45,7 @@ const props = defineProps({
     default: () => {},
   },
 })
-const emit = defineEmits(['change'])
+const emit = defineEmits(['change', 'update:modelValue'])
 const getDefaultMsg = computed(() => {
   if (props.modelValue === getActiveValue.value) {
     return {
@@ -70,23 +71,7 @@ const getInActiveValue = computed(() => {
   return false
 })
 const emitChange = async (e) => {
-  console.log('变化了')
-  // if (props.cb instanceof Promise) {
-  //   console.log('进入promise')
-  //   props.cb.then((v) => {
-  //     ElMessage(getDefaultMsg.value)
-  //   }).catch((e) => {
-  //     console.log('promise error', e)
-  //     ElMessage({
-  //       message: props.changeFailMessage,
-  //       type: 'error',
-  //     })
-  //   }).finally(() => {
-  //     emit('change', e)
-  //   })
-  // } else
   if (isAsyncFunction(props.cb)) {
-    console.log('进入了1')
     try {
       await props.cb()
       nextTick(() => {
@@ -104,7 +89,6 @@ const emitChange = async (e) => {
       emit('change', e)
     }
   } else if (typeof props.cb === 'function') {
-    console.log('进入了2')
     try {
       props.cb()
       nextTick(() => {
@@ -122,7 +106,6 @@ const emitChange = async (e) => {
       emit('change', e)
     }
   } else {
-    console.log('进入了3')
     nextTick(() => {
       ElMessage(getDefaultMsg.value)
       emit('change', e)

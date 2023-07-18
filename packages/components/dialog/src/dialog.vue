@@ -1,15 +1,16 @@
 <script setup>
 import {
-  computed, onMounted, reactive, ref,
+  computed, ref, watch,
 } from 'vue'
 import { ElDialog } from 'element-plus'
 import Form from './form.jsx'
+import DeletePanel from './deletePanel.jsx'
 
 defineOptions({
   name: 'FYDialog',
 })
 
-const emit = defineEmits(['update:modelValue', 'submit', 'fail', 'cancel'])
+const emit = defineEmits(['update:modelValue', 'submit', 'fail', 'cancel', 'confirm'])
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -35,61 +36,8 @@ const props = defineProps({
   },
 
 })
-console.log(props.dialogConfig, 'dialogConfig')
-const cascaderOptions = [
-  {
-    value: 'guide',
-    label: 'Guide',
-    children: [
-      {
-        value: 'disciplines',
-        label: 'Disciplines',
-        children: [
-          {
-            value: 'consistency',
-            label: 'Consistency',
-          },
-          {
-            value: 'feedback',
-            label: 'Feedback',
-          },
-          {
-            value: 'efficiency',
-            label: 'Efficiency',
-          },
-          {
-            value: 'controllability',
-            label: 'Controllability',
-          },
-        ],
-      },
-      {
-        value: 'navigation',
-        label: 'Navigation',
-        children: [
-          {
-            value: 'side nav',
-            label: 'Side Navigation',
-          },
-          {
-            value: 'top nav',
-            label: 'Top Navigation',
-          },
-        ],
-      },
-    ],
-  },
-]
-const formModel = reactive({
-  name: '',
-  region: '',
-  type: '',
-  date: '',
-  date2: '',
-  cascader: '',
-  cascader2: '',
-  switch: '',
-  switch2: '',
+watch(() => props.modelValue, () => {
+  formRef.value?.clearValidate()
 })
 const getModalClass = computed(() => {
   const target = []
@@ -102,10 +50,12 @@ const getModalClass = computed(() => {
   if (props.dialogConfig.modalClass) {
     target.push(props.modalClass)
   }
-  if (props.dialogConfig.template.length >= 5) {
+  if (props.dialogConfig.template?.length >= 5) {
     target.push('fy-dialog-default')
-  } else {
+  } else if (props.dialogConfig.template) {
     target.push('fy-dialog-small')
+  } else if (props.dialogConfig.type === 'delete') {
+    target.push('fy-dialog-delete-type')
   }
   return target.join(' ')
 })
@@ -115,7 +65,7 @@ const getTitle = computed(() => {
   }
   if (props.dialogConfig.title) {
     let type
-    switch (props.type) {
+    switch (props.dialogConfig.type) {
       case 'create':
         type = '新建'
         break
@@ -123,7 +73,7 @@ const getTitle = computed(() => {
         type = '修改'
         break
       case 'delete':
-        type = '删除'
+        type = ''
         break
       default:
         type = '新建'
@@ -133,47 +83,16 @@ const getTitle = computed(() => {
   }
   return ''
 })
-// const initDialogBody = () => {
-//   console.log(11)
-//   const header = document.querySelector('.el-dialog__header')
-//   const parent = document.querySelector('.el-dialog')
-//   const { height: heightTotal } = parent.getBoundingClientRect()
-//   const { height: height1 } = header.getBoundingClientRect()
-//   const footer = document.querySelector('.el-dialog__footer')
-//   const { height: height2 } = footer.getBoundingClientRect()
-//   const body = document.querySelector('.el-dialog__body')
-//   body.style.height = `calc(${heightTotal}px - ${height1}px - ${height2}px)`
-// }
 
-onMounted(() => {})
-
-const options1 = [
-  {
-    value: 'Option1',
-    label: 'Option1',
-  },
-  {
-    value: 'Option2',
-    label: 'Option2',
-  },
-  {
-    value: 'Option3',
-    label: 'Option3',
-  },
-  {
-    value: 'Option4',
-    label: 'Option4',
-  },
-]
 const formRef = ref(null)
 const submit = () => {
-  console.log(1)
-  console.log(formRef.value.validate, 'formRef')
-  formRef.value?.validate()
-  // formRef.value?.validateField('input')
+  if (props.dialogConfig.type !== 'delete') {
+    formRef.value?.validate()
+  } else {
+    emit('confirm')
+  }
 }
-const handleSubmit = (e) => {
-  console.log('dialog接收到了form', props.formModel)
+const handleSubmit = () => {
   emit('submit', props.formModel)
 }
 const handleSubmitFail = (e) => {
@@ -182,13 +101,24 @@ const handleSubmitFail = (e) => {
 const cancel = () => {
   formRef.value?.resetFields()
   emit('update:modelValue', false)
-  emit('cancel', props.formModel)
+  if (props.dialogConfig.type !== 'delete') {
+    emit('cancel', props.formModel)
+  } else {
+    emit('cancel')
+  }
 }
 const closedFn = () => {
   emit('update:modelValue', false)
-  console.log(formRef.value, 'formRef.value')
-  formRef.value?.resetFields()
 }
+const getComfirmButtonType = computed(() => {
+  if (['create', 'update'].includes(props.dialogConfig.type) || !props.dialogConfig.type) {
+    return 'primary'
+  } if (['delete'].includes(props.dialogConfig.type)) {
+    return 'danger'
+  }
+  return ''
+})
+
 </script>
 
 <template>
@@ -198,17 +128,24 @@ const closedFn = () => {
       :model-value="props.modelValue"
       :title="getTitle"
       :modal-class="getModalClass"
+      :close-on-click-modal="props.dialogConfig.closeOnClickModal || false"
       @closed="closedFn"
     >
+      <!-- eslint-disable -->
       <Form
+        v-if="props.dialogConfig.type === 'create' || props.dialogConfig.type === 'update' || !props.dialogConfig.type"
         ref="formRef"
         v-model="props.formModel"
         :labelPosition="props.dialogConfig.labelPosition"
         :labelWidth="props.dialogConfig.labelWidth"
         :template="props.dialogConfig.template"
-        status-icon
+        :businessType="props.dialogConfig.type"
         @submit="handleSubmit"
         @fail="handleSubmitFail"
+      />
+      <DeletePanel
+        v-else-if="props.dialogConfig.type === 'delete'"
+        :dialogConfig="props.dialogConfig"
       />
       <template #header>
         <slot name="header" />
@@ -216,7 +153,7 @@ const closedFn = () => {
       <template #footer>
         <slot name="footer">
           <FYButton
-            type="primary"
+            :type="getComfirmButtonType"
             style="
               width: 112px;
               height: 42px;

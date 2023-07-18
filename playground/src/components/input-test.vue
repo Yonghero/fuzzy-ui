@@ -4,14 +4,11 @@ import { ref } from 'vue'
 
 const v1 = ref('222')
 const v2 = ref('333')
-const myFocus = (e) => {
-  console.log(e, 'my focus e')
+const myFocus = () => {
 }
-const myBlur = (e) => {
-  console.log(e, 'my blur e')
+const myBlur = () => {
 }
-const switchChange = (e) => {
-  console.log('switchChange', e)
+const switchChange = () => {
 }
 
 const filterList = ref([
@@ -56,7 +53,7 @@ const filterList = ref([
     size="small"
     flex
     :filter-list="filterList"
-    @switchChange="switchChange"
+    @switch-change="switchChange"
   />
 
   <FYInput

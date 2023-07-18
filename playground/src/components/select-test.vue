@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import { UserFilled } from '@element-plus/icons-vue'
 import {
   ElIcon,
-  ElSelectV2,
 } from 'element-plus'
 
 const value = ref('')
@@ -105,23 +104,17 @@ const options6 = [
     value: false,
   },
 ]
-const handleChange = (e) => {
-  console.log(e, 'e')
+const handleChange = () => {
 }
-const handleVisibleChange = (e) => {
-  console.log(e, 'e')
+const handleVisibleChange = () => {
 }
-const handleRemoveTag = (e) => {
-  console.log(e, 'e')
+const handleRemoveTag = () => {
 }
-const handleClear = (e) => {
-  console.log(e, 'e')
+const handleClear = () => {
 }
-const handleBlur = (e) => {
-  console.log(e, 'e')
+const handleBlur = () => {
 }
-const handleFocus = (e) => {
-  console.log(e, 'e')
+const handleFocus = () => {
 }
 
 </script>

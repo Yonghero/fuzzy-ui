@@ -1,8 +1,5 @@
 <script setup lang="jsx">
 import { ref } from 'vue'
-import {
-  ElLoading,
-} from 'element-plus'
 
 const isShow = ref(false)
 const handleClick = () => {

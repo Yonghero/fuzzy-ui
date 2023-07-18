@@ -4,7 +4,7 @@
       <FYInput
         v-model="value"
         :filter-list="filterList"
-        @switchChange="switchChange"
+        @switch-change="switchChange"
       />
     </div>
   </div>
@@ -28,8 +28,7 @@ const filterList = ref([{
   id: 'title2',
   value: true,
 }])
-const switchChange = (e) => {
-  console.log(e)
+const switchChange = () => {
 }
 
 </script>

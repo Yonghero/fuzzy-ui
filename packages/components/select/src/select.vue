@@ -69,11 +69,6 @@ const defaultIconStyle = computed(() => ({
   justifyContent: 'center',
   color: '#fff',
 }))
-// const getModelValueClass = () => {
-//   const options = props.options.map((item, index) => ({ ...item, index }))
-//   const targetIndex = options.find((item) => item.value === props.modelValue)?.index ?? ''
-//   return `fy-select-tag-index${targetIndex}`
-// }
 const getClass = ref(['fy-select'])
 if (props.access) {
   getClass.value = ['fy-select', 'fy-select-access-w']

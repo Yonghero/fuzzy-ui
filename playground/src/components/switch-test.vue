@@ -2,15 +2,8 @@
 import { ref } from 'vue'
 
 const value = ref(true)
-const change = (e) => {
-  console.log('父组件接收到e了', e)
+const change = () => {
 }
-// const promiseCb =  new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve('resolve')
-//     console.log('一秒后')
-//   }, 3000)
-// })
 const asyncFn = () => {
 }
 
