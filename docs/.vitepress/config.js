@@ -1,9 +1,11 @@
 import { defineConfig } from 'vitepress'
 import { mdPlugin } from './config/plugins'
+
 export default defineConfig({
   title: 'Fuzzy UI',
   themeConfig: {
     logo: '/logo.png',
+    base: '/fuzzy-ui',
     nav: [
       { text: '指南', link: '/guide/install' },
       { text: '组件', link: '/components/button' },
