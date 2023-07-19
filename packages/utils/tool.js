@@ -3,3 +3,10 @@ export function isAsyncFunction(fn) {
   return Object.prototype.toString.call(fn) === '[object AsyncFunction]'
       || fn.constructor.name === 'AsyncFunction'
 }
+
+/**
+ * 合并template
+ */
+export function mergeTemplate(...tmpls) {
+  return tmpls
+}

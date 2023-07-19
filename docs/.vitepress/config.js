@@ -49,8 +49,8 @@ export default defineConfig({
             { text: 'FilterPanel 查询面板', link: '/components/filter-panel' },
             { text: 'FilterInline 内联表单查询', link: '/components/filter-inline' },
             { text: 'FilterDisplay 下拉标签式查询', link: '/components/filter-display' },
-            { text: 'Dialog 对话框', link: '/components/dialog' },
             { text: 'ActionPanel 动作面板', link: '/components/action-panel' },
+            { text: 'Dialog 对话框', link: '/components/dialog' },
           ]
         },
         {
