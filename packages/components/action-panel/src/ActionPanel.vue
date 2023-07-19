@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: 'bottom-start',
   },
+  trigger: {
+    type: String,
+    default: 'click',
+  },
 })
 
 const emits = defineEmits(['update:visible'])
@@ -75,7 +79,7 @@ const ActionMenuRenderer = computed(() => {
       v-model:visible="popoverVisible"
       width="240"
       :show-arrow="false"
-      trigger="click"
+      :trigger="trigger"
       :placement="placement"
       popper-class="fy-action-panel-popover"
     >

@@ -20,6 +20,9 @@ layout: doc
 
 组件绑定 `placement` 的值来决定面板展开后的位置 可取的范围值与element-plus的popover组件一致
 
+组件绑定 `trigger` 的值来决定开发面板的方式 默认为 click 可取的范围值与element-plus的popover组件一致
+
+
 传递的 `默认插槽` 是触发面板显示的 HTML 元素
 
 :::demo
