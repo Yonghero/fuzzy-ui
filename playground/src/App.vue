@@ -6,8 +6,9 @@ import SwitchTest from './components/switch-test.vue'
 import LoadingTest from './components/loading-test.vue'
 import SkeletonTest from './components/skeleton-test.vue'
 import DialogTest from './components/dialog-test.vue'
+import TableTest from './components/table/table.vue'
 </script>
 
 <template>
-  <DialogTest />
+  <TableTest />
 </template>

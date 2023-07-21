@@ -1,0 +1,33 @@
+.vp-doc {
+  table {
+    border: none;
+    color: inherit;
+    background-color: inherit;
+    display: inherit;
+    border-collapse: inherit;
+    margin: inherit;
+    overflow-x: inherit; 
+    th,tr {
+      border-top: none!important;
+      border-left: none;
+      border-right: none;
+      color: inherit;
+      background-color: none!important;
+      padding: none!important;
+    }
+    td {
+       border: none;
+       padding: none;
+    }
+  }
+}
+
+.vp-doc .fy-table-wrap table tbody tr:nth-child(2n) {
+  background-color: none!important;
+}
+
+
+.fy-table-wrap {
+  width: 100%;
+  height: 100%;
+}
