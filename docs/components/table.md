@@ -7,6 +7,6 @@ layout: doc
 ## 基本使用
 
 :::demo
-table/basic
+table/SelectionIndex
 :::
 
