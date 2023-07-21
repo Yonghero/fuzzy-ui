@@ -41,9 +41,10 @@ export default defineComponent({
       emit,
     })
 
-    const { SettingColumn } = useHeadSetting()
-
     const Columns = getColumns(computed(() => props.template))
+
+    // 表头设置列
+    const { SettingColumn } = useHeadSetting()
 
     const spanMethod = ({
       row,
@@ -83,10 +84,10 @@ export default defineComponent({
         <el-table
           data={props.data}
           table-layout="auto"
-          header-row-class-name="fy-table-header-row"
           border
-          spanMethod={spanMethod}
           {...attrs}
+          header-row-class-name="fy-table-header-row"
+          spanMethod={spanMethod}
         >
           <FirstColumn />
           { Columns }
