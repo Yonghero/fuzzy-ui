@@ -7,8 +7,9 @@ import LoadingTest from './components/loading-test.vue'
 import SkeletonTest from './components/skeleton-test.vue'
 import DialogTest from './components/dialog-test.vue'
 import TreeTest from './components/tree/index.vue'
+import FormTest from './components/form-test.vue'
 </script>
 
 <template>
-  <TreeTest />
+  <FormTest />
 </template>

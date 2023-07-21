@@ -1,7 +1,10 @@
 import { defineComponent, ref, watch } from 'vue'
 import { FormItem } from './FormItem.jsx'
+import { FormItemDetail } from './FormItemDetail.jsx'
+import '@hitotek/fuzzy-ui-theme-chalk/src/form/form.scss'
 
 export default defineComponent({
+  name: 'FYForm',
   props: {
     template: {
       type: Array,
@@ -23,9 +26,14 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    // 分为write类型（即新增和编辑），以及read（详情）
     businessType: {
       type: String,
-      default: 'create',
+      default: 'write',
+    },
+    config: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ['submit', 'fail', 'update:modelValue'],
@@ -41,8 +49,11 @@ export default defineComponent({
       realFormRef.value?.resetFields()
     }
     const validate = () => {
+      console.log('validate')
       realFormRef.value?.validate((valid, object) => {
+        console.log(valid, object, 'object')
         if (valid) {
+          console.log('submit')
           emit('submit')
         } else {
           emit('fail', object)
@@ -84,9 +95,16 @@ export default defineComponent({
       return targetRules
     }
     rules.value = props.shouldValidate ? getRules(props.template) : []
-    const initFormItems = props.template
+
+    let initFormItems = props.template
       .filter((item) => !item.filterUnShow && item.show !== false)
       .map((sec) => ({ ...sec, model: props.modelValue }))
+    const styleObj = {
+      full: !(initFormItems.length > 4) || props.config,
+      half: initFormItems.length > 4 && !props.config,
+      oneOfFour: false,
+    }
+    initFormItems = initFormItems.map((item) => ({ ...item, ...styleObj }))
     expose({
       resetFields,
       validate,
@@ -102,9 +120,23 @@ export default defineComponent({
         ref={realFormRef}
         {...attrs}
       >
-        {initFormItems.map((item) => (
-          <FormItem tmplItem={item} key={item.value}></FormItem>
-        ))}
+        {props.businessType !== 'read'
+          ? initFormItems.map((item) => (
+              <FormItem
+                tmplItem={item}
+                key={item.value}
+                config={props.config}
+              ></FormItem>
+              // eslint-disable-next-line
+            ))
+          : initFormItems.map((item) => (
+              <FormItemDetail
+                tmplItem={item}
+                key={item.value}
+                config={props.config}
+              ></FormItemDetail>
+              // eslint-disable-next-line
+            ))}
       </el-form>
     )
   },

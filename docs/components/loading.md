@@ -10,7 +10,7 @@ loading 效果及常用功能。
 
 支持传入 `type` 默认为 `page` 整个页面的 loading 效果，切换为 `module` 则是部分 loading 效果.
 
-支持传入 `background` 改变背景颜色.
+支持传入 包含`light`和`dark`色彩值得对象`background`, 改变背景颜色.
 
 :::demo  
 loading/basic

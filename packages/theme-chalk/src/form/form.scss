@@ -1,0 +1,33 @@
+.el-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .form-item-detail-wrap {
+    .el-form-item__label {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      color: #999b9f;
+    }
+    .form-item-detail {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      color: #333;
+    }
+  }
+  .form-item-config-wrap {
+    .fy-input-wrap {
+      width: 50%;
+    }
+    .fy-select-wrap {
+      width: 50%;
+    }
+    .fy-date-picker {
+      width: 50% !important;
+    }
+    .el-cascader {
+      width: 50%;
+    }
+  }
+}

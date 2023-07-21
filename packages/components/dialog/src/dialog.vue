@@ -3,8 +3,8 @@ import {
   computed, ref, watch,
 } from 'vue'
 import { ElDialog } from 'element-plus'
-import Form from './form.jsx'
-import DeletePanel from './deletePanel.jsx'
+import Form from './Form.jsx'
+import DeletePanel from './DeletePanel.jsx'
 
 defineOptions({
   name: 'FYDialog',
@@ -145,8 +145,14 @@ const getComfirmButtonType = computed(() => {
       />
       <DeletePanel
         v-else-if="props.dialogConfig.type === 'delete'"
-        :dialogConfig="props.dialogConfig"
       />
+      <DetailForm
+        v-else-if="props.dialogConfig.type === 'detail'"
+        ref="formDetailRef"
+
+      >
+
+      </DetailForm>
       <template #header>
         <slot name="header" />
       </template>

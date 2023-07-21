@@ -1,10 +1,21 @@
+html:not(.dark) {
+  .fy-loading-wrap {
+    background: var(--light-loading-color);
+  }
+}
+
+html.dark {
+  .fy-loading-wrap {
+    background: var(--dark-loading-color);
+  }
+}
+
 .fy-loading-wrap {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: #fff;
   z-index: 100000;
   *,
   *:before,

@@ -5,16 +5,15 @@
   --el-color-info: #a3a5aa;
   --el-color-warning: #e6b63c;
   --el-color-danger: #ff6565;
-  --el-fill-color: #ececec !important;
   --el-overlay-color-lighter: rgba(0, 0, 0, 0.55) !important;
   // --el-component-size: 42px !important;
   // --el-component-size-large: 60px !important;
 }
 
 html:not(.dark) {
-  --fy-border-color: #eee
+  --fy-border-color: #eee;
 }
 
 html.dark {
-  --fy-border-color: rgb(45 42 42)
+  --fy-border-color: rgb(45 42 42);
 }
