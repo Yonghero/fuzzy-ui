@@ -1,5 +1,11 @@
 import { createApp, watch } from 'vue'
 
+/**
+ * 注入表头覆盖层
+ * @param {*} HeaderRenderer 覆盖层的组件
+ * @param {*} valuesMap2Data checkbox 选中的数据
+ * @returns
+ */
 export function useHeadVNode(HeaderRenderer, valuesMap2Data) {
   let headerVNode = ''
   let ele = ''
@@ -38,7 +44,6 @@ export function useHeadVNode(HeaderRenderer, valuesMap2Data) {
     })
 
     headerVNode.mount(wrapper)
-    // render(headerVNode.value, theadWrapper)
   }
 
   const removeHeaderVNode = () => {

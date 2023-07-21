@@ -1,5 +1,5 @@
 import {
-  defineComponent, unref, ref, computed,
+  defineComponent, unref, ref, computed, watch,
 } from 'vue'
 
 import { SelectionIndex } from '../SelectionIndex'
@@ -30,6 +30,7 @@ export function useFirstColumn(columnProps) {
   // 该hook注入表头覆盖层组件
   useHeadVNode(columnProps.renderer.header, valuesMap2Data)
 
+  // 第一列的自定义插槽
   const slots = {
     default: (scope) => (
       <SelectionIndex
@@ -56,6 +57,20 @@ export function useFirstColumn(columnProps) {
         : null
     ),
   }
+
+  // 全选的状态更新
+  // 单个全部选中全选也将选中
+  // 单个未选中全选也未选中
+  watch(
+    valuesMap2Data,
+    (data) => {
+      if (data.length !== unref(columnProps.data).length) {
+        checkedAll.value = false
+      } else {
+        checkedAll.value = true
+      }
+    },
+  )
 
   return {
     selectionValues: values,

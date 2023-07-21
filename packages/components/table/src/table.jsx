@@ -41,6 +41,7 @@ export default defineComponent({
       emit,
     })
 
+    // 剩余列
     const Columns = getColumns(computed(() => props.template))
 
     // 表头设置列
