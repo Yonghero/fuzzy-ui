@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="jsx">
 import { computed } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import ActionMenuItem from './ActionMenuItem.vue'
@@ -14,6 +14,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  placement: {
+    type: String,
+    default: 'bottom-start',
+  },
+  trigger: {
+    type: String,
+    default: 'click',
+  },
 })
 
 const emits = defineEmits(['update:visible'])
@@ -28,38 +36,59 @@ const popoverVisible = computed({
   },
 })
 
-// init here
+// 根据tmpl生成 menuContent
+const genTmpl = (tmpl, divider = false) => {
+  const MenuItem = tmpl.map((item, idx) => {
+    const slots = {}
+
+    if (item.sideRender) {
+      slots.sideRender = () => (<item.sideRender></item.sideRender>)
+    }
+
+    return (
+      <ActionMenuItem
+        key={idx}
+        v-slots={slots}
+        tmplItem={item}
+      />
+    )
+  })
+
+  return (
+    <ActionMenuContent divider={divider}>
+      { MenuItem }
+    </ActionMenuContent>
+  )
+}
+
+const ActionMenuRenderer = computed(() => {
+  if (props.template[0] && Array.isArray(props.template[0])) {
+    return <>
+      { props.template.map((tmpl, index) => genTmpl(tmpl, index !== props.template.length - 1)) }
+    </>
+  }
+
+  return genTmpl(props.template)
+})
+
 </script>
 
 <template>
-  <div class="fy-action-panel-warp">
+  <div class="fy-action-panel-wrap">
     <el-popover
       v-model:visible="popoverVisible"
       width="240"
       :show-arrow="false"
-      trigger="click"
-      placement="bottom-start"
-      popper-class="fy-acton-panel-popover"
+      :trigger="trigger"
+      :placement="placement"
+      popper-class="fy-action-panel-popover"
     >
       <template #reference>
         <slot />
       </template>
       <template #default>
         <div class="fy-action-panel">
-          <ActionMenuContent>
-            <ActionMenuItem />
-            <ActionMenuItem />
-            <ActionMenuItem />
-            <ActionMenuItem />
-            <ActionMenuItem />
-          </ActionMenuContent>
-          <ActionMenuContent :divider="false">
-            <ActionMenuItem />
-            <ActionMenuItem />
-            <ActionMenuItem />
-            <ActionMenuItem />
-            <ActionMenuItem />
-          </ActionMenuContent>
+          <component :is="ActionMenuRenderer" />
         </div>
       </template>
     </el-popover>
@@ -67,19 +96,5 @@ const popoverVisible = computed({
 </template>
 
 <style lang="scss">
-.fy-action-panel-wrap {
-  .el-popper {
-    padding: 0;
-  }
-  .fy-action-panel {
-    padding: 10px 0;
-    display: block;
-    width: 240px;
-    background: var(--el-bg-color-overlay);
-    border-radius: 0.25rem;
-    box-shadow: 0 0 16px #00000014;
-    border: 1px solid var(--el-border-color-light);
-  }
-}
-
+@use "../../../theme-chalk/src/action-panel/action-panel.scss"
 </style>
