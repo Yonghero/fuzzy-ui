@@ -60,7 +60,7 @@ cd ./docs && pnpm run dev
 
 #### 进入组件开发文件夹
 ``` sh
-## 例如 pnpm run button
+## 例如 pnpm gen button
 ## 会自动创建 packages/components/button 文件夹 包含符合组件库规范的文件内容
 ## 并会自动导出组件内容至packages/components/index.js文件
 
