@@ -80,5 +80,8 @@
     "vue": "^3.3.4"
   },
   "author": "younghero",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sortablejs": "^1.15.0"
+  }
 }

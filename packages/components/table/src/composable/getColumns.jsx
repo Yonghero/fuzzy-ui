@@ -3,7 +3,6 @@ import { unref } from 'vue'
 import { tableEditItem } from './install'
 
 export function getColumns(template) {
-  console.log('🚀 ~ file: getColumns.jsx:6 ~ getColumns ~ template:', template.value)
   // eslint-disable-next-line no-underscore-dangle
   const _getColumn = (scope, tmpl) => {
     if (tmpl.render) {

@@ -9,6 +9,7 @@ const tmpl = [
     label: 'date',
     value: 'date',
     type: 'input',
+    visible: false,
     onChange({ value }) {
       console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
     },
@@ -17,6 +18,7 @@ const tmpl = [
     label: 'name',
     value: 'name',
     sortable: true,
+    visible: true,
     render({ value }) {
       return (
         <div
@@ -43,6 +45,7 @@ const tmpl = [
   {
     label: 'address',
     value: 'address',
+    visible: true,
   },
 ]
 

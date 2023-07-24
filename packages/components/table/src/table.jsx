@@ -3,6 +3,7 @@ import {
 } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import { useFirstColumn, getColumns, useHeadSetting } from './composable'
+import TableSetting from './TableSetting'
 import '@hitotek/fuzzy-ui-theme-chalk/src/table/table.scss'
 
 /**
@@ -39,7 +40,11 @@ export default defineComponent({
   },
   emits: ['selection'],
   setup(props, { attrs, expose, emit }) {
+    // 表格组件实例
     const Ele = ref()
+
+    // 控制表头设置弹窗是否展示
+    const tableSettingVisible = ref(true)
 
     // 第一列
     const { FirstColumn, selectionValues } = useFirstColumn({
@@ -54,7 +59,7 @@ export default defineComponent({
     const Columns = getColumns(computed(() => props.template))
 
     // 表头设置列
-    const { SettingColumn } = useHeadSetting()
+    const { SettingColumn } = useHeadSetting({ onClick: () => tableSettingVisible.value = true })
 
     const spanMethod = ({
       row,
@@ -92,17 +97,22 @@ export default defineComponent({
     return () => (
       <div class="fy-table-wrap">
         <el-table
-          data={props.data}
           border
           {...attrs}
           header-row-class-name="fy-table-header-row"
           spanMethod={spanMethod}
+          data={props.data}
           ref={Ele}
         >
           <FirstColumn />
           { Columns }
-          <SettingColumn/>
+          <SettingColumn />
         </el-table>
+        <TableSetting
+          visible={tableSettingVisible.value}
+          onUpdateVisible={(e) => tableSettingVisible.value = e}
+          template={props.template}
+        />
       </div>
     )
   },
