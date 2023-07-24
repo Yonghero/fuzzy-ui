@@ -17,7 +17,11 @@ defineProps({
   >
     <div
       class="item-left"
-      @click="tmplItem.onClick"
+      @click="() => {
+        console.log(tmplItem,'--=-=-');
+
+        tmplItem.onClick()
+      }"
     >
       <template v-if="!tmplItem.render">
         <div

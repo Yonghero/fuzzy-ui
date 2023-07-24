@@ -1,4 +1,6 @@
-import { computed, defineComponent } from 'vue'
+import {
+  computed, defineComponent, ref,
+} from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import { useFirstColumn, getColumns, useHeadSetting } from './composable'
 import '@hitotek/fuzzy-ui-theme-chalk/src/table/table.scss'
@@ -29,9 +31,16 @@ export default defineComponent({
       type: Object,
       default: () => ({}),
     },
+    // eslint-disable-next-line vue/no-reserved-props
+    EleRef: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   emits: ['selection'],
   setup(props, { attrs, expose, emit }) {
+    const Ele = ref()
+
     // 第一列
     const { FirstColumn, selectionValues } = useFirstColumn({
       selection: computed(() => props.columnSelection), // 是否开启多选
@@ -78,17 +87,17 @@ export default defineComponent({
       }
     }
 
-    expose({ selectionValues })
+    expose({ selectionValues, sort: computed(() => Ele.value.sort) })
 
     return () => (
       <div class="fy-table-wrap">
         <el-table
           data={props.data}
-          table-layout="auto"
           border
           {...attrs}
           header-row-class-name="fy-table-header-row"
           spanMethod={spanMethod}
+          ref={Ele}
         >
           <FirstColumn />
           { Columns }

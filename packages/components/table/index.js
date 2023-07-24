@@ -3,3 +3,5 @@ import Table from './src/table.jsx'
 
 export const FYTable = withInstall(Table)
 export default FYTable
+
+// export * from './src/composable'
