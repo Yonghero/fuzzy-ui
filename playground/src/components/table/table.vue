@@ -139,7 +139,7 @@ console.log('🚀 ~ file: table.vue:110 ~ sortTmpl:', sortTmpl)
   </div>
 </template>
 
-<style langs="scss">
+<style lang="scss">
 .header {
   width: 100%;
   height: 100%;
