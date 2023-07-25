@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# Table
+# Table 表格
 
 ## 已知问题
 
