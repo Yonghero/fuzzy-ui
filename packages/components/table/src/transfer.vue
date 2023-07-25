@@ -1,30 +1,93 @@
 <script setup>
 import {
-  Search, Check, Pointer, Close,
+  Search, Check, Close,
 } from '@element-plus/icons-vue'
 import Sortable from 'sortablejs'
-import { onMounted, ref, computed } from 'vue'
+import {
+  onMounted, ref, computed, watch,
+} from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import { FYInput } from '../../input'
 
 const props = defineProps({
   ...tmplProps,
+  visibleTemplate: {
+    type: Array,
+    default: () => ([]),
+  },
 })
 
-const allTmpl = computed(() => props.template)
+const emits = defineEmits(['updateTmpl', 'updateVisibleTmpl'])
 
-const visibleTmpl = computed(() => props.template.filter((tmpl) => tmpl.visible))
+const allTmpl = computed({
+  get() {
+    return props.template
+  },
+  set(v) {
+    emits('updateTmpl', v)
+  },
+})
 
+const visibleTmpl = computed({
+  get() {
+    return props.visibleTemplate
+  },
+  set(v) {
+    emits('updateVisibleTmpl', v)
+  },
+})
+
+/**
+ * 左侧筛选面板
+ */
+const leftInputVal = ref('')
+const filterLeftTmpl = ref([])
+
+watch(
+  leftInputVal,
+  (val) => {
+    filterLeftTmpl.value = allTmpl.value.filter((tmpl) => tmpl.label.includes(val))
+  },
+  { immediate: true },
+)
+
+/**
+ * 右侧筛选面板
+ */
+const rightInputVal = ref('')
+const filterRightTmpl = ref([])
+
+watch(
+  [rightInputVal, visibleTmpl],
+  () => {
+    filterRightTmpl.value = visibleTmpl.value.filter((tmpl) => tmpl.label.includes(rightInputVal.value))
+  },
+  { immediate: true },
+)
+
+// 切换一项是否展示
+function toggleVisibleItem(item) {
+  allTmpl.value.find((e) => e.label === item.label).visible = !item.visible
+  allTmpl.value = [...allTmpl.value]
+}
+
+// 移除一项展示
+function removeVisibleItem(item) {
+  visibleTmpl.value.find((e) => e.label === item.label).visible = false
+  visibleTmpl.value = [...visibleTmpl.value]
+}
+
+/**
+ * 右侧面板拖拽实现
+ */
 const dragEle = ref()
-
-const arr = ref([{ label: 1 }, { label: 2 }])
 
 onMounted(() => {
   Sortable.create(dragEle.value, {
     animation: 100,
     onEnd({ newIndex, oldIndex }) {
-      const currRow = arr.value.splice(oldIndex, 1)[0]
-      arr.value.splice(newIndex, 0, currRow)
+      const currRow = filterRightTmpl.value.splice(oldIndex, 1)[0]
+      filterRightTmpl.value.splice(newIndex, 0, currRow)
     },
   })
 })
@@ -39,6 +102,7 @@ onMounted(() => {
       </div>
       <div class="selection-section">
         <FYInput
+          v-model="leftInputVal"
           class="transparent-input"
           placeholder="搜索"
         >
@@ -53,17 +117,12 @@ onMounted(() => {
             class="list"
           >
             <div
-              v-for="(tmpl) in allTmpl"
+              v-for="(tmpl) in filterLeftTmpl"
               :key="tmpl.value"
               class="list-item"
+              @click="toggleVisibleItem(tmpl)"
             >
               <div class="item-awesome-text">
-                <el-icon
-                  :size="20"
-                  color="#999"
-                >
-                  <Pointer />
-                </el-icon>
                 <span class="item-title">{{ tmpl.label }}</span>
               </div>
 
@@ -85,10 +144,11 @@ onMounted(() => {
     </div>
     <div class="transfer-container">
       <div class="selection-title">
-        已选择属性 · {{ visibleTmpl.le }}
+        已选择属性 · {{ visibleTmpl.length }}
       </div>
       <div class="selection-section">
         <FYInput
+          v-model="rightInputVal"
           class="transparent-input"
           placeholder="搜索"
         >
@@ -104,17 +164,33 @@ onMounted(() => {
             class="list"
           >
             <div
-              v-for="(tmpl) in visibleTmpl"
+              v-for="(tmpl) in filterRightTmpl"
               :key="tmpl.value"
               class="list-item"
+              @click="removeVisibleItem"
             >
               <div class="item-awesome-text">
-                <el-icon
-                  :size="20"
+                <svg
                   color="#999"
-                >
-                  <Pointer />
-                </el-icon>
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fit=""
+                  height="1em"
+                  width="1em"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                ><g
+                  id="ailaction/drag--"
+                  stroke-width="1"
+                  fill-rule="evenodd"
+                ><g
+                  id="ail拖动"
+                  transform="translate(5 1)"
+                  fill-rule="nonzero"
+                ><path
+                  id="ail形状结合"
+                  d="M1 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM1 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm-4 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm-4 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                /></g></g></svg>
                 <span class="item-title">{{ tmpl.label }}</span>
               </div>
 
@@ -208,6 +284,14 @@ onMounted(() => {
               display: flex;
               align-items: center;
               column-gap: .3125rem;
+              svg {
+                visibility: hidden;
+              }
+              &:hover {
+                svg {
+                  visibility: visible;
+                }
+              }
             }
           }
         }

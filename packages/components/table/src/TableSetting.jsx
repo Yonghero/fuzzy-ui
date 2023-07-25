@@ -1,4 +1,6 @@
-import { defineComponent, computed } from 'vue'
+import {
+  defineComponent, computed, ref, watch,
+} from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import Transfer from './transfer.vue'
 
@@ -21,6 +23,25 @@ export default defineComponent({
         emit('updateVisible', v)
       },
     })
+
+    const tmpl = ref([]) // 全部表头
+    const visibleTmpl = ref([]) // 只展示的表头
+
+    watch(
+      () => props.template,
+      () => {
+        tmpl.value = props.template
+      },
+      { immediate: true },
+    )
+
+    watch(
+      tmpl,
+      () => {
+        visibleTmpl.value = tmpl.value.filter((item) => item.visible)
+      },
+      { immediate: true },
+    )
 
     const slots = {
       footer: () => (
@@ -57,7 +78,16 @@ export default defineComponent({
         top="5vh"
         destroy-on-close
       >
-        <Transfer template={props.template}></Transfer>
+        <Transfer
+          template={tmpl.value}
+          visibleTemplate={visibleTmpl.value}
+          onUpdateTmpl={(e) => {
+            tmpl.value = e
+          }}
+          onUpdateVisibleTmpl={(e) => {
+            visibleTmpl.value = e
+          }}
+        />
       </el-dialog>
     )
   },
