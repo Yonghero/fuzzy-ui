@@ -52,7 +52,7 @@ export const SelectionIndex = defineComponent({
       }
     }
 
-    const rowValue = computed(() => props.scope.row[props.prop])
+    const rowValue = computed(() => props.scope.$index + 1)
 
     const RendererItem = computed(() => {
       // 序号和多选同时满足

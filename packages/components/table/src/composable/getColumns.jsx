@@ -1,4 +1,4 @@
-import { unref } from 'vue'
+import { computed, unref } from 'vue'
 
 import { tableEditItem } from './install'
 
@@ -18,7 +18,7 @@ export function getColumns(template) {
     return (scope.row[tmpl?.value] || scope.row[tmpl?.value] === 0 ? scope.row[tmpl?.value] : '-')
   }
 
-  return unref(template).map((tmpl) => {
+  return computed(() => unref(template).map((tmpl) => {
     const slots = {
       default: (scope) => _getColumn(scope, tmpl),
     }
@@ -33,5 +33,5 @@ export function getColumns(template) {
         {...tmpl}
       />
     )
-  })
+  }))
 }

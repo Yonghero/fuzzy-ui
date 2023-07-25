@@ -18,8 +18,6 @@ defineProps({
     <div
       class="item-left"
       @click="() => {
-        console.log(tmplItem,'--=-=-');
-
         tmplItem.onClick()
       }"
     >

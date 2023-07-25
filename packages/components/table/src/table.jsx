@@ -2,7 +2,9 @@ import {
   computed, defineComponent, ref,
 } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
-import { useFirstColumn, getColumns, useHeadSetting } from './composable'
+import {
+  useFirstColumn, getColumns, getHeadSettingColumn, useTableAttrs,
+} from './composable'
 import TableSetting from './TableSetting'
 import '@hitotek/fuzzy-ui-theme-chalk/src/table/table.scss'
 
@@ -38,13 +40,24 @@ export default defineComponent({
       default: () => ({}),
     },
   },
-  emits: ['selection'],
+  emits: ['selection', 'headerSelection'],
   setup(props, { attrs, expose, emit }) {
     // 表格组件实例
     const Ele = ref()
 
     // 控制表头设置弹窗是否展示
-    const tableSettingVisible = ref(true)
+    const tableSettingVisible = ref(false)
+
+    // 初始化字段排序
+    const sortedTmpl = computed(() => {
+      const tmpl = props.template
+      return tmpl
+        .map((item) => ({ order: item.order ? item.order : 0, ...item })) // order 初始化
+        .sort((a, b) => a.order - b.order)
+    })
+
+    // 封装表格继承属性
+    const tableAttrs = useTableAttrs(attrs, computed(() => props.template))
 
     // 第一列
     const { FirstColumn, selectionValues } = useFirstColumn({
@@ -56,41 +69,10 @@ export default defineComponent({
     })
 
     // 剩余列
-    const Columns = getColumns(computed(() => props.template))
+    const Columns = getColumns(computed(() => sortedTmpl.value.filter((item) => item.visible)))
 
     // 表头设置列
-    const { SettingColumn } = useHeadSetting({ onClick: () => tableSettingVisible.value = true })
-
-    const spanMethod = ({
-      row,
-      column,
-      rowIndex,
-      columnIndex,
-    }) => {
-      // 最后一列为自定义的设置 需要占0行0列
-      if (columnIndex === props.template.length + 1) {
-        return {
-          rowspan: 0,
-          colspan: 0,
-        }
-      }
-      // 倒数第二列则要将最后一列合并成一列 所以需要占一行两列
-      if (columnIndex === props.template.length) {
-        return {
-          rowspan: 1,
-          colspan: 2,
-        }
-      }
-      if (attrs.spanMethod) {
-        return attrs.spanMethod({
-          row, column, rowIndex, columnIndex,
-        })
-      }
-      return {
-        rowspan: 1,
-        colspan: 1,
-      }
-    }
+    const SettingColumn = getHeadSettingColumn({ onClick: () => tableSettingVisible.value = true })
 
     expose({ selectionValues, sort: computed(() => Ele.value.sort) })
 
@@ -98,20 +80,20 @@ export default defineComponent({
       <div class="fy-table-wrap">
         <el-table
           border
-          {...attrs}
-          header-row-class-name="fy-table-header-row"
-          spanMethod={spanMethod}
+          table-layout="auto"
+          {...tableAttrs}
           data={props.data}
           ref={Ele}
         >
           <FirstColumn />
-          { Columns }
+          { Columns.value }
           <SettingColumn />
         </el-table>
         <TableSetting
           visible={tableSettingVisible.value}
           onUpdateVisible={(e) => tableSettingVisible.value = e}
-          template={props.template}
+          template={sortedTmpl.value}
+          onSubmit={(tmpl) => emit('headerSelection', tmpl)}
         />
       </div>
     )

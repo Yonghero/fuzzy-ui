@@ -1,15 +1,38 @@
 <script setup lang="jsx">
 import { FYTable, FYActionPanel } from '@hitotek/fuzzy-ui-components'
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 import { MoreFilled, FullScreen, Sort } from '@element-plus/icons-vue'
 import { ElDivider, ElIcon } from 'element-plus'
 
-const tmpl = [
+const tmpl = shallowRef([
   {
     label: 'date',
     value: 'date',
     type: 'input',
+    fixed: true,
     visible: false,
+    onChange({ value }) {
+      console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
+    },
+  },
+  {
+    label: 'date1',
+    value: 'date1',
+    type: 'input',
+    // fixed: 'right',
+    visible: true,
+    width: 180,
+    onChange({ value }) {
+      console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
+    },
+  },
+  {
+    label: 'date2',
+    value: 'date2',
+    type: 'input',
+    // fixed: true,
+    width: 180,
+    visible: true,
     onChange({ value }) {
       console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
     },
@@ -47,37 +70,19 @@ const tmpl = [
     value: 'address',
     visible: true,
   },
-]
+])
 
 const tableData = ref()
 
 setTimeout(() => {
-  tableData.value = [
-    {
-      date: '2016-05-03',
-      index: 1,
-      name: 'ATom',
-      address: 'CNo. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-02',
-      name: 'BTom',
-      index: 2,
-      address: 'DNo. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-04',
-      name: 'DTom',
-      index: 3,
-      address: 'BNo. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-01',
-      name: 'CTom',
-      index: 4,
-      address: 'ANo. 189, Grove St, Los Angeles',
-    },
-  ]
+  tableData.value = Array.from({ length: 20 }, (_, idx) => ({
+    date: '2016-05-03',
+    date2: '2016-05-03',
+    date1: '2016-05-03',
+    index: idx + 1,
+    name: `${idx}Tom`,
+    address: 'CNo. 189, Grove St, Los Angeles',
+  }))
 }, 1000)
 
 const renderer = {
@@ -113,7 +118,11 @@ const sortTmpl = [
     selectSortPropVisible.value = false
   },
 }))
-console.log('🚀 ~ file: table.vue:110 ~ sortTmpl:', sortTmpl)
+
+const onHeaderSelection = (template) => {
+  console.log('🚀 ~ file: table.vue:118 ~ onHeaderSelection ~ template:', template)
+  tmpl.value = template
+}
 
 </script>
 
@@ -138,6 +147,7 @@ console.log('🚀 ~ file: table.vue:110 ~ sortTmpl:', sortTmpl)
       :renderer="renderer"
       :columnSelection="true"
       @selection="onSelection"
+      @headerSelection="onHeaderSelection"
     />
   </div>
 </template>

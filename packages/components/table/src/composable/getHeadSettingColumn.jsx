@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { Setting } from '@element-plus/icons-vue'
 
-export function useHeadSetting({ onClick }) {
+export function getHeadSettingColumn({ onClick }) {
   const slots = {
     header: () => (
       <div style="
@@ -18,19 +18,18 @@ export function useHeadSetting({ onClick }) {
       </div>
     ),
   }
-  return {
-    SettingColumn: defineComponent(({
-      setup(_, { attrs }) {
-        return () => (
-          <el-table-column
-            v-slots={slots}
-            width="55"
-            align="center"
-            prop="fy-setting"
-            {...attrs}
-        />
-        )
-      },
-    })),
-  }
+  return defineComponent(({
+    setup(_, { attrs }) {
+      return () => (
+        <el-table-column
+          v-slots={slots}
+          width="55"
+          align="center"
+          prop="fy-setting"
+          {...attrs}
+          fixed="right"
+      />
+      )
+    },
+  }))
 }

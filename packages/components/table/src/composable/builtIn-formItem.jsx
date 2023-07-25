@@ -31,7 +31,7 @@ export const Input = {
                   <div class="fy-table-edit-item" onClick={() => {
                     editing.value = true
                     nextTick(() => {
-                      console.log(Ele.value.focus())
+                      Ele.value.focus()
                     })
                   }}>
                     { unref(value) }

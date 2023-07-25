@@ -1,5 +1,6 @@
 export * from './useFirstColumn'
 export * from './getColumns'
-export * from './useHeadSetting'
+export * from './getHeadSettingColumn'
 export * from './install'
 export * from './builtIn-formItem'
+export * from './useTableAttrs'

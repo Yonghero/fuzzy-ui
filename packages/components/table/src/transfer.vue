@@ -67,14 +67,20 @@ watch(
 
 // 切换一项是否展示
 function toggleVisibleItem(item) {
-  allTmpl.value.find((e) => e.label === item.label).visible = !item.visible
+  allTmpl.value.find((e) => e.value === item.value).visible = !item.visible
   allTmpl.value = [...allTmpl.value]
 }
 
 // 移除一项展示
 function removeVisibleItem(item) {
-  visibleTmpl.value.find((e) => e.label === item.label).visible = false
+  // 移除
+  const idx = visibleTmpl.value.findIndex((e) => e.value === item.value)
+  visibleTmpl.value.splice(idx, 1)
   visibleTmpl.value = [...visibleTmpl.value]
+
+  // 更改状态
+  allTmpl.value.find((e) => e.value === item.value).visible = false
+  allTmpl.value = [...allTmpl.value]
 }
 
 /**
@@ -87,7 +93,10 @@ onMounted(() => {
     animation: 100,
     onEnd({ newIndex, oldIndex }) {
       const currRow = filterRightTmpl.value.splice(oldIndex, 1)[0]
-      filterRightTmpl.value.splice(newIndex, 0, currRow)
+      filterRightTmpl.value.splice(newIndex, 0, { ...currRow, order: newIndex + 1 })
+
+      const currRow1 = visibleTmpl.value.splice(oldIndex, 1)[0]
+      visibleTmpl.value.splice(newIndex, 0, currRow1)
     },
   })
 })
@@ -167,7 +176,7 @@ onMounted(() => {
               v-for="(tmpl) in filterRightTmpl"
               :key="tmpl.value"
               class="list-item"
-              @click="removeVisibleItem"
+              @click="removeVisibleItem(tmpl)"
             >
               <div class="item-awesome-text">
                 <svg
@@ -214,89 +223,5 @@ onMounted(() => {
 </template>
 
 <style scoped lang='scss'>
-.fy-transfer-wrap {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
-
-  .transfer-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    .selection-title {
-      color: #666;
-      font-size: 1rem;
-      font-weight: 500;
-    }
-    .selection-section {
-      border: 1px solid #eee;
-      border-radius: 5px;
-      vertical-align: middle;
-      height: 450px;
-
-      .transparent-input {
-        margin: 8px 0;
-        padding: 0 20px;
-      }
-
-      :deep(.el-input) {
-        height: 2.8125rem;
-      }
-      :deep(.el-input__wrapper) {
-        box-shadow: none!important;
-        border-bottom: 1px solid rgb(238,238,238);
-        border-radius: 0;
-
-        &.is-focus {
-          border-color: #6698ff;
-        }
-      }
-
-      .selection-section-body {
-        height: 24rem;
-        overflow-y: auto;
-        padding-bottom: .5rem;
-        .list {
-          width: 100%;
-          padding: 2px 0;
-
-          .list-item {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            position: relative;
-            min-height: 45px;
-            color: #333;
-            cursor: pointer;
-            outline-style: none;
-            padding: 4px 25px;
-            font-size: 1rem;
-            margin: 3px 0;
-
-            &:hover {
-              background: #f5f5f5;
-            }
-            .item-awesome-text {
-              width: calc(100% - 16px);
-              display: flex;
-              align-items: center;
-              column-gap: .3125rem;
-              svg {
-                visibility: hidden;
-              }
-              &:hover {
-                svg {
-                  visibility: visible;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+@use "../../../theme-chalk/src/table/transfer.scss"
 </style>

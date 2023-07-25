@@ -1,5 +1,5 @@
 import {
-  defineComponent, computed, ref, watch,
+  defineComponent, computed, ref, watch, nextTick, toRaw,
 } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import Transfer from './transfer.vue'
@@ -13,7 +13,7 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['updateVisible'],
+  emits: ['updateVisible', 'submit'],
   setup(props, { emit }) {
     const visible = computed({
       get() {
@@ -29,8 +29,8 @@ export default defineComponent({
 
     watch(
       () => props.template,
-      () => {
-        tmpl.value = props.template
+      (template) => {
+        tmpl.value = template
       },
       { immediate: true },
     )
@@ -62,6 +62,22 @@ export default defineComponent({
             type="primary"
             size="large"
             style="font-size: 1rem;"
+            onClick={() => {
+              // 重新对展示的字段做排序
+              visibleTmpl.value.forEach((visibleItem, orderIdx) => {
+                tmpl.value.forEach((item) => {
+                  if (visibleItem.value === item.value) {
+                    item.order = orderIdx
+                  }
+                })
+              })
+
+              emit('submit', toRaw(tmpl.value.map((item) => toRaw(item))))
+
+              nextTick(() => {
+                emit('updateVisible', false)
+              })
+            }}
           >
             确定
           </FYButton>

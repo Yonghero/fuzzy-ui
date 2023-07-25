@@ -54,7 +54,7 @@ export function useFirstColumn(columnProps) {
               emitSelection()
             }}
           />)
-        : null
+        : (<span>序号</span>)
     ),
   }
 
@@ -83,7 +83,8 @@ export function useFirstColumn(columnProps) {
         return () => (
           <el-table-column
             v-slots={slots}
-            width="50"
+            fixed
+            width="55"
             align="center"
             prop="index"
             {...attrs}
