@@ -35,7 +35,9 @@ export const Input = {
                     })
                   }}>
                     { unref(value) }
-                    <el-icon size="20" color="#aaa"><EditPen /></el-icon>
+                    <div class="table-edit-item-icon">
+                      <el-icon size="20" color="#aaa"><EditPen /></el-icon>
+                    </div>
                   </div>
               )
               : (

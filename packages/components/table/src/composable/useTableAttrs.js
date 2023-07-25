@@ -16,7 +16,6 @@ export function useTableAttrs(attrs, template) {
     const visibleTmpl = unref(template).filter((item) => item.visible)
     // 最后一列为自定义的设置 需要占0行0列
     if (columnIndex === visibleTmpl.length + 1) {
-      console.log(column)
       return {
         rowspan: 0,
         colspan: 0,

@@ -48,6 +48,19 @@
     cursor: pointer;
   }
 
+  .table-edit-item-icon {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    .table-edit-item-icon {
+      visibility: visible;
+    }
+  }
+
   .el-input__wrapper {
     box-shadow: none!important;
     &:hover {
