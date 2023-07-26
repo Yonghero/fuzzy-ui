@@ -59,7 +59,7 @@ export const SelectionIndex = defineComponent({
       if (unref(props.columnProps.index) && unref(props.columnProps.selection)) {
         return (
           isIndex.value
-            ? <div style="width:100%;height:100%">{unref(rowValue)}</div>
+            ? <>{unref(rowValue)}</>
             : <el-checkbox v-model={checked.value} />
         )
       }
@@ -69,7 +69,7 @@ export const SelectionIndex = defineComponent({
       }
 
       // 只满足序号
-      return (<div style="width:100%;height:100%">{unref(rowValue)}</div>)
+      return <>{unref(rowValue)}</>
     })
 
     return () => (
@@ -77,7 +77,7 @@ export const SelectionIndex = defineComponent({
         style="
           display:flex;
           justify-content:center;
-          items-center: center;
+          align-items: center;
           width: 30px;
           height: 30px;
       "
