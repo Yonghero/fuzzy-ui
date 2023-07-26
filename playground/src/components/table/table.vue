@@ -1,36 +1,34 @@
 <script setup lang="jsx">
-import { FYTable, FYActionPanel } from '@hitotek/fuzzy-ui-components'
+import { FYTable } from '@hitotek/fuzzy-ui-components'
 import { ref, shallowRef } from 'vue'
-import { MoreFilled, FullScreen, Sort } from '@element-plus/icons-vue'
+import { MoreFilled } from '@element-plus/icons-vue'
 import { ElDivider, ElIcon } from 'element-plus'
 
 const tmpl = shallowRef([
   {
-    label: 'date',
+    label: '年龄',
     value: 'date',
     type: 'input',
     fixed: true,
-    visible: false,
+    visible: true,
     onChange({ value }) {
       console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
     },
   },
   {
-    label: 'date1',
+    label: '年份',
     value: 'date1',
     type: 'input',
-    // fixed: 'right',
     visible: true,
-    width: 180,
+    width: 130,
     onChange({ value }) {
       console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
     },
   },
   {
-    label: 'date2',
+    label: '日期',
     value: 'date2',
     type: 'input',
-    // fixed: true,
     width: 180,
     visible: true,
     onChange({ value }) {
@@ -38,36 +36,24 @@ const tmpl = shallowRef([
     },
   },
   {
-    label: 'name',
+    label: '姓名',
     value: 'name',
+    width: 130,
     sortable: true,
     visible: true,
-    render({ value }) {
-      return (
-        <div
-         class="custom-render"
-         onClick={() => {
-           alert('展开详情！！')
-         }}
-         >
-          <span>{value}</span>
-          <el-tooltip
-            effect="dark"
-            content="展开"
-            placement="top"
-          >
-            <div class="extra">
-              <el-icon><FullScreen /></el-icon>
-            </div>
-          </el-tooltip>
-
-        </div>
-      )
-    },
   },
   {
-    label: 'address',
+    label: '身高',
+    value: 'name1',
+    width: 130,
+    sortable: true,
+    visible: true,
+  },
+  {
+    label: '地址',
     value: 'address',
+    width: 300,
+    'show-overflow-tooltip': true,
     visible: true,
   },
 ])
@@ -75,14 +61,14 @@ const tmpl = shallowRef([
 const tableData = ref()
 
 setTimeout(() => {
-  tableData.value = Array.from({ length: 20 }, (_, idx) => ({
-    date: '2016-05-03',
-    date2: '2016-05-03',
-    date1: '2016-05-03',
+  tableData.value = Array.from({ length: 5 }, (_, idx) => ({
+    date: idx,
+    date2: '2016/10/5',
+    date1: '2016',
     index: idx + 1,
     name: `${idx}Tom`,
     address: 'CNo. 189, Grove St, Los Angeles',
-  }))
+  })).reverse()
 }, 1000)
 
 const renderer = {
@@ -102,23 +88,6 @@ const onSelection = (v) => {
   console.log('🚀 ~ file: table.vue:62 ~ onSelection ~ v:', v)
 }
 
-const Ele = ref()
-
-const selectSortPropVisible = ref(false)
-
-const sortTmpl = [
-  { label: 'date' },
-  { label: 'name' },
-  { label: 'address' },
-].map((tm) => ({
-  ...tm,
-  sideRender: () => (<el-icon size="15"><Sort /></el-icon>),
-  onClick() {
-    Ele.value.sort(tm.label)
-    selectSortPropVisible.value = false
-  },
-}))
-
 const onHeaderSelection = (template) => {
   console.log('🚀 ~ file: table.vue:118 ~ onHeaderSelection ~ template:', template)
   tmpl.value = template
@@ -127,19 +96,7 @@ const onHeaderSelection = (template) => {
 </script>
 
 <template>
-  <div style="margin: 1rem;">
-    <FYActionPanel
-      v-model:visible="selectSortPropVisible"
-      :template="sortTmpl"
-      style="margin: 1rem"
-    >
-      <div
-        style="cursor: pointer;"
-        class="trigger-target"
-      >
-        按照字段排序吧🤟🏻
-      </div>
-    </FYActionPanel>
+  <div style="margin: 1rem;width: 800px;">
     <FYTable
       ref="Ele"
       :template="tmpl"

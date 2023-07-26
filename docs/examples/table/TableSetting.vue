@@ -6,7 +6,7 @@ import { ElDivider, ElIcon } from 'element-plus'
 
 const tmpl = shallowRef([
   {
-    label: 'date',
+    label: '年龄',
     value: 'date',
     type: 'input',
     fixed: true,
@@ -16,7 +16,7 @@ const tmpl = shallowRef([
     },
   },
   {
-    label: 'date1',
+    label: '年份',
     value: 'date1',
     type: 'input',
     visible: true,
@@ -26,7 +26,7 @@ const tmpl = shallowRef([
     },
   },
   {
-    label: 'date2',
+    label: '日期',
     value: 'date2',
     type: 'input',
     width: 180,
@@ -36,22 +36,23 @@ const tmpl = shallowRef([
     },
   },
   {
-    label: 'name',
+    label: '姓名',
     value: 'name',
     width: 130,
     sortable: true,
     visible: true,
   },
   {
-    label: 'name1',
+    label: '身高',
     value: 'name1',
     width: 130,
     sortable: true,
     visible: true,
   },
   {
-    label: 'address',
+    label: '地址',
     value: 'address',
+    width: 300,
     'show-overflow-tooltip': true,
     visible: true,
   },
@@ -62,7 +63,7 @@ const tableData = ref()
 setTimeout(() => {
   tableData.value = Array.from({ length: 5 }, (_, idx) => ({
     date: idx,
-    date2: '2016',
+    date2: '2016/10/5',
     date1: '2016',
     index: idx + 1,
     name: `${idx}Tom`,

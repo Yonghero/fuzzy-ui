@@ -26,10 +26,10 @@ export function getColumns(template) {
     return (
       <el-table-column
         v-slots={slots}
-        align="center"
         key={tmpl.value}
         label={tmpl.label}
         prop={tmpl.value}
+        header-align={'center'}
         {...tmpl}
       />
     )

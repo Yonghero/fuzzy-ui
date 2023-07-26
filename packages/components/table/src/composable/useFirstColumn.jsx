@@ -83,7 +83,7 @@ export function useFirstColumn(columnProps) {
         return () => (
           <el-table-column
             v-slots={slots}
-            fixed
+            fixed={unref(columnProps.template).some((item) => item.fixed)}
             width="55"
             align="center"
             prop="index"

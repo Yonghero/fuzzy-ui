@@ -65,6 +65,7 @@ export default defineComponent({
       index: computed(() => props.columnIndex), // 是否开启序号
       data: computed(() => props.data), // 表格数据
       renderer: props.renderer, // 表头覆盖层
+      template: sortedTmpl,
       emit,
     })
 

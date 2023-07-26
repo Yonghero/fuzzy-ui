@@ -6,19 +6,21 @@ import { ElDivider, ElIcon } from 'element-plus'
 
 const tmpl = shallowRef([
   {
-    label: 'date',
+    label: '日期',
     value: 'date',
     type: 'input',
-    width: 150,
+    width: 140,
     visible: true,
+    'show-overflow-tooltip': true,
     onChange({ value }) {
       console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
     },
   },
   {
-    label: 'name',
+    label: '姓名',
     value: 'name',
     visible: true,
+    width: 140,
     render({ value }) {
       return (
         <div
@@ -43,15 +45,16 @@ const tmpl = shallowRef([
     },
   },
   {
-    label: 'date1',
+    label: '空数据',
     value: 'date1',
     visible: true,
+    width: 80,
     onChange({ value }) {
       console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
     },
   },
   {
-    label: 'address',
+    label: '地址',
     value: 'address',
     visible: true,
     'show-overflow-tooltip': true,
@@ -65,7 +68,7 @@ setTimeout(() => {
     date: '2016-05-03',
     index: idx + 1,
     name: `${idx}Tom`,
-    address: 'CNo. 189, Grove St, Los Angeles',
+    address: '浙江高山CNo. 189, Grove St, Los Angeles',
   }))
 }, 1000)
 
@@ -131,7 +134,7 @@ const onHeaderSelection = (template) => {
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0 1rem;
+  // padding: 0 1rem;
 
   .extra {
     padding: 0.5rem;
