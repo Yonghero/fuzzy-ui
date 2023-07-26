@@ -52,6 +52,8 @@ export default defineConfig({
             { text: 'ActionPanel 动作面板', link: '/components/action-panel' },
             { text: 'Dialog 对话框', link: '/components/dialog' },
             { text: 'Table 表格', link: '/components/table' },
+            { text: 'Pagination 分页', link: '/components/pagination' },
+
           ]
         },
         {
