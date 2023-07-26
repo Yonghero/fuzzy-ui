@@ -19,6 +19,7 @@ function onClick(item) {
   <!-- 有子菜单 -->
   <el-sub-menu
     v-if="tmplItem?.children?.length"
+    :teleported="false"
     @click="onClick(tmplItem)"
   >
     <template #title>
@@ -52,6 +53,7 @@ function onClick(item) {
   <!-- 无子菜单 -->
   <el-menu-item
     v-else
+    :teleported="false"
     :index="tmplItem.value"
     class="fy-menu-item-2"
     @click="onClick(tmplItem)"

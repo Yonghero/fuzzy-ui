@@ -21,6 +21,10 @@ const tmpl = [
         label: 'Page2-2',
         value: '/page2/2',
       },
+      {
+        label: 'Page2-2-3-3-3',
+        value: '/page2/2-3-3',
+      },
     ],
   },
   {
