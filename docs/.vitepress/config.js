@@ -53,7 +53,7 @@ export default defineConfig({
             { text: 'Dialog 对话框', link: '/components/dialog' },
             { text: 'Table 表格', link: '/components/table' },
             { text: 'Pagination 分页', link: '/components/pagination' },
-
+            { text: 'Menu & Tab', link: '/components/menu' },
           ]
         },
         {
