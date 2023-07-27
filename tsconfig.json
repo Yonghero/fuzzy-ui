@@ -20,5 +20,5 @@
     "skipLibCheck": true,
     "jsx": "preserve",
   },
-  "exclude": ["lib", "./node_modules","./packages/*/node_modules","./packages/*/node_modules"]
+  "exclude": ["lib", "node_modules","./packages/*/node_modules"]
 }
