@@ -5,6 +5,10 @@ defineProps({
     type: Object,
     default: () => ({ label: '-' }),
   },
+  itemModel: {
+    type: Object,
+    default: () => ({}),
+  },
 })
 </script>
 
@@ -14,10 +18,10 @@ defineProps({
     :class="{
       'action-menu-item--disabled': tmplItem.disabled
     }"
+    @click="tmplItem.onClick(itemModel)"
   >
     <div
       class="item-left"
-      @click="tmplItem.onClick"
     >
       <template v-if="!tmplItem.render">
         <div

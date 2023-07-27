@@ -1,5 +1,6 @@
 import { defineComponent, computed } from 'vue'
 import { formItemMap } from './composable/install'
+import UploadItem from '../../upload/src/components/UploadItem.vue'
 
 export const FormItem = defineComponent({
   props: {
@@ -8,7 +9,10 @@ export const FormItem = defineComponent({
       default: () => ({}),
     },
   },
-  setup(props) {
+  setup(props, { emit }) {
+    const typeCheck = (e) => {
+      emit('type-check', e)
+    }
     // 表单项组件
     const FormItemCom = computed(() => {
       if (props.tmplItem.render) return props.tmplItem.render
@@ -20,13 +24,17 @@ export const FormItem = defineComponent({
         return { flex: '0 0 100%' }
       }
       if (item.half) {
-        return { flex: '0 0 49%' }
+        return { flex: '0 0 45%' }
       }
       if (item.oneOfFour) {
         return { flex: '0 0 24.5%' }
       }
       return { flex: '0 0 100%' }
     }
+    const fileChange = (file, files) => {
+      emit('file-change', file, files)
+    }
+
     return () => (
       <ElFormItem
         label={props.tmplItem.label}
@@ -34,7 +42,11 @@ export const FormItem = defineComponent({
         prop={props.tmplItem.value}
         style={getFromStyle(props.tmplItem)}
       >
-        <FormItemCom.value model={props.tmplItem.model} {...props.tmplItem} />
+        {props.tmplItem.type === 'upload' ? (
+          <UploadItem onTypeCheck={typeCheck} onFileChange={fileChange} />
+        ) : (
+          <FormItemCom.value model={props.tmplItem.model} {...props.tmplItem} />
+        )}
       </ElFormItem>
     )
   },

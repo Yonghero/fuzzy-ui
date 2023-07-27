@@ -224,26 +224,6 @@ const templateRead = ref([
     value: 'textarea',
     desc: '描述4',
   },
-  {
-    label: '任务名称5',
-    value: 'textarea2',
-    desc: '描述5',
-  },
-  {
-    label: '任务名称6',
-    value: 'textarea3',
-    desc: '描述6',
-  },
-  {
-    label: '任务名称7',
-    value: 'textarea4',
-    desc: '描述7',
-  },
-  {
-    label: '任务名称8',
-    value: 'textarea5',
-    desc: '描述8',
-  },
 ])
 
 const modelValue = ref({
@@ -269,9 +249,10 @@ const submit = (e) => {
 <template>
   <FYForm
     ref="myForm"
-    :template="template"
+    :template="templateRead"
     :modelValue="modelValue"
+    labelPosition="left"
     :config="true"
-    businessType="write"
+    businessType="read"
   />
 </template>

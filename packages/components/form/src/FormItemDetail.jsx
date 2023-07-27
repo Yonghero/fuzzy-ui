@@ -13,7 +13,6 @@ export const FormItemDetail = defineComponent({
     },
   },
   setup(props) {
-    console.log(props.tmplItem.model[props.tmplItem.value], 'model value')
     // 表单项组件
     const FormItemCom = computed(() => (
       <div class="form-item-detail">
@@ -25,7 +24,7 @@ export const FormItemDetail = defineComponent({
         return { flex: '0 0 100%' }
       }
       if (item.half) {
-        return { flex: '0 0 49%' }
+        return { flex: '0 0 45%' }
       }
       if (item.oneOfFour) {
         return { flex: '0 0 24.5%' }
@@ -46,17 +45,28 @@ export const FormItemDetail = defineComponent({
         key={props.tmplItem.value}
         prop={props.tmplItem.value}
         style={getFromStyle(props.tmplItem)}
-        class={getClass}
+        class={getClass.value}
       >
         <FormItemCom.value />
-        {props.config ? (
-          <el-icon style={{ marginLeft: '20px' }} size={20}>
-            <InfoFilled size={40} />
-          </el-icon>
-        ) : null}
+        {
+          props.config ? (
+            <div
+              class="fy-form-config-info"
+              style={{ marginLeft: '20px', width: '16px', height: '16px' }}
+            />
+          ) : null
+          // <el-icon style={{ marginLeft: '20px' }} size={20}>
+          //   <InfoFilled size={40} />
+          // </el-icon>
+        }
         {props.config ? <slot></slot> : null}
         {props.config ? (
-          <div style={{ marginLeft: '20px' }}>{props.tmplItem.desc}</div>
+          <div
+            class="fy-form-config-desc"
+            style={{ marginLeft: '4px', fontSize: '12px' }}
+          >
+            {props.tmplItem.desc}
+          </div>
         ) : null}
       </ElFormItem>
     )

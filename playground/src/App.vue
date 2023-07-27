@@ -8,8 +8,9 @@ import SkeletonTest from './components/skeleton-test.vue'
 import DialogTest from './components/dialog-test.vue'
 import TreeTest from './components/tree/index.vue'
 import FormTest from './components/form-test.vue'
+import UploadTest from './components/upload-test.vue'
 </script>
 
 <template>
-  <FormTest />
+  <UploadTest />
 </template>

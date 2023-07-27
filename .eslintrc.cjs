@@ -37,6 +37,7 @@ module.exports = {
     'no-confusing-arrow': 'off',
     'implicit-arrow-linebreak': 'off',
     'function-paren-newline': 'off',
+    'no-shadow': 'off',
   },
   settings: {
     'import/resolver': {

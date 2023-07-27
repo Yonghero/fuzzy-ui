@@ -51,6 +51,9 @@ export default defineConfig({
             { text: 'FilterDisplay 下拉标签式查询', link: '/components/filter-display' },
             { text: 'ActionPanel 动作面板', link: '/components/action-panel' },
             { text: 'Dialog 对话框', link: '/components/dialog' },
+            { text: 'Form 表单', link: '/components/form' },
+            { text: 'Tree 树级组件', link: '/components/tree' },
+            { text: 'Upload 组件', link: '/components/upload' },
           ]
         },
         {

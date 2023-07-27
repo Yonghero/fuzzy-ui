@@ -10,7 +10,7 @@ defineOptions({
   name: 'FYDialog',
 })
 
-const emit = defineEmits(['update:modelValue', 'submit', 'fail', 'cancel', 'confirm'])
+const emit = defineEmits(['update:modelValue', 'submit', 'fail', 'cancel', 'confirm', 'type-check'])
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -36,8 +36,11 @@ const props = defineProps({
   },
 
 })
-watch(() => props.modelValue, () => {
+watch(() => props.modelValue, (newV, oldV) => {
   formRef.value?.clearValidate()
+  if (!newV) {
+    formRef.value?.resetFields()
+  }
 })
 const getModalClass = computed(() => {
   const target = []
@@ -118,7 +121,12 @@ const getComfirmButtonType = computed(() => {
   }
   return ''
 })
-
+const typeCheck = (e) => {
+  emit('type-check', e)
+}
+const fileChange = (file, files) => {
+  emit('file-change', file, files)
+}
 </script>
 
 <template>
@@ -142,9 +150,12 @@ const getComfirmButtonType = computed(() => {
         :businessType="props.dialogConfig.type"
         @submit="handleSubmit"
         @fail="handleSubmitFail"
+        @type-check="typeCheck"
+        @file-change="fileChange"
       />
       <DeletePanel
         v-else-if="props.dialogConfig.type === 'delete'"
+        :dialogConfig="props.dialogConfig"
       />
       <DetailForm
         v-else-if="props.dialogConfig.type === 'detail'"

@@ -49,7 +49,7 @@ const filterList = ref([
     @focus="myFocus"
     @blur="myBlur"
   />
-  <FYInput
+  <!-- <FYInput
     size="small"
     flex
     :filter-list="filterList"
@@ -84,7 +84,7 @@ const filterList = ref([
         class="prefix-img"
       >
     </template>
-  </FYInput>
+  </FYInput> -->
 </template>
 <style scoped lang="scss">
 .prefix-img {
