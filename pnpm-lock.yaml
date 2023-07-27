@@ -7,6 +7,7 @@ importers:
       '@babel/core': ^7.22.9
       '@babel/preset-env': ^7.22.9
       '@babel/preset-react': ^7.22.5
+      '@hitotek/fuzzy-ui-components': workspace:^1.0.0
       '@hitotek/fuzzy-ui-utils': workspace:^1.0.0
       '@rollup/plugin-alias': ^5.0.0
       '@rollup/plugin-babel': ^6.0.3
@@ -41,6 +42,7 @@ importers:
       shx: ^0.3.4
       sortablejs: ^1.15.0
       tailwindcss: ^3.3.3
+      typescript: ^5.1.6
       unplugin-element-plus: ^0.7.2
       vite: ^4.4.4
       vitepress: ^1.0.0-beta.5
@@ -51,6 +53,7 @@ importers:
       '@babel/core': 7.22.9
       '@babel/preset-env': 7.22.9_@babel+core@7.22.9
       '@babel/preset-react': 7.22.5_@babel+core@7.22.9
+      '@hitotek/fuzzy-ui-components': link:packages/components
       '@hitotek/fuzzy-ui-utils': link:packages/utils
       '@rollup/plugin-alias': 5.0.0_rollup@3.26.3
       '@rollup/plugin-babel': 6.0.3_@babel+core@7.22.9+rollup@3.26.3
@@ -84,6 +87,7 @@ importers:
       sass: 1.63.6
       shx: 0.3.4
       tailwindcss: 3.3.3
+      typescript: 5.1.6
       unplugin-element-plus: 0.7.2_rollup@3.26.3
       vite: 4.4.4_sass@1.63.6
       vitepress: 1.0.0-beta.5_sass@1.63.6+sortablejs@1.15.0
@@ -5500,6 +5504,12 @@ packages:
       call-bind: 1.0.2
       for-each: 0.3.3
       is-typed-array: 1.1.11
+    dev: true
+
+  /typescript/5.1.6:
+    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+    engines: {node: '>=14.17'}
+    hasBin: true
     dev: true
 
   /uc.micro/1.0.6:

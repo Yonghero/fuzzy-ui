@@ -5,13 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "shx rm -rf lib && rollup --config",
+    "build": "shx rm -rf lib types && rollup --config && tsc -p ./tsconfig.json",
     "publish": "pnpm run build && npm publish --access public",
     "gen": "bash ./scripts/gc.sh",
     "docs:dev": "vitepress dev docs --host",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
+  "types": "./types/index.d.ts",
   "keywords": [
     "ui"
   ],
@@ -41,6 +42,7 @@
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
+    "@hitotek/fuzzy-ui-components": "workspace:^1.0.0",
     "@hitotek/fuzzy-ui-utils": "workspace:^1.0.0",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.3",
@@ -74,11 +76,16 @@
     "sass": "^1.63.6",
     "shx": "^0.3.4",
     "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6",
     "unplugin-element-plus": "^0.7.2",
     "vite": "^4.4.4",
     "vitepress": "^1.0.0-beta.5",
     "vue": "^3.3.4"
   },
+  "files": [
+    "types",
+    "lib"
+  ],
   "author": "younghero",
   "license": "ISC",
   "dependencies": {
