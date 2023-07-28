@@ -1,5 +1,5 @@
 <script setup lang="jsx">
-import { ref, inject } from 'vue'
+import { ref, inject, provide } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
 
 defineOptions({
@@ -20,6 +20,7 @@ const tmpl = [
 ]
 
 const visible = ref(false)
+const dialogVisible = ref(false)
 const openDialog = () => {
   if (config.buttonConfig.type === 'dialog') {
     visible.value = true
@@ -34,8 +35,8 @@ const handleFail = () => {
 
 }
 const handleCancel = () => {
-
 }
+provide('dialogVisible', visible)
 const currentFile = ref(null)
 const currentFileName = ref('')
 const onChange = (file, files) => {

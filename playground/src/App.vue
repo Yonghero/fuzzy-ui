@@ -10,9 +10,11 @@ import TreeTest from './components/tree/index.vue'
 import FormTest from './components/form-test.vue'
 import UploadTest from './components/upload-test.vue'
 import TableTest from './components/table/table.vue'
+import NavigationTest from './components/navigation-test.vue'
+import TopNavigationTest from './components/top-navigation-test.vue'
 
 </script>
 
 <template>
-  <UploadTest />
+  <TopNavigationTest />
 </template>

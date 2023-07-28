@@ -1,6 +1,6 @@
 <script setup>
 import {
-  computed, ref, watch,
+  computed, ref, watch, provide,
 } from 'vue'
 import { ElDialog } from 'element-plus'
 import Form from './Form.jsx'
@@ -9,7 +9,6 @@ import DeletePanel from './DeletePanel.jsx'
 defineOptions({
   name: 'FYDialog',
 })
-
 const emit = defineEmits(['update:modelValue', 'submit', 'fail', 'cancel', 'confirm', 'type-check'])
 const props = defineProps({
   modelValue: {

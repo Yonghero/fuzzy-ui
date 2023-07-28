@@ -57,6 +57,8 @@ export default defineConfig({
             { text: 'Table 表格', link: '/components/table' },
             { text: 'Pagination 分页', link: '/components/pagination' },
             { text: 'Menu & Tab', link: '/components/menu' },
+            { text: 'TopNavigation 顶部导航栏', link: '/components/top-navigation' },
+            { text: 'Navigation 侧边导航栏', link: '/components/navigation' },
           ]
         },
         {
