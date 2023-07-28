@@ -8,6 +8,17 @@
       <el-button @click="handleClick">
         打开loading效果，5000ms后关闭
       </el-button>
+      <p>切换颜色</p>
+      <FYLoading
+        v-model="isShow4"
+        :background="{
+          light: 'red',
+          dark: 'green'
+        }"
+      />
+      <el-button @click="handleClick">
+        打开loading效果，5000ms后关闭
+      </el-button>
       <p>小模块loading</p>
       <FYLoading
         v-model="isShow2"
@@ -20,7 +31,6 @@
       <FYLoading
         v-model="isShow3"
         type="module"
-        background="#cacaca"
       />
       <el-button @click="handleClick3">
         打开loading效果，5000ms后关闭

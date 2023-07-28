@@ -1,0 +1,59 @@
+.el-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .el-form-item__content {
+    .el-input__inner,
+    .el-textarea__inner {
+      font-size: 13px;
+    }
+  }
+  .form-item-detail-wrap {
+    .el-form-item__label {
+      font-size: 14px;
+    }
+    .form-item-detail {
+      font-size: 13px;
+    }
+    &:not(.form-item-config-wrap) {
+      flex: 0 0 45% !important;
+    }
+  }
+  .form-item-config-wrap {
+    .fy-input-wrap {
+      width: 50%;
+    }
+    .fy-select-wrap {
+      width: 50%;
+    }
+    .fy-date-picker {
+      width: 50% !important;
+    }
+    .el-cascader {
+      width: 50% !important;
+    }
+    .form-item-detail {
+      width: 40%;
+    }
+  }
+}
+html:not(.dark) {
+  .fy-form-config-desc {
+    color: #293450;
+  }
+  .fy-form-config-info {
+    background-image: url('../../../components/form/src/assets/info-light.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+html.dark {
+  .fy-form-config-desc {
+    color: #a4acc1;
+  }
+  .fy-form-config-info {
+    background-image: url('../../../components/form/src/assets/info-dark.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

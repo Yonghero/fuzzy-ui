@@ -34,6 +34,7 @@ const defaultIconStyle = computed(() => ({
 <template>
   <el-cascader
     v-bind="$attrs"
+    style="width: 100%;"
   >
     <template #default="{ data,node }">
       <!--   外部插槽传入    -->
@@ -65,3 +66,6 @@ const defaultIconStyle = computed(() => ({
     </template>
   </el-cascader>
 </template>
+<style lang="scss" scoped>
+@use '../../../theme-chalk/src/cascader/cascader.scss';
+</style>

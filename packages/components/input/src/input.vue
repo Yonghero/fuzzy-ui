@@ -3,7 +3,7 @@ import {
   ElInput, ElIcon, ElCard, ElSwitch,
 } from 'element-plus'
 import {
-  ref, computed, useSlots,
+  ref, computed, useSlots, onMounted,
 } from 'vue'
 import { ArrowDown } from '@element-plus/icons-vue'
 
@@ -44,6 +44,10 @@ const props = defineProps({
   },
   // eslint-disable-next-line
   value: {
+  },
+  autoFocus: {
+    type: [Boolean, String],
+    default: false,
   },
 })
 
@@ -94,6 +98,16 @@ switchGroupValue.value = props.filterList.map((item) => ({ id: item.id, value: i
 const switchChange = () => {
   emit('switchChange', switchGroupValue.value)
 }
+const myRef = ref(null)
+setTimeout(() => {
+  if (props.autoFocus !== false) {
+    myRef.value.focus()
+  }
+}, 0)
+const handleEnter = () => {
+  emit('enter', props.modelValue)
+  myRef.value.blur()
+}
 
 </script>
 
@@ -101,6 +115,7 @@ const switchChange = () => {
   <div class="fy-input-wrap">
     <el-input
       v-bind="($attrs)"
+      ref="myRef"
       :class="getClass"
       :placeholder="props.placeholder"
       :show-word-limit="!!props.limit"
@@ -109,6 +124,7 @@ const switchChange = () => {
       :autosize="getAutosize"
       @focus="handleFocus"
       @blur="handleBlur"
+      @keyup.enter="handleEnter"
     >
       <template
         v-if="slot && slot.prefix"
