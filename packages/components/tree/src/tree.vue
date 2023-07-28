@@ -55,7 +55,7 @@ const handleSubmit = () => {
       ...currentTarget.value.data, ...formModel.value, type: 'text',
     }
     let targetSon
-    if (parent.id === 0) {
+    if (parent.parent === null) {
       targetSon = parent.data.findIndex((item) => item.id === currentTarget.value.data.id)
       parent.data.splice(targetSon, 1, target)
     } else {

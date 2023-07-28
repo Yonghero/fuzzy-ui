@@ -50,6 +50,7 @@ const props = defineProps({
     default: false,
   },
 })
+
 const slot = useSlots()
 const getClass = computed(() => [
   'fy-input',
@@ -71,6 +72,7 @@ const getAutosize = computed(() => {
   }
   return false
 })
+
 const handleFocus = (e) => {
   if (props.flex) {
     e.srcElement.style.width = `${e.srcElement.getBoundingClientRect().width + 100}px`

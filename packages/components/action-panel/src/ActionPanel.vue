@@ -1,4 +1,11 @@
 <script setup lang="jsx">
+
+/**
+ * @author younghero
+ * @Date 2023-7-19
+ * @description 动作面板
+ */
+
 import { computed } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import ActionMenuItem from './ActionMenuItem.vue'

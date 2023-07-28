@@ -7,6 +7,7 @@ importers:
       '@babel/core': ^7.22.9
       '@babel/preset-env': ^7.22.9
       '@babel/preset-react': ^7.22.5
+      '@hitotek/fuzzy-ui-components': workspace:^1.0.0
       '@hitotek/fuzzy-ui-utils': workspace:^1.0.0
       '@rollup/plugin-alias': ^5.0.0
       '@rollup/plugin-babel': ^6.0.3
@@ -39,15 +40,20 @@ importers:
       rollup-plugin-vue: ^6.0.0
       sass: ^1.63.6
       shx: ^0.3.4
+      sortablejs: ^1.15.0
       tailwindcss: ^3.3.3
+      typescript: ^5.1.6
       unplugin-element-plus: ^0.7.2
       vite: ^4.4.4
       vitepress: ^1.0.0-beta.5
       vue: ^3.3.4
+    dependencies:
+      sortablejs: 1.15.0
     devDependencies:
       '@babel/core': 7.22.9
       '@babel/preset-env': 7.22.9_@babel+core@7.22.9
       '@babel/preset-react': 7.22.5_@babel+core@7.22.9
+      '@hitotek/fuzzy-ui-components': link:packages/components
       '@hitotek/fuzzy-ui-utils': link:packages/utils
       '@rollup/plugin-alias': 5.0.0_rollup@3.26.3
       '@rollup/plugin-babel': 6.0.3_vc5nb3jwnf7j5cer67ti2zgt5a
@@ -81,9 +87,10 @@ importers:
       sass: 1.63.6
       shx: 0.3.4
       tailwindcss: 3.3.3
+      typescript: 5.1.6
       unplugin-element-plus: 0.7.2_rollup@3.26.3
       vite: 4.4.4_sass@1.63.6
-      vitepress: 1.0.0-beta.5_sass@1.63.6
+      vitepress: 1.0.0-beta.5_masemwm64s543ryoh3qgp7ektm
       vue: 3.3.4
 
   docs:
@@ -124,7 +131,7 @@ importers:
   playground:
     specifiers:
       '@element-plus/icons-vue': ^2.1.0
-      '@hitotek/fuzzy-ui': workspace:1.0.2
+      '@hitotek/fuzzy-ui': workspace:1.0.3
       '@hitotek/fuzzy-ui-components': workspace:^1.0.0
       '@hitotek/fuzzy-ui-theme-chalk': workspace:^1.0.0
       '@hitotek/fuzzy-ui-utils': workspace:^1.0.0
@@ -2301,7 +2308,7 @@ packages:
       - vue
     dev: true
 
-  /@vueuse/integrations/10.2.1_focus-trap@7.5.2+vue@3.3.4:
+  /@vueuse/integrations/10.2.1_7fin5hrfdgy4wvkpohhzsq5upe:
     resolution: {integrity: sha512-FDP5lni+z9FjHE9H3xuvwSjoRV9U8jmDvJpmHPCBjUgPGYRynwb60eHWXCFJXLUtb4gSIHy0e+iaEbrKdalCkQ==}
     peerDependencies:
       async-validator: '*'
@@ -2345,6 +2352,7 @@ packages:
       '@vueuse/core': registry.npmmirror.com/@vueuse/core/10.2.1_vue@3.3.4
       '@vueuse/shared': 10.2.1_vue@3.3.4
       focus-trap: 7.5.2
+      sortablejs: 1.15.0
       vue-demi: 0.14.5_vue@3.3.4
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -5047,6 +5055,9 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /sortablejs/1.15.0:
+    resolution: {integrity: sha512-bv9qgVMjUMf89wAvM6AxVvS/4MX3sPeN0+agqShejLU5z5GX4C75ow1O2e5k4L6XItUyAK3gH6AxSbXrOM5e8w==}
+
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -5301,6 +5312,12 @@ packages:
       is-typed-array: 1.1.11
     dev: true
 
+  /typescript/5.1.6:
+    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: true
+
   /uc.micro/1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
     dev: true
@@ -5483,7 +5500,7 @@ packages:
       fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
-  /vitepress/1.0.0-beta.5_sass@1.63.6:
+  /vitepress/1.0.0-beta.5_masemwm64s543ryoh3qgp7ektm:
     resolution: {integrity: sha512-/RjqqRsSEKkzF6HhK5e5Ij+bZ7ETb9jNCRRgIMm10gJ+ZLC3D1OqkE465lEqCeJUgt2HZ6jmWjDqIBfrJSpv7w==}
     hasBin: true
     dependencies:
@@ -5492,7 +5509,7 @@ packages:
       '@vitejs/plugin-vue': 4.2.3_v6jephi5mcvi5e46pp5rj2e64i
       '@vue/devtools-api': 6.5.0
       '@vueuse/core': 10.2.1_vue@3.3.4
-      '@vueuse/integrations': 10.2.1_focus-trap@7.5.2+vue@3.3.4
+      '@vueuse/integrations': 10.2.1_7fin5hrfdgy4wvkpohhzsq5upe
       body-scroll-lock: 4.0.0-beta.0
       focus-trap: 7.5.2
       mark.js: 8.11.1
@@ -5575,7 +5592,7 @@ packages:
       eslint-visitor-keys: 3.4.1
       espree: 9.6.1
       esquery: 1.5.0
-      lodash: 4.17.21
+      lodash: registry.npmmirror.com/lodash/4.17.21
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
@@ -7182,7 +7199,6 @@ packages:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash/-/lodash-4.17.21.tgz}
     name: lodash
     version: 4.17.21
-    dev: false
 
   registry.npmmirror.com/magic-string/0.30.1:
     resolution: {integrity: sha512-mbVKXPmS0z0G4XqFDCTllmDQ6coZzn94aMlb0o/A4HEHJCKcanlDZwYJgwnkmgD3jyWhUgj9VsPrfd972yPffA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.30.1.tgz}

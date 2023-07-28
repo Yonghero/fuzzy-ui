@@ -54,6 +54,9 @@ export default defineConfig({
             { text: 'Form 表单', link: '/components/form' },
             { text: 'Tree 树级组件', link: '/components/tree' },
             { text: 'Upload 组件', link: '/components/upload' },
+            { text: 'Table 表格', link: '/components/table' },
+            { text: 'Pagination 分页', link: '/components/pagination' },
+            { text: 'Menu & Tab', link: '/components/menu' },
           ]
         },
         {

@@ -26,6 +26,7 @@ module.exports = {
       ignorePattern: 'class="([\\s\\S]*?)"|d="([\\s\\S]*?)"', // ignore classes or svg draw attributes
       ignoreUrls: true,
     }],
+    'no-return-assign': 'off',
     'vue/multi-word-component-names': 'off',
     'import/prefer-default-export': 'off',
     'class-methods-use-this': 'off',

@@ -9,6 +9,8 @@ import DialogTest from './components/dialog-test.vue'
 import TreeTest from './components/tree/index.vue'
 import FormTest from './components/form-test.vue'
 import UploadTest from './components/upload-test.vue'
+import TableTest from './components/table/table.vue'
+
 </script>
 
 <template>

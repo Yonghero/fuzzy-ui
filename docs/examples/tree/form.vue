@@ -1,7 +1,8 @@
 <script setup>
 import { FYTree } from '@hitotek/fuzzy-ui-components'
+import { ref } from 'vue'
 
-const config = {
+const config = ref({
   dataSource: [
     {
       id: 1,
@@ -156,7 +157,7 @@ const config = {
       ],
     },
   ],
-}
+})
 </script>
 
 <template>
