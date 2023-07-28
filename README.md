@@ -6,13 +6,13 @@
 <div>
     <div style="width: 100%;text-align: center;font-weight: 200;font-size: 1rem;display: flex;justify-content: center;align-items: center;">
         <div>Fuzzy-UI</div>
-        <span style="background: #3a4a5a;color: white;font-size: .8rem;padding: 0 .4rem;border-radius: 1px;margin-left: 12px">beat</span>
+        <span style="background: #3a4a5a;color: white;font-size: .8rem;padding: 0 .4rem;border-radius: 1px;margin-left: 12px">beat</span
     </div>
      <div style="width: 100%;text-align: center;font-size: .7rem;margin-top: .2rem;color: gray">@1.0.0</div>
 </div>
 
 ### 介绍
-#### 前端团队的起步工程
+#### 前端团队的起步工程W
 基于``` element-plus ``` 的定制化组件库
 
 ### 快速开始
@@ -60,7 +60,7 @@ cd ./docs && pnpm run dev
 
 #### 进入组件开发文件夹
 ``` sh
-## 例如 pnpm run button
+## 例如 pnpm gen button
 ## 会自动创建 packages/components/button 文件夹 包含符合组件库规范的文件内容
 ## 并会自动导出组件内容至packages/components/index.js文件
 

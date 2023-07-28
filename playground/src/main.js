@@ -5,7 +5,7 @@ import './style.scss'
 import '@hitotek/fuzzy-ui-theme-chalk'
 import { ClickOutside } from '@hitotek/fuzzy-ui-utils'
 import ElementPlus from 'element-plus'
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
 import App from './App.vue'
 
