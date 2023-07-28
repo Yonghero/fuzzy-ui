@@ -29,6 +29,9 @@ const props = defineProps({
     type: String,
     default: 'click',
   },
+  panelModel: {
+    type: Object,
+  },
 })
 
 const emits = defineEmits(['update:visible'])
@@ -57,6 +60,7 @@ const genTmpl = (tmpl, divider = false) => {
         key={idx}
         v-slots={slots}
         tmplItem={item}
+        itemModel={props.panelModel}
       />
     )
   })
@@ -89,6 +93,7 @@ const ActionMenuRenderer = computed(() => {
       :trigger="trigger"
       :placement="placement"
       popper-class="fy-action-panel-popover"
+      :teleported="true"
     >
       <template #reference>
         <slot />

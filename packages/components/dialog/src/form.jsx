@@ -1,5 +1,5 @@
 import { defineComponent, ref, watch } from 'vue'
-import { FormItem } from './formItem.jsx'
+import { FormItem } from './FormItem.jsx'
 
 export default defineComponent({
   props: {
@@ -87,6 +87,12 @@ export default defineComponent({
     const initFormItems = props.template
       .filter((item) => !item.filterUnShow && item.show !== false)
       .map((sec) => ({ ...sec, model: props.modelValue }))
+    const typeCheck = (e) => {
+      emit('type-check', e)
+    }
+    const fileChange = (file, files) => {
+      emit('file-change', file, files)
+    }
     expose({
       resetFields,
       validate,
@@ -103,7 +109,12 @@ export default defineComponent({
         {...attrs}
       >
         {initFormItems.map((item) => (
-          <FormItem tmplItem={item} key={item.value}></FormItem>
+          <FormItem
+            tmplItem={item}
+            key={item.value}
+            onTypeCheck={typeCheck}
+            onFileChange={fileChange}
+          ></FormItem>
         ))}
       </el-form>
     )

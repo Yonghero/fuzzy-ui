@@ -1,0 +1,69 @@
+.fy-upload-wrap {
+  :deep(.upload-btn) {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    background: #409eff;
+    svg {
+      width: 18px;
+      margin-right: 6px;
+    }
+  }
+}
+:deep(.fy-upload-item) {
+  width: 100%;
+  border: dashed 1px #eee;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  :deep(.el-upload) {
+    flex-direction: column;
+  }
+  .upload-icon {
+    color: #f5f5f5;
+    font-size: 36px;
+    background-repeat: no-repeat;
+    fill: currentColor;
+    margin-bottom: 0.5rem !important;
+    font-weight: 400;
+    svg {
+      margin: 0 auto;
+    }
+  }
+  .upload-linktext {
+    text-decoration: none !important;
+    color: #409eff !important;
+  }
+  .upload-type-icon {
+    width: 32px;
+    vertical-align: middle;
+    border-style: none;
+  }
+  .el-upload__text {
+    font-size: 14px;
+  }
+  .upload-file-info {
+    max-width: 224px;
+    margin-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+  }
+  .upload-tip {
+    color: #cacaca;
+    display: flex;
+    align-items: center;
+    a {
+      margin-left: 0.25rem;
+    }
+  }
+  .el-upload.el-upload--text {
+    order: 2;
+    flex-direction: row;
+  }
+}

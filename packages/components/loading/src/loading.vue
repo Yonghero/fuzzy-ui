@@ -14,8 +14,11 @@ const props = defineProps({
     default: 'page',
   },
   background: {
-    type: String,
-    default: '#fff',
+    type: Object,
+    default: () => ({
+      light: 'rgba(255, 255, 255, .9)',
+      dark: 'rgba(0, 0, 0, .8)',
+    }),
   },
 })
 onMounted(() => {})
@@ -27,7 +30,7 @@ onMounted(() => {})
     v-show="props.modelValue"
     v-if="props.type === 'page'"
     class="fy-loading-wrap"
-    :style="{background: props.background}"
+    :style="{'--light-loading-color': props.background.light,'--dark-loading-color':props.background.dark}"
   >
     <div
       class="loading-wrapper"
@@ -45,7 +48,7 @@ onMounted(() => {})
     v-show="props.modelValue"
     v-else-if="props.type === 'module'"
     class="fy-loading-wrap-module"
-    :style="{background: props.background}"
+    :style="{'--light-loading-color': props.background.light,'--dark-loading-color':props.background.dark}"
   >
     <div
       class="loading-module-wrapper"
