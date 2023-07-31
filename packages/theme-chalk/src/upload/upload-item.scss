@@ -10,6 +10,7 @@
     }
   }
 }
+
 :deep(.fy-upload-item) {
   width: 100%;
   border: dashed 1px #eee;
@@ -44,6 +45,7 @@
   .el-upload__text {
     font-size: 14px;
   }
+
   .upload-file-info {
     max-width: 224px;
     margin-right: 20px;

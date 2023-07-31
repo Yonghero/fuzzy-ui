@@ -16,5 +16,5 @@ import TopNavigationTest from './components/top-navigation-test.vue'
 </script>
 
 <template>
-  <TopNavigationTest />
+  <NavigationTest />
 </template>

@@ -181,6 +181,21 @@
     color: #cacaca;
   }
 }
+html.dark .fy-select-option-access {
+  span,
+  i {
+    color: #aaa;
+  }
+}
+
+html.dark .fy-select-access-prefix {
+  .fy-select-access-title {
+    span,
+    i {
+      color: #aaa;
+    }
+  }
+}
 .fy-select-access-prefix {
   min-width: 240px;
   .fy-select-access-title {

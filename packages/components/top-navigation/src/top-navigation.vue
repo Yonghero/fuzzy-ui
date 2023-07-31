@@ -15,9 +15,23 @@ const props = defineProps({
       title: '产品管理',
       menu: [
         {
-          label: '页面一',
-          value: '/page1',
-          icon: (<el-icon><Monitor /></el-icon>),
+          label: '页面二',
+          value: '/page2',
+          icon: (<el-icon><Camera /></el-icon>),
+          children: [
+            {
+              label: 'Page2-1',
+              value: '/page2/1',
+            },
+            {
+              label: 'Page2-2',
+              value: '/page2/2',
+            },
+            {
+              label: 'Page2-2-3-3-3',
+              value: '/page2/2-3-3',
+            },
+          ],
         },
 
       ],

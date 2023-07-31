@@ -42,7 +42,6 @@
     display: flex;
     align-items: center;
     color: #ddd;
-    border-top: 1px solid #666;
     justify-content: flex-end;
     background-color: #48525c;
     i {
@@ -105,5 +104,23 @@
 
   .el-icon {
     justify-content: flex-start;
+  }
+
+  .el-menu-item.is-active {
+    background: #39414c;
+  }
+  .footer-collapse {
+    width: 22px;
+    height: 22px;
+    padding: 8px;
+    box-sizing: content-box;
+    transform: rotate(180deg);
+    &:hover {
+      background: #394143;
+      border-radius: 4px;
+    }
+    &.footer-collapse-reversal {
+      transform: rotate(0);
+    }
   }
 }

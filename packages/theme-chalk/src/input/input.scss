@@ -1,5 +1,12 @@
 @import '../../../theme-chalk/src/variable.scss';
 @import '../../../theme-chalk/src/theme-light.scss';
+html.dark {
+  .card-item {
+    .card-item-name {
+      color: #cacaca;
+    }
+  }
+}
 // 圆角
 .fy-input {
   width: 100%;

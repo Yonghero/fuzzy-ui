@@ -1,3 +1,16 @@
+html.dark {
+  .fy-top-navigation {
+    background: 000;
+    border-bottom: 1px solid #000;
+    .title {
+      color: #fff;
+    }
+    .fy-menu-item-1,
+    .el-menu-item {
+      color: #fff !important;
+    }
+  }
+}
 .fy-top-navigation {
   border-bottom: 1px solid #eee;
   box-shadow: 0 4px 8px #00000008;

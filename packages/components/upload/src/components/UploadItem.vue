@@ -159,4 +159,11 @@ const myRef = ref(null)
 </template>
 
 <style scoped lang="scss">
+html.dark {
+  .fy-upload-item {
+    .upload-file-info {
+      color: #666;
+    }
+  }
+}
 </style>

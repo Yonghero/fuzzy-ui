@@ -62,7 +62,13 @@ const toggleCollapse = () => {
       />
       <el-menu-item class="fy-navigation-item-footer">
         <div class="footer">
-          <el-icon
+          <img
+            src="./assets/menu-icon.png"
+            alt=""
+            :class="['footer-collapse', {'footer-collapse-reversal': isCollapse}]"
+            @click="toggleCollapse"
+          >
+          <!-- <el-icon
             v-if="!isCollapse"
             class="footer-no-collapse"
             @click="toggleCollapse"
@@ -75,7 +81,7 @@ const toggleCollapse = () => {
             @click="toggleCollapse"
           >
             <Expand />
-          </el-icon>
+          </el-icon> -->
         </div>
       </el-menu-item>
     </el-menu>
