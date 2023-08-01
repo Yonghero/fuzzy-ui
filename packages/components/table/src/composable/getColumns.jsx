@@ -9,7 +9,18 @@ export function getColumns(template) {
       return (tmpl.render({ scope, key: tmpl.value, value: scope.row[tmpl.value] }))
     }
     if (tmpl.type) {
-      const EditRenderer = tableEditItem.get(tmpl?.type)
+      // eslint-disable-next-line no-underscore-dangle
+      const __innterTypes = ['limit', 'timeDisplay']
+      const type = (() => {
+        const innerType = __innterTypes.find((type) => tmpl.type.includes(type))
+        if (innerType) {
+          return innerType
+        }
+
+        return tmpl.type
+      })()
+
+      const EditRenderer = tableEditItem.get(type)
       if (EditRenderer) {
         return (<EditRenderer {...tmpl} scope={scope}/>)
       }

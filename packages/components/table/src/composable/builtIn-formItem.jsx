@@ -2,6 +2,7 @@ import {
   defineComponent, nextTick, ref, unref,
 } from 'vue'
 import { EditPen } from '@element-plus/icons-vue'
+import dayjs from 'dayjs'
 
 export const Input = {
   type: 'input',
@@ -59,4 +60,90 @@ export const Input = {
       )
     },
   }),
+}
+
+/**
+ * 小数位数限制
+ */
+export const Limit = {
+  type: 'limit',
+
+  renderer(props) {
+    return <>
+      {
+        (() => {
+          const value = ref(props.scope.row[props.value])
+
+          if (value.value) {
+            if (Number.isInteger(+value.value)) { return value }
+            return value.value.toFixed(props.type.split('limit')[1])
+          }
+          return value.value === 0 ? value : '-'
+        })()
+      }
+    </>
+  },
+}
+
+/**
+ * 图片预览
+ */
+export const ImagePreview = {
+  type: 'imagePreview',
+
+  renderer(props) {
+    const value = props.scope.row[props.value]
+    let url = ''
+    let srcList = []
+    if (Array.isArray(value)) {
+      srcList = value
+      // eslint-disable-next-line prefer-destructuring
+      url = value[0]
+    } else {
+      srcList[0] = value
+      url = value
+    }
+    return (
+      <el-image
+        src={url}
+        preview-src-list={srcList}
+        preview-teleported={true}
+        initial-index={0}
+        fit="cover"
+        {...props}
+      />
+    )
+  },
+}
+
+// eslint-disable-next-line no-underscore-dangle
+const __format = {
+  minute: 'YYYY年M月DD日 HH:mm',
+  second: 'YYYY年M月DD日 HH:mm:ss',
+  day: 'YYYY年M月DD日',
+}
+export const TimeDisplay = {
+  type: 'timeDisplay',
+
+  renderer(props) {
+    const value = props.scope.row[props.value]
+
+    const formatKey = props.type.split('timeDisplay')[1].toLowerCase()
+
+    const formatVal = __format[formatKey]
+
+    let str = dayjs(value).format(formatVal)
+
+    // 今年 不展示年份
+    if (dayjs().year() === dayjs(value).year()) {
+      str = str.replace(/\d{4}年/, '')
+    }
+
+    // 今天 年月日替换为今天
+    if (dayjs().date() === dayjs(value).date()) {
+      str = str.replace(/.*日\s*/, '今天 ')
+    }
+
+    return str
+  },
 }

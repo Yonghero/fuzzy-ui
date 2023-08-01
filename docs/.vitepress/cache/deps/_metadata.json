@@ -1,56 +1,65 @@
 {
-  "hash": "0d9cebf7",
-  "browserHash": "56943a67",
+  "hash": "56a18706",
+  "browserHash": "791877ed",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "92d81fe1",
+      "fileHash": "059a58a0",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@6.5.0/node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "909678d8",
+      "fileHash": "b2ac80c9",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "cc9767be",
+      "fileHash": "58d3e192",
       "needsInterop": false
     },
     "element-plus/dist/locale/zh-cn.mjs": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/dist/locale/zh-cn.mjs",
       "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "6f5add03",
+      "fileHash": "531a66e8",
       "needsInterop": false
     },
     "@element-plus/icons-vue": {
       "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.1.0_vue@3.3.4/node_modules/@element-plus/icons-vue/dist/index.js",
       "file": "@element-plus_icons-vue.js",
-      "fileHash": "e45a0b1d",
+      "fileHash": "d79b5656",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0_vue@3.3.4/node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "df6e25e6",
+      "fileHash": "0c47fd28",
       "needsInterop": false
     },
     "sortablejs": {
       "src": "../../../../node_modules/.pnpm/sortablejs@1.15.0/node_modules/sortablejs/modular/sortable.esm.js",
       "file": "sortablejs.js",
-      "fileHash": "f918700b",
+      "fileHash": "b9955182",
       "needsInterop": false
+    },
+    "dayjs": {
+      "src": "../../../../node_modules/.pnpm/dayjs@1.11.9/node_modules/dayjs/dayjs.min.js",
+      "file": "dayjs.js",
+      "fileHash": "ba132296",
+      "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-BYJV2AHC": {
-      "file": "chunk-BYJV2AHC.js"
+    "chunk-YBNEM6HW": {
+      "file": "chunk-YBNEM6HW.js"
     },
     "chunk-ARPIQ5JS": {
       "file": "chunk-ARPIQ5JS.js"
+    },
+    "chunk-BYJV2AHC": {
+      "file": "chunk-BYJV2AHC.js"
     },
     "chunk-254DOEZA": {
       "file": "chunk-254DOEZA.js"
