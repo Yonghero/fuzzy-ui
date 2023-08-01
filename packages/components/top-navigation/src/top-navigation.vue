@@ -1,12 +1,13 @@
 <script setup lang="jsx">
 import {
-  Notification, Monitor, Camera, PictureRounded,
+  Notification, Camera,
 } from '@element-plus/icons-vue'
 
 defineOptions({
   name: 'FYTopNavigation',
 })
 
+// eslint-disable-next-line
 const props = defineProps({
   config: {
     type: Object,
@@ -39,7 +40,6 @@ const props = defineProps({
   },
 })
 
-// init here
 </script>
 
 <template>

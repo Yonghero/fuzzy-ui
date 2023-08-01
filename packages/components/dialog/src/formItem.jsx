@@ -4,12 +4,14 @@ import UploadItem from '../../upload/src/components/UploadItem.vue'
 
 export const FormItem = defineComponent({
   props: {
+    // 每一个表单项对象
     tmplItem: {
       type: Object,
       default: () => ({}),
     },
   },
   setup(props, { emit }) {
+    // 文件类型校验的回调
     const typeCheck = (e) => {
       emit('type-check', e)
     }
@@ -19,6 +21,7 @@ export const FormItem = defineComponent({
       const renderer = formItemMap.get(props.tmplItem.type)
       return renderer || <div />
     })
+    // 分别对应 宽度拉满 宽度占一半 宽度占四分之一 默认占满
     const getFromStyle = (item) => {
       if (item.full) {
         return { flex: '0 0 100%' }
@@ -31,6 +34,7 @@ export const FormItem = defineComponent({
       }
       return { flex: '0 0 100%' }
     }
+    // 上传文件改变的回调
     const fileChange = (file, files) => {
       emit('file-change', file, files)
     }

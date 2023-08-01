@@ -14,26 +14,32 @@ const props = defineProps({
     type: [Boolean, String, Number],
     default: false,
   },
+  // 打开时的值
   activeValue: {
     type: [Boolean, String, Number],
     default: true,
   },
+  // 关闭时的值
   inActiveValue: {
     type: [Boolean, String, Number],
     default: false,
   },
+  // 打开状态下的消息提示
   activeMessage: {
     type: String,
     default: '开启成功',
   },
+  // 关闭状态下的消息提示
   inActiveMessage: {
     type: String,
     default: '关闭成功',
   },
+  // 状态改变失败时的消息提示
   changeFailMessage: {
     type: String,
     default: '切换状态失败',
   },
+  // 打开关闭的回调事件
   cb: {
     validator(value) {
       if (isAsyncFunction(value) || typeof value === 'function') {
@@ -70,6 +76,7 @@ const getInActiveValue = computed(() => {
   return false
 })
 const emitChange = async (e) => {
+  // 回调事件是使用async修饰的异步事件时
   if (isAsyncFunction(props.cb)) {
     try {
       await props.cb()
@@ -89,6 +96,7 @@ const emitChange = async (e) => {
     } finally {
       emit('change', e)
     }
+  // 普通事件
   } else if (typeof props.cb === 'function') {
     try {
       props.cb()

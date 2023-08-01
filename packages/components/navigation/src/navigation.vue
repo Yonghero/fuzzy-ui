@@ -1,7 +1,6 @@
 <script setup lang="jsx">
 import { computed, ref } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
-import { Fold, Expand } from '@element-plus/icons-vue'
 import MenuItem from './MenuItem.vue'
 
 defineOptions({

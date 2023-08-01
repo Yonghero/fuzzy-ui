@@ -17,14 +17,17 @@ defineOptions({
 
 const emit = defineEmits(['change', 'visible-change', 'remove-tag', 'clear', 'blur', 'focus'])
 const props = defineProps({
+  // 选项列表
   options: {
     type: Array,
     default: () => [],
   },
+  // 是否启用默认icon
   defaultIcon: {
     type: [Boolean, String],
     default: false,
   },
+  // 是否使用虚拟列表化
   virtual: {
     type: [Boolean, String],
     default: false,
@@ -33,22 +36,27 @@ const props = defineProps({
     type: null,
     default: null,
   },
+  // 标签化的展示
   tag: {
     type: [Boolean, String],
     default: false,
   },
+  // 权限控制样式
   access: {
     type: [Boolean, String],
     default: false,
   },
+  // 折叠多选标签
   collapseTags: {
     type: [Boolean, String],
     default: true,
   },
+  // 是否清除
   clearable: {
     type: [Boolean, String],
     default: false,
   },
+  // 多选
   multiple: {
     type: [Boolean, String],
     default: false,

@@ -21,6 +21,7 @@ const emit = defineEmits(['type-check', 'file-change'])
 const config = inject('config')
 const dialogVisible = inject('dialogVisible')
 watch(dialogVisible, (newV) => {
+  // 对话框关闭，清空上传文件
   if (!newV.value) {
     myRef.value.clearFiles()
     currentFile.value = null

@@ -1,28 +1,34 @@
 import { defineComponent, ref, watch } from 'vue'
-import { FormItem } from './FormItem.jsx'
+import { FormItem } from './FormItem'
 
 export default defineComponent({
   props: {
+    // 表单项列表
     template: {
       type: Array,
       default: () => [],
     },
+    // 表单域位置
     labelPosition: {
       type: String,
       default: 'top',
     },
+    // 表单域宽度
     labelWidth: {
       type: String,
       default: 'auto',
     },
+    // 组件绑定对象
     modelValue: {
       type: Object,
       default: () => ({}),
     },
+    // 是否校验
     shouldValidate: {
       type: Boolean,
       default: true,
     },
+    // 业务类型
     businessType: {
       type: String,
       default: 'create',
@@ -37,9 +43,11 @@ export default defineComponent({
         realFormRef.value?.clearValidate()
       }, 100)
     })
+    // 对外部暴露出el-form的重置表单方法
     const resetFields = () => {
       realFormRef.value?.resetFields()
     }
+    // 对外暴露出el-form的校验方法
     const validate = () => {
       realFormRef.value?.validate((valid, object) => {
         if (valid) {
@@ -51,10 +59,12 @@ export default defineComponent({
         return null
       })
     }
+    // 对外暴露出校验某一个字段的方法
     // eslint-disable-next-line
     const validateField = (props, cb) => {
       realFormRef.value?.validateField(props, cb)
     }
+    // 对外暴露出清除校验的方法
     // eslint-disable-next-line
     const clearValidate = (props) => {
       if (props) {
@@ -87,9 +97,11 @@ export default defineComponent({
     const initFormItems = props.template
       .filter((item) => !item.filterUnShow && item.show !== false)
       .map((sec) => ({ ...sec, model: props.modelValue }))
+    // 文件类型校验的回到
     const typeCheck = (e) => {
       emit('type-check', e)
     }
+    // 上传文件改变的回调
     const fileChange = (file, files) => {
       emit('file-change', file, files)
     }

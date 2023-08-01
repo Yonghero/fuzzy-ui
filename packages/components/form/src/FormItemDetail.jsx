@@ -1,5 +1,4 @@
 import { defineComponent, computed } from 'vue'
-import { InfoFilled } from '@element-plus/icons-vue'
 
 export const FormItemDetail = defineComponent({
   props: {
@@ -7,6 +6,7 @@ export const FormItemDetail = defineComponent({
       type: Object,
       default: () => ({}),
     },
+    // 表示采用系统配置的表单样式
     config: {
       type: Boolean,
       default: false,
@@ -19,6 +19,7 @@ export const FormItemDetail = defineComponent({
         {props.tmplItem.model[props.tmplItem.value]}
       </div>
     ))
+    // 采用不同的表单样式
     const getFromStyle = (item) => {
       if (item.full) {
         return { flex: '0 0 100%' }
@@ -31,6 +32,7 @@ export const FormItemDetail = defineComponent({
       }
       return { flex: '0 0 100%' }
     }
+    // 采用详情样式或者系统配置样式
     const getClass = computed(() => {
       const target = []
       target.push('form-item-detail-wrap')
@@ -55,9 +57,6 @@ export const FormItemDetail = defineComponent({
               style={{ marginLeft: '20px', width: '16px', height: '16px' }}
             />
           ) : null
-          // <el-icon style={{ marginLeft: '20px' }} size={20}>
-          //   <InfoFilled size={40} />
-          // </el-icon>
         }
         {props.config ? <slot></slot> : null}
         {props.config ? (

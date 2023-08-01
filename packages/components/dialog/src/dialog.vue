@@ -1,6 +1,6 @@
 <script setup>
 import {
-  computed, ref, watch, provide,
+  computed, ref, watch,
 } from 'vue'
 import { ElDialog } from 'element-plus'
 import Form from './Form.jsx'
@@ -11,10 +11,12 @@ defineOptions({
 })
 const emit = defineEmits(['update:modelValue', 'submit', 'fail', 'cancel', 'confirm', 'type-check'])
 const props = defineProps({
+  // 控制表单显示与否
   modelValue: {
     type: Boolean,
     default: false,
   },
+  // 绑定的表单对象
   formModel: {
     type: Object,
     default: () => ({}),
@@ -22,36 +24,50 @@ const props = defineProps({
   dialogConfig: {
     type: Object,
     default: () => ({
+      // 配合表单类型的title
       title: '',
+      // 完全按照传进来的title显示
       fullTitle: '',
+      // 控制对话框的class
       modalClass: '',
+      // 控制点击空白处关闭对话框与否
       closeOnClickModal: false,
+      // 控制表单域标签的位置
       labelPosition: 'top',
+      // 表单项列表
       template: [],
+      // 控制对话框样式
       dialogType: '',
+      // 对话框业务类型
       type: 'create',
+      // 表单域标签的宽度
       labelWidth: '',
     }),
   },
 
 })
-watch(() => props.modelValue, (newV, oldV) => {
+// 适时清理校验结果
+watch(() => props.modelValue, (newV) => {
   formRef.value?.clearValidate()
   if (!newV) {
+    // 每次关闭将绑定对象还原初始状态
     formRef.value?.resetFields()
   }
 })
 const getModalClass = computed(() => {
   const target = []
+  // 为未来对话框扩展样式
   if (props.dialogConfig.dialogType === 'super') {
     target.push('fy-dialog-super')
   }
+  // 上同
   if (props.dialogConfig.dialogType === 'max') {
     target.push('fy-dialog-max')
   }
   if (props.dialogConfig.modalClass) {
     target.push(props.modalClass)
   }
+  // 统一为表单条目大于5条时，使用双列对话框，否则使用单列对话框
   if (props.dialogConfig.template?.length >= 5) {
     target.push('fy-dialog-default')
   } else if (props.dialogConfig.template) {
@@ -62,6 +78,7 @@ const getModalClass = computed(() => {
   return target.join(' ')
 })
 const getTitle = computed(() => {
+  // 完全按照传进来的title显示
   if (props.dialogConfig.fullTitle) {
     return props.dialogConfig.fullTitle
   }
@@ -97,6 +114,8 @@ const submit = () => {
 const handleSubmit = () => {
   emit('submit', props.formModel)
 }
+
+// form组件校验失败时的回调
 const handleSubmitFail = (e) => {
   emit('fail', { target: e, formModel: props.formModel })
 }
@@ -120,9 +139,11 @@ const getComfirmButtonType = computed(() => {
   }
   return ''
 })
+// 文件上传类型校验结果
 const typeCheck = (e) => {
   emit('type-check', e)
 }
+// 上传文件改变的回调
 const fileChange = (file, files) => {
   emit('file-change', file, files)
 }
@@ -167,7 +188,7 @@ const fileChange = (file, files) => {
         <slot name="header" />
       </template>
       <template #footer>
-        <slot name="footer">
+        <slot name="footer" >
           <FYButton
             :type="getComfirmButtonType"
             style="
@@ -213,3 +234,4 @@ const fileChange = (file, files) => {
 <style lang="scss" scoped>
 @use '../../../theme-chalk/src/dialog/dialog.scss';
 </style>
+./Form.jsx

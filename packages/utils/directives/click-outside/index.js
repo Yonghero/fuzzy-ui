@@ -1,3 +1,4 @@
+// 判断当前点击区域是否在组件内部，摘抄自element-plus 源码
 const nodeList = new Map()
 let startClick
 document.addEventListener('mousedown', (e) => {

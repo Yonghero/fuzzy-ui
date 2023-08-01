@@ -1,10 +1,12 @@
 <script setup>
 
 defineProps({
+  // 导航栏表单项
   tmplItem: {
     type: Object,
     default: () => {},
   },
+  // 是否折叠
   collapse: {
     type: Boolean,
     default: false,

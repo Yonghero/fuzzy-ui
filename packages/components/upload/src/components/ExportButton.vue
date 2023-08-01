@@ -1,5 +1,5 @@
 <script setup>
-import { ref, inject } from 'vue'
+import { inject } from 'vue'
 
 const config = inject('config')
 
@@ -32,6 +32,7 @@ const handleExport = (url, fileName) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <!-- eslint-disable-next-line -->
         <g id="&#229;&#175;&#188;&#229;&#133;&#165; 1">
           <path
             id="Vector"

@@ -13,18 +13,21 @@ const tmpl = [
   {
     label: '从文件导入',
     icon: (<el-icon><Edit /></el-icon>),
-    onClick: (e) => {
+    onClick: () => {
       openDialog()
     },
   },
 ]
 
 const visible = ref(false)
+// eslint-disable-next-line
 const dialogVisible = ref(false)
 const openDialog = () => {
+  // 通过表单选取文件进行上传
   if (config.buttonConfig.type === 'dialog') {
     visible.value = true
   } else {
+    // 直接选取文件上传
     directUpload()
   }
 }
@@ -95,6 +98,7 @@ const fileChange = (file, files) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <!-- eslint-disable-next-line -->
             <g id="&#229;&#175;&#188;&#229;&#133;&#165; 1">
               <path
                 id="Vector"
@@ -139,6 +143,7 @@ const fileChange = (file, files) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <!-- eslint-disable-next-line -->
             <g id="&#229;&#175;&#188;&#229;&#133;&#165; 1">
               <path
                 id="Vector"
