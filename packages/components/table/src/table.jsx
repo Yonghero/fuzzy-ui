@@ -34,11 +34,6 @@ export default defineComponent({
       type: Object,
       default: () => ({}),
     },
-    // eslint-disable-next-line vue/no-reserved-props
-    EleRef: {
-      type: Object,
-      default: () => ({}),
-    },
   },
   emits: ['selection', 'headerSelection'],
   setup(props, { attrs, expose, emit }) {
