@@ -3,8 +3,8 @@ import {
   computed, ref, watch,
 } from 'vue'
 import { ElDialog } from 'element-plus'
-import Form from './Form.jsx'
-import DeletePanel from './DeletePanel.jsx'
+import Form from './DialogForm.jsx'
+import DeletePanel from './DialogDeletePanel.jsx'
 
 defineOptions({
   name: 'FYDialog',

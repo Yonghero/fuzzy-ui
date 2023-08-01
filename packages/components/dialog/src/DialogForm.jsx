@@ -1,5 +1,5 @@
 import { defineComponent, ref, watch } from 'vue'
-import { FormItem } from './FormItem'
+import { FormItem } from './DialogFormItem.jsx'
 
 export default defineComponent({
   props: {
