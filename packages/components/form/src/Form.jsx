@@ -31,6 +31,7 @@ export default defineComponent({
       type: String,
       default: 'write',
     },
+    // form组件和formItem组件的配置
     config: {
       type: Boolean,
       default: false,
@@ -45,9 +46,11 @@ export default defineComponent({
         realFormRef.value?.clearValidate()
       }, 100)
     })
+    // 对外暴露出el-form的resetFields
     const resetFields = () => {
       realFormRef.value?.resetFields()
     }
+    // 对外暴露出el-form的validate
     const validate = () => {
       console.log('validate')
       realFormRef.value?.validate((valid, object) => {
@@ -62,10 +65,12 @@ export default defineComponent({
         return null
       })
     }
+    // 对外暴露出el-form的validateField
     // eslint-disable-next-line
     const validateField = (props, cb) => {
       realFormRef.value?.validateField(props, cb)
     }
+    // 对外暴露出el-form的clearValidate
     // eslint-disable-next-line
     const clearValidate = (props) => {
       if (props) {
@@ -99,6 +104,7 @@ export default defineComponent({
     let initFormItems = props.template
       .filter((item) => !item.filterUnShow && item.show !== false)
       .map((sec) => ({ ...sec, model: props.modelValue }))
+    // 控制表单项的样式
     const styleObj = {
       full: !(initFormItems.length > 4) || props.config,
       half: initFormItems.length > 4 && !props.config,

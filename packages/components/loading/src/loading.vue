@@ -5,14 +5,17 @@ defineOptions({
   name: 'FYLoading',
 })
 const props = defineProps({
+  // 控制显示与否
   modelValue: {
     type: Boolean,
     default: false,
   },
+  // loading 全屏模式或部分模块模式
   type: {
     type: String,
     default: 'page',
   },
+  // 改变loading背景颜色
   background: {
     type: Object,
     default: () => ({

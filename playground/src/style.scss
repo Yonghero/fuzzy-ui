@@ -1,5 +1,5 @@
-@use "element-plus/theme-chalk/src/index.scss" as *;
-@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
+@use 'element-plus/theme-chalk/src/index.scss' as *;
+@use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -17,13 +17,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
-
 body {
   margin: 0;
   display: flex;
   justify-content: flex-start;
   min-width: 320px;
-  min-height: 100vh;
+  // min-height: 100vh;
+  height: 100vh;
 }
 
 h1 {

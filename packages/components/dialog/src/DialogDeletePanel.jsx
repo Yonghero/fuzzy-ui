@@ -5,10 +5,15 @@ export default defineComponent({
     dialogConfig: {
       type: Object,
       default: () => ({
+        // 删除的对象名称
         businessType: '字段',
+        // 控制删除对象的类名
         typeClass: '',
+        // 控制tag文字的类名
         tagClass: '',
+        // tag文字
         tagText: 'XX',
+        // 自定义删除描述
         customDesc: '',
       }),
     },

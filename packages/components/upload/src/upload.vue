@@ -1,5 +1,5 @@
 <script setup lang="jsx">
-import { ref, provide } from 'vue'
+import { provide } from 'vue'
 
 import ButtonUpload from './components/ButtonUpload.vue'
 import UploadItem from './components/UploadItem.vue'
@@ -54,28 +54,32 @@ const fileChange = (file, files) => {
   console.log(file, files)
 }
 
-// init here
 </script>
 
 <template>
   <div class="fy-upload-wrap">
+    <!-- 表单项上传 -->
     <UploadItem
       v-if="props.config.type === 'formItem'"
       @type-check="typeCheck"
       @fileChange="fileChange"
     />
 
+    <!-- 按钮对话框上传或者直接按钮上传 -->
     <ButtonUpload
       v-if="props.config.type === 'button'"
       @type-check="typeCheck"
       @fileChange="fileChange"
     />
 
+    <!-- 另一种样式的按钮上传 -->
     <PlainButtonUpload
       v-if="props.config.type === 'plain'"
       @type-check="typeCheck"
       @fileChange="fileChange"
     />
+
+    <!-- 导出 -->
     <ExportButton v-if="props.config.export === true" />
   </div>
 </template>

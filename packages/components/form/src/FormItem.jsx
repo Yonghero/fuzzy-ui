@@ -1,5 +1,4 @@
 import { defineComponent, computed } from 'vue'
-import { InfoFilled } from '@element-plus/icons-vue'
 import { formItemMap } from './composable/install'
 
 export const FormItem = defineComponent({
@@ -8,6 +7,7 @@ export const FormItem = defineComponent({
       type: Object,
       default: () => ({}),
     },
+    // 表示采用系统配置的表单样式
     config: {
       type: Boolean,
       default: false,
@@ -56,9 +56,6 @@ export const FormItem = defineComponent({
               style={{ marginLeft: '20px', width: '16px', height: '16px' }}
             />
           ) : null
-          // <el-icon style={{ marginLeft: '20px' }} size={20}>
-          //   <InfoFilled size={40} />
-          // </el-icon>
         }
         {props.config ? <slot></slot> : null}
         {props.config ? (

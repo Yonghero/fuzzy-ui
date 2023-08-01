@@ -1,0 +1,126 @@
+.fy-navigation-wrap {
+  // &.collapse-wrap {
+  //   width: 64px;
+  // }
+  // &.no-collapse-wrap {
+  //   width: 200px;
+  // }
+  height: 100%;
+  .fy-navigation-item-logo {
+    &:hover {
+      background-color: #48525c;
+    }
+    height: 72px;
+  }
+  .fy-navigation-item-footer {
+    &:hover {
+      background-color: #48525c;
+    }
+    height: 56px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .logo {
+    background-color: #48525c;
+    display: flex;
+    align-items: center;
+    color: #ddd;
+    .title {
+      margin-left: 8px;
+      font-size: 16px;
+    }
+  }
+  .fy-menu-el {
+    height: 100%;
+  }
+  .fy-menu-el:not(.el-menu--collapse) {
+    width: 200px;
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    color: #ddd;
+    justify-content: flex-end;
+    background-color: #48525c;
+    i {
+      cursor: pointer;
+      font-size: 22px;
+    }
+  }
+
+  .el-menu {
+    border-right: none;
+    padding-left: 0 !important;
+  }
+  .fy-menu-item-1 {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    column-gap: 0, 5rem;
+  }
+
+  .fy-menu-item-2 {
+    display: flex;
+    align-items: center;
+  }
+
+  .el-menu--horizontal .el-menu-item:not(.is-disabled):hover,
+  .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
+    background: transparent !important;
+  }
+
+  .el-menu {
+    box-shadow: none;
+  }
+  .el-sub-menu {
+    display: block;
+    position: relative;
+  }
+  .el-popper {
+    width: 100%;
+  }
+  .el-menu--popup {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .el-menu-item:not(.fy-navigation-item-logo):not(.fy-navigation-item-footer),
+  .el-sub-menu__title:not(.fy-navigation-item-logo) {
+    margin-bottom: 4px;
+    padding: 0 20px;
+    height: 40px;
+  }
+
+  .el-sub-menu
+    .el-menu-item:not(.fy-navigation-item-logo):not(
+      .fy-navigation-item-footer
+    ) {
+    height: 40px;
+  }
+
+  .el-icon {
+    justify-content: flex-start;
+  }
+
+  .el-menu-item.is-active {
+    background: #39414c;
+  }
+  .footer-collapse {
+    width: 22px;
+    height: 22px;
+    padding: 8px;
+    box-sizing: content-box;
+    transform: rotate(180deg);
+    &:hover {
+      background: #394143;
+      border-radius: 4px;
+    }
+    &.footer-collapse-reversal {
+      transform: rotate(0);
+    }
+  }
+}

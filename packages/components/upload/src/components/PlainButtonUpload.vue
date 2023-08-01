@@ -1,6 +1,6 @@
 <script setup lang="jsx">
 import { ref, inject } from 'vue'
-import { Plus, Paperclip } from '@element-plus/icons-vue'
+import { Paperclip } from '@element-plus/icons-vue'
 
 defineOptions({
   name: 'ButtonUpload',
@@ -13,24 +13,14 @@ const tmpl = [
   {
     label: '本地文件',
     icon: (<el-icon><Paperclip /></el-icon>),
-    onClick: (e) => {
+    onClick: () => {
       openDialog()
     },
   },
 ]
 
-const visible = ref(false)
 const openDialog = () => {
   directUpload()
-}
-const handleSubmit = () => {
-
-}
-const handleFail = () => {
-
-}
-const handleCancel = () => {
-
 }
 const currentFile = ref(null)
 const currentFileName = ref('')
@@ -65,10 +55,6 @@ const myRef = ref(null)
 const directUpload = () => {
   myRef.value.click()
 }
-const fileChange = (file, files) => {
-  console.log(file, files)
-}
-
 </script>
 
 <template>

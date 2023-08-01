@@ -3,7 +3,7 @@ import {
   ElInput, ElIcon, ElCard, ElSwitch,
 } from 'element-plus'
 import {
-  ref, computed, useSlots, onMounted,
+  ref, computed, useSlots,
 } from 'vue'
 import { ArrowDown } from '@element-plus/icons-vue'
 
@@ -34,17 +34,21 @@ const props = defineProps({
     type: [Array, String, Boolean],
     default: undefined,
   },
+  // 是否伸缩
   flex: {
     type: Boolean,
     default: false,
   },
+  // 是否有筛选看
   filterList: {
     type: Array,
     default: () => [],
   },
+  // 定义value,防止绑定value到原生标签上影响后续v-model的使用
   // eslint-disable-next-line
   value: {
   },
+  // 辅助树状结构组件的自动focus功能
   autoFocus: {
     type: [Boolean, String],
     default: false,
@@ -75,6 +79,7 @@ const getAutosize = computed(() => {
 
 const handleFocus = (e) => {
   if (props.flex) {
+    // 伸缩
     e.srcElement.style.width = `${e.srcElement.getBoundingClientRect().width + 100}px`
   }
 }
@@ -99,11 +104,13 @@ const switchChange = () => {
   emit('switchChange', switchGroupValue.value)
 }
 const myRef = ref(null)
+// 树状结构中的input自动focus
 setTimeout(() => {
   if (props.autoFocus !== false) {
     myRef.value.focus()
   }
 }, 0)
+// 树状结构回车后的blur效果
 const handleEnter = () => {
   emit('enter', props.modelValue)
   myRef.value.blur()

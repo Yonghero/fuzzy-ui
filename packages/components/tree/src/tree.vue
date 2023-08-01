@@ -4,7 +4,7 @@ import {
   Plus, Edit, Delete, ArrowRight, ArrowDown,
 } from '@element-plus/icons-vue'
 import {
-  computed, onMounted, ref,
+  ref,
 } from 'vue'
 import { mergeTemplate, countNodesRecursive } from '@hitotek/fuzzy-ui-utils'
 
@@ -19,6 +19,7 @@ const createSubTree = ({ node, data: target }) => {
   dialogConfig.value.type = 'create'
   dialogConfig.value.title = '新增'
   if (props.config.ifDialog === true) {
+    // 构建表单所需要的数据
     dialogConfig.value.title = '新增'
     props.config.dialogTmpl?.forEach((item) => {
       formModel.value[item.value] = ''
@@ -29,6 +30,7 @@ const createSubTree = ({ node, data: target }) => {
       target.panelVisible = false
     }, 0)
   } else {
+    // 构建子项，id为当前所有项数+1
     const newChild = {
       id: (countNodesRecursive(props.config.dataSource) + 1), label: '新模块', children: [], type: 'input',
     }
@@ -55,6 +57,7 @@ const handleSubmit = () => {
       ...currentTarget.value.data, ...formModel.value, type: 'text',
     }
     let targetSon
+    // 采用删去旧项加入新项的方式进行树节点更新
     if (parent.parent === null) {
       targetSon = parent.data.findIndex((item) => item.id === currentTarget.value.data.id)
       parent.data.splice(targetSon, 1, target)
@@ -139,6 +142,7 @@ const props = defineProps({
       expandOnClickNode: false,
       tooltipText: '更多',
       editable: false,
+      // 是否使用表单进行树的编辑
       ifDialog: false,
       draggable: false,
       deleteDesc: '模块删除后不可恢复，删除模块会一起删除子模块。',
@@ -308,10 +312,10 @@ const togglePanel = (e) => {
   }
 }
 
-const nodeExpand = (obj, node, self) => {
+const nodeExpand = (obj, node) => {
   node.isExpand = true
 }
-const nodeCollapse = (obj, node, self) => {
+const nodeCollapse = (obj, node) => {
   node.isExpand = false
 }
 const nodeClick = (node) => {

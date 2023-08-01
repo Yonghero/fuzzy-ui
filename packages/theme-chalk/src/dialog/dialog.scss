@@ -12,6 +12,14 @@
     }
   }
 }
+
+html.dark {
+  .fy-dialog-wrap {
+    :deep(.el-dialog__title) {
+      color: #666 !important;
+    }
+  }
+}
 .fy-dialog-wrap {
   :deep(.fy-dialog-delete-type) {
     .el-dialog {

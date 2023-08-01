@@ -1,5 +1,7 @@
 <script setup>
-import { ref, inject } from 'vue'
+import {
+  ref, inject, watch,
+} from 'vue'
 import excel from '../assets/excel.png'
 import file from '../assets/file.png'
 import pdf from '../assets/pdf.png'
@@ -17,6 +19,14 @@ const noEvent = (e) => {
 }
 const emit = defineEmits(['type-check', 'file-change'])
 const config = inject('config')
+const dialogVisible = inject('dialogVisible')
+watch(dialogVisible, (newV) => {
+  // 对话框关闭，清空上传文件
+  if (!newV.value) {
+    myRef.value.clearFiles()
+    currentFile.value = null
+  }
+})
 const onChange = (file, files) => {
   const typeList = file.name.split('.')
   const type = typeList[typeList.length - 1]
@@ -45,10 +55,12 @@ const onChange = (file, files) => {
   }
   emit('file-change', file, files)
 }
+const myRef = ref(null)
 </script>
 
 <template>
   <el-upload
+    ref="myRef"
     class="fy-upload-item"
     :drag="config.drag"
     :multiple="config.multiple"
@@ -148,4 +160,11 @@ const onChange = (file, files) => {
 </template>
 
 <style scoped lang="scss">
+html.dark {
+  .fy-upload-item {
+    .upload-file-info {
+      color: #666;
+    }
+  }
+}
 </style>

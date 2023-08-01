@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 defineOptions({
   name: 'FYSkeleton',
@@ -16,6 +16,7 @@ const circleWrap = ref(null)
 const computeRadius = ref('')
 const computeFourRadius = ref('')
 onMounted(() => {
+  // 对圆形骨架进行长宽修正
   const target = document.querySelector('.circle-wrap')
   const { width, height } = target.getBoundingClientRect()
   computeRadius.value = `${width < height ? width : height}px`
