@@ -52,10 +52,16 @@ const props = defineProps({})
 </script>
 
 <template>
-  <div>
+  <div class="fy-$INPUT_NAME-wrap">
     <slot />
   </div>
 </template>
+
+
+<style lang="scss">
+@use "../../../theme-chalk/src/$INPUT_NAME/$INPUT_NAME.scss";
+</style>
+
 EOF
 
 cat <<EOF >"$DIRNAME/index.js"
@@ -117,4 +123,4 @@ cat > $CSS_DIRNAME/$INPUT_NAME.scss << EOF
 
 EOF
 
-echo "@use $CSS_DIRNAME/$INPUT_NAME.scss;">>"$CSS_DIRNAMESRC/index.scss"
+echo "@use '$INPUT_NAME/$INPUT_NAME.scss';">>"$CSS_DIRNAMESRC/index.scss"
