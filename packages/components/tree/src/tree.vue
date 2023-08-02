@@ -218,6 +218,7 @@ const props = defineProps({
         {
           id: 1,
           label: 'Level one 1',
+
           allowDrag: false,
           children: [
             {
@@ -374,7 +375,9 @@ const dialogConfig = ref({
       @node-click="itemNodeClick"
     >
       <template #default="{ node, data }">
-        <span class="custom-tree-node">
+        <span
+          class="custom-tree-node"
+        >
           <span
             :class="['node-left-icon', props.config.draggable ? 'visibility' : 'visibility-hidden']"
           >
@@ -414,77 +417,88 @@ const dialogConfig = ref({
             class="expand-icon"
             style="visibility:hidden"
           ><ArrowDown /></el-icon>
-          <slot name="icon">
+          <slot
+            v-if="!data.render"
+            name="icon"
+          >
             <span class="icon-svg">
-              <svg
-                viewBox="0 0 16 16"
-                xmlns="http://www.w3.org/2000/svg"
-                fit=""
-                height="1em"
-                width="1em"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              ><g
-                id="axlrd/test-case-type-bold"
-                stroke-width="1"
-                fill-rule="evenodd"
-              ><path
-                id="axl形状结合"
-                d="M7.283 9.453a1.453 1.453 0 0 1-.013-.008L4.41 7.794l-.002-.002a.047.047 0 0 0-.041.003l-2.86 1.652a.047.047 0 0 0-.024.04v3.303c0 .017.009.033.024.041l2.86 1.652a.047.047 0 0 0 .047 0l2.86-1.652a.047.047 0 0 0 .01-.007l-.001-.034V9.488v-.035zm.707 4.581l-.016.01-2.86 1.651c-.448.259-1 .259-1.447 0l-2.86-1.651a1.447 1.447 0 0 1-.724-1.254V9.488c0-.518.276-.995.724-1.254l2.86-1.651.02-.012V3.238c0-.518.276-.995.723-1.254L7.27.333c.448-.259 1-.259 1.448 0l2.86 1.651c.448.259.724.736.724 1.254v3.338l.012.007 2.86 1.651c.448.259.724.736.724 1.254v3.302c0 .517-.276.995-.724 1.254l-2.86 1.651c-.448.259-1 .259-1.447 0l-2.86-1.651a1.454 1.454 0 0 1-.017-.01zM5.105 6.578l.01.005 2.86 1.651.001.001A.047.047 0 0 0 8 8.24l.008-.005 2.86-1.651.026-.015a.047.047 0 0 0 .009-.028V3.238a.047.047 0 0 0-.024-.041l-2.86-1.652a.047.047 0 0 0-.047 0L5.11 3.197a.047.047 0 0 0-.024.04V6.54c0 .015.007.029.018.038zm3.593 6.246a.047.047 0 0 0 .009.007l2.86 1.652a.047.047 0 0 0 .047 0l2.86-1.652a.047.047 0 0 0 .024-.04V9.487a.047.047 0 0 0-.024-.041l-2.86-1.652a.047.047 0 0 0-.028-.006 1.454 1.454 0 0 1-.008.005l-2.86 1.65a1.453 1.453 0 0 1-.02.012v3.368z"
-              /></g></svg>
+              <slot name="custom-icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fit=""
+                  height="1em"
+                  width="1em"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                ><g
+                  id="axlrd/test-case-type-bold"
+                  stroke-width="1"
+                  fill-rule="evenodd"
+                ><path
+                  id="axl形状结合"
+                  d="M7.283 9.453a1.453 1.453 0 0 1-.013-.008L4.41 7.794l-.002-.002a.047.047 0 0 0-.041.003l-2.86 1.652a.047.047 0 0 0-.024.04v3.303c0 .017.009.033.024.041l2.86 1.652a.047.047 0 0 0 .047 0l2.86-1.652a.047.047 0 0 0 .01-.007l-.001-.034V9.488v-.035zm.707 4.581l-.016.01-2.86 1.651c-.448.259-1 .259-1.447 0l-2.86-1.651a1.447 1.447 0 0 1-.724-1.254V9.488c0-.518.276-.995.724-1.254l2.86-1.651.02-.012V3.238c0-.518.276-.995.723-1.254L7.27.333c.448-.259 1-.259 1.448 0l2.86 1.651c.448.259.724.736.724 1.254v3.338l.012.007 2.86 1.651c.448.259.724.736.724 1.254v3.302c0 .517-.276.995-.724 1.254l-2.86 1.651c-.448.259-1 .259-1.447 0l-2.86-1.651a1.454 1.454 0 0 1-.017-.01zM5.105 6.578l.01.005 2.86 1.651.001.001A.047.047 0 0 0 8 8.24l.008-.005 2.86-1.651.026-.015a.047.047 0 0 0 .009-.028V3.238a.047.047 0 0 0-.024-.041l-2.86-1.652a.047.047 0 0 0-.047 0L5.11 3.197a.047.047 0 0 0-.024.04V6.54c0 .015.007.029.018.038zm3.593 6.246a.047.047 0 0 0 .009.007l2.86 1.652a.047.047 0 0 0 .047 0l2.86-1.652a.047.047 0 0 0 .024-.04V9.487a.047.047 0 0 0-.024-.041l-2.86-1.652a.047.047 0 0 0-.028-.006 1.454 1.454 0 0 1-.008.005l-2.86 1.65a1.453 1.453 0 0 1-.02.012v3.368z"
+                /></g></svg>
+              </slot>
             </span>
           </slot>
-          <span
-            v-if="data.type !== 'input'"
-            class="fy-tree-node-content"
-          >
-            <el-tooltip
-              class="box-item"
-              effect="dark"
-              :content="data.label"
-              placement="top"
-              show-after="1000"
-            >
-              {{ data.label }}
-            </el-tooltip>
-          </span>
-          <span
-            v-else
-            class="fy-tree-node-content fy-tree-content-input"
-          >
-            <FYInput
-              v-model="data.label"
-              autoFocus
-              @enter="(e) => handleEnter(e, data)"
-              @blur="(e) => handleEnter(e, data)"
+          <span v-if="data.render">
+            <component
+              :is="data.render"
             />
           </span>
-          <FYActionPanel
-            v-model:visible="data.panelVisible"
-            :template="tmpl"
-            :panelModel="{node,data}"
-          >
+          <span v-else>
             <span
-              v-if="props.config.editable"
-              class="node-right-icon"
-              @click="togglePanel(data)"
+              v-if="data.type !== 'input'"
+              class="fy-tree-node-content"
             >
-              <svg
-                viewBox="0 0 16 16"
-                xmlns="http://www.w3.org/2000/svg"
-                fit=""
-                height="1em"
-                width="1em"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              ><g
-                id="apb1.Base基础/1.icon图标/2.normal/more-vertical"
-                stroke-width="1"
-                fill-rule="evenodd"
-              ><path
-                id="apb形状结合"
-                d="M8 4.25a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zm0 5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zm0 5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z"
-              /></g></svg>
+              <el-tooltip
+                class="box-item"
+                effect="dark"
+                :content="data.label"
+                placement="top"
+                show-after="1000"
+              >
+                {{ data.label }}
+              </el-tooltip>
+            </span>
+            <span
+              v-else
+              class="fy-tree-node-content fy-tree-content-input"
+            >
+              <FYInput
+                v-model="data.label"
+                autoFocus
+                @enter="(e) => handleEnter(e, data)"
+                @blur="(e) => handleEnter(e, data)"
+              />
+            </span>
+            <FYActionPanel
+              v-model:visible="data.panelVisible"
+              :template="tmpl"
+              :panelModel="{node,data}"
+            >
+              <span
+                v-if="props.config.editable"
+                class="node-right-icon"
+                @click="togglePanel(data)"
+              >
+                <svg
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fit=""
+                  height="1em"
+                  width="1em"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                ><g
+                  id="apb1.Base基础/1.icon图标/2.normal/more-vertical"
+                  stroke-width="1"
+                  fill-rule="evenodd"
+                ><path
+                  id="apb形状结合"
+                  d="M8 4.25a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zm0 5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zm0 5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z"
+                /></g></svg>
               <!-- <el-tooltip
                 class="box-item"
                 effect="dark"
@@ -492,9 +506,9 @@ const dialogConfig = ref({
                 placement="top"
               /> -->
 
-            </span>
-          </FYActionPanel>
-
+              </span>
+            </FYActionPanel>
+          </span>
         </span>
       </template>
     </el-tree>

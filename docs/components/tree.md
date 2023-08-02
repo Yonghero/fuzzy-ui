@@ -10,7 +10,7 @@ layout: doc
 
 ### 普通查看树级结构
 
-请传入 Object 类型的树状结构的配置信息`config`，其中核心字段是`dataSource`,请保持和 el-tree 组件参数`data`一致的类型，请保证数组每一项内有`id`和`label`
+请传入 Object 类型的树状结构的配置信息`config`，其中核心字段是`dataSource`,请保持和 el-tree 组件参数`data`一致的类型，请保证数组每一项内有`id`和`label`， 可使用插槽名 `custom-icon` 来替换自定义 icon，也支持在 `dataSource` 里每项传入 `render函数`进行自定义内容的渲染
 :::demo
 tree/basic
 :::

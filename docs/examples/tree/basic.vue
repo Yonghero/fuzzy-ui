@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="jsx">
 import { FYTree } from '@hitotek/fuzzy-ui-components'
 
 const config = {
@@ -102,6 +102,7 @@ const config = {
           ],
         },
       ],
+      render: () => <div>123</div>,
     },
     {
       label: 'Level one 2',
@@ -173,6 +174,10 @@ const config = {
 
 <template>
   <div style="margin: 1rem;">
-    <FYTree :config="config" />
+    <FYTree :config="config">
+      <template #custom-icon>
+        <el-icon><Pear /></el-icon>
+      </template>
+    </FYTree>
   </div>
 </template>
