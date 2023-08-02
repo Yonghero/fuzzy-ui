@@ -1,59 +1,62 @@
 {
-  "hash": "5a8e61a8",
-  "browserHash": "04f7c655",
+  "hash": "141048f4",
+  "browserHash": "eb239b14",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "76327a41",
+      "fileHash": "32b29947",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@6.5.0/node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "079a3320",
+      "fileHash": "d4f0d3f6",
       "needsInterop": false
     },
     "element-plus": {
-      "src": "../../../../node_modules/.pnpm/element-plus@2.3.8/node_modules/element-plus/es/index.mjs",
+      "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "fb8437db",
+      "fileHash": "131bb7e3",
       "needsInterop": false
     },
     "element-plus/dist/locale/zh-cn.mjs": {
-      "src": "../../../../node_modules/.pnpm/element-plus@2.3.8/node_modules/element-plus/dist/locale/zh-cn.mjs",
+      "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/dist/locale/zh-cn.mjs",
       "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "b6ac0558",
+      "fileHash": "acff4159",
       "needsInterop": false
     },
     "@element-plus/icons-vue": {
       "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.1.0/node_modules/@element-plus/icons-vue/dist/index.js",
       "file": "@element-plus_icons-vue.js",
-      "fileHash": "f496dd39",
+      "fileHash": "950f3aa7",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0/node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "9d021c4a",
+      "fileHash": "63162f2a",
       "needsInterop": false
+    },
+    "dayjs": {
+      "src": "../../../../node_modules/.pnpm/dayjs@1.11.9/node_modules/dayjs/dayjs.min.js",
+      "file": "dayjs.js",
+      "fileHash": "7c43869d",
+      "needsInterop": true
     },
     "sortablejs": {
       "src": "../../../../node_modules/.pnpm/sortablejs@1.15.0/node_modules/sortablejs/modular/sortable.esm.js",
       "file": "sortablejs.js",
-      "fileHash": "64cfaad4",
+      "fileHash": "1ce7372d",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-5QXSFF2B": {
-      "file": "chunk-5QXSFF2B.js"
-    },
-    "chunk-C5UM5LGX": {
-      "file": "chunk-C5UM5LGX.js"
-    },
     "chunk-3I5FGFVQ": {
       "file": "chunk-3I5FGFVQ.js"
+    },
+    "chunk-N4I62SYE": {
+      "file": "chunk-N4I62SYE.js"
     },
     "chunk-UXIASGQL": {
       "file": "chunk-UXIASGQL.js"

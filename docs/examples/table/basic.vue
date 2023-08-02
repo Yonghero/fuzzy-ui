@@ -45,10 +45,12 @@ const tmpl = shallowRef([
     },
   },
   {
-    label: '空数据',
+    label: '保留位',
+    type: 'limit3',
     value: 'date1',
     visible: true,
     width: 80,
+    // limit: 3, // 保留 limit 位小数
     onChange({ value }) {
       console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
     },
@@ -68,6 +70,7 @@ setTimeout(() => {
     date: '2016-05-03',
     index: idx + 1,
     name: `${idx}Tom`,
+    date1: 2.23,
     address: '浙江高山CNo. 189, Grove St, Los Angeles',
   }))
 }, 1000)

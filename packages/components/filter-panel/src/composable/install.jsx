@@ -1,14 +1,14 @@
 import * as builtInFormItems from './builtIn-formItem'
 
-export const formItemMap = new Map()
+export const filterPanelItemMap = new Map()
 
 export function installFilterPanelItem(item) {
   if (Array.isArray(item)) {
     for (const nape of item) {
-      formItemMap.set(nape.type, nape.renderer)
+      filterPanelItemMap.set(nape.type, nape.renderer)
     }
   } else {
-    formItemMap.set(item.type, item.renderer)
+    filterPanelItemMap.set(item.type, item.renderer)
   }
 }
 

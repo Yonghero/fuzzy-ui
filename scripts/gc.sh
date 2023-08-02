@@ -18,6 +18,9 @@ DIRNAMESRC="$FILE_PATH/components"
 # 撰写文档路径
 DOCS_DIRNAME="$DOCS_PATH/components"
 DOCS_EXNAME="$DOCS_PATH/examples/$NAME"
+# css文件路径
+CSS_DIRNAME="$FILE_PATH/theme-chalk/src/$NAME"
+CSS_DIRNAMESRC="$FILE_PATH/theme-chalk/src"
 
 INPUT_NAME=$NAME
 
@@ -49,10 +52,16 @@ const props = defineProps({})
 </script>
 
 <template>
-  <div>
+  <div class="fy-$INPUT_NAME-wrap">
     <slot />
   </div>
 </template>
+
+
+<style lang="scss">
+@use "../../../theme-chalk/src/$INPUT_NAME/$INPUT_NAME.scss";
+</style>
+
 EOF
 
 cat <<EOF >"$DIRNAME/index.js"
@@ -102,3 +111,16 @@ EOF
 
 
 
+# css
+
+mkdir -p "$CSS_DIRNAME"
+
+cat > $CSS_DIRNAME/$INPUT_NAME.scss << EOF
+
+.fy-$INPUT_NAME-wrap {
+
+}
+
+EOF
+
+echo "@use '$INPUT_NAME/$INPUT_NAME.scss';">>"$CSS_DIRNAMESRC/index.scss"

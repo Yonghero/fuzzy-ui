@@ -44,6 +44,45 @@ table/basic
 :::
 
 
+## 扩展功能
+
+### 小数位数
+
+如果表格数据为数字类型并且需要做位数限制 
+
+只需配置type类型为 `limit{number}`
+保留 number 位 
+
+**例: { type: 'limit3' }、{ type: 'limit4' } ...**
+
+### 图片预览
+
+配置type类型为 `imagePreview`
+
+表格数据需要为图片的地址 如果传递为数组 则可预览多张图片 表格默认展示第一张
+
+内嵌 `el-image` 组件 如果部分属性需要自定义传递 可给配置项传递该组件的属性 内部会实现覆盖
+
+### 时间展示规则
+
+配置type类型为 `timeDisplay{format}`
+
+`format` 为精度值 **Minute | second | Day** 具体到分、秒、日
+
+**例: { type: 'timeDisplayMinute' }、{ type: 'timeDisplayDay' } ...**
+
+今天内，显示为“今天XX：XX”
+
+今年内非今天，显示为“XX月XX日XX：XX”
+
+非今年内，显示为“XXXX年XX月XX日XX：XX”
+
+:::demo
+table/update
+:::
+
+
+
 ## 固定列和排序
 
 想要哪个字段为固定列给它配置`fixed`属性为`true`
