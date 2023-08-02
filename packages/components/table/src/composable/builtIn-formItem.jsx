@@ -116,6 +116,9 @@ export const ImagePreview = {
   },
 }
 
+/**
+ * 日期时间展示规则
+ */
 // eslint-disable-next-line no-underscore-dangle
 const __format = {
   minute: 'YYYY年M月DD日 HH:mm',
