@@ -11,7 +11,6 @@ layout: doc
 ### 普通查看树级结构
 
 请传入 Object 类型的树状结构的配置信息`config`，其中核心字段是`dataSource`,请保持和 el-tree 组件参数`data`一致的类型，请保证数组每一项内有`id`和`label`
-
 :::demo
 tree/basic
 :::

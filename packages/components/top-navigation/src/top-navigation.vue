@@ -16,21 +16,31 @@ const props = defineProps({
       title: '产品管理',
       menu: [
         {
-          label: '页面二',
+          label: '更多',
           value: '/page2',
           icon: (<el-icon><Camera /></el-icon>),
           children: [
             {
-              label: 'Page2-1',
+              label: '信息管理',
               value: '/page2/1',
             },
             {
-              label: 'Page2-2',
+              label: '人员管理',
               value: '/page2/2',
             },
             {
-              label: 'Page2-2-3-3-3',
+              label: '布控管理',
               value: '/page2/2-3-3',
+              children: [
+                {
+                  label: '车牌布防',
+                  value: '/page2/2-3-3-1',
+                },
+                {
+                  label: '路线布防',
+                  value: '/page2/2-3-3-2',
+                },
+              ],
             },
           ],
         },

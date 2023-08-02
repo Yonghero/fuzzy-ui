@@ -4,6 +4,43 @@ import {
   ref, onMounted,
 } from 'vue'
 
+const props = {
+  // 表单项的数据来源
+  template: {
+    type: Array,
+    default: () => [],
+  },
+  // 表单域标签位置
+  labelPosition: {
+    type: String,
+    default: 'top',
+  },
+  // 表单域标签宽度
+  labelWidth: {
+    type: String,
+    default: 'auto',
+  },
+  // el-form绑定的对象
+  modelValue: {
+    type: Object,
+    default: () => ({}),
+  },
+  // 是否启用校验
+  shouldValidate: {
+    type: Boolean,
+    default: true,
+  },
+  // 分为write类型（即新增和编辑），以及read（详情）
+  businessType: {
+    type: String,
+    default: 'write',
+  },
+  // form组件和formItem组件的配置
+  config: {
+    type: Boolean,
+    default: false,
+  },
+}
 const template = ref([
   {
     type: 'input',

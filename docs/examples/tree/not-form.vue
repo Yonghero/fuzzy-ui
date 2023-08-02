@@ -2,6 +2,7 @@
 import { FYTree } from '@hitotek/fuzzy-ui-components'
 
 const config = {
+  // 树级列表
   dataSource: [
     {
       id: 1,
@@ -86,6 +87,7 @@ const config = {
       ],
     },
   ],
+  // 是否可编辑
   editable: true,
 }
 </script>

@@ -2,7 +2,9 @@
 import { FYTree } from '@hitotek/fuzzy-ui-components'
 
 const config = {
+  // 开启拖拽
   draggable: true,
+  // 树级列表
   dataSource: [
     {
       id: 1,
