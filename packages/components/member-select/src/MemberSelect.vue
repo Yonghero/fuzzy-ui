@@ -5,7 +5,9 @@
  * @description 人员选择
  */
 
-import { computed, ref } from 'vue'
+import {
+  computed, ref, watchEffect, watch,
+} from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import TheHeader from './TheHeader.vue'
 import TheBody from './TheBody.vue'
@@ -23,7 +25,7 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['update:visible'])
+const emits = defineEmits(['update:visible', 'checked'])
 
 // popover 受控模式
 const popoverVisible = computed({
@@ -41,11 +43,33 @@ const activeIdx = ref(0)
 // 输入框值
 const searchVal = ref('')
 
+// 选中的人员信息
+const checkedValues = ref([])
+
+// 选中人员的默认值
+watchEffect(() => {
+  checkedValues.value = Array.from(
+    props.template.reduce((pre, cur) => {
+      const defaultValue = cur?.defaultValue ?? []
+      while (defaultValue.length) {
+        pre.add(defaultValue.shift())
+      }
+      return pre
+    }, new Set()),
+  )
+})
+
+watch(checkedValues.value, (val) => emits('checked', val))
+
+defineExpose({
+  checkedValues: computed(() => checkedValues.value),
+})
+
 </script>
 
 <template>
   <el-popover
-    :visible="popoverVisible"
+    v-model:visible="popoverVisible"
     :width="260"
     :show-arrow="false"
     trigger="click"
@@ -64,10 +88,12 @@ const searchVal = ref('')
           :template="template"
         />
         <TheBody
+          v-model:checkedValues="checkedValues"
+          :searchVal="searchVal"
           :activeIdx="activeIdx"
           :template="template"
         />
-        <TheFooter />
+        <TheFooter :checkedValues="checkedValues" />
       </div>
     </template>
   </el-popover>

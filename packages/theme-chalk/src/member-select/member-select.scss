@@ -87,6 +87,7 @@
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      padding: 10px 0;
 
       .select-item {
         display: flex;
@@ -98,7 +99,7 @@
         color: #333;
         cursor: pointer;
         outline-style: none;
-        font-size: 1rem;
+        font-size: 14px;
         margin: 3px 0;
         padding: 4px 20px;
         
@@ -133,9 +134,50 @@
 
     .fy-body-tree-select { 
       width: 100%;
-      padding: 10px 0;
+      padding: 10px 15px;
       .fy-tree-wrap{
         padding: 0;
+      }
+
+      .el-tree-node__content {
+        height: 45px;
+        line-height: 45px;
+      }
+
+      .select-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        min-height: 45px;
+        justify-content: space-between;
+        color: #333;
+        cursor: pointer;
+        outline-style: none;
+        font-size: 14px;
+        margin-right: 10px;
+        
+        &:hover {
+          background: #f5f5f5;
+        }
+
+        .member,.item-icon {
+          display: flex;
+          height: 100%;
+          align-items: center;
+          column-gap: 5px;
+        }
+      }
+      .not-member {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        height: 100%;
+        svg {
+          fill: #999;
+          width: 18px;
+          height: 18px;
+        }
       }
     }
   }

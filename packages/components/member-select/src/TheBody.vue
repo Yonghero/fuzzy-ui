@@ -9,7 +9,25 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  checkedValues: {
+    type: Array,
+    default: () => ([]),
+  },
+  searchVal: {
+    type: String,
+    default: '',
+  },
 })
+
+const emits = defineEmits(['update:checkedValues'])
+
+// const defaultValues = computed(() => props.template.reduce((pre, cur) => {
+//   const defaultValue = cur?.defaultValue ?? []
+//   while (cur.defaultValue.length) {
+//     pre.add(cur.defaultValue.shift())
+//   }
+//   return pre
+// }, new Set()))
 
 const activeTmplItem = computed(() => props.template[props.activeIdx])
 
@@ -32,6 +50,19 @@ const SelectRenderer = computed(() => {
   return BuiltInAllSelect.Select
 })
 
+const values = computed({
+  get() {
+    return props.checkedValues
+  },
+  set(val) {
+    emits('update:checkedValues', val)
+  },
+})
+
+const onCheck = (v) => {
+  values.value = v
+}
+
 </script>
 
 <template>
@@ -39,6 +70,9 @@ const SelectRenderer = computed(() => {
     <component
       :is="SelectRenderer"
       :tmplItem="activeTmplItem"
+      :values="values"
+      :searchVal="searchVal"
+      @check="onCheck"
     />
   </div>
 </template>

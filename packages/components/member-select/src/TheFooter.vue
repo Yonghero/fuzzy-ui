@@ -1,16 +1,22 @@
 <script setup>
-defineProps({
-  length: {
-    type: Number,
-    default: 0,
+import { watchEffect } from 'vue'
+
+const props = defineProps({
+  checkedValues: {
+    type: Array,
+    default: () => ([]),
   },
+})
+
+watchEffect(() => {
+  console.log(props.checkedValues, '=========')
 })
 </script>
 
 <template>
   <div class="fy-member-footer">
     已选<span style="color: var(--el-color-primary)">
-      {{ length }}
+      {{ checkedValues.length }}
     </span>项
   </div>
 </template>
