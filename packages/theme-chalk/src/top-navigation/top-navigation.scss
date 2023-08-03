@@ -64,6 +64,12 @@ html.dark {
         font-size: 15px;
         font-weight: 400;
       }
+      .el-sub-menu {
+        margin-left: 20px;
+        .el-sub-menu__icon-arrow {
+          right: 10px;
+        }
+      }
     }
   }
   .right {

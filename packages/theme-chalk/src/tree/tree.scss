@@ -16,6 +16,7 @@
     .fy-action-panel-wrap {
       position: absolute;
       right: 98px;
+      top: -4px;
       width: 32px;
       height: 32px;
     }
@@ -101,7 +102,9 @@
       }
     }
     .fy-tree-content-input {
+      width: calc(100% - 230px);
       position: absolute;
+      top: -4px;
       left: 63px;
     }
   }

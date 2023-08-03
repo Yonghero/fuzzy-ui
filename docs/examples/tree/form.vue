@@ -3,6 +3,7 @@ import { FYTree } from '@hitotek/fuzzy-ui-components'
 import { ref } from 'vue'
 
 const config = ref({
+  // 树级列表
   dataSource: [
     {
       id: 1,
@@ -87,8 +88,11 @@ const config = ref({
       ],
     },
   ],
+  // 是否启用编辑
   editable: true,
+  // 是否使用对话框
   ifDialog: true,
+  // 启用表单编辑时的绑定对象
   dialogTmpl: [
     {
       type: 'input',
