@@ -155,12 +155,12 @@ export const TreeSelect = defineComponent({
 
     return () => (
       <div class="fy-body-tree-select">
-       <el-tree
-        data={data.value}
-        renderContent={renderContent}
-        ref={treeEle}
-        filterNodeMethod={filterNode}
-      />
+        <el-tree
+          data={data.value}
+          renderContent={renderContent}
+          ref={treeEle}
+          filterNodeMethod={filterNode}
+        />
       </div>
     )
   },

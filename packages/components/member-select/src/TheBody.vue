@@ -21,14 +21,6 @@ const props = defineProps({
 
 const emits = defineEmits(['update:checkedValues'])
 
-// const defaultValues = computed(() => props.template.reduce((pre, cur) => {
-//   const defaultValue = cur?.defaultValue ?? []
-//   while (cur.defaultValue.length) {
-//     pre.add(cur.defaultValue.shift())
-//   }
-//   return pre
-// }, new Set()))
-
 const activeTmplItem = computed(() => props.template[props.activeIdx])
 
 // 选择框渲染器

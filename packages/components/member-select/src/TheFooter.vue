@@ -1,16 +1,12 @@
 <script setup>
-import { watchEffect } from 'vue'
 
-const props = defineProps({
+defineProps({
   checkedValues: {
     type: Array,
     default: () => ([]),
   },
 })
 
-watchEffect(() => {
-  console.log(props.checkedValues, '=========')
-})
 </script>
 
 <template>

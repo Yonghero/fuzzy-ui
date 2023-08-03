@@ -81,7 +81,3 @@ const changeActiveTab = (item, idx) => {
     </div>
   </div>
 </template>
-
-<style scoped lang='scss'>
-
-</style>
