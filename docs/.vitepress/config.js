@@ -67,7 +67,7 @@ export default defineConfig({
           text: 'Custom 定制化组件',
           collapsed: true,
           items: [
-            { text: 'Button 按钮', link: '/components/button' },
+            { text: 'MapCoordSelection 地图坐标选择', link: '/components/map-coordselection' },
           ]
         }
       ]
@@ -80,5 +80,5 @@ export default defineConfig({
     // light: #f9fafb, dark: --vp-code-block-bg
     theme: { light: 'github-light', dark: 'github-dark' },
     config: (md) => mdPlugin(md),
-  },
+  }
 })
