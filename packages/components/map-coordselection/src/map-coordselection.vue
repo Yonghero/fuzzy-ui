@@ -1,4 +1,11 @@
 <script setup>
+
+/**
+ * @author younghero
+ * @Date 2023-8-4
+ * @description 人员选择
+ */
+
 import { computed } from 'vue'
 import { BigMapRenderer } from './bigmap-renderer'
 import { FYButton } from '../../button'
