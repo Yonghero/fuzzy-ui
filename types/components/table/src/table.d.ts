@@ -1,4 +1,4 @@
-declare var _default: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     columnIndex: {
         type: BooleanConstructor;
         default: boolean;
@@ -12,10 +12,6 @@ declare var _default: import("vue").DefineComponent<{
         default: () => any[];
     };
     renderer: {
-        type: ObjectConstructor;
-        default: () => {};
-    };
-    EleRef: {
         type: ObjectConstructor;
         default: () => {};
     };
@@ -40,10 +36,6 @@ declare var _default: import("vue").DefineComponent<{
         type: ObjectConstructor;
         default: () => {};
     };
-    EleRef: {
-        type: ObjectConstructor;
-        default: () => {};
-    };
     template: {
         type: ArrayConstructor;
         default: () => any[];
@@ -52,12 +44,11 @@ declare var _default: import("vue").DefineComponent<{
     onSelection?: (...args: any[]) => any;
     onHeaderSelection?: (...args: any[]) => any;
 }, {
-    data: unknown[];
     template: unknown[];
+    data: unknown[];
     columnIndex: boolean;
     columnSelection: boolean;
     renderer: Record<string, any>;
-    EleRef: Record<string, any>;
 }, {}>;
 export default _default;
 //# sourceMappingURL=table.d.ts.map

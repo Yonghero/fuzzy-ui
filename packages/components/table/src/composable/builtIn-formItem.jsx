@@ -2,7 +2,7 @@ import {
   defineComponent, nextTick, ref, unref,
 } from 'vue'
 import { EditPen } from '@element-plus/icons-vue'
-import dayjs from 'dayjs'
+import dayjs from 'dayjs/esm'
 
 export const Input = {
   type: 'input',

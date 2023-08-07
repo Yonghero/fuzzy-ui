@@ -43,9 +43,9 @@ export const SelectionIndex: import("vue").DefineComponent<{
         type: FunctionConstructor;
     };
 }>>, {
+    prop: string;
     checked: boolean;
     scope: Record<string, any>;
-    prop: string;
     columnProps: Record<string, any>;
 }, {}>;
 //# sourceMappingURL=SelectionIndex.d.ts.map

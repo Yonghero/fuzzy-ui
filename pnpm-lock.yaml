@@ -11,6 +11,7 @@ importers:
       '@hitotek/fuzzy-ui-utils': workspace:^1.0.0
       '@rollup/plugin-alias': ^5.0.0
       '@rollup/plugin-babel': ^6.0.3
+      '@rollup/plugin-image': ^3.0.2
       '@rollup/plugin-node-resolve': ^15.1.0
       '@vitejs/plugin-vue': 2.3.4
       '@vitejs/plugin-vue-jsx': ^3.0.1
@@ -58,6 +59,7 @@ importers:
       '@hitotek/fuzzy-ui-utils': link:packages/utils
       '@rollup/plugin-alias': 5.0.0_rollup@3.26.3
       '@rollup/plugin-babel': 6.0.3_@babel+core@7.22.9+rollup@3.26.3
+      '@rollup/plugin-image': 3.0.2_rollup@3.26.3
       '@rollup/plugin-node-resolve': 15.1.0_rollup@3.26.3
       '@vitejs/plugin-vue': 2.3.4_vite@4.4.4+vue@3.3.4
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.4.4+vue@3.3.4
@@ -2122,6 +2124,20 @@ packages:
       '@babel/core': 7.22.9
       '@babel/helper-module-imports': 7.22.5
       '@rollup/pluginutils': 5.0.2_rollup@3.26.3
+      rollup: 3.26.3
+    dev: true
+
+  /@rollup/plugin-image/3.0.2_rollup@3.26.3:
+    resolution: {integrity: sha512-eGVrD6lummWH5ENo9LWX3JY62uBb9okUNQ2htXkugrG6WjACrMUVhWvss+0wW3fwJWmFYpoEny3yL4spEdh15g==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.0.2_rollup@3.26.3
+      mini-svg-data-uri: 1.4.4
       rollup: 3.26.3
     dev: true
 
@@ -4282,6 +4298,11 @@ packages:
     dependencies:
       braces: 3.0.2
       picomatch: 2.3.1
+    dev: true
+
+  /mini-svg-data-uri/1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
     dev: true
 
   /minimatch/3.1.2:

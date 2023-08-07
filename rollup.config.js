@@ -8,6 +8,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import postcss from 'rollup-plugin-postcss'
 import svg from 'rollup-plugin-svg'
+import image from '@rollup/plugin-image'
 
 export default defineConfig({
   input: {
@@ -46,6 +47,7 @@ export default defineConfig({
     //     { find: 'utils', replacement: new URL('./packages/utils', import.meta.url).pathname },
     //   ],
     // }),
+    image(),
     svg(),
     nodeResolve({
       browser: true,

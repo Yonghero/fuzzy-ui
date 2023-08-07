@@ -1,4 +1,4 @@
-declare var _default: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     visible: {
         type: BooleanConstructor;
         default: boolean;

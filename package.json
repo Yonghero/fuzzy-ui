@@ -1,6 +1,6 @@
 {
   "name": "@hitotek/fuzzy-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "fuzzy-ui",
   "main": "index.js",
   "type": "module",
@@ -46,6 +46,7 @@
     "@hitotek/fuzzy-ui-utils": "workspace:^1.0.0",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-image": "^3.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@vitejs/plugin-vue": "2.3.4",
     "@vitejs/plugin-vue-jsx": "^3.0.1",

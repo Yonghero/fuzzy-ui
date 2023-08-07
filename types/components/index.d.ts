@@ -1,5 +1,5 @@
 export * from "./export-components";
-declare var _default: {
+declare const _default: {
     install: (app: any) => void;
     FYButton: any;
     FYInput: any;
@@ -35,7 +35,7 @@ declare var _default: {
         非空: string;
     };
     installFilterPanelItem(item: any): void;
-    formItemMap: Map<any, any>;
+    filterPanelItemMap: Map<any, any>;
     useForm(filterItem: any): {
         model: import("vue").Ref<{}>;
         rules: import("vue").ComputedRef<{
@@ -122,10 +122,20 @@ declare var _default: {
     installFilterDisplayItem(item: any): void;
     filterDisplayItemMap: Map<any, any>;
     FYActionPanel: any;
+    FYTree: any;
+    FYForm: any;
+    installFormItem(item: any): void;
+    formItemMap: Map<any, any>;
+    FYUpload: any;
     FYTable: any;
     FYPagination: any;
     FYMenu: any;
+    FYNavigation: any;
+    FYTopNavigation: any;
+    FYMemberSelect: any;
+    FYAvatar: any;
+    FYMapCoordselection: any;
 };
 export default _default;
-import * as YHComponents from "./export-components";
+import * as YHComponents from './export-components';
 //# sourceMappingURL=index.d.ts.map
