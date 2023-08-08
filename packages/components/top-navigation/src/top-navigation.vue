@@ -50,6 +50,16 @@ const props = defineProps({
   },
 })
 
+const emits = defineEmits(['select', 'itemClick'])
+
+function onSelect({ key, keyPath, item }) {
+  emits('select', { key, keyPath, item })
+}
+
+function onTmplItemClick(item) {
+  emits('itemClick', item)
+}
+
 </script>
 
 <template>
@@ -67,12 +77,12 @@ const props = defineProps({
         v-if="config.menu && config.menu.length"
         :template="config.menu"
         class="top-nav-menu"
+        @select="onSelect"
+        @itemClick="onTmplItemClick"
       />
     </div>
     <div class="right">
-      <slot name="operation">
-        <span class="avatar-default">李俊</span>
-      </slot>
+      <slot name="operation" />
     </div>
   </div>
 </template>
