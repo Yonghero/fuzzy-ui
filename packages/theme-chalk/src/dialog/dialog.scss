@@ -1,11 +1,11 @@
 @media (min-width: 992px) {
   .fy-dialog-wrap {
-    :deep(.fy-dialog-default) {
+    .fy-dialog-default {
       .el-dialog {
         width: 800px;
       }
     }
-    :deep(.fy-dialog-small) {
+    .fy-dialog-small {
       .el-dialog {
         width: 440px;
       }
@@ -15,13 +15,13 @@
 
 html.dark {
   .fy-dialog-wrap {
-    :deep(.el-dialog__title) {
+    .el-dialog__title {
       color: #666 !important;
     }
   }
 }
 .fy-dialog-wrap {
-  :deep(.fy-dialog-delete-type) {
+  .fy-dialog-delete-type {
     .el-dialog {
       width: 660px;
     }
@@ -32,7 +32,7 @@ html.dark {
       color: #aaa !important;
     }
   }
-  :deep(.el-overlay-dialog) {
+  .el-overlay-dialog {
     width: 100%;
     height: 100%;
     display: flex;
@@ -40,7 +40,7 @@ html.dark {
     align-items: center;
     box-sizing: border-box;
   }
-  :deep(.el-dialog) {
+  .el-dialog {
     margin: 0 0;
     max-height: 85vh;
     max-width: 100%;

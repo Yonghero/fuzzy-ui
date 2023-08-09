@@ -231,7 +231,6 @@ const fileChange = (file, files) => {
     </el-dialog>
   </div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 @use '../../../theme-chalk/src/dialog/dialog.scss';
 </style>
-./Form.jsx
