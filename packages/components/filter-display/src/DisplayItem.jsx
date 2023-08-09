@@ -10,13 +10,21 @@ export const DisplayItem = defineComponent({
       default: () => ({}),
     },
   },
-  emits: ['click'],
+  emits: ['click', 'change'],
   setup(props, { emit }) {
     // 是否展开
     const { unfold, toggle } = useUnfold()
     const onClick = () => {
       toggle()
       emit('click', unfold.value)
+    }
+
+    const withOnChangeProps = {
+      ...props.tmplItem,
+      onWithChange({ field, value }) {
+        emit('change', { field, value })
+        props?.tmplItem?.onChange({ field, value })
+      },
     }
 
     // 表单项组件
@@ -63,7 +71,7 @@ export const DisplayItem = defineComponent({
       ),
       default: () => (
         <div class="popover-content">
-          <FormItem.value model={model.value} {...props.tmplItem}/>
+          <FormItem.value model={model.value} {...withOnChangeProps}/>
           <div class="checked">
             已选<span style="color: var(--el-color-primary)">{checkedLength.value}</span>项
           </div>

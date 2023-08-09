@@ -8,7 +8,7 @@ const tmpl = [
     value: 'fzr',
     defaultValue: '王大陆',
     onChange({ value }) {
-      console.log('🚀 ~ file: basic.vue:11 ~ onChange ~ e:', value)
+      // console.log('🚀 ~ file: basic.vue:11 ~ onChange ~ e:', value)
     },
   },
   {
@@ -18,17 +18,24 @@ const tmpl = [
     defaultValue: [2],
     options: [{ label: '李校长', value: 1 }, { label: '王美丽', value: 2 }],
     onChange({ value }) {
-      console.log('🚀 ~ file: basic.vue:21 ~ onChange ~ e:', value)
+      // console.log('🚀 ~ file: basic.vue:21 ~ onChange ~ e:', value)
     },
   },
 ]
+
+function onChange(parmas) {
+  console.log('🚀 ~ file: basic.vue:27 ~ onChange ~ parmas:', parmas)
+}
 
 </script>
 
 <template>
   <div style="margin: 1rem">
     <div class="demo">
-      <FYFilterDisplay :template="tmpl" />
+      <FYFilterDisplay
+        :template="tmpl"
+        @change="onChange"
+      />
     </div>
   </div>
 </template>

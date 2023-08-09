@@ -15,13 +15,20 @@ export default defineComponent({
   props: {
     ...tmplProps,
   },
-  setup(props) {
+  emits: ['change'],
+  setup(props, { emit }) {
+    const emitMap = {}
+    function emitChange({ field, value }) {
+      emitMap[field] = value
+      emit('change', emitMap)
+    }
+
     return () => (
       <div class="fy-filter-display-wrap">
         {
           props.template
             .map((tmpl) => (
-              <DisplayItem tmplItem={tmpl} key={tmpl.value}/>
+              <DisplayItem tmplItem={tmpl} key={tmpl.value} onChange={emitChange}/>
             ))
         }
       </div>

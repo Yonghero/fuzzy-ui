@@ -10,7 +10,6 @@ defineProps({
 const emits = defineEmits(['select'])
 
 function onClick(item) {
-  console.log('click', item)
   emits('select', item)
 }
 </script>
