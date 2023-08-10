@@ -1,6 +1,6 @@
 {
   "name": "@hitotek/fuzzy-ui",
-  "version": "1.0.8",
+  "version": "1.0.8-beta.0",
   "description": "fuzzy-ui",
   "main": "index.js",
   "type": "module",
