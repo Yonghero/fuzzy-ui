@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"@hitotek/fuzzy-ui": "^1.0.8"
+	}
+}

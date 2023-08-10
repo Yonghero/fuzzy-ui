@@ -1,6 +1,6 @@
 <script setup>
 import {
-  computed, ref, watch,
+  computed, ref, watch, watchEffect,
 } from 'vue'
 import { ElDialog } from 'element-plus'
 import Form from './DialogForm.jsx'
@@ -46,6 +46,14 @@ const props = defineProps({
   },
 
 })
+
+const model = ref({})
+
+watchEffect(() => {
+  model.value = props.formModel
+  console.log('formModel', props.formModel)
+})
+
 // 适时清理校验结果
 watch(() => props.modelValue, (newV) => {
   formRef.value?.clearValidate()
@@ -54,6 +62,7 @@ watch(() => props.modelValue, (newV) => {
     formRef.value?.resetFields()
   }
 })
+
 const getModalClass = computed(() => {
   const target = []
   // 为未来对话框扩展样式
@@ -112,7 +121,7 @@ const submit = () => {
   }
 }
 const handleSubmit = () => {
-  emit('submit', props.formModel)
+  emit('submit', { ...model.value })
 }
 
 // form组件校验失败时的回调
@@ -157,13 +166,14 @@ const fileChange = (file, files) => {
       :title="getTitle"
       :modal-class="getModalClass"
       :close-on-click-modal="props.dialogConfig.closeOnClickModal || false"
+      destroy-on-close
       @closed="closedFn"
     >
       <!-- eslint-disable -->
       <Form
         v-if="props.dialogConfig.type === 'create' || props.dialogConfig.type === 'update' || !props.dialogConfig.type"
         ref="formRef"
-        v-model="props.formModel"
+        v-model="model"
         :labelPosition="props.dialogConfig.labelPosition"
         :labelWidth="props.dialogConfig.labelWidth"
         :template="props.dialogConfig.template"

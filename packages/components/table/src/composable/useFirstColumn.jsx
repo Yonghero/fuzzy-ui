@@ -1,5 +1,5 @@
 import {
-  defineComponent, unref, ref, computed, watch,
+  defineComponent, unref, ref, computed, watch, toRaw,
 } from 'vue'
 
 import { SelectionIndex } from '../SelectionIndex'
@@ -23,7 +23,7 @@ export function useFirstColumn(columnProps) {
   const emitSelection = () => {
     columnProps.emit(
       'selection',
-      values.value.map((item, idx) => item ? unref(columnProps.data)[idx] : false).filter(Boolean),
+      values.value.map((item, idx) => item ? unref(columnProps.data)[idx] : false).filter(Boolean).map((item) => toRaw(item)),
     )
   }
 

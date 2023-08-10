@@ -3,6 +3,7 @@
     <div class="mb-4">
       <button @click="switchValue">
         打开对话框
+        {{ value }}
       </button>
       <FYDialog
         v-model="value"
@@ -23,6 +24,7 @@ import {
 
 const value = ref(false)
 const handleOpen = () => {
+  console.log('🚀 ~ file: edit.vue:27 ~ handleOpen ~ formModel.value:', formModel.value)
 }
 const dialogConfigDefault = ({
   title: '测试计划',
@@ -237,7 +239,9 @@ const formModel = ref({
   cascader2: [],
   input2: '',
 })
-const handleSubmit = () => {
+const handleSubmit = (v) => {
+  formModel.value = v
+  console.log('🚀 ~ file: edit.vue:244 ~ handleSubmit ~ v:', v)
   value.value = false
 }
 const handleFail = () => {

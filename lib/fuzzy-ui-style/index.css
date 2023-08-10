@@ -891,27 +891,27 @@ html.dark {
 }
 
 @media (min-width: 992px) {
-  .fy-dialog-wrap :deep(.fy-dialog-default) .el-dialog {
+  .fy-dialog-wrap .fy-dialog-default .el-dialog {
     width: 800px;
   }
-  .fy-dialog-wrap :deep(.fy-dialog-small) .el-dialog {
+  .fy-dialog-wrap .fy-dialog-small .el-dialog {
     width: 440px;
   }
 }
-html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
+html.dark .fy-dialog-wrap .el-dialog__title {
   color: #666 !important;
 }
 
-.fy-dialog-wrap :deep(.fy-dialog-delete-type) .el-dialog {
+.fy-dialog-wrap .fy-dialog-delete-type .el-dialog {
   width: 660px;
 }
-.fy-dialog-wrap :deep(.fy-dialog-delete-type) .delete-tag {
+.fy-dialog-wrap .fy-dialog-delete-type .delete-tag {
   margin: 0 10px;
 }
-.fy-dialog-wrap :deep(.fy-dialog-delete-type) .delete-warn {
+.fy-dialog-wrap .fy-dialog-delete-type .delete-warn {
   color: #aaa !important;
 }
-.fy-dialog-wrap :deep(.el-overlay-dialog) {
+.fy-dialog-wrap .el-overlay-dialog {
   width: 100%;
   height: 100%;
   display: flex;
@@ -919,7 +919,7 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   align-items: center;
   box-sizing: border-box;
 }
-.fy-dialog-wrap :deep(.el-dialog) {
+.fy-dialog-wrap .el-dialog {
   margin: 0 0;
   max-height: 85vh;
   max-width: 100%;
@@ -927,11 +927,11 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   flex-direction: column;
   min-height: 0px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-form-item__content .el-input__inner,
-.fy-dialog-wrap :deep(.el-dialog) .el-form-item__content .el-textarea__inner {
+.fy-dialog-wrap .el-dialog .el-form-item__content .el-input__inner,
+.fy-dialog-wrap .el-dialog .el-form-item__content .el-textarea__inner {
   font-size: 13px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header {
+.fy-dialog-wrap .el-dialog .el-dialog__header {
   position: relative;
   margin-right: 24px;
   display: flex;
@@ -950,7 +950,7 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   font-weight: 400;
   line-height: 22px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__title {
+.fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__title {
   color: #333;
   font-family: Alibaba, "PuHuiTi 2";
   font-size: 16px;
@@ -958,28 +958,28 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   font-weight: 400;
   line-height: 22px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header div,
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header span {
+.fy-dialog-wrap .el-dialog .el-dialog__header div,
+.fy-dialog-wrap .el-dialog .el-dialog__header span {
   color: inherit;
   font-weight: inherit;
   line-height: inherit;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn {
+.fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn {
   position: relative;
   top: unset;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn:active, .fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn:hover, .fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn:focus, .fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn:focus-visible {
+.fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn:active, .fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn:hover, .fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn:focus, .fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn:focus-visible {
   outline: none;
   border: none;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn .el-dialog__close {
+.fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn .el-dialog__close {
   color: #999;
   font-size: 22px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body {
+.fy-dialog-wrap .el-dialog .el-dialog__body {
   scroll-padding: 10px;
   overflow: auto;
   max-height: 406px;
@@ -987,60 +987,60 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   margin: 0 40px;
   box-sizing: content-box;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar:vertical {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar:vertical {
   width: 8px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar:horizontal {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar:horizontal {
   height: 8px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:vertical {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:vertical {
   background-color: transparent;
   width: 5px;
   height: 5px;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:vertical:decrement {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:vertical:decrement {
   border-bottom: 20px solid #525252;
   border-radius: 5px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:vertical:increment {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:vertical:increment {
   border-top: 20px solid #525252;
   border-radius: 5px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:horizontal {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:horizontal {
   background-color: transparent;
   width: 5px;
   height: 5px;
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:horizontal:decrement {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:horizontal:decrement {
   border-left: 20px solid #525252;
   border-radius: 5px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:horizontal:increment {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:horizontal:increment {
   border-right: 20px solid #525252;
   border-radius: 5px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-thumb:vertical {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-thumb:vertical {
   border-radius: 10px;
   border: 1px solid #525252;
   background: #737373;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-thumb:horizontal {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-thumb:horizontal {
   border-radius: 10px;
   border: 1px solid #525252;
   background: #737373;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__footer {
+.fy-dialog-wrap .el-dialog .el-dialog__footer {
   display: flex;
   border: 0;
   align-items: center;
   padding: 16px 40px 36px;
   flex-direction: row-reverse;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-form-item__label {
+.fy-dialog-wrap .el-dialog .el-form-item__label {
   color: #666;
   font-family: Alibaba, "PuHuiTi 2";
   font-size: 14px;
@@ -1048,31 +1048,31 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   font-weight: 400;
   line-height: 22px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-input__wrapper {
+.fy-dialog-wrap .el-dialog .el-input__wrapper {
   height: 35px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-form {
+.fy-dialog-wrap .el-dialog .el-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.fy-dialog-wrap :deep(.el-dialog) div.el-form-item {
+.fy-dialog-wrap .el-dialog div.el-form-item {
   width: 0;
   box-sizing: border-box;
   padding-right: 10px;
   margin-bottom: 0;
 }
-.fy-dialog-wrap :deep(.el-dialog) div.el-form-item:not(:last-of-type) {
+.fy-dialog-wrap .el-dialog div.el-form-item:not(:last-of-type) {
   margin-bottom: 16px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .fy-select-wrap,
-.fy-dialog-wrap :deep(.el-dialog) .fy-input-wrap {
+.fy-dialog-wrap .el-dialog .fy-select-wrap,
+.fy-dialog-wrap .el-dialog .fy-input-wrap {
   width: 100%;
 }
-.fy-dialog-wrap :deep(.el-dialog) .fy-select {
+.fy-dialog-wrap .el-dialog .fy-select {
   width: 100%;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-cascader {
+.fy-dialog-wrap .el-dialog .el-cascader {
   width: 100%;
 }
 
@@ -1892,27 +1892,27 @@ html.dark[data-v-245a748e] .fy-upload-item[data-v-245a748e] .upload-file-info[da
   color: #666;
 }
 @media (min-width: 992px) {
-  .fy-dialog-wrap :deep(.fy-dialog-default) .el-dialog {
+  .fy-dialog-wrap .fy-dialog-default .el-dialog {
     width: 800px;
   }
-  .fy-dialog-wrap :deep(.fy-dialog-small) .el-dialog {
+  .fy-dialog-wrap .fy-dialog-small .el-dialog {
     width: 440px;
   }
 }
-html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
+html.dark .fy-dialog-wrap .el-dialog__title {
   color: #666 !important;
 }
 
-.fy-dialog-wrap :deep(.fy-dialog-delete-type) .el-dialog {
+.fy-dialog-wrap .fy-dialog-delete-type .el-dialog {
   width: 660px;
 }
-.fy-dialog-wrap :deep(.fy-dialog-delete-type) .delete-tag {
+.fy-dialog-wrap .fy-dialog-delete-type .delete-tag {
   margin: 0 10px;
 }
-.fy-dialog-wrap :deep(.fy-dialog-delete-type) .delete-warn {
+.fy-dialog-wrap .fy-dialog-delete-type .delete-warn {
   color: #aaa !important;
 }
-.fy-dialog-wrap :deep(.el-overlay-dialog) {
+.fy-dialog-wrap .el-overlay-dialog {
   width: 100%;
   height: 100%;
   display: flex;
@@ -1920,7 +1920,7 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   align-items: center;
   box-sizing: border-box;
 }
-.fy-dialog-wrap :deep(.el-dialog) {
+.fy-dialog-wrap .el-dialog {
   margin: 0 0;
   max-height: 85vh;
   max-width: 100%;
@@ -1928,11 +1928,11 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   flex-direction: column;
   min-height: 0px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-form-item__content .el-input__inner,
-.fy-dialog-wrap :deep(.el-dialog) .el-form-item__content .el-textarea__inner {
+.fy-dialog-wrap .el-dialog .el-form-item__content .el-input__inner,
+.fy-dialog-wrap .el-dialog .el-form-item__content .el-textarea__inner {
   font-size: 13px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header {
+.fy-dialog-wrap .el-dialog .el-dialog__header {
   position: relative;
   margin-right: 24px;
   display: flex;
@@ -1951,7 +1951,7 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   font-weight: 400;
   line-height: 22px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__title {
+.fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__title {
   color: #333;
   font-family: Alibaba, "PuHuiTi 2";
   font-size: 16px;
@@ -1959,28 +1959,28 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   font-weight: 400;
   line-height: 22px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header div,
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header span {
+.fy-dialog-wrap .el-dialog .el-dialog__header div,
+.fy-dialog-wrap .el-dialog .el-dialog__header span {
   color: inherit;
   font-weight: inherit;
   line-height: inherit;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn {
+.fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn {
   position: relative;
   top: unset;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn:active, .fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn:hover, .fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn:focus, .fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn:focus-visible {
+.fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn:active, .fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn:hover, .fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn:focus, .fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn:focus-visible {
   outline: none;
   border: none;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__header .el-dialog__headerbtn .el-dialog__close {
+.fy-dialog-wrap .el-dialog .el-dialog__header .el-dialog__headerbtn .el-dialog__close {
   color: #999;
   font-size: 22px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body {
+.fy-dialog-wrap .el-dialog .el-dialog__body {
   scroll-padding: 10px;
   overflow: auto;
   max-height: 406px;
@@ -1988,60 +1988,60 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   margin: 0 40px;
   box-sizing: content-box;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar:vertical {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar:vertical {
   width: 8px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar:horizontal {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar:horizontal {
   height: 8px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:vertical {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:vertical {
   background-color: transparent;
   width: 5px;
   height: 5px;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:vertical:decrement {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:vertical:decrement {
   border-bottom: 20px solid #525252;
   border-radius: 5px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:vertical:increment {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:vertical:increment {
   border-top: 20px solid #525252;
   border-radius: 5px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:horizontal {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:horizontal {
   background-color: transparent;
   width: 5px;
   height: 5px;
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:horizontal:decrement {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:horizontal:decrement {
   border-left: 20px solid #525252;
   border-radius: 5px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-button:horizontal:increment {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-button:horizontal:increment {
   border-right: 20px solid #525252;
   border-radius: 5px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-thumb:vertical {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-thumb:vertical {
   border-radius: 10px;
   border: 1px solid #525252;
   background: #737373;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__body::-webkit-scrollbar-thumb:horizontal {
+.fy-dialog-wrap .el-dialog .el-dialog__body::-webkit-scrollbar-thumb:horizontal {
   border-radius: 10px;
   border: 1px solid #525252;
   background: #737373;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-dialog__footer {
+.fy-dialog-wrap .el-dialog .el-dialog__footer {
   display: flex;
   border: 0;
   align-items: center;
   padding: 16px 40px 36px;
   flex-direction: row-reverse;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-form-item__label {
+.fy-dialog-wrap .el-dialog .el-form-item__label {
   color: #666;
   font-family: Alibaba, "PuHuiTi 2";
   font-size: 14px;
@@ -2049,31 +2049,31 @@ html.dark .fy-dialog-wrap :deep(.el-dialog__title) {
   font-weight: 400;
   line-height: 22px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-input__wrapper {
+.fy-dialog-wrap .el-dialog .el-input__wrapper {
   height: 35px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-form {
+.fy-dialog-wrap .el-dialog .el-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.fy-dialog-wrap :deep(.el-dialog) div.el-form-item {
+.fy-dialog-wrap .el-dialog div.el-form-item {
   width: 0;
   box-sizing: border-box;
   padding-right: 10px;
   margin-bottom: 0;
 }
-.fy-dialog-wrap :deep(.el-dialog) div.el-form-item:not(:last-of-type) {
+.fy-dialog-wrap .el-dialog div.el-form-item:not(:last-of-type) {
   margin-bottom: 16px;
 }
-.fy-dialog-wrap :deep(.el-dialog) .fy-select-wrap,
-.fy-dialog-wrap :deep(.el-dialog) .fy-input-wrap {
+.fy-dialog-wrap .el-dialog .fy-select-wrap,
+.fy-dialog-wrap .el-dialog .fy-input-wrap {
   width: 100%;
 }
-.fy-dialog-wrap :deep(.el-dialog) .fy-select {
+.fy-dialog-wrap .el-dialog .fy-select {
   width: 100%;
 }
-.fy-dialog-wrap :deep(.el-dialog) .el-cascader {
+.fy-dialog-wrap .el-dialog .el-cascader {
   width: 100%;
 }
 html:not(.dark) {
@@ -2206,58 +2206,58 @@ html.dark {
   height: 100%;
   padding: 10px 12px;
 }
-.fy-tree-wrap :deep(.el-tree) {
+.fy-tree-wrap .el-tree {
   width: 100%;
   height: 100%;
 }
-.fy-tree-wrap :deep(.el-tree) .visibility {
+.fy-tree-wrap .el-tree .visibility {
   visibility: visible;
 }
-.fy-tree-wrap :deep(.el-tree) .visibility-hidden {
+.fy-tree-wrap .el-tree .visibility-hidden {
   visibility: hidden !important;
 }
-.fy-tree-wrap :deep(.el-tree) .fy-action-panel-wrap {
+.fy-tree-wrap .el-tree .fy-action-panel-wrap {
   position: absolute;
   right: 98px;
   top: -4px;
   width: 32px;
   height: 32px;
 }
-.fy-tree-wrap :deep(.el-tree) .el-icon.el-tree-node__expand-icon {
+.fy-tree-wrap .el-tree .el-icon.el-tree-node__expand-icon {
   display: none;
 }
-.fy-tree-wrap :deep(.el-tree) .fy-tree-node-content {
+.fy-tree-wrap .el-tree .fy-tree-node-content {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.fy-tree-wrap :deep(.el-tree) .expand-icon {
+.fy-tree-wrap .el-tree .expand-icon {
   color: #999;
 }
-.fy-tree-wrap :deep(.el-tree) .el-tree-node.is-current > .el-tree-node__content {
+.fy-tree-wrap .el-tree .el-tree-node.is-current > .el-tree-node__content {
   background: rgba(102, 152, 255, 0.1);
   color: #6698ff;
 }
-.fy-tree-wrap :deep(.el-tree) .el-tree-node.is-current > .el-tree-node__content .icon-svg {
+.fy-tree-wrap .el-tree .el-tree-node.is-current > .el-tree-node__content .icon-svg {
   color: #6698ff;
 }
-.fy-tree-wrap :deep(.el-tree) .icon-svg {
+.fy-tree-wrap .el-tree .icon-svg {
   color: #999;
   padding: 4px;
   margin-right: 4px;
 }
-.fy-tree-wrap :deep(.el-tree) .icon-svg svg {
+.fy-tree-wrap .el-tree .icon-svg svg {
   fill: currentColor;
 }
-.fy-tree-wrap :deep(.el-tree) .node-left-icon {
+.fy-tree-wrap .el-tree .node-left-icon {
   visibility: hidden;
   color: #aaa;
   margin-right: 3px;
 }
-.fy-tree-wrap :deep(.el-tree) .node-left-icon svg {
+.fy-tree-wrap .el-tree .node-left-icon svg {
   fill: currentColor;
 }
-.fy-tree-wrap :deep(.el-tree) .node-right-icon {
+.fy-tree-wrap .el-tree .node-right-icon {
   visibility: hidden;
   color: #999;
   display: inline-block;
@@ -2266,43 +2266,43 @@ html.dark {
   padding: 8px;
   box-sizing: border-box;
 }
-.fy-tree-wrap :deep(.el-tree) .node-right-icon:hover {
+.fy-tree-wrap .el-tree .node-right-icon:hover {
   color: rgb(116, 152, 228);
   background-color: rgba(102, 152, 255, 0.075);
 }
-.fy-tree-wrap :deep(.el-tree) .node-right-icon svg {
+.fy-tree-wrap .el-tree .node-right-icon svg {
   fill: currentColor;
 }
-.fy-tree-wrap :deep(.el-tree) .el-tree-node__content {
+.fy-tree-wrap .el-tree .el-tree-node__content {
   padding-right: 10px;
   box-sizing: border-box;
   height: 42px;
 }
-.fy-tree-wrap :deep(.el-tree) .el-tree-node__content:hover {
+.fy-tree-wrap .el-tree .el-tree-node__content:hover {
   background: #f5f5f5;
 }
-.fy-tree-wrap :deep(.el-tree) .el-tree-node__content:hover .expand-icon {
+.fy-tree-wrap .el-tree .el-tree-node__content:hover .expand-icon {
   color: #666;
 }
-.fy-tree-wrap :deep(.el-tree) .el-tree-node__content:hover .node-left-icon,
-.fy-tree-wrap :deep(.el-tree) .el-tree-node__content:hover .node-right-icon {
+.fy-tree-wrap .el-tree .el-tree-node__content:hover .node-left-icon,
+.fy-tree-wrap .el-tree .el-tree-node__content:hover .node-right-icon {
   visibility: visible;
 }
-.fy-tree-wrap :deep(.el-tree) .el-tree-node__content .custom-tree-node {
+.fy-tree-wrap .el-tree .el-tree-node__content .custom-tree-node {
   width: 100%;
   display: flex;
   align-items: center;
   font-size: 16px;
   position: relative;
 }
-.fy-tree-wrap :deep(.el-tree) .fy-tree-content-input {
+.fy-tree-wrap .el-tree .fy-tree-content-input {
   width: calc(100% - 230px);
   position: absolute;
   top: -4px;
   left: 63px;
 }
 
-html.dark .fy-tree-wrap :deep(.el-tree) .el-tree-node__content:hover {
+html.dark .fy-tree-wrap .el-tree .el-tree-node__content:hover {
   background: rgba(102, 152, 255, 0.1);
 }
 .el-form {

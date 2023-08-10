@@ -1,6 +1,6 @@
 {
   "name": "@hitotek/fuzzy-ui",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "fuzzy-ui",
   "main": "index.js",
   "type": "module",
@@ -70,6 +70,7 @@
     "normalize.css": "^8.0.1",
     "pnpm": "^8.6.8",
     "postcss": "^8.4.26",
+    "postcss-preset-env": "^9.1.1",
     "prismjs": "^1.29.0",
     "rollup": "^3.26.3",
     "rollup-plugin-postcss": "^4.0.2",
