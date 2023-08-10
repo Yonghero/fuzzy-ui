@@ -49,6 +49,8 @@ const props = defineProps({
 
 const model = ref({})
 
+console.log('start dialog--------------------')
+
 watchEffect(() => {
   model.value = props.formModel
   console.log('formModel', props.formModel)
