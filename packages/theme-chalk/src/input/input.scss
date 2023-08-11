@@ -58,6 +58,14 @@ html.dark {
 .fy-input-wrap {
   width: 100%;
   position: relative;
+  .my-arrow-down {
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &.arrow-select {
+      transform: rotate(180deg);
+    }
+  }
 }
 .arrow-select {
   color: #6698ff;

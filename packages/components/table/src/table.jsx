@@ -7,6 +7,7 @@ import {
 } from './composable'
 import TableSetting from './TableSetting'
 import '@hitotek/fuzzy-ui-theme-chalk/src/table/table.scss'
+import { FYEmpty } from '../../empty'
 
 /**
  * @author younghero
@@ -75,6 +76,9 @@ export default defineComponent({
     return () => (
       <div class="fy-table-wrap">
         <el-table
+          v-slots={{
+            empty: () => <FYEmpty/>,
+          }}
           border
           table-layout="auto"
           {...tableAttrs}
