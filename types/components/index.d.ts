@@ -132,6 +132,7 @@ declare const _default: {
     FYMenu: any;
     FYNavigation: any;
     FYTopNavigation: any;
+    useMemberCheck: typeof YHComponents.useMemberCheck;
     FYMemberSelect: any;
     FYAvatar: any;
     FYMapCoordselection: any;

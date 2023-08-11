@@ -97,7 +97,7 @@ html.dark .card-item .card-item-name {
 .fy-input-card .el-card__body {
   padding: 10px 0 !important;
   text-align: left;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
 }
 .fy-input-card .card-title,
 .fy-input-card .card-item {
@@ -123,6 +123,14 @@ html.dark .card-item .card-item-name {
 .fy-input-wrap {
   width: 100%;
   position: relative;
+}
+.fy-input-wrap .my-arrow-down {
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.fy-input-wrap .my-arrow-down.arrow-select {
+  transform: rotate(180deg);
 }
 
 .arrow-select {
@@ -664,6 +672,11 @@ html.dark {
   visibility: visible;
 }
 
+html.dark .fy-menu-el {
+  color: #fff;
+  background: rgb(46, 49, 55);
+}
+
 .fy-menu-wrap {
   width: 100%;
   height: 100%;
@@ -671,6 +684,7 @@ html.dark {
 .fy-menu-wrap .fy-menu-el {
   width: 100%;
   height: 100%;
+  background: #fff;
 }
 .fy-menu-wrap .fy-menu-item-1 {
   display: flex;
@@ -1172,7 +1186,7 @@ html.dark .card-item .card-item-name {
 .fy-input-card .el-card__body {
   padding: 10px 0 !important;
   text-align: left;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
 }
 .fy-input-card .card-title,
 .fy-input-card .card-item {
@@ -1198,6 +1212,14 @@ html.dark .card-item .card-item-name {
 .fy-input-wrap {
   width: 100%;
   position: relative;
+}
+.fy-input-wrap .my-arrow-down {
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.fy-input-wrap .my-arrow-down.arrow-select {
+  transform: rotate(180deg);
 }
 
 .arrow-select {
@@ -2076,6 +2098,176 @@ html.dark .fy-dialog-wrap .el-dialog__title {
 .fy-dialog-wrap .el-dialog .el-cascader {
   width: 100%;
 }
+.fy-avatar-wrap {
+  font-size: inherit;
+}
+.fy-member-select-popover.el-popper {
+  padding: 0 !important;
+  border: none !important;
+}
+
+.fy-member-select-wrap {
+  min-width: 260px;
+}
+.fy-member-select-wrap .member-select-header {
+  margin: 20px 20px 0;
+}
+.fy-member-select-wrap .member-select-header .input-search {
+  width: 100%;
+}
+.fy-member-select-wrap .member-select-header .header-content {
+  width: 100%;
+  display: flex;
+  margin-top: 16px;
+}
+.fy-member-select-wrap .member-select-header .header-content .segment {
+  width: 100%;
+  padding: 2px;
+  display: flex;
+  color: #666;
+  background-color: #f5f5f5;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
+  --x: 0px;
+  --item-width: 50%;
+}
+.fy-member-select-wrap .member-select-header .header-content .segment .segment-item {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  min-height: 28px;
+  line-height: 28px;
+  transition: all 0.2s ease-out;
+  z-index: 1;
+}
+.fy-member-select-wrap .member-select-header .header-content .segment .segment-item span {
+  z-index: 3;
+}
+.fy-member-select-wrap .member-select-header .header-content .segment .animate-motion {
+  z-index: -1;
+  position: absolute;
+  padding: 2px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 28px;
+  transition: all 0.2s ease-out;
+  left: 0;
+  top: 0;
+  transform: translateX(var(--x));
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1019607843), 0 1px 4px -1px rgba(0, 0, 0, 0.1019607843);
+  color: #333;
+  width: var(--item-width);
+}
+.fy-member-select-wrap .member-select-body {
+  height: 312px;
+  min-height: 312px;
+  max-height: 312px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.fy-member-select-wrap .member-select-body .fy-body-select {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+.fy-member-select-wrap .member-select-body .fy-body-select .select-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  min-height: 45px;
+  justify-content: space-between;
+  color: #333;
+  cursor: pointer;
+  outline-style: none;
+  font-size: 14px;
+  margin: 3px 0;
+  padding: 4px 20px;
+}
+.fy-member-select-wrap .member-select-body .fy-body-select .select-item:hover {
+  background: #f5f5f5;
+}
+.fy-member-select-wrap .member-select-body .fy-body-select .select-item .member, .fy-member-select-wrap .member-select-body .fy-body-select .select-item .item-icon {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  column-gap: 5px;
+}
+.fy-member-select-wrap .member-select-body .fy-body-select .select-item .item-awesome-text {
+  width: calc(100% - 16px);
+  display: flex;
+  align-items: center;
+  column-gap: 0.3125rem;
+}
+.fy-member-select-wrap .member-select-body .fy-body-select .select-item .item-awesome-text svg {
+  visibility: hidden;
+}
+.fy-member-select-wrap .member-select-body .fy-body-select .select-item .item-awesome-text:hover svg {
+  visibility: visible;
+}
+.fy-member-select-wrap .member-select-body .fy-body-tree-select {
+  width: 100%;
+  padding: 10px 15px;
+}
+.fy-member-select-wrap .member-select-body .fy-body-tree-select .fy-tree-wrap {
+  padding: 0;
+}
+.fy-member-select-wrap .member-select-body .fy-body-tree-select .el-tree-node__content {
+  height: 45px;
+  line-height: 45px;
+}
+.fy-member-select-wrap .member-select-body .fy-body-tree-select .select-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  min-height: 45px;
+  justify-content: space-between;
+  color: #333;
+  cursor: pointer;
+  outline-style: none;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.fy-member-select-wrap .member-select-body .fy-body-tree-select .select-item:hover {
+  background: #f5f5f5;
+}
+.fy-member-select-wrap .member-select-body .fy-body-tree-select .select-item .member, .fy-member-select-wrap .member-select-body .fy-body-tree-select .select-item .item-icon {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  column-gap: 5px;
+}
+.fy-member-select-wrap .member-select-body .fy-body-tree-select .not-member {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  height: 100%;
+}
+.fy-member-select-wrap .member-select-body .fy-body-tree-select .not-member svg {
+  fill: #999;
+  width: 18px;
+  height: 18px;
+}
+.fy-member-select-wrap .fy-member-footer {
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  border-top: 1px solid var(--trigger-target-color);
+}
 html:not(.dark) {
   --trigger-target-color: rgb(239, 244, 255);
 }
@@ -2135,6 +2327,37 @@ html.dark {
   display: flex;
   align-items: center;
   border-top: 1px solid var(--trigger-target-color);
+}
+
+.fy-filter-display-multipleSelect {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+}
+.fy-filter-display-multipleSelect .scroll-content {
+  height: 150px;
+  margin-top: 5px;
+}
+.fy-filter-display-multipleSelect .scroll-content .check-item {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 8px 5px;
+}
+.fy-filter-display-multipleSelect .scroll-content .check-item:hover {
+  background-color: #f5f5f5;
+}
+.fy-filter-display-multipleSelect .scroll-content .check-item .shape {
+  margin-left: 5px;
+  border-radius: 18px;
+  height: 25px;
+  line-height: 25px;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: #fff;
 }
 .fy-action-panel-popover.el-popper {
   padding: 0 !important;
@@ -2292,7 +2515,7 @@ html.dark {
   width: 100%;
   display: flex;
   align-items: center;
-  /* font-size: 16px; */
+  font-size: 16px;
   position: relative;
 }
 .fy-tree-wrap .el-tree .fy-tree-content-input {
@@ -2562,6 +2785,11 @@ html.dark .fy-form-config-info {
 .fy-pagination.el-pagination {
   --el-pagination-button-bg-color: #F5F7FA ;
 }
+html.dark .fy-menu-el {
+  color: #fff;
+  background: rgb(46, 49, 55);
+}
+
 .fy-menu-wrap {
   width: 100%;
   height: 100%;
@@ -2569,6 +2797,7 @@ html.dark .fy-form-config-info {
 .fy-menu-wrap .fy-menu-el {
   width: 100%;
   height: 100%;
+  background: #fff;
 }
 .fy-menu-wrap .fy-menu-item-1 {
   display: flex;
@@ -2815,176 +3044,6 @@ html.dark .fy-top-navigation .el-menu-item {
   text-shadow: transparent 0 0 0;
   line-height: 28px;
   font-size: 12px;
-}
-.fy-avatar-wrap {
-  font-size: inherit;
-}
-.fy-member-select-popover.el-popper {
-  padding: 0 !important;
-  border: none !important;
-}
-
-.fy-member-select-wrap {
-  min-width: 260px;
-}
-.fy-member-select-wrap .member-select-header {
-  margin: 20px 20px 0;
-}
-.fy-member-select-wrap .member-select-header .input-search {
-  width: 100%;
-}
-.fy-member-select-wrap .member-select-header .header-content {
-  width: 100%;
-  display: flex;
-  margin-top: 16px;
-}
-.fy-member-select-wrap .member-select-header .header-content .segment {
-  width: 100%;
-  padding: 2px;
-  display: flex;
-  color: #666;
-  background-color: #f5f5f5;
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  cursor: pointer;
-  z-index: 0;
-  --x: 0px;
-  --item-width: 50%;
-}
-.fy-member-select-wrap .member-select-header .header-content .segment .segment-item {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  min-height: 28px;
-  line-height: 28px;
-  transition: all 0.2s ease-out;
-  z-index: 1;
-}
-.fy-member-select-wrap .member-select-header .header-content .segment .segment-item span {
-  z-index: 3;
-}
-.fy-member-select-wrap .member-select-header .header-content .segment .animate-motion {
-  z-index: -1;
-  position: absolute;
-  padding: 2px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 28px;
-  transition: all 0.2s ease-out;
-  left: 0;
-  top: 0;
-  transform: translateX(var(--x));
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1019607843), 0 1px 4px -1px rgba(0, 0, 0, 0.1019607843);
-  color: #333;
-  width: var(--item-width);
-}
-.fy-member-select-wrap .member-select-body {
-  height: 312px;
-  min-height: 312px;
-  max-height: 312px;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-.fy-member-select-wrap .member-select-body .fy-body-select {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0;
-}
-.fy-member-select-wrap .member-select-body .fy-body-select .select-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  min-height: 45px;
-  justify-content: space-between;
-  color: #333;
-  cursor: pointer;
-  outline-style: none;
-  font-size: 14px;
-  margin: 3px 0;
-  padding: 4px 20px;
-}
-.fy-member-select-wrap .member-select-body .fy-body-select .select-item:hover {
-  background: #f5f5f5;
-}
-.fy-member-select-wrap .member-select-body .fy-body-select .select-item .member, .fy-member-select-wrap .member-select-body .fy-body-select .select-item .item-icon {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  column-gap: 5px;
-}
-.fy-member-select-wrap .member-select-body .fy-body-select .select-item .item-awesome-text {
-  width: calc(100% - 16px);
-  display: flex;
-  align-items: center;
-  column-gap: 0.3125rem;
-}
-.fy-member-select-wrap .member-select-body .fy-body-select .select-item .item-awesome-text svg {
-  visibility: hidden;
-}
-.fy-member-select-wrap .member-select-body .fy-body-select .select-item .item-awesome-text:hover svg {
-  visibility: visible;
-}
-.fy-member-select-wrap .member-select-body .fy-body-tree-select {
-  width: 100%;
-  padding: 10px 15px;
-}
-.fy-member-select-wrap .member-select-body .fy-body-tree-select .fy-tree-wrap {
-  padding: 0;
-}
-.fy-member-select-wrap .member-select-body .fy-body-tree-select .el-tree-node__content {
-  height: 45px;
-  line-height: 45px;
-}
-.fy-member-select-wrap .member-select-body .fy-body-tree-select .select-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  min-height: 45px;
-  justify-content: space-between;
-  color: #333;
-  cursor: pointer;
-  outline-style: none;
-  font-size: 14px;
-  margin-right: 10px;
-}
-.fy-member-select-wrap .member-select-body .fy-body-tree-select .select-item:hover {
-  background: #f5f5f5;
-}
-.fy-member-select-wrap .member-select-body .fy-body-tree-select .select-item .member, .fy-member-select-wrap .member-select-body .fy-body-tree-select .select-item .item-icon {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  column-gap: 5px;
-}
-.fy-member-select-wrap .member-select-body .fy-body-tree-select .not-member {
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-  height: 100%;
-}
-.fy-member-select-wrap .member-select-body .fy-body-tree-select .not-member svg {
-  fill: #999;
-  width: 18px;
-  height: 18px;
-}
-.fy-member-select-wrap .fy-member-footer {
-  padding: 0 20px;
-  width: 100%;
-  display: flex;
-  height: 40px;
-  align-items: center;
-  border-top: 1px solid var(--trigger-target-color);
 }
 .fy-map-coordselection-wrap .map-container {
   width: 100%;
