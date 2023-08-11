@@ -11,13 +11,16 @@ defineProps({
     type: String,
     default: 'hh',
   },
+  full: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const defaultIconStyle = computed(() => ({
   borderRadius: '50%',
   background: getRandomColor(),
-  width: '22px',
-  height: '22px',
+  padding: '5px 8px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -31,7 +34,7 @@ const defaultIconStyle = computed(() => ({
     <div
       :style="defaultIconStyle"
     >
-      {{ name.slice(0,1) }}
+      {{ !full ? name.slice(0,1): name }}
     </div>
   </div>
 </template>

@@ -52,11 +52,8 @@ export default defineComponent({
     }
     // 对外暴露出el-form的validate
     const validate = () => {
-      console.log('validate')
       realFormRef.value?.validate((valid, object) => {
-        console.log(valid, object, 'object')
         if (valid) {
-          console.log('submit')
           emit('submit')
         } else {
           emit('fail', object)

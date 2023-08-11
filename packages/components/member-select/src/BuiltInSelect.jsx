@@ -4,7 +4,7 @@ import {
 import { Check } from '@element-plus/icons-vue'
 import { FYAvatar } from '../../avatar'
 
-function useMemberCheck(props, emit) {
+export function useMemberCheck(props, emit) {
   const checkedValues = ref([])
 
   function onToggle(item) {

@@ -4,9 +4,10 @@ import { FYFilterDisplay } from '@hitotek/fuzzy-ui-components'
 const tmpl = [
   {
     label: '负责人',
-    type: 'input',
+    type: 'multipleSelect',
     value: 'fzr',
-    defaultValue: '王大陆',
+    options: [{ label: '李校长', value: 1 }, { label: '王美丽', value: 2 }],
+    defaultValue: [1],
     onChange({ value }) {
       // console.log('🚀 ~ file: basic.vue:11 ~ onChange ~ e:', value)
     },
