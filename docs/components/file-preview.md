@@ -24,7 +24,6 @@ layout: doc
 可传递`width` `height` 决定预览区域的宽高
 
 
-
 :::tip
 不支持 .doc 后缀的word文件
 :::

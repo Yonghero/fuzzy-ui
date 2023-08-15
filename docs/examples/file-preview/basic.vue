@@ -1,5 +1,4 @@
 <script setup>
-import { FYFilePreview } from '@hitotek/fuzzy-ui-components'
 import { ref } from 'vue'
 
 const visible = ref(false)

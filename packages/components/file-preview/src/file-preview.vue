@@ -64,7 +64,7 @@ const dialogVisible = computed({
   },
 })
 
-const hasHeaderSlot = useSlots()?.header
+const hasHeaderSlot = !!useSlots()?.header
 
 const fileType = computed(() => {
   if (props.type) return props.type
@@ -108,7 +108,7 @@ const FileRenderer = computed(() => type2Renderer[fileType.value])
       <template #header>
         <slot name="header" />
         <span
-          v-if="hasHeaderSlot"
+          v-if="!hasHeaderSlot"
         > {{ title }}</span>
       </template>
       <div

@@ -1,6 +1,6 @@
 import Theme from 'vitepress/theme'
 import ElementPlus from 'element-plus'
-import FuzzyUI from '@hitotek/fuzzy-ui-components'
+// import FuzzyUI from '@hitotek/fuzzy-ui-components'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import '@hitotek/fuzzy-ui-theme-chalk'
@@ -16,8 +16,15 @@ export default {
     ctx.app.use(ElementPlus, {
       locale:zhCn, // 语言设置
     })
-    // 注册FuzzyUI
-    ctx.app.use(FuzzyUI)
+    
+    ctx.app.mixin({
+      async mounted(){
+        // 注册FuzzyUI
+        import('@hitotek/fuzzy-ui-components').then(module => {
+          ctx.app.use(module.default)
+        })
+      }
+    })
      // 注册所有图标
      for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
       ctx.app.component(key, component)

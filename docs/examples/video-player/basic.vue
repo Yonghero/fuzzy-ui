@@ -1,5 +1,4 @@
 <script setup>
-import { FYVideoPlayer } from '@hitotek/fuzzy-ui-components'
 import { ref } from 'vue'
 
 const player = ref()
