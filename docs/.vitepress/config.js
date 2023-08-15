@@ -70,7 +70,7 @@ export default defineConfig({
           items: [
             { text: 'MapCoordSelection 地图坐标选择', link: '/components/map-coordselection' },
             { text: 'VideoPlayer 视频播放器', link: '/components/video-player' },
-            
+            { text: 'FilePreview 文件预览', link: '/components/file-preview' },
           ]
         }
       ]
