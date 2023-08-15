@@ -13,7 +13,7 @@ import VueOfficeDocx from '@vue-office/docx'
 import '@vue-office/docx/lib/index.css'
 
 import VueOfficePdf from '@vue-office/pdf'
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 
 import { FYButton } from '../../button'
 
@@ -64,6 +64,8 @@ const dialogVisible = computed({
   },
 })
 
+const hasHeaderSlot = useSlots()?.header
+
 const fileType = computed(() => {
   if (props.type) return props.type
   if (props.src) {
@@ -104,7 +106,10 @@ const FileRenderer = computed(() => type2Renderer[fileType.value])
       }"
     >
       <template #header>
-        {{ title }}
+        <slot name="header" />
+        <span
+          v-if="hasHeaderSlot"
+        > {{ title }}</span>
       </template>
       <div
         class="fy-file-preview-content"
