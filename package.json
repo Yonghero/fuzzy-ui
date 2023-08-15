@@ -95,6 +95,10 @@
   "author": "younghero",
   "license": "ISC",
   "dependencies": {
+    "@vue-office/docx": "^1.3.0",
+    "@vue-office/excel": "^1.3.0",
+    "@vue-office/pdf": "^1.4.2",
+    "docx-preview": "^0.1.18",
     "sortablejs": "^1.15.0"
   }
 }

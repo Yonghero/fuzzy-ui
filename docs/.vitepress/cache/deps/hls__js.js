@@ -1,4 +1,4 @@
-import "./chunk-UXIASGQL.js";
+import "./chunk-ROME4SDB.js";
 
 // node_modules/.pnpm/hls.js@1.4.10/node_modules/hls.js/dist/hls.mjs
 function getDefaultExportFromCjs(x) {

@@ -1,7 +1,7 @@
 import {
   __commonJS,
   __toESM
-} from "./chunk-UXIASGQL.js";
+} from "./chunk-ROME4SDB.js";
 
 // node_modules/.pnpm/global@4.4.0/node_modules/global/window.js
 var require_window = __commonJS({

@@ -1,5 +1,15 @@
 
 .fy-file-preview-wrap {
+  
+  .fy-file-preview-content {
+    width: 100%;
 
+    overflow: scroll;
+
+    .docx-wrapper, .vue-office-pdf-wrapper {
+      background: transparent!important;
+      padding-top: 0!important;
+    }
+  }
 }
 

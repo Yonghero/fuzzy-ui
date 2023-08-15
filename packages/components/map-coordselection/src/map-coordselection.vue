@@ -3,7 +3,7 @@
 /**
  * @author younghero
  * @Date 2023-8-4
- * @description 人员选择
+ * @description 地图经纬度选择器
  */
 
 import { computed } from 'vue'
@@ -60,9 +60,11 @@ async function open() {
     <el-dialog
       v-model="dialogVisible"
       destroy-on-close
-      title="点位选取"
       @open="open"
     >
+      <template #header>
+        点位选取
+      </template>
       <div
         :id="randomId"
         class="map-container"

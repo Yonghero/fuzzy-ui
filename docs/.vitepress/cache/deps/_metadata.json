@@ -1,86 +1,101 @@
 {
-  "hash": "09158f10",
-  "browserHash": "6f191a02",
+  "hash": "ddf8179e",
+  "browserHash": "296a2791",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "7ab5bf44",
+      "fileHash": "cbc85d3f",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@6.5.0/node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "753b615a",
+      "fileHash": "b3a5c96a",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "33498723",
+      "fileHash": "592df178",
       "needsInterop": false
     },
     "element-plus/dist/locale/zh-cn.mjs": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/dist/locale/zh-cn.mjs",
       "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "97232bf6",
+      "fileHash": "79ec8979",
       "needsInterop": false
     },
     "@element-plus/icons-vue": {
       "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.1.0_vue@3.3.4/node_modules/@element-plus/icons-vue/dist/index.js",
       "file": "@element-plus_icons-vue.js",
-      "fileHash": "4956cfc1",
+      "fileHash": "cb56186d",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0_vue@3.3.4/node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "1acf6f44",
+      "fileHash": "4aaf8601",
       "needsInterop": false
     },
-    "dayjs/esm": {
-      "src": "../../../../node_modules/.pnpm/dayjs@1.11.9/node_modules/dayjs/esm/index.js",
-      "file": "dayjs_esm.js",
-      "fileHash": "e17c3cf0",
+    "@vue-office/excel": {
+      "src": "../../../../node_modules/.pnpm/@vue-office+excel@1.3.0_vue@3.3.4/node_modules/@vue-office/excel/lib/index.js",
+      "file": "@vue-office_excel.js",
+      "fileHash": "a3557c5b",
+      "needsInterop": true
+    },
+    "mpegts.js": {
+      "src": "../../../../node_modules/.pnpm/mpegts.js@1.7.3/node_modules/mpegts.js/dist/mpegts.js",
+      "file": "mpegts__js.js",
+      "fileHash": "21a6b3c6",
+      "needsInterop": true
+    },
+    "hls.js": {
+      "src": "../../../../node_modules/.pnpm/hls.js@1.4.10/node_modules/hls.js/dist/hls.mjs",
+      "file": "hls__js.js",
+      "fileHash": "c2b85c79",
+      "needsInterop": false
+    },
+    "video.js": {
+      "src": "../../../../node_modules/.pnpm/video.js@8.3.0/node_modules/video.js/dist/video.es.js",
+      "file": "video__js.js",
+      "fileHash": "dc4e02bc",
       "needsInterop": false
     },
     "sortablejs": {
       "src": "../../../../node_modules/.pnpm/sortablejs@1.15.0/node_modules/sortablejs/modular/sortable.esm.js",
       "file": "sortablejs.js",
-      "fileHash": "ca4b044f",
+      "fileHash": "bef059b9",
       "needsInterop": false
     },
-    "mpegts.js": {
-      "src": "../../../../node_modules/.pnpm/mpegts.js@1.7.3/node_modules/mpegts.js/dist/mpegts.js",
-      "file": "mpegts__js.js",
-      "fileHash": "80f00c0e",
+    "@vue-office/docx": {
+      "src": "../../../../node_modules/.pnpm/@vue-office+docx@1.3.0_vue@3.3.4/node_modules/@vue-office/docx/lib/index.js",
+      "file": "@vue-office_docx.js",
+      "fileHash": "9c6e8aaa",
       "needsInterop": true
     },
-    "video.js": {
-      "src": "../../../../node_modules/.pnpm/video.js@8.3.0/node_modules/video.js/dist/video.es.js",
-      "file": "video__js.js",
-      "fileHash": "d9fee480",
-      "needsInterop": false
-    },
-    "hls.js": {
-      "src": "../../../../node_modules/.pnpm/hls.js@1.4.10/node_modules/hls.js/dist/hls.mjs",
-      "file": "hls__js.js",
-      "fileHash": "c80f6d8b",
-      "needsInterop": false
+    "@vue-office/pdf": {
+      "src": "../../../../node_modules/.pnpm/@vue-office+pdf@1.4.2_vue@3.3.4/node_modules/@vue-office/pdf/lib/index.js",
+      "file": "@vue-office_pdf.js",
+      "fileHash": "6db53ae8",
+      "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-BYJV2AHC": {
-      "file": "chunk-BYJV2AHC.js"
+    "chunk-LRR3BTZH": {
+      "file": "chunk-LRR3BTZH.js"
     },
-    "chunk-ARPIQ5JS": {
-      "file": "chunk-ARPIQ5JS.js"
+    "chunk-R5UTLQ63": {
+      "file": "chunk-R5UTLQ63.js"
     },
-    "chunk-254DOEZA": {
-      "file": "chunk-254DOEZA.js"
+    "chunk-SKRRIV5U": {
+      "file": "chunk-SKRRIV5U.js"
     },
-    "chunk-UXIASGQL": {
-      "file": "chunk-UXIASGQL.js"
+    "chunk-WLQVLJR5": {
+      "file": "chunk-WLQVLJR5.js"
+    },
+    "chunk-ROME4SDB": {
+      "file": "chunk-ROME4SDB.js"
     }
   }
 }
