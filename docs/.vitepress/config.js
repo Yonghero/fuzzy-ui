@@ -14,6 +14,7 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/Yonghero/fuzzy-ui' }
     ],
     sidebar: {
+      
       '/guide/': [
         {
           text: '',
@@ -68,6 +69,8 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'MapCoordSelection 地图坐标选择', link: '/components/map-coordselection' },
+            { text: 'VideoPlayer 视频播放器', link: '/components/video-player' },
+            
           ]
         }
       ]

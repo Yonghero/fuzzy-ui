@@ -674,7 +674,6 @@ html.dark {
 
 html.dark .fy-menu-el {
   color: #fff;
-  background: rgb(46, 49, 55);
 }
 
 .fy-menu-wrap {
@@ -684,7 +683,7 @@ html.dark .fy-menu-el {
 .fy-menu-wrap .fy-menu-el {
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: transparent;
 }
 .fy-menu-wrap .fy-menu-item-1 {
   display: flex;
@@ -2782,12 +2781,15 @@ html.dark .fy-form-config-info {
 .fy-table-edit-wrap .el-input__wrapper:hover {
   background: var(--el-fill-color-light);
 }
+html.dark .fy-pagination.el-pagination {
+  --el-pagination-button-bg-color: #303030 ;
+}
+
 .fy-pagination.el-pagination {
   --el-pagination-button-bg-color: #F5F7FA ;
 }
 html.dark .fy-menu-el {
   color: #fff;
-  background: rgb(46, 49, 55);
 }
 
 .fy-menu-wrap {
@@ -2797,7 +2799,7 @@ html.dark .fy-menu-el {
 .fy-menu-wrap .fy-menu-el {
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: transparent;
 }
 .fy-menu-wrap .fy-menu-item-1 {
   display: flex;

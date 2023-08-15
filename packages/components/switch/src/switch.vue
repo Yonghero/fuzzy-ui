@@ -1,7 +1,7 @@
 <script setup>
 import { ElSwitch, ElMessage } from 'element-plus'
 import { computed, nextTick } from 'vue'
-import { isAsyncFunction } from '@hitotek/fuzzy-ui-utils/tool'
+import { isAsyncFunction } from '@hitotek/fuzzy-ui-utils'
 
 defineOptions({
   name: 'FYSwitch',
