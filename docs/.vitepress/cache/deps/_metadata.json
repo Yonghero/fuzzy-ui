@@ -1,74 +1,80 @@
 {
-  "hash": "12fbaaf3",
-  "browserHash": "2a561b37",
+  "hash": "09158f10",
+  "browserHash": "6f191a02",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "66eec4b0",
+      "fileHash": "7ab5bf44",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@6.5.0/node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "2d82a014",
+      "fileHash": "753b615a",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "6ab1e375",
+      "fileHash": "33498723",
       "needsInterop": false
     },
     "element-plus/dist/locale/zh-cn.mjs": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/dist/locale/zh-cn.mjs",
       "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "dd17eb9b",
+      "fileHash": "97232bf6",
       "needsInterop": false
     },
     "@element-plus/icons-vue": {
       "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.1.0_vue@3.3.4/node_modules/@element-plus/icons-vue/dist/index.js",
       "file": "@element-plus_icons-vue.js",
-      "fileHash": "b78efea4",
+      "fileHash": "4956cfc1",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0_vue@3.3.4/node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "79e11ab7",
+      "fileHash": "1acf6f44",
       "needsInterop": false
     },
     "dayjs/esm": {
       "src": "../../../../node_modules/.pnpm/dayjs@1.11.9/node_modules/dayjs/esm/index.js",
       "file": "dayjs_esm.js",
-      "fileHash": "812a00df",
+      "fileHash": "e17c3cf0",
       "needsInterop": false
     },
     "sortablejs": {
       "src": "../../../../node_modules/.pnpm/sortablejs@1.15.0/node_modules/sortablejs/modular/sortable.esm.js",
       "file": "sortablejs.js",
-      "fileHash": "8e5df84a",
+      "fileHash": "ca4b044f",
       "needsInterop": false
     },
     "mpegts.js": {
       "src": "../../../../node_modules/.pnpm/mpegts.js@1.7.3/node_modules/mpegts.js/dist/mpegts.js",
       "file": "mpegts__js.js",
-      "fileHash": "8a015c24",
+      "fileHash": "80f00c0e",
       "needsInterop": true
     },
     "video.js": {
       "src": "../../../../node_modules/.pnpm/video.js@8.3.0/node_modules/video.js/dist/video.es.js",
       "file": "video__js.js",
-      "fileHash": "03e2c52c",
+      "fileHash": "d9fee480",
+      "needsInterop": false
+    },
+    "hls.js": {
+      "src": "../../../../node_modules/.pnpm/hls.js@1.4.10/node_modules/hls.js/dist/hls.mjs",
+      "file": "hls__js.js",
+      "fileHash": "c80f6d8b",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-ARPIQ5JS": {
-      "file": "chunk-ARPIQ5JS.js"
-    },
     "chunk-BYJV2AHC": {
       "file": "chunk-BYJV2AHC.js"
+    },
+    "chunk-ARPIQ5JS": {
+      "file": "chunk-ARPIQ5JS.js"
     },
     "chunk-254DOEZA": {
       "file": "chunk-254DOEZA.js"

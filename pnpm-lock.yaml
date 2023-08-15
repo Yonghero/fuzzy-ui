@@ -30,6 +30,7 @@ importers:
       eslint-plugin-import: ^2.27.5
       eslint-plugin-tailwindcss: ^3.13.0
       eslint-plugin-vue: ^9.15.1
+      hls.js: ^1.4.10
       markdown-it: ^13.0.1
       markdown-it-container: ^3.0.0
       mpegts.js: ^1.7.3
@@ -81,6 +82,7 @@ importers:
       eslint-plugin-import: 2.27.5_eslint@8.45.0
       eslint-plugin-tailwindcss: 3.13.0_tailwindcss@3.3.3
       eslint-plugin-vue: 9.15.1_eslint@8.45.0
+      hls.js: 1.4.10
       markdown-it: 13.0.1
       markdown-it-container: 3.0.0
       mpegts.js: 1.7.3
@@ -4338,6 +4340,10 @@ packages:
 
   /hash-sum/2.0.0:
     resolution: {integrity: sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg==}
+    dev: true
+
+  /hls.js/1.4.10:
+    resolution: {integrity: sha512-wAVSj4Fm2MqOHy5+BlYnlKxXvJlv5IuZHjlzHu18QmjRzSDFQiUDWdHs5+NsFMQrgKEBwuWDcyvaMC9dUzJ5Uw==}
     dev: true
 
   /html-tags/2.0.0:

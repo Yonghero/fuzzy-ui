@@ -6,6 +6,7 @@ import {
 import { useFlv } from './composable/useFlv'
 import { useWebrtc } from './composable/useWebrtc'
 import { useVideojs } from './composable/useVideojs'
+import { useHls } from './composable/useHls'
 
 defineOptions({
   name: 'FYVideoPlayer',
@@ -15,7 +16,7 @@ const props = defineProps({
   // 流格式类型
   streamType: {
     type: String,
-    validator: (value) => ['flv', 'webrtc', 'h5'].includes(value),
+    validator: (value) => ['flv', 'webrtc', 'h5', 'hls'].includes(value),
     default: 'h5',
   },
   url: {
@@ -54,6 +55,7 @@ const playerHooks = {
   flv: useFlv,
   webrtc: useWebrtc,
   h5: useVideojs,
+  hls: useHls,
 }
 
 // 初始化播放器

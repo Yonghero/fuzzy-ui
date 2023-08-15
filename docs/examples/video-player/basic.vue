@@ -15,13 +15,13 @@ function pause() {
 const idx = ref(0)
 
 function next() {
-  idx.value += 1
+  idx.value = idx.value === 0 ? 1 : 0
 }
 
 const videoList = [
   // 'http://localhost:5178/obj/media-fe/xgplayer_doc_video/flv/xgplayer-demo-360p.flv',
   // 'http://localhost:5178/obj/media-fe/xgplayer_doc_video/flv/xgplayer-demo-360p.flv',
-  'https://www.w3school.com.cn/example/html5/mov_bbb.mp4', 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4']
+  'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4', 'https://www.w3school.com.cn/example/html5/mov_bbb.mp4']
 </script>
 
 <template>
@@ -40,8 +40,10 @@ const videoList = [
     <FYVideoPlayer
       :id="idx"
       ref="player"
+      autoplay
       style="width: 400px;height: 235px;margin-top: 10px;"
       streamType="h5"
+      :config="{}"
       :url="videoList[idx]"
     />
   </div>
