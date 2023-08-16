@@ -61,7 +61,7 @@ export default defineConfig({
             { text: 'TopNavigation 顶部导航栏', link: '/components/top-navigation' },
             { text: 'Navigation 侧边导航栏', link: '/components/navigation' },
             { text: 'MemberSelect 成员选择', link: '/components/member-select' },
-
+            { text: 'ImagePreview 图片预览', link: '/components/image-preview' },
           ]
         },
         {
