@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@hitotek/fuzzy-ui": "workspace:1.0.11",
-    "@hitotek/fuzzy-ui-theme-chalk": "workspace:^1.0.0",
-    "@hitotek/fuzzy-ui-utils": "workspace:^1.0.0",
+    "@hitotek/fuzzy-ui": "workspace:*",
+    "@hitotek/fuzzy-ui-theme-chalk": "workspace:*",
+    "@hitotek/fuzzy-ui-utils": "workspace:*",
     "element-plus": "npm:element-plus@latest",
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@hitotek/fuzzy-ui-components": "workspace:^1.0.0",
+    "@hitotek/fuzzy-ui-components": "workspace:*",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.26",

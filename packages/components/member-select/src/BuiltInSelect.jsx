@@ -122,7 +122,7 @@ export const TreeSelect = defineComponent({
         return (
           <div class="select-item" onClick={() => onToggle(data)}>
             <div class="member" >
-              <FYAvatar name={data.label}/>
+              <FYAvatar name={data.label} />
               <span>{data.label}</span>
             </div>
             {

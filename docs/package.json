@@ -14,8 +14,8 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "@hitotek/fuzzy-ui": "workspace:*",
-    "@hitotek/fuzzy-ui-components": "workspace:^1.0.0",
-    "@hitotek/fuzzy-ui-theme-chalk": "workspace:^1.0.0",
+    "@hitotek/fuzzy-ui-components": "workspace:*",
+    "@hitotek/fuzzy-ui-theme-chalk": "workspace:*",
     "element-plus": "^2.3.8"
   },
   "devDependencies": {

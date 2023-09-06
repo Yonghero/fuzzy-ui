@@ -25,6 +25,7 @@ const defaultIconStyle = computed(() => ({
   alignItems: 'center',
   justifyContent: 'center',
   color: '#fff',
+  height: '100%',
 }))
 
 </script>
