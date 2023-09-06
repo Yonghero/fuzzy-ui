@@ -1,7 +1,0 @@
-lockfileVersion: 5.3
-
-specifiers:
-  '@hitotek/fuzzy-ui': ^1.0.8
-
-dependencies:
-  '@hitotek/fuzzy-ui': link:../..

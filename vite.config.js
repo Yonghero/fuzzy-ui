@@ -13,7 +13,6 @@ export default defineConfig({
     //   '@/': `${path.resolve(__dirname, './packages')}/`,
     // },
   },
-
   // build: {
   //   lib: {
   //     entry: path.resolve(__dirname, './packages/components/index.js'),
