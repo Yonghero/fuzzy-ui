@@ -69,6 +69,7 @@
     "eslint-plugin-vue": "^9.15.1",
     "happy-dom": "^10.11.2",
     "hls.js": "^1.4.10",
+    "jsdom": "^22.1.0",
     "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0",
     "mpegts.js": "^1.7.3",
