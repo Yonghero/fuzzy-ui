@@ -74,6 +74,7 @@ export const SelectionIndex = defineComponent({
 
     return () => (
       <div
+        data-test="checkbox-wrap"
         style="
           display:flex;
           justify-content:center;

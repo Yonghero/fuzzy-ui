@@ -14,36 +14,35 @@ export function useHeadVNode(HeaderRenderer, valuesMap2Data) {
     if (headerVNode && ele) return
 
     const trWrapper = document.querySelector('.fy-table-header-row')
-    const thWidth = trWrapper.firstChild.getBoundingClientRect().width
-    const theadWrapper = trWrapper.parentNode
-
-    const wrapper = document.createElement('div')
-
-    theadWrapper.appendChild(wrapper)
-
-    ele = wrapper
-
-    headerVNode = createApp({
-      setup() {
-        return () => (
-          <div style={
-            {
-              width: `calc(100% - ${thWidth}px)`,
-              display: 'flex',
-              height: `${trWrapper.getBoundingClientRect().height}px`,
-              position: 'absolute',
-              zIndex: 999,
-              right: 0,
-              top: 0,
-            }
-          }>
-            <HeaderRenderer values={valuesMap2Data.value}/>
-          </div>
-        )
-      },
-    })
-
-    headerVNode.mount(wrapper)
+    if (trWrapper) {
+      const thWidth = trWrapper.firstChild.getBoundingClientRect().width
+      const theadWrapper = trWrapper.parentNode
+      const wrapper = document.createElement('div')
+      theadWrapper.appendChild(wrapper)
+      ele = wrapper
+      headerVNode = createApp({
+        setup() {
+          return () => (
+            <div style={
+              {
+                width: `calc(100% - ${thWidth}px)`,
+                display: 'flex',
+                height: `${trWrapper.getBoundingClientRect().height}px`,
+                position: 'absolute',
+                zIndex: 999,
+                right: 0,
+                top: 0,
+              }
+            }>
+              <HeaderRenderer values={valuesMap2Data.value}/>
+            </div>
+          )
+        },
+      })
+      headerVNode.mount(wrapper)
+    } else {
+      return
+    }
   }
 
   const removeHeaderVNode = () => {

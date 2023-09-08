@@ -36,9 +36,9 @@ export function useFirstColumn(columnProps) {
       <SelectionIndex
         scope={scope}
         columnProps={columnProps}
-        checked={values.value[scope.$index]}
+        checked={values.value[scope?.$index]}
         onChecked={(v) => {
-          values.value[scope.$index] = v
+          values.value[scope?.$index] = v
           // 向上传递被选中的表格数据
           emitSelection()
         }}
@@ -47,6 +47,7 @@ export function useFirstColumn(columnProps) {
     header: () => (
       unref(columnProps.selection)
         ? (<el-checkbox
+            data-test="checkbox-all"
             v-model={checkedAll.value}
             onChange={(bool) => {
               values.value = unref(columnProps.data).map(() => bool)
