@@ -56,7 +56,7 @@ export default defineComponent({
     const showSelectionIndex = computed(() => props.columnIndex || props.columnSelection)
 
     // 封装表格继承属性
-    const tableAttrs = useTableAttrs(attrs, computed(() => props.template), showSelectionIndex)
+    const tableAttrs = useTableAttrs(attrs, computed(() => sortedTmpl.value.filter((item) => item.visible)), showSelectionIndex)
 
     // 第一列
     const { FirstColumn, selectionValues } = useFirstColumn({
@@ -69,7 +69,7 @@ export default defineComponent({
     })
 
     // 剩余列
-    const Columns = getColumns(computed(() => sortedTmpl.value.filter((item) => item.visible)))
+    const Columns = getColumns(computed(() => props.template))
 
     // 表头设置列
     const SettingColumn = getHeadSettingColumn({ onClick: () => tableSettingVisible.value = true })
@@ -88,11 +88,11 @@ export default defineComponent({
           data={props.data}
           ref={Ele}
         >
-          { Object.keys(FirstColumn).length ?
-            <FirstColumn
-              index={props.columnIndex}
-              selection={props.columnSelection}
-            />
+          { Object.keys(FirstColumn).length
+            ? <FirstColumn
+                index={props.columnIndex}
+                selection={props.columnSelection}
+              />
             : null
           }
           { Columns.value }
