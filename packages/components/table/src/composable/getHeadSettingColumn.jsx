@@ -4,14 +4,16 @@ import { Setting } from '@element-plus/icons-vue'
 export function getHeadSettingColumn({ onClick }) {
   const slots = {
     header: () => (
-      <div style="
-        display: flex;
-        aligin-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-      "
+      <div
+        data-test="head-setting"
+        style="
+          display: flex;
+          aligin-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          "
         onClick={onClick}
       >
          <el-icon size="20"><Setting /></el-icon>

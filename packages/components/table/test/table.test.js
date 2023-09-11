@@ -1,12 +1,12 @@
-import {flushPromises, mount} from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { describe, it, expect } from 'vitest'
-
 import {
   ElCheckbox, ElDialog, ElEmpty, ElIcon, ElTable, ElTableColumn,
 } from 'element-plus'
+import { FYButton } from '@hitotek/fuzzy-ui-components'
+import { ClickOutside } from '@hitotek/fuzzy-ui-utils'
 import Table from '../src/table.jsx'
-import {ref, shallowRef} from "vue";
-import {SelectionIndex} from "../src/SelectionIndex";
+import { SelectionIndex } from '../src/SelectionIndex'
 
 describe('表格组件测试', () => {
   const template = [
@@ -44,10 +44,11 @@ describe('表格组件测试', () => {
     'el-empty': ElEmpty,
     'el-dialog': ElDialog,
     'el-icon': ElIcon,
-    'SelectionIndex': SelectionIndex
+    SelectionIndex,
+    FYButton,
   }
 
-  it('多选操作测试', async () => {
+  it('多选操作', async () => {
     const wrapper = mount(Table, {
       global: {
         stubs,
@@ -55,7 +56,7 @@ describe('表格组件测试', () => {
       props: {
         columnSelection: false,
         template,
-        data
+        data,
       },
     })
 
@@ -87,10 +88,9 @@ describe('表格组件测试', () => {
 
     // 验证是否选中
     expect(checkboxWrap.find('label').classes()).toContain('is-checked')
-
   })
 
-  it('序号展示测试', async () => {
+  it('序号展示', async () => {
     const wrapper = mount(Table, {
       global: {
         stubs,
@@ -98,7 +98,7 @@ describe('表格组件测试', () => {
       props: {
         columnIndex: true,
         template,
-        data
+        data,
       },
     })
 
@@ -109,6 +109,27 @@ describe('表格组件测试', () => {
     await wrapper.setProps({ columnIndex: false })
 
     expect(wrapper.find('[data-test="SelectionIndexWrap"]').exists()).toBeFalsy()
+  })
 
+  it('表格设置', async () => {
+    const wrapper = mount(Table, {
+      global: {
+        stubs,
+        directives: {
+          'click-outside': ClickOutside,
+        },
+      },
+      props: {
+        template,
+        data,
+      },
+    })
+
+    await flushPromises()
+    // 点击表头设置
+    await wrapper.find('[data-test="head-setting"]').trigger('click')
+
+    // 设置对话框弹出
+    expect(wrapper.find('.fy-transfer-wrap')).toBeTruthy()
   })
 })
