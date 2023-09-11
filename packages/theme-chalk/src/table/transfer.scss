@@ -1,4 +1,20 @@
 
+html.dark {
+  .fy-transfer-wrap {
+    .selection-section {
+      border-color: #4c4b4b;
+    }
+    .list-item {
+      &:hover {
+        background: #4f4d4d!important;
+      }
+    }
+    .item-awesome-text {
+      color: white
+    }
+  }
+}
+
 .fy-transfer-wrap {
   width: 100%;
   height: 100%;

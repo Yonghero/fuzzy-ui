@@ -47,8 +47,7 @@ describe('表格组件测试', () => {
     'SelectionIndex': SelectionIndex
   }
 
-  it('开启行checkbox选择', async () => {
-
+  it('多选操作测试', async () => {
     const wrapper = mount(Table, {
       global: {
         stubs,
@@ -73,10 +72,10 @@ describe('表格组件测试', () => {
     // 全选框数量1
     expect(wrapper.findAll('[data-test="checkbox-all"]')).toHaveLength(1)
     // checkbox数量为数据的长度
-    expect(wrapper.findAll('[data-test="checkbox-wrap"]')).toHaveLength(data.length)
+    expect(wrapper.findAll('[data-test="SelectionIndexWrap"]')).toHaveLength(data.length)
 
     // 移入多选框的父级
-    const checkboxWrap = wrapper.find('[data-test="checkbox-wrap"]')
+    const checkboxWrap = wrapper.find('[data-test="SelectionIndexWrap"]')
     await checkboxWrap.trigger('mouseenter')
 
     // 找到多选框
@@ -88,6 +87,28 @@ describe('表格组件测试', () => {
 
     // 验证是否选中
     expect(checkboxWrap.find('label').classes()).toContain('is-checked')
+
+  })
+
+  it('序号展示测试', async () => {
+    const wrapper = mount(Table, {
+      global: {
+        stubs,
+      },
+      props: {
+        columnIndex: true,
+        template,
+        data
+      },
+    })
+
+    await flushPromises()
+
+    expect(wrapper.find('[data-test="SelectionIndexWrap"]').exists()).toBeTruthy()
+
+    await wrapper.setProps({ columnIndex: false })
+
+    expect(wrapper.find('[data-test="SelectionIndexWrap"]').exists()).toBeFalsy()
 
   })
 })

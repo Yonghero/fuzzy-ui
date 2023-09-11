@@ -71,10 +71,9 @@ export const SelectionIndex = defineComponent({
       // 只满足序号
       return <>{unref(rowValue)}</>
     })
-
     return () => (
       <div
-        data-test="checkbox-wrap"
+        data-test="SelectionIndexWrap"
         style="
           display:flex;
           justify-content:center;

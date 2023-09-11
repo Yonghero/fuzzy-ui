@@ -1,5 +1,5 @@
 import {
-  defineComponent, unref, ref, computed, watch, toRaw,
+  defineComponent, unref, ref, computed, watch, toRaw, watchEffect,
 } from 'vue'
 
 import { SelectionIndex } from '../SelectionIndex'
@@ -76,21 +76,32 @@ export function useFirstColumn(columnProps) {
   return {
     selectionValues: values,
     FirstColumn: defineComponent({
-      setup(props, { attrs }) {
-        // 序号和多选皆不满足
-        if (!unref(columnProps.selection) && !unref(columnProps.index)) {
-          return null
+      props: {
+        index: {
+          type: Boolean,
+        },
+        selection: {
+          type: Boolean
         }
-        return () => (
-          <el-table-column
-            v-slots={slots}
-            fixed={unref(columnProps.template).some((item) => item.fixed)}
-            width="55"
-            align="center"
-            prop="index"
-            {...attrs}
-          />
-        )
+      },
+      setup(props, { attrs }) {
+
+        return () => {
+          // 序号和多选皆不满足
+          if (!props.selection && !props.index) {
+            return () => {}
+          }
+          return (
+            <el-table-column
+              v-slots={slots}
+              fixed={unref(columnProps.template).some((item) => item.fixed)}
+              width="55"
+              align="center"
+              prop="index"
+              {...attrs}
+            />
+          )
+        }
       },
     }),
   }

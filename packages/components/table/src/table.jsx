@@ -52,8 +52,11 @@ export default defineComponent({
         .sort((a, b) => a.order - b.order)
     })
 
+    // 是否展示序号列
+    const showSelectionIndex = computed(() => props.columnIndex || props.columnSelection)
+
     // 封装表格继承属性
-    const tableAttrs = useTableAttrs(attrs, computed(() => props.template))
+    const tableAttrs = useTableAttrs(attrs, computed(() => props.template), showSelectionIndex)
 
     // 第一列
     const { FirstColumn, selectionValues } = useFirstColumn({
@@ -85,7 +88,13 @@ export default defineComponent({
           data={props.data}
           ref={Ele}
         >
-          <FirstColumn />
+          { Object.keys(FirstColumn).length ?
+            <FirstColumn
+              index={props.columnIndex}
+              selection={props.columnSelection}
+            />
+            : null
+          }
           { Columns.value }
           <SettingColumn />
         </el-table>

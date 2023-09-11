@@ -110,8 +110,8 @@ const onHeaderSelection = (template) => {
       :template="tmpl"
       :data="tableData"
       :renderer="renderer"
-      columnSelection
-      columnIndex
+      :columnSelection="false"
+      :columnIndex="true"
       @selection="onSelection"
       @headerSelection="onHeaderSelection"
     />
