@@ -1,6 +1,6 @@
 import { flushPromises, mount } from '@vue/test-utils'
 import {
-  describe, it, expect, afterEach,
+  describe, it, expect,
 } from 'vitest'
 import {
   ElCheckbox, ElDialog, ElEmpty, ElIcon, ElTable, ElTableColumn,
@@ -55,13 +55,8 @@ describe('FYTable', () => {
     FYButton,
   }
 
-  let wrapper
-  afterEach(() => {
-    wrapper.unmount()
-  })
-
   it('selection', async () => {
-    wrapper = mount(Table, {
+    const wrapper = mount(Table, {
       global: {
         stubs,
       },
@@ -95,7 +90,7 @@ describe('FYTable', () => {
   })
 
   it('table index', async () => {
-    wrapper = mount(Table, {
+    const wrapper = mount(Table, {
       global: {
         stubs,
       },
@@ -116,7 +111,7 @@ describe('FYTable', () => {
   })
 
   it('head setting', async () => {
-    wrapper = mount(Table, {
+    const wrapper = mount(Table, {
       global: {
         stubs,
         directives: {
@@ -140,7 +135,7 @@ describe('FYTable', () => {
   it('renderer header', async () => {
     let clickCount = 0
 
-    wrapper = mount(Table, {
+    const wrapper = mount(Table, {
       global: {
         stubs,
       },
@@ -171,7 +166,7 @@ describe('FYTable', () => {
   })
 
   describe('rendering data is correct', async () => {
-    wrapper = mount(Table, {
+    const wrapper = mount(Table, {
       global: {
         stubs,
       },

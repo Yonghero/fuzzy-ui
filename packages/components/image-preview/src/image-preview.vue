@@ -9,6 +9,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  teleported: {
+    type: Boolean,
+    default: true,
+  },
 })
 
 const emits = defineEmits(['update:visible', 'close'])
@@ -27,7 +31,7 @@ function onClose() {
   >
     <el-image-viewer
       v-bind="$attrs"
-      teleported
+      :teleported="teleported"
       @close="onClose"
     />
   </div>
