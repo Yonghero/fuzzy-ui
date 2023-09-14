@@ -10,5 +10,5 @@
 </template>
 
 <style lang="scss">
-@use "../../../theme-chalk/src/pagination/pagination.scss"
+@use "../../../theme-chalk/src/pagination/pagination.scss";
 </style>

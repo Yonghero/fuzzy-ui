@@ -1,6 +1,7 @@
 import glob from 'glob'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+// import commonjs from '@rollup/plugin-commonjs'
 // import alias from '@rollup/plugin-alias'
 import vue from 'rollup-plugin-vue'
 import babel from '@rollup/plugin-babel'
@@ -27,6 +28,7 @@ export default defineConfig({
     ),
     'fuzzy-ui-style': 'packages/theme-chalk/src/index.scss',
   },
+  context: 'window',
   output: [
     {
       dir: 'lib',
@@ -40,15 +42,19 @@ export default defineConfig({
       entryFileNames: () => '[name].cjs',
     },
   ],
-  external: ['vue', 'element-plus', 'elementPlus'],
+  external: ['vue', 'element-plus', 'elementPlus', '@vue-office/docx', '@vue-office/excel', '@vue-office/pdf'],
   plugins: [
     // alias({
     //   entries: [
     //     { find: 'utils', replacement: new URL('./packages/utils', import.meta.url).pathname },
     //   ],
     // }),
+    // commonjs(),
     image(),
     svg(),
+    // commonjs({
+    //   include: /node_modules/,
+    // }),
     nodeResolve({
       browser: true,
       preferBuiltins: false,

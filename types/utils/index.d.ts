@@ -1,6 +1,6 @@
-export * from "./vue/index.js";
-export * from "./color";
-export * from "./directives/click-outside";
-export * from "./directives/focus";
-export * from "./tool.js";
+export * from "./src/vue/index.js";
+export * from "./src/color.js";
+export * from "./src/directives/click-outside/index.js";
+export * from "./src/directives/focus/index.js";
+export * from "./src/tool.js";
 //# sourceMappingURL=index.d.ts.map

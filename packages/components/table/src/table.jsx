@@ -1,5 +1,5 @@
 import {
-  computed, defineComponent, ref,
+  computed, defineComponent, ref, watchEffect,
 } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import {
@@ -44,10 +44,14 @@ export default defineComponent({
     // 控制表头设置弹窗是否展示
     const tableSettingVisible = ref(false)
 
-    // 初始化字段排序
-    const sortedTmpl = computed(() => {
+    const effectTmpl = ref()
+
+    watchEffect(() => {
       const tmpl = props.template
-      return tmpl
+      if (!tmpl) return
+
+      // 初始化字段排序
+      effectTmpl.value = tmpl
         .map((item) => ({ order: item.order ? item.order : 0, ...item })) // order 初始化
         .sort((a, b) => a.order - b.order)
     })
@@ -56,7 +60,7 @@ export default defineComponent({
     const showSelectionIndex = computed(() => props.columnIndex || props.columnSelection)
 
     // 封装表格继承属性
-    const tableAttrs = useTableAttrs(attrs, computed(() => sortedTmpl.value.filter((item) => item.visible)), showSelectionIndex)
+    const tableAttrs = useTableAttrs(attrs, computed(() => effectTmpl.value.filter((item) => item.visible)), showSelectionIndex)
 
     // 第一列
     const { FirstColumn, selectionValues } = useFirstColumn({
@@ -64,12 +68,12 @@ export default defineComponent({
       index: computed(() => props.columnIndex), // 是否开启序号
       data: computed(() => props.data), // 表格数据
       renderer: props.renderer, // 表头覆盖层
-      template: sortedTmpl,
+      template: effectTmpl,
       emit,
     })
 
     // 剩余列
-    const Columns = getColumns(computed(() => props.template))
+    const Columns = getColumns(computed(() => effectTmpl.value.filter((item) => item.visible)))
 
     // 表头设置列
     const SettingColumn = getHeadSettingColumn({ onClick: () => tableSettingVisible.value = true })
@@ -101,8 +105,11 @@ export default defineComponent({
         <TableSetting
           visible={tableSettingVisible.value}
           onUpdateVisible={(e) => tableSettingVisible.value = e}
-          template={sortedTmpl.value}
-          onSubmit={(tmpl) => emit('headerSelection', tmpl)}
+          template={effectTmpl.value}
+          onSubmit={(tmpl) => {
+            effectTmpl.value = tmpl.sort((a, b) => a.order - b.order)
+            emit('headerSelection', tmpl)
+          }}
         />
       </div>
     )

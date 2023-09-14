@@ -136,6 +136,9 @@ declare const _default: {
     FYMemberSelect: any;
     FYAvatar: any;
     FYMapCoordselection: any;
+    FYVideoPlayer: any;
+    FYFilePreview: any;
+    FYImagePreview: any;
 };
 export default _default;
 import * as YHComponents from './export-components';

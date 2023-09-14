@@ -3,7 +3,6 @@ import { computed, unref } from 'vue'
 import { tableEditItem } from './install'
 
 export function getColumns(template) {
-  // eslint-disable-next-line no-underscore-dangle
   const _getColumn = (scope, tmpl) => {
     if (tmpl.render) {
       return (tmpl.render({ scope, key: tmpl.value, value: scope.row[tmpl.value] }))
@@ -35,14 +34,14 @@ export function getColumns(template) {
     }
 
     return (
-      <el-table-column
-        v-slots={slots}
-        key={tmpl.value}
-        label={tmpl.label}
-        prop={tmpl.value}
-        header-align={'center'}
-        {...tmpl}
-      />
+        <el-table-column
+          v-slots={slots}
+          key={tmpl.value}
+          label={tmpl.label}
+          prop={tmpl.value}
+          header-align={'center'}
+          {...tmpl}
+        />
     )
   }))
 }

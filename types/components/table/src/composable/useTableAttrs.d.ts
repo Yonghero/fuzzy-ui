@@ -4,5 +4,5 @@
  * @param {*} template
  * @returns
  */
-export function useTableAttrs(attrs: any, template: any): any;
+export function useTableAttrs(attrs: any, template: any, showSelectionIndex: any): any;
 //# sourceMappingURL=useTableAttrs.d.ts.map

@@ -98,7 +98,7 @@ const onSelection = (v) => {
 
 const onHeaderSelection = (template) => {
   console.log('🚀 ~ file: table.vue:118 ~ onHeaderSelection ~ template:', template)
-  tmpl.value = template
+  // tmpl.value = template
 }
 
 </script>

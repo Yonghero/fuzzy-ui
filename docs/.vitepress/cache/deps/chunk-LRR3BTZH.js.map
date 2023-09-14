@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../node_modules/.pnpm/vue-demi@0.14.5_vue@3.3.4/node_modules/vue-demi/lib/index.cjs"],
-  "sourcesContent": ["var Vue = require('vue')\n\nObject.keys(Vue).forEach(function(key) {\n  exports[key] = Vue[key]\n})\n\nexports.set = function(target, key, val) {\n  if (Array.isArray(target)) {\n    target.length = Math.max(target.length, key)\n    target.splice(key, 1, val)\n    return val\n  }\n  target[key] = val\n  return val\n}\n\nexports.del = function(target, key) {\n  if (Array.isArray(target)) {\n    target.splice(key, 1)\n    return\n  }\n  delete target[key]\n}\n\nexports.Vue = Vue\nexports.Vue2 = undefined\nexports.isVue2 = false\nexports.isVue3 = true\nexports.install = function(){}\n"],
-  "mappings": ";;;;;;;;;;AAAA;AAAA;AAAA,QAAI,MAAM;AAEV,WAAO,KAAK,GAAG,EAAE,QAAQ,SAAS,KAAK;AACrC,cAAQ,GAAG,IAAI,IAAI,GAAG;AAAA,IACxB,CAAC;AAED,YAAQ,MAAM,SAAS,QAAQ,KAAK,KAAK;AACvC,UAAI,MAAM,QAAQ,MAAM,GAAG;AACzB,eAAO,SAAS,KAAK,IAAI,OAAO,QAAQ,GAAG;AAC3C,eAAO,OAAO,KAAK,GAAG,GAAG;AACzB,eAAO;AAAA,MACT;AACA,aAAO,GAAG,IAAI;AACd,aAAO;AAAA,IACT;AAEA,YAAQ,MAAM,SAAS,QAAQ,KAAK;AAClC,UAAI,MAAM,QAAQ,MAAM,GAAG;AACzB,eAAO,OAAO,KAAK,CAAC;AACpB;AAAA,MACF;AACA,aAAO,OAAO,GAAG;AAAA,IACnB;AAEA,YAAQ,MAAM;AACd,YAAQ,OAAO;AACf,YAAQ,SAAS;AACjB,YAAQ,SAAS;AACjB,YAAQ,UAAU,WAAU;AAAA,IAAC;AAAA;AAAA;",
-  "names": []
-}
