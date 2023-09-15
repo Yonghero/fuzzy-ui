@@ -26,7 +26,7 @@ export default defineConfig({
         fileURLToPath(new URL(file, import.meta.url)),
       ]),
     ),
-    'fuzzy-ui-style': 'packages/theme-chalk/src/index.scss',
+    // 'fuzzy-ui-style': 'packages/theme-chalk/src/index.scss',
   },
   context: 'window',
   output: [

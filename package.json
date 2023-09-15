@@ -19,15 +19,18 @@
   "exports": {
     ".": {
       "import": "./lib/components/index.mjs",
-      "require": "./lib/components/index.cjs"
+      "require": "./lib/components/index.cjs",
+      "types": "./types/components/index.d.ts"
     },
     "./components": {
       "import": "./lib/components/index.mjs",
-      "require": "./lib/components/index.cjs"
+      "require": "./lib/components/index.cjs",
+      "types": "./types/components/index.d.ts"
     },
     "./utils": {
       "import": "./lib/utils/index.mjs",
-      "require": "./lib/utils/index.cjs"
+      "require": "./lib/utils/index.cjs",
+      "types": "./types/utils/index.d.ts"
     },
     "./style": {
       "import": "./lib/fuzzy-ui-style/index.css",
