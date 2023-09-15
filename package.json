@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "shx rm -rf lib types && rollup --config && tsc -p ./tsconfig.json",
-    "publish": "bumpp && pnpm run build && npm publish --access public",
+    "publish": "bumpp && pnpm run build && npm publish",
     "gen": "bash ./scripts/gc.sh",
     "docs:dev": "vitepress dev docs --host",
     "docs:build": "vitepress build docs",

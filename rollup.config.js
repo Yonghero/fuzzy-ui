@@ -42,7 +42,7 @@ export default defineConfig({
       entryFileNames: () => '[name].cjs',
     },
   ],
-  external: ['vue', 'element-plus', 'elementPlus', '@vue-office/docx', '@vue-office/excel', '@vue-office/pdf'],
+  external: ['vue', 'element-plus', 'elementPlus', '@vue-office/docx', '@vue-office/excel', '@vue-office/pdf', 'dayjs'],
   plugins: [
     // alias({
     //   entries: [
