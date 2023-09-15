@@ -12,7 +12,6 @@
     "docs:serve": "vitepress serve docs",
     "test": "vitest"
   },
-  "types": "./types/index.d.ts",
   "keywords": [
     "ui"
   ],
