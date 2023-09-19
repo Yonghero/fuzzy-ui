@@ -14,6 +14,7 @@
   "keywords": [
     "ui"
   ],
+  "types": "./types/components/index.d.ts",
   "exports": {
     ".": {
       "import": "./lib/components/index.mjs",
