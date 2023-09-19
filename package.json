@@ -2,7 +2,6 @@
   "name": "@hitotek/fuzzy-ui",
   "version": "1.0.16",
   "description": "fuzzy-ui",
-  "type": "module",
   "scripts": {
     "build": "shx rm -rf lib types && rollup --config && tsc -p ./tsconfig.json",
     "publish": "bumpp && pnpm run build && npm publish",
