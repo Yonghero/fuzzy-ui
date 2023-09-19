@@ -1,7 +1,6 @@
 import glob from 'glob'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-// import commonjs from '@rollup/plugin-commonjs'
 // import alias from '@rollup/plugin-alias'
 import vue from 'rollup-plugin-vue'
 import babel from '@rollup/plugin-babel'
@@ -10,6 +9,9 @@ import { defineConfig } from 'rollup'
 import postcss from 'rollup-plugin-postcss'
 import svg from 'rollup-plugin-svg'
 import image from '@rollup/plugin-image'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
+import url from 'postcss-url'
 
 export default defineConfig({
   input: {
@@ -49,19 +51,28 @@ export default defineConfig({
     //     { find: 'utils', replacement: new URL('./packages/utils', import.meta.url).pathname },
     //   ],
     // }),
-    // commonjs(),
     image(),
     svg(),
-    // commonjs({
-    //   include: /node_modules/,
-    // }),
     nodeResolve({
       browser: true,
       preferBuiltins: false,
       extensions: ['.js', '.json', '.jsx', '.vue'],
     }),
     vue(),
+    // copy({
+    //   targets: [
+    //     {
+    //       src: glob.sync('packages/components/**/*.png'),
+    //       dest: './lib/images',
+    //     },
+    //   ],
+    // }),
     postcss({
+      plugins: [autoprefixer(), cssnano(), url({
+        url: 'inline',
+        maxSize: 10,
+        fallback: 'copy',
+      })],
       extensions: ['.css', '.scss', '.sass'],
       extract: 'fuzzy-ui-style/index.css',
     }),
