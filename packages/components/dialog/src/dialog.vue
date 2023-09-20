@@ -186,13 +186,13 @@ const fileChange = (file, files) => {
         v-else-if="props.dialogConfig.type === 'delete'"
         :dialogConfig="props.dialogConfig"
       />
-      <DetailForm
+      <!-- <DetailForm
         v-else-if="props.dialogConfig.type === 'detail'"
         ref="formDetailRef"
 
       >
 
-      </DetailForm>
+      </DetailForm> -->
       <template #header>
         <slot name="header" />
       </template>

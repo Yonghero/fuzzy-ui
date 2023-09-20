@@ -5,7 +5,9 @@ import { tableEditItem } from './install'
 export function getColumns(template) {
   const _getColumn = (scope, tmpl) => {
     if (tmpl.render) {
-      return (tmpl.render({ scope, key: tmpl.value, value: scope.row[tmpl.value] }))
+      const renderTmpl = tmpl.render({ scope, key: tmpl.value, value: scope.row[tmpl.value] })
+      if (renderTmpl?.setup) return <renderTmpl/>
+      return renderTmpl
     }
     if (tmpl.type) {
       // eslint-disable-next-line no-underscore-dangle
@@ -34,14 +36,14 @@ export function getColumns(template) {
     }
 
     return (
-        <el-table-column
-          v-slots={slots}
-          key={tmpl.value}
-          label={tmpl.label}
-          prop={tmpl.value}
-          header-align={'center'}
-          {...tmpl}
-        />
+      <el-table-column
+        v-slots={slots}
+        key={tmpl.value}
+        label={tmpl.label}
+        prop={tmpl.value}
+        header-align={'center'}
+        {...tmpl}
+      />
     )
   }))
 }

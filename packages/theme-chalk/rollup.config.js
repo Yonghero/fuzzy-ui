@@ -11,7 +11,7 @@ export default {
       extract: true, // 提取 CSS 到单独的文件
       minimize: true, // 压缩 CSS
       sourceMap: true, // 生成 source map
-      extensions: ['.scss','.sass'], // 处理的文件类型
+      extensions: ['.scss', '.sass'], // 处理的文件类型
     }),
   ],
-};
+}

@@ -1,6 +1,5 @@
 import Theme from 'vitepress/theme'
 import ElementPlus from 'element-plus'
-// import FuzzyUI from '@hitotek/fuzzy-ui-components'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import '@hitotek/fuzzy-ui-theme-chalk'
