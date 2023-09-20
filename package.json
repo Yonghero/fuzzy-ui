@@ -1,6 +1,6 @@
 {
   "name": "@hitotek/fuzzy-ui",
-  "version": "1.0.17-beta.0",
+  "version": "1.0.17-beta.1",
   "description": "fuzzy-ui",
   "scripts": {
     "build": "shx rm -rf lib types && rollup --config && tsc -p ./tsconfig.json",
