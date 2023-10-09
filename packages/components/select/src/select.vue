@@ -10,6 +10,7 @@ import {
   computed, useSlots, ref, watch,
 } from 'vue'
 import { getRandomColor } from '@hitotek/fuzzy-ui-utils'
+import { FYEmpty } from '../../empty'
 
 defineOptions({
   name: 'FYSelect',

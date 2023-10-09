@@ -44,6 +44,11 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  // 是否可筛选多个
+  filterMultiple: {
+    type: Boolean,
+    default: false,
+  },
   // 定义value,防止绑定value到原生标签上影响后续v-model的使用
   // eslint-disable-next-line
   value: {
@@ -62,6 +67,9 @@ const getClass = computed(() => [
 
 ].filter(Boolean))
 const getType = computed(() => {
+  if (props.type !== 'text' && props.type) {
+    return props.type
+  }
   if (!props.textarea && props.textarea !== '') {
     return 'text'
   }
@@ -99,8 +107,21 @@ const filterClose = () => {
   isFilter.value = false
 }
 const switchGroupValue = ref([])
-switchGroupValue.value = props.filterList.map((item) => ({ id: item.id, value: item.value }))
-const switchChange = () => {
+switchGroupValue.value = props.filterMultiple
+  ? props.filterList.map((item) => ({ id: item.id, value: item.value }))
+  : props.filterList.map((item, idx) => ({ id: item.id, value: idx === 0 }))
+
+// 主动触发对外暴露
+emit('switchChange', switchGroupValue.value)
+
+const switchChange = (val, index) => {
+  if (!props.filterMultiple) {
+    switchGroupValue.value.forEach((s, switchIdx) => {
+      if (!(switchIdx === index && val === true)) {
+        s.value = false
+      }
+    })
+  }
   emit('switchChange', switchGroupValue.value)
 }
 const myRef = ref(null)
@@ -174,7 +195,9 @@ const handleEnter = () => {
             v-model="switchGroupValue[index].value"
             :name="item.name"
             class="card-item-value"
-            @change="switchChange"
+            @change="(val) => {
+              switchChange(val, index)
+            } "
           />
         </div>
       </el-card>

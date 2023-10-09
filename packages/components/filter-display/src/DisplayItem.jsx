@@ -23,7 +23,9 @@ export const DisplayItem = defineComponent({
       ...props.tmplItem,
       onWithChange({ field, value }) {
         emit('change', { field, value })
-        props?.tmplItem?.onChange({ field, value })
+        if (props.tmplItem && props.tmplItem.onChange && typeof props.tmplItem.onChange === 'function') {
+          props.tmplItem.onChange({ field, value })
+        }
       },
     }
 

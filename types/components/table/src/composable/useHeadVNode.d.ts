@@ -4,7 +4,7 @@
  * @param {*} valuesMap2Data checkbox 选中的数据
  * @returns
  */
-export function useHeadVNode(HeaderRenderer: any, valuesMap2Data: any): {
+export function useHeadVNode(HeaderRenderer: any, valuesMap2Data: any, tableData: any): {
     createHeaderVNode: () => void;
     removeHeaderVNode: () => void;
 };

@@ -51,8 +51,8 @@ export const SelectionIndex = defineComponent({
         isIndex.value = true
       }
     }
-
-    const rowValue = computed(() => props.scope.$index + 1)
+    // scope.$index + 1 + (dataProvider.filterParams.value[paging.current] - 1) * dataProvider.filterParams.value[paging.size]
+    const rowValue = computed(() => props.scope.$index + 1 + (unref(props.columnProps.pageCurrent) - 1) * unref(props.columnProps.pageSize))
 
     const RendererItem = computed(() => {
       // 序号和多选同时满足

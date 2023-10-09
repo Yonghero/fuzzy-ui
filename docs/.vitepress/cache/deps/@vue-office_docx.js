@@ -1,18 +1,18 @@
 import {
   require_lib
-} from "./chunk-UHBYAG7R.js";
+} from "./chunk-LRR3BTZH.js";
 import {
   init_vue_runtime_esm_bundler,
   vue_runtime_esm_bundler_exports
-} from "./chunk-DOCINADH.js";
+} from "./chunk-WLQVLJR5.js";
 import {
   __commonJS,
   __toCommonJS
 } from "./chunk-ROME4SDB.js";
 
-// ../node_modules/.pnpm/@vue-office+docx@1.3.0_vue-demi@0.14.6+vue@3.3.4/node_modules/@vue-office/docx/lib/index.js
+// node_modules/.pnpm/@vue-office+docx@1.3.0_vue@3.3.4/node_modules/@vue-office/docx/lib/index.js
 var require_lib2 = __commonJS({
-  "../node_modules/.pnpm/@vue-office+docx@1.3.0_vue-demi@0.14.6+vue@3.3.4/node_modules/@vue-office/docx/lib/index.js"(exports, module) {
+  "node_modules/.pnpm/@vue-office+docx@1.3.0_vue@3.3.4/node_modules/@vue-office/docx/lib/index.js"(exports, module) {
     (function(le, ce) {
       typeof exports == "object" && typeof module != "undefined" ? module.exports = ce(require_lib(), (init_vue_runtime_esm_bundler(), __toCommonJS(vue_runtime_esm_bundler_exports))) : typeof define == "function" && define.amd ? define(["vue-demi", "vue"], ce) : (le = typeof globalThis != "undefined" ? globalThis : le || self, le["vue-office-docx"] = ce(le.VueDemi, le.Vue));
     })(exports, function(le, ce) {

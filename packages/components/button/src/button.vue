@@ -15,7 +15,7 @@ const props = defineProps({
   },
 })
 
-const throttleDuration = 1000
+const throttleDuration = 300
 
 const record = ref(0)
 

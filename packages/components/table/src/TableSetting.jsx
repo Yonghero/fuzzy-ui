@@ -90,7 +90,7 @@ export default defineComponent({
         v-slots={slots}
         v-model={visible.value}
         title="表头显示属性"
-        width="70%"
+        width="60%"
         top="5vh"
         destroy-on-close
       >

@@ -18,7 +18,7 @@ export const Select = {
           () => {
             props.onWithChange({ field: props.value, value: props.model[props.value] })
           }
-          }
+        }
       />
     )
   },

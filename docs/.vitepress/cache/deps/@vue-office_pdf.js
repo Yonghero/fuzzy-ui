@@ -1,18 +1,18 @@
 import {
   require_lib
-} from "./chunk-UHBYAG7R.js";
+} from "./chunk-LRR3BTZH.js";
 import {
   init_vue_runtime_esm_bundler,
   vue_runtime_esm_bundler_exports
-} from "./chunk-DOCINADH.js";
+} from "./chunk-WLQVLJR5.js";
 import {
   __commonJS,
   __toCommonJS
 } from "./chunk-ROME4SDB.js";
 
-// ../node_modules/.pnpm/@vue-office+pdf@1.5.3_vue-demi@0.14.6+vue@3.3.4/node_modules/@vue-office/pdf/lib/index.js
+// node_modules/.pnpm/@vue-office+pdf@1.5.3_vue@3.3.4/node_modules/@vue-office/pdf/lib/index.js
 var require_lib2 = __commonJS({
-  "../node_modules/.pnpm/@vue-office+pdf@1.5.3_vue-demi@0.14.6+vue@3.3.4/node_modules/@vue-office/pdf/lib/index.js"(exports, module) {
+  "node_modules/.pnpm/@vue-office+pdf@1.5.3_vue@3.3.4/node_modules/@vue-office/pdf/lib/index.js"(exports, module) {
     (function(d, l) {
       typeof exports == "object" && typeof module != "undefined" ? module.exports = l(require_lib(), (init_vue_runtime_esm_bundler(), __toCommonJS(vue_runtime_esm_bundler_exports))) : typeof define == "function" && define.amd ? define(["vue-demi", "vue"], l) : (d = typeof globalThis != "undefined" ? globalThis : d || self, d["vue-office-pdf"] = l(d.VueDemi, d.Vue));
     })(exports, function(d, l) {

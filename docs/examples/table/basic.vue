@@ -66,7 +66,7 @@ const tmpl = shallowRef([
 const tableData = ref()
 
 setTimeout(() => {
-  tableData.value = Array.from({ length: 5 }, (_, idx) => ({
+  tableData.value = Array.from({ length: 10 }, (_, idx) => ({
     date: '2016-05-03',
     index: idx + 1,
     name: `${idx}Tom`,
@@ -100,17 +100,21 @@ const onHeaderSelection = (template) => {
   console.log('🚀 ~ file: table.vue:118 ~ onHeaderSelection ~ template:', template)
   // tmpl.value = template
 }
-
+const pageCurrent = ref(1)
 </script>
 
 <template>
   <div style="margin: 1rem;">
+    <FYButton @click="pageCurrent += 1">
+      current ++
+    </FYButton>
     <FYTable
       ref="Ele"
       :template="tmpl"
       :data="tableData"
       :renderer="renderer"
       :columnSelection="true"
+      :pageCurrent="pageCurrent"
       :columnIndex="true"
       @selection="onSelection"
       @headerSelection="onHeaderSelection"

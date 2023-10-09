@@ -6,7 +6,7 @@ import { createApp, watch } from 'vue'
  * @param {*} valuesMap2Data checkbox 选中的数据
  * @returns
  */
-export function useHeadVNode(HeaderRenderer, valuesMap2Data) {
+export function useHeadVNode(HeaderRenderer, valuesMap2Data, tableData) {
   let headerVNode = ''
   let ele = ''
 
@@ -40,8 +40,6 @@ export function useHeadVNode(HeaderRenderer, valuesMap2Data) {
         },
       })
       headerVNode.mount(wrapper)
-    } else {
-      return
     }
   }
 
@@ -63,6 +61,11 @@ export function useHeadVNode(HeaderRenderer, valuesMap2Data) {
     } else {
       removeHeaderVNode()
     }
+  })
+
+  // 表格数据数量有所更新时也移除
+  watch(() => tableData.value, () => {
+    removeHeaderVNode()
   })
 
   return {

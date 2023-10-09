@@ -5,8 +5,16 @@ import { tableEditItem } from './install'
 export function getColumns(template) {
   const _getColumn = (scope, tmpl) => {
     if (tmpl.render) {
-      const renderTmpl = tmpl.render({ scope, key: tmpl.value, value: scope.row[tmpl.value] })
-      if (renderTmpl?.setup) return <renderTmpl/>
+      // render 如果是string 则代表type
+      if (typeof tmpl.render === 'string') {
+        if (tableEditItem.get(tmpl.render)) {
+          return ((<EditRenderer {...tmpl} scope={scope} template={tmpl}/>))
+        }
+      }
+      const renderTmpl = tmpl.render({
+        scope, key: tmpl.value, value: scope.row[tmpl.value], template: tmpl,
+      })
+      if (renderTmpl?.setup) return <renderTmpl template={tmpl} scope={scope} value={scope.row[tmpl.value]}/>
       return renderTmpl
     }
     if (tmpl.type) {
@@ -23,7 +31,7 @@ export function getColumns(template) {
 
       const EditRenderer = tableEditItem.get(type)
       if (EditRenderer) {
-        return (<EditRenderer {...tmpl} scope={scope}/>)
+        return (<EditRenderer {...tmpl} scope={scope} template={tmpl}/>)
       }
     }
 

@@ -1,5 +1,5 @@
 import {
-  defineComponent, unref, ref, computed, watch, toRaw, watchEffect,
+  defineComponent, unref, ref, computed, watch, toRaw,
 } from 'vue'
 
 import { SelectionIndex } from '../SelectionIndex'
@@ -28,7 +28,7 @@ export function useFirstColumn(columnProps) {
   }
 
   // 该hook注入表头覆盖层组件
-  useHeadVNode(columnProps.renderer.header, valuesMap2Data)
+  useHeadVNode(columnProps.renderer.header, valuesMap2Data, columnProps.data)
 
   // 第一列的自定义插槽
   const slots = {
@@ -81,11 +81,10 @@ export function useFirstColumn(columnProps) {
           type: Boolean,
         },
         selection: {
-          type: Boolean
-        }
+          type: Boolean,
+        },
       },
       setup(props, { attrs }) {
-
         return () => {
           // 序号和多选皆不满足
           if (!props.selection && !props.index) {

@@ -27,6 +27,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    pageSize: {
+      type: Number,
+      default: 10,
+    },
+    pageCurrent: {
+      type: Number,
+      default: 1,
+    },
     data: {
       type: Array,
       default: () => ([]),
@@ -69,6 +77,8 @@ export default defineComponent({
       data: computed(() => props.data), // 表格数据
       renderer: props.renderer, // 表头覆盖层
       template: effectTmpl,
+      pageSize: computed(() => props.pageSize),
+      pageCurrent: computed(() => props.pageCurrent),
       emit,
     })
 

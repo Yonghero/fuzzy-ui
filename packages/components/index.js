@@ -4,6 +4,7 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as YHComponents from './export-components'
 
 export * from './export-components'
+
 export default {
   ...YHComponents,
   install: (app) => { // 全局组件注册
@@ -15,5 +16,4 @@ export default {
       app.use(YHComponents[name])
     })
   },
-
 }

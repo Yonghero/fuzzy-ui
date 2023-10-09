@@ -16,6 +16,14 @@ export const Input = {
     return <FYInput {...props} v-model={props.model[props.value]} />
   },
 }
+
+export const PasswordInput = {
+  type: 'password',
+  renderer(props) {
+    return <FYInput {...props} type="password" v-model={props.model[props.value]} />
+  },
+}
+
 export const Switch = {
   type: 'switch',
   renderer(props) {
@@ -25,7 +33,7 @@ export const Switch = {
 export const DatePicker = {
   type: 'datePicker',
   renderer(props) {
-    return <FYDatePicker {...props} v-model={props.model[props.value]} />
+    return <FYDatePicker type="date" v-model={props.model[props.value]} />
   },
 }
 export const Cascader = {

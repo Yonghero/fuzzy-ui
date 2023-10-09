@@ -25,9 +25,10 @@ export const Switch = {
 export const DatePicker = {
   type: 'datePicker',
   renderer(props) {
-    return <FYDatePicker {...props} v-model={props.model[props.value]} />
+    return <FYDatePicker {...props} type="date" v-model={props.model[props.value]} />
   },
 }
+
 export const Cascader = {
   type: 'cascader',
   renderer(props) {

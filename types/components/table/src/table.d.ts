@@ -7,6 +7,14 @@ declare const _default: import("vue").DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
+    pageSize: {
+        type: NumberConstructor;
+        default: number;
+    };
+    pageCurrent: {
+        type: NumberConstructor;
+        default: number;
+    };
     data: {
         type: ArrayConstructor;
         default: () => any[];
@@ -28,6 +36,14 @@ declare const _default: import("vue").DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
+    pageSize: {
+        type: NumberConstructor;
+        default: number;
+    };
+    pageCurrent: {
+        type: NumberConstructor;
+        default: number;
+    };
     data: {
         type: ArrayConstructor;
         default: () => any[];
@@ -46,6 +62,8 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     template: unknown[];
     data: unknown[];
+    pageCurrent: number;
+    pageSize: number;
     columnIndex: boolean;
     columnSelection: boolean;
     renderer: Record<string, any>;

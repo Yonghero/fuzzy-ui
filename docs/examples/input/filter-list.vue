@@ -28,7 +28,8 @@ const filterList = ref([{
   id: 'title2',
   value: true,
 }])
-const switchChange = () => {
+const switchChange = (value) => {
+  console.log('value: ', value)
 }
 
 </script>

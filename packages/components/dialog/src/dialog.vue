@@ -44,7 +44,6 @@ const props = defineProps({
       labelWidth: '',
     }),
   },
-
 })
 
 const model = ref({})
@@ -103,7 +102,7 @@ const getTitle = computed(() => {
         type = ''
         break
       default:
-        type = '新建'
+        type = ''
         break
     }
     return `${type}${props.dialogConfig.title}`
@@ -155,6 +154,7 @@ const typeCheck = (e) => {
 const fileChange = (file, files) => {
   emit('file-change', file, files)
 }
+
 </script>
 
 <template>
