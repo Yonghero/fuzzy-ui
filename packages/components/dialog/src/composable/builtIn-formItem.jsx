@@ -17,6 +17,13 @@ export const Input = {
   },
 }
 
+export const Textarea = {
+  type: 'textarea',
+  renderer(props) {
+    return <FYInput {...props} textarea={true} v-model={props.model[props.value]} />
+  },
+}
+
 export const PasswordInput = {
   type: 'password',
   renderer(props) {
