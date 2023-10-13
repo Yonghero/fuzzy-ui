@@ -144,7 +144,7 @@ const getComfirmButtonType = computed(() => {
   } if (['delete'].includes(props.dialogConfig.type)) {
     return 'danger'
   }
-  return ''
+  return 'primary'
 })
 // 文件上传类型校验结果
 const typeCheck = (e) => {
@@ -186,6 +186,10 @@ const fileChange = (file, files) => {
         v-else-if="props.dialogConfig.type === 'delete'"
         :dialogConfig="props.dialogConfig"
       />
+
+      <div v-else>
+        <slot></slot>
+      </div>
       <!-- <DetailForm
         v-else-if="props.dialogConfig.type === 'detail'"
         ref="formDetailRef"
