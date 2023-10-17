@@ -107,7 +107,7 @@ onMounted(() => {
   <div class="fy-transfer-wrap">
     <div class="transfer-container">
       <div class="selection-title">
-        可选择属性 · {{ allTmpl.length }}
+        可选择属性 · {{ filterLeftTmpl.length }}
       </div>
       <div class="selection-section">
         <FYInput

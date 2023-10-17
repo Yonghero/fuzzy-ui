@@ -31,10 +31,19 @@ const handleClick = () => {
   }
 }
 
+const vBlur = {
+  mounted(el) {
+    el.addEventListener('focus', () => {
+      el.blur()
+    })
+  },
+}
+
 </script>
 
 <template>
   <el-button
+    v-blur
     v-bind="$attrs"
     @click="handleClick"
   >
