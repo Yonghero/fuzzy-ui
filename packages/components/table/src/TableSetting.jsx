@@ -30,7 +30,7 @@ export default defineComponent({
     watch(
       () => props.template,
       (template) => {
-        tmpl.value = template
+        tmpl.value = [...template]
       },
       { immediate: true },
     )
@@ -89,14 +89,14 @@ export default defineComponent({
       <el-dialog
         v-slots={slots}
         v-model={visible.value}
+        v-if={visible.value}
         title="表头显示属性"
         width="60%"
         top="5vh"
         destroy-on-close
       >
         <Transfer
-          template={tmpl.value}
-          visibleTemplate={visibleTmpl.value}
+          template={props.template}
           onUpdateTmpl={(e) => {
             tmpl.value = e
           }}

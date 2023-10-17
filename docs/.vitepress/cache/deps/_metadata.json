@@ -1,86 +1,92 @@
 {
   "hash": "35aed69e",
-  "browserHash": "2fe16a0a",
+  "browserHash": "f8a2e38c",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "ef6fd369",
+      "fileHash": "c424ef11",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@6.5.0/node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "21091ed3",
+      "fileHash": "ac9b0685",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "d0cb0b1d",
+      "fileHash": "a04c3775",
       "needsInterop": false
     },
     "element-plus/dist/locale/zh-cn.mjs": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.3.8_vue@3.3.4/node_modules/element-plus/dist/locale/zh-cn.mjs",
       "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "f260560d",
+      "fileHash": "c321ac9f",
       "needsInterop": false
     },
     "@element-plus/icons-vue": {
       "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.1.0_vue@3.3.4/node_modules/@element-plus/icons-vue/dist/index.js",
       "file": "@element-plus_icons-vue.js",
-      "fileHash": "f25c91dd",
+      "fileHash": "889af5b9",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0_vue@3.3.4/node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "733f513e",
+      "fileHash": "5b4670c2",
       "needsInterop": false
     },
     "@vue-office/excel": {
       "src": "../../../../node_modules/.pnpm/@vue-office+excel@1.4.5_vue@3.3.4/node_modules/@vue-office/excel/lib/index.js",
       "file": "@vue-office_excel.js",
-      "fileHash": "c164036c",
+      "fileHash": "c2f2d958",
       "needsInterop": true
     },
     "@vue-office/docx": {
       "src": "../../../../node_modules/.pnpm/@vue-office+docx@1.3.0_vue@3.3.4/node_modules/@vue-office/docx/lib/index.js",
       "file": "@vue-office_docx.js",
-      "fileHash": "8c3d6fb9",
+      "fileHash": "7c528ae6",
       "needsInterop": true
     },
     "@vue-office/pdf": {
       "src": "../../../../node_modules/.pnpm/@vue-office+pdf@1.5.3_vue@3.3.4/node_modules/@vue-office/pdf/lib/index.js",
       "file": "@vue-office_pdf.js",
-      "fileHash": "d5b5ec2b",
+      "fileHash": "946b09c7",
       "needsInterop": true
     },
     "dayjs": {
       "src": "../../../../node_modules/.pnpm/dayjs@1.11.9/node_modules/dayjs/dayjs.min.js",
       "file": "dayjs.js",
-      "fileHash": "cc28f720",
+      "fileHash": "48d7a9c9",
       "needsInterop": true
     },
     "sortablejs": {
       "src": "../../../../node_modules/.pnpm/sortablejs@1.15.0/node_modules/sortablejs/modular/sortable.esm.js",
       "file": "sortablejs.js",
-      "fileHash": "f87ede92",
+      "fileHash": "86967d10",
       "needsInterop": false
+    },
+    "process": {
+      "src": "../../../../node_modules/.pnpm/process@0.11.10/node_modules/process/browser.js",
+      "file": "process.js",
+      "fileHash": "a6e8c192",
+      "needsInterop": true
     }
   },
   "chunks": {
+    "chunk-U5J3PEAH": {
+      "file": "chunk-U5J3PEAH.js"
+    },
     "chunk-K3DKXZ4U": {
       "file": "chunk-K3DKXZ4U.js"
     },
     "chunk-R5UTLQ63": {
       "file": "chunk-R5UTLQ63.js"
     },
-    "chunk-U5J3PEAH": {
-      "file": "chunk-U5J3PEAH.js"
-    },
-    "chunk-LRR3BTZH": {
-      "file": "chunk-LRR3BTZH.js"
+    "chunk-B2QV5IVB": {
+      "file": "chunk-B2QV5IVB.js"
     },
     "chunk-WLQVLJR5": {
       "file": "chunk-WLQVLJR5.js"

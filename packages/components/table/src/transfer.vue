@@ -4,7 +4,7 @@ import {
 } from '@element-plus/icons-vue'
 import Sortable from 'sortablejs'
 import {
-  onMounted, ref, computed, watch,
+  onMounted, ref, watch,
 } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import { FYInput } from '../../input'
@@ -19,23 +19,20 @@ const props = defineProps({
 
 const emits = defineEmits(['updateTmpl', 'updateVisibleTmpl'])
 
-const allTmpl = computed({
-  get() {
-    return props.template
-  },
-  set(v) {
-    emits('updateTmpl', v)
-  },
-})
+const allTmpl = ref([])
+const visibleTmpl = ref([])
 
-const visibleTmpl = computed({
-  get() {
-    return props.visibleTemplate
+watch(() => props.template,
+  () => {
+    if (props.template.length) {
+      allTmpl.value = props.template.map((item) => ({ ...item }))
+      visibleTmpl.value = props.template.filter((item) => item.visible).map((item) => ({ ...item }))
+    }
   },
-  set(v) {
-    emits('updateVisibleTmpl', v)
-  },
-})
+  {
+    deep: true,
+    immediate: true,
+  })
 
 /**
  * 左侧筛选面板
@@ -69,6 +66,15 @@ watch(
 function toggleVisibleItem(item) {
   allTmpl.value.find((e) => e.value === item.value).visible = !item.visible
   allTmpl.value = [...allTmpl.value]
+
+  if (!item.visible) { // 移除
+    removeVisibleItem(item)
+  } else { // 添加
+    item.visible = true
+    visibleTmpl.value.push(item)
+    visibleTmpl.value = [...visibleTmpl.value]
+  }
+  emit()
 }
 
 // 移除一项展示
@@ -81,6 +87,12 @@ function removeVisibleItem(item) {
   // 更改状态
   allTmpl.value.find((e) => e.value === item.value).visible = false
   allTmpl.value = [...allTmpl.value]
+  emit()
+}
+
+function emit() {
+  emits('updateTmpl', allTmpl.value)
+  emits('updateVisibleTmpl', visibleTmpl.value)
 }
 
 /**

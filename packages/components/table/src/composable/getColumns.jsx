@@ -43,6 +43,8 @@ export function getColumns(template) {
       default: (scope) => _getColumn(scope, tmpl),
     }
 
+    console.log('ccccc')
+
     return (
       <el-table-column
         v-slots={slots}

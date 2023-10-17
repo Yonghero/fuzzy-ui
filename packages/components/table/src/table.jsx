@@ -1,5 +1,5 @@
 import {
-  computed, defineComponent, ref, watchEffect,
+  computed, defineComponent, ref, shallowRef, toRaw, watchEffect,
 } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import {
@@ -52,7 +52,7 @@ export default defineComponent({
     // 控制表头设置弹窗是否展示
     const tableSettingVisible = ref(false)
 
-    const effectTmpl = ref()
+    const effectTmpl = shallowRef()
 
     watchEffect(() => {
       const tmpl = props.template
@@ -115,7 +115,7 @@ export default defineComponent({
         <TableSetting
           visible={tableSettingVisible.value}
           onUpdateVisible={(e) => tableSettingVisible.value = e}
-          template={effectTmpl.value}
+          template={toRaw(effectTmpl.value)}
           onSubmit={(tmpl) => {
             effectTmpl.value = tmpl.sort((a, b) => a.order - b.order)
             emit('headerSelection', tmpl)
