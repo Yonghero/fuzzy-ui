@@ -40,7 +40,7 @@ export const Switch = {
 export const DatePicker = {
   type: 'datePicker',
   renderer(props) {
-    return <FYDatePicker type="date" v-model={props.model[props.value]} />
+    return <FYDatePicker type="date" disableLessThan={props.disableLessThan} disableMoreThan={props.disableMoreThan} v-model={props.model[props.value]} />
   },
 }
 export const Cascader = {
