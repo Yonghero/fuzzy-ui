@@ -1,3 +1,4 @@
+import { unref } from 'vue'
 import { FYSelect } from '../../../select'
 import { FYInput } from '../../../input'
 import { FYSwitch } from '../../../switch'
@@ -7,7 +8,7 @@ import { FYCascader } from '../../../cascader'
 export const Select = {
   type: 'select',
   renderer(props) {
-    return <FYSelect {...props} v-model={props.model[props.value]} />
+    return <FYSelect {...props} options={unref(props.options)} v-model={props.model[props.value]} />
   },
 }
 export const Input = {
@@ -46,6 +47,6 @@ export const DatePicker = {
 export const Cascader = {
   type: 'cascader',
   renderer(props) {
-    return <FYCascader {...props} v-model={props.model[props.value]} />
+    return <FYCascader {...props} options={unref(props.options)} v-model={props.model[props.value]} />
   },
 }
