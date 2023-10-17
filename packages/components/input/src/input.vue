@@ -114,7 +114,12 @@ switchGroupValue.value = props.filterMultiple
 // 主动触发对外暴露
 emit('switchChange', switchGroupValue.value)
 
+const disabledIndex = ref(0)
+
 const switchChange = (val, index) => {
+  if (val) {
+    disabledIndex.value = index
+  }
   if (!props.filterMultiple) {
     switchGroupValue.value.forEach((s, switchIdx) => {
       if (!(switchIdx === index && val === true)) {
@@ -194,6 +199,7 @@ const handleEnter = () => {
           <el-switch
             v-model="switchGroupValue[index].value"
             :name="item.name"
+            :disabled="disabledIndex === index"
             class="card-item-value"
             @change="(val) => {
               switchChange(val, index)
