@@ -1,5 +1,5 @@
 import {
-  computed, defineComponent, ref, shallowRef, toRaw, watchEffect,
+  computed, defineComponent, ref, shallowRef, watchEffect,
 } from 'vue'
 import { tmplProps } from '@hitotek/fuzzy-ui-utils'
 import {
@@ -115,9 +115,10 @@ export default defineComponent({
         <TableSetting
           visible={tableSettingVisible.value}
           onUpdateVisible={(e) => tableSettingVisible.value = e}
-          template={toRaw(effectTmpl.value)}
+          template={effectTmpl.value}
           onSubmit={(tmpl) => {
-            effectTmpl.value = tmpl.sort((a, b) => a.order - b.order)
+            const sorted = tmpl.sort((a, b) => a.order - b.order).map((item) => ({ ...item }))
+            effectTmpl.value = sorted
             emit('headerSelection', tmpl)
           }}
         />

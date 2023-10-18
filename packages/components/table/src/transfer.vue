@@ -104,11 +104,10 @@ onMounted(() => {
   Sortable.create(dragEle.value, {
     animation: 100,
     onEnd({ newIndex, oldIndex }) {
-      const currRow = filterRightTmpl.value.splice(oldIndex, 1)[0]
-      filterRightTmpl.value.splice(newIndex, 0, { ...currRow, order: newIndex + 1 })
-
       const currRow1 = visibleTmpl.value.splice(oldIndex, 1)[0]
       visibleTmpl.value.splice(newIndex, 0, currRow1)
+
+      emits('updateVisibleTmpl', visibleTmpl.value)
     },
   })
 })

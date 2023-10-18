@@ -38,15 +38,15 @@ export function getColumns(template) {
     return (scope.row[tmpl?.value] || scope.row[tmpl?.value] === 0 ? scope.row[tmpl?.value] : '-')
   }
 
-  return computed(() => unref(template).map((tmpl) => {
+  return computed(() => unref(template).map((tmpl, idx) => {
     const slots = {
       default: (scope) => _getColumn(scope, tmpl),
     }
-
+    const key = `${idx}-${tmpl.value}`
     return (
       <el-table-column
         v-slots={slots}
-        key={tmpl.value}
+        key={key}
         label={tmpl.label}
         prop={tmpl.value}
         header-align={'center'}

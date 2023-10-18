@@ -6,6 +6,17 @@ import { ElDivider, ElIcon } from 'element-plus'
 
 const tmpl = shallowRef([
   {
+    label: '隐藏',
+    value: 'hidden',
+    type: 'input',
+    width: 140,
+    visible: false,
+    'show-overflow-tooltip': true,
+    onChange({ value }) {
+      console.log('🚀 ~ file: table.vue:13 ~ onChange ~ value:', value)
+    },
+  },
+  {
     label: '日期',
     value: 'date',
     type: 'input',
