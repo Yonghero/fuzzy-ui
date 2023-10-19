@@ -6,6 +6,14 @@ defineOptions({
 })
 
 const props = defineProps({
+  disableLessThanDay: {
+    type: Boolean,
+    default: false,
+  },
+  disableMoreThanDay: {
+    type: Boolean,
+    default: false,
+  },
   disableLessThan: { // 禁用小于当前时间的选择
     type: Boolean,
     default: false,
