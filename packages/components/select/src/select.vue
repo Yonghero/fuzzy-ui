@@ -223,7 +223,7 @@ const emitFocus = (val) => {
         </div>
       </template>
       <el-option
-        v-for="(item, index) in props.options"
+        v-for="(item, index) in unref(props.options)"
         :key="item.value"
         :label="item.label"
         :value="item.value"
@@ -276,7 +276,7 @@ const emitFocus = (val) => {
     <el-select-v2
       v-else
       v-bind="$attrs"
-      :options="props.options"
+      :options="unref(props.options)"
       :model-value="props.modelValue"
       class="fy-select"
       :multiple="ifMultiple"
