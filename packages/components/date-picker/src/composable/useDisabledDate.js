@@ -16,7 +16,7 @@ export function useDisabledDate(props) {
   const disableGreaterThanCurDate = (time) => !disableLessThanCurDate(time)
 
   const disableLessThanDay = (time) => dayjs(time).startOf('day').unix() > dayjs().startOf('day').unix()
-  const disableMoreThanDay = (time) => !disableLessThanDay(time)
+  const disableMoreThanDay = (time) => dayjs(time).startOf('day').unix() < dayjs().startOf('day').unix()
 
   return disabledDate
 }

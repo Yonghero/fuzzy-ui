@@ -36,6 +36,7 @@ const shortcuts = [
       <span class="demonstration">默认</span>
       <FYDatePicker
         v-model="value1"
+        :disableMoreThanDay="true"
         type="date"
       />
     </div>
