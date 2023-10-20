@@ -15,4 +15,9 @@ export namespace MultipleSelect {
         };
     }>>, {}, {}>;
 }
+export namespace Cascader {
+    let type_2: string;
+    export { type_2 as type };
+    export function renderer(props: any): JSX.Element;
+}
 //# sourceMappingURL=builtIn-formItem.d.ts.map

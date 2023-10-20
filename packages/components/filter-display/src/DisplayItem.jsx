@@ -14,7 +14,8 @@ export const DisplayItem = defineComponent({
   setup(props, { emit }) {
     // 是否展开
     const { unfold, toggle } = useUnfold()
-    const onClick = () => {
+    const onClick = (e) => {
+      e.stopPropagation()
       toggle()
       emit('click', unfold.value)
     }
@@ -73,7 +74,9 @@ export const DisplayItem = defineComponent({
       ),
       default: () => (
         <div class="popover-content">
-          <FormItem.value model={model.value} {...withOnChangeProps}/>
+          <FormItem.value
+            model={model.value} {...withOnChangeProps}
+          />
           <div class="checked">
             已选<span style="color: var(--el-color-primary)">{checkedLength.value}</span>项
           </div>
@@ -87,6 +90,7 @@ export const DisplayItem = defineComponent({
         width="200"
         show-arrow={false}
         trigger="click"
+        hide-after="500"
         placement="bottom-start"
         popper-class="filter-display-item-popover"
         teleported={false}

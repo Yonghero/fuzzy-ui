@@ -1,7 +1,10 @@
-import { computed, defineComponent, ref } from 'vue'
+import {
+  computed, defineComponent, ref, unref,
+} from 'vue'
 import { getRandomColor } from '@hitotek/fuzzy-ui-utils'
 import { FYSelect } from '../../../select'
 import { FYInput } from '../../../input'
+import { FYCascader } from '../../../cascader'
 import { useMemberCheck } from '../../../member-select'
 
 export const Select = {
@@ -66,4 +69,21 @@ export const MultipleSelect = {
       )
     },
   }),
+}
+
+export const Cascader = {
+  type: 'cascader',
+  renderer(props) {
+    return (
+      <FYCascader
+        onChange={() => {
+          props.onWithChange({ field: props.value, value: props.model[props.value] })
+        }}
+        placeholder={`请选择${props.label}`}
+        {...props}
+        options={unref(props.options)}
+        v-model={props.model[props.value]}
+       />
+    )
+  },
 }
