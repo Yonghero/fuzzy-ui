@@ -8,34 +8,35 @@ import { FYCascader } from '../../../cascader'
 export const Select = {
   type: 'select',
   renderer(props) {
-    return <FYSelect {...props} options={unref(props.options)} v-model={props.model[props.value]} />
+    return <FYSelect {...props} options={unref(props.options)}
+    disabled={'disabled' in props ? unref(props.disabled) : false} v-model={props.model[props.value]} />
   },
 }
 export const Input = {
   type: 'input',
   renderer(props) {
-    return <FYInput {...props} v-model={props.model[props.value]} />
+    return <FYInput {...props} disabled={'disabled' in props ? unref(props.disabled) : false} v-model={props.model[props.value]} />
   },
 }
 
 export const Textarea = {
   type: 'textarea',
   renderer(props) {
-    return <FYInput {...props} textarea={true} v-model={props.model[props.value]} />
+    return <FYInput {...props} textarea={true} disabled={'disabled' in props ? unref(props.disabled) : false} v-model={props.model[props.value]} />
   },
 }
 
 export const PasswordInput = {
   type: 'password',
   renderer(props) {
-    return <FYInput {...props} type="password" v-model={props.model[props.value]} />
+    return <FYInput {...props} type="password" disabled={'disabled' in props ? unref(props.disabled) : false} v-model={props.model[props.value]} />
   },
 }
 
 export const Switch = {
   type: 'switch',
   renderer(props) {
-    return <FYSwitch {...props} v-model={props.model[props.value]} />
+    return <FYSwitch {...props} disabled={'disabled' in props ? unref(props.disabled) : false} v-model={props.model[props.value]} />
   },
 }
 export const DatePicker = {
@@ -56,6 +57,11 @@ export const DatePicker = {
 export const Cascader = {
   type: 'cascader',
   renderer(props) {
-    return <FYCascader {...props} options={unref(props.options)} v-model={props.model[props.value]} />
+    return <FYCascader
+            {...props}
+            options={unref(props.options)}
+            disabled={'disabled' in props ? unref(props.disabled) : false}
+            v-model={props.model[props.value]}
+          />
   },
 }
