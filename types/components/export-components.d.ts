@@ -26,6 +26,5 @@ export * from "./member-select/index.js";
 export * from "./avatar/index.js";
 export * from "./map-coordselection/index.js";
 export * from "./video-player/index.js";
-export * from "./file-preview/index.js";
 export * from "./image-preview/index.js";
 //# sourceMappingURL=export-components.d.ts.map

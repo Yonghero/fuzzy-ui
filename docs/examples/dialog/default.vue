@@ -54,6 +54,26 @@ const dialogConfigDefault = ({
       half: true,
     },
     {
+      type: 'cascader',
+      label: '联级选择',
+      value: 'select',
+      disabled: true,
+      options: [
+        {
+          value: 'value1',
+          label: 'label1',
+          children: [
+            { label: 'xx', value: '11' },
+          ],
+        },
+        {
+          value: 'value2',
+          label: 'label2',
+        },
+      ],
+      half: true,
+    },
+    {
       type: 'datePicker',
       label: '时间选择',
       value: 'datePicker',

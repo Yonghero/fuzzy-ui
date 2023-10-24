@@ -11,6 +11,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const hasDefaultSlot = computed(() => {
@@ -34,6 +38,7 @@ const defaultIconStyle = computed(() => ({
 <template>
   <el-cascader
     v-bind="$attrs"
+    :disabled="disabled"
     style="width: 100%;"
   >
     <template #default="{ data,node }">

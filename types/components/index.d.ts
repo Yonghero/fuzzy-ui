@@ -137,7 +137,6 @@ declare const _default: {
     FYAvatar: any;
     FYMapCoordselection: any;
     FYVideoPlayer: any;
-    FYFilePreview: any;
     FYImagePreview: any;
 };
 export default _default;

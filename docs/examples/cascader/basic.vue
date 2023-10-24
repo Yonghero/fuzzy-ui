@@ -66,6 +66,7 @@ const handleChange = (v) => {
       v-model="value"
       :options="options"
       :default-icon="true"
+      :disabled="true"
       @change="handleChange"
     />
   </div>
