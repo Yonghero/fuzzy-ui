@@ -67,6 +67,7 @@ export const Cascader = {
       <FYCascader
         props={'props' in props ? unref(props.props) : {}}
         defaultIcon={'defaultIcon' in props ? unref(props.defaultIcon) : false}
+        clearable={'clearable' in props ? unref(props.clearable) : false}
         options={unref(props.options)}
         disabled={'disabled' in props ? unref(props.disabled) : false}
         v-model={props.model[props.value]}
